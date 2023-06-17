@@ -12,7 +12,7 @@ public class Managers : MonoBehaviour
     SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
     EventManager _event= new EventManager();
-
+    DBManager _db= new DBManager();
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
@@ -20,7 +20,7 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static EventManager Event { get { return Instance._event; } }
-
+    public static DBManager DB { get { return Instance._db; } }
     void Start()
     {
         Init();
