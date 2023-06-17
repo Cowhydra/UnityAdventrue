@@ -97,8 +97,16 @@
 ,Legendary
 ,Epic
 ,RelicEpic
-,Mythic
+, Mythic
 
     }
+    public enum MonsterEnvType
+    {
+        Desert,
+        Forest,
+        Water,
+        Lava,
+    }
+
 
 }

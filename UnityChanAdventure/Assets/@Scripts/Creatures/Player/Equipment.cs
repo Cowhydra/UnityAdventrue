@@ -6,35 +6,13 @@ public class Equipment
 {
 
     public Dictionary<ItemType, Item> EQUIP { get; set; } = new Dictionary<ItemType, Item>();
-    // Dictionary<int, Dictionary<ItemType, Item>> EQUIPS { get; set; } = new Dictionary<int, Dictionary<ItemType, Item>>();
-    
-    //장비창은 캐릭터 마다 고유로 가지고 있는 값으로,
-    //싱글톤으로 구현 X -> 캐릭터 싱글톤 마다 고유의 EQUIP을 구현해주고,
-    //EQUIP은 CharcterCode로 구분합니다.
-    //싱글톤은 아니지만  싱글톤 멤버로 들어가기에 EQUIP멤버에 접근하려면
-    //Managers.MyCHaracters....>~~~[ CharCOde].EQUIP <<< 로 접근이 가능
-    public Equipment(int characterCode)
-    {
-        Character_Code = characterCode;
-
-    }
-
-    public int Character_Code { get; }
-    public string JoBType { get { return Managers.Data.CharacterDataDict[Character_Code].jobType.ToString(); } }
 
     public int EQUIP_Attack { get; set; }
     public int EQUIP_MagicAttack { get; set; }
-    public int EQUIP_Available_code { get; set; }
     public int EQUIP_Def { get; set; }
     public int EQUIP_MaxHp { get; set; }
     public int EQUIP_MaxMp { get; set; }
     public int EQUIP_MagicDef { get; set; }
-    public int EQUIP_HpRecovery { get; set; }
-    public int EQUIP_MpRecovery { get; set; }
-    public int EQUIP_AttackRange { get; set; }
-
-
-
 
 
     public bool Equip(Item equipitem)
@@ -49,17 +27,10 @@ public class Equipment
             Debug.Log("경고 UI!");
             return false;
         }
-        else if (!AvailableEquip(equipitem))
-        {
-            //경고UI
-            Debug.Log("맞지 않는 타입임 본인 장비 인지 확인 바람");
-            Debug.Log("경고 UI!");
-            return false;
-        }
         else
         {
             EQUIP.Add(equipitem.ItemType, equipitem);
-            Managers.ItemInventory.FindItemAndRemove(equipitem);
+            Debug.Log("장비 장착 관련 구조 생각해보자 이벤트가 가장 무난할듯?");
             //장비를 장착하고, 아이템 인벤토리에서 해당 아이템을 제거해준 후, Refresh()를 통해 UI를 갱신합니다.
             Refresh();
             return true;
@@ -67,34 +38,6 @@ public class Equipment
     }
 
 
-    public bool AvailableEquip(Item equipitem)
-    {
-        //장비가 장착 가능한 장비인지 확인 !
-        switch (equipitem.ItemType)
-        {
-            case ItemType.Weapon:
-                Item.Weapon weapon = equipitem as Item.Weapon;
-                if (!Character_Code.Equals(weapon.Available_code))
-                    return false;
-                break;
-            case ItemType.Boot:
-                Item.Boot boot = equipitem as Item.Boot;
-                if (!JoBType.Equals(boot.JobType.ToString()))
-                    return false;
-                break;
-            case ItemType.Hat:
-                Item.Hat hat = equipitem as Item.Hat;
-                if (!JoBType.Equals(hat.JobType.ToString()))
-                    return false;
-                break;
-            case ItemType.Cloth:
-                Item.Cloth cloth = equipitem as Item.Cloth;
-                if (!JoBType.Equals(cloth.JobType.ToString()))
-                    return false;
-                break;
-        }
-        return true;
-    }
     public void SumEquipAblity()
     {
         Reset();
@@ -109,7 +52,6 @@ public class Equipment
                 case ItemType.Weapon:
                     Item.Weapon weapon = EQUIP[s] as Item.Weapon;
                     EQUIP_Attack += weapon.Attack;
-                    EQUIP_AttackRange += weapon.AttackRange;
                     EQUIP_MagicAttack += weapon.MagicAttack;
                     break;
                 case ItemType.Boot:
@@ -120,23 +62,22 @@ public class Equipment
                 case ItemType.Hat:
                     Item.Hat hat = EQUIP[s] as Item.Hat;
                     EQUIP_MaxMp += hat.MaxMp;
-                    EQUIP_MagicDef += hat.MagicDef;
+                    EQUIP_Def += hat.Def;
                     break;
                 case ItemType.Cloth:
                     Item.Cloth cloth = EQUIP[s] as Item.Cloth;
                     EQUIP_MaxHp += cloth.MaxHp;
-                    EQUIP_Def += cloth.Def;
+                    EQUIP_Def += cloth.Magicdef;
                     break;
                 case ItemType.Earring:
                     Item.Earring earring = EQUIP[s] as Item.Earring;
                     EQUIP_Attack += earring.Attack;
-                    EQUIP_HpRecovery += earring.HpRecovery;
-                    EQUIP_MpRecovery += earring.MpRecovery;
+                    EQUIP_MagicAttack += earring.MagicAttack;
                     break;
                 case ItemType.Ring:
                     Item.Ring ring = EQUIP[s] as Item.Ring;
-                    EQUIP_HpRecovery += ring.HpRecovery;
-                    EQUIP_MpRecovery += ring.MpRecovery;
+                    EQUIP_MaxHp += ring.MaxHp;
+                    EQUIP_MaxMp += ring.MaxMp;
                     break;
             }
 
@@ -151,17 +92,12 @@ public class Equipment
 
     public void Reset()
     {
-
         EQUIP_Attack = 0;
         EQUIP_MagicAttack = 0;
-        EQUIP_Available_code = 0;
         EQUIP_Def = 0;
         EQUIP_MaxHp = 0;
         EQUIP_MaxMp = 0;
         EQUIP_MagicDef = 0;
-        EQUIP_HpRecovery = 0;
-        EQUIP_MpRecovery = 0;
-        EQUIP_AttackRange = 0;
     }
 
 

@@ -1,14 +1,16 @@
-ï»¿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
-
-public class ItemInventoryManager
+public class Inventory 
 {
+
     public Dictionary<int, Item> Items { get; } = new Dictionary<int, Item>();
 
     public void init()
     {
-        //ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì™€ ê°œìˆ˜ê°€ 1ê°œ ì´ìƒì¸ ì•„ì´í…œë“¤ë§Œ ì¸ë²¤ì— ë„£ì–´ì¤ë‹ˆë‹¤.
+        //µ¥ÀÌÅÍ¸¦ ºÒ·¯¿Í °³¼ö°¡ 1°³ ÀÌ»óÀÎ ¾ÆÀÌÅÛµé¸¸ ÀÎº¥¿¡ ³Ö¾îÁİ´Ï´Ù.
         foreach (Data.ItemData itemdata in Managers.Data.ItemDataDict.Values)
         {
             if (itemdata.count >= 1)
@@ -30,7 +32,7 @@ public class ItemInventoryManager
     }
     public bool Add(int itemcode, int count = 1)
     {
-        //ì•„ì´í…œì„ íšë“í•  ê²½ìš° Addí•¨ìˆ˜ë¥¼ ì´ìš©í•´ ì‰½ê²Œ ì•„ì´í…œì„ ì¶”ê°€í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+        //¾ÆÀÌÅÛÀ» È¹µæÇÒ °æ¿ì AddÇÔ¼ö¸¦ ÀÌ¿ëÇØ ½±°Ô ¾ÆÀÌÅÛÀ» Ãß°¡ÇÒ ¼ö ÀÖ½À´Ï´Ù.
         if (Items.ContainsKey(itemcode))
         {
             Items[itemcode].Count += count;
@@ -104,5 +106,5 @@ public class ItemInventoryManager
     {
         Items.Clear();
     }
-}
 
+}

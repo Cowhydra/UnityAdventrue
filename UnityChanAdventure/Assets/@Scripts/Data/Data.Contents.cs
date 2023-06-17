@@ -1,33 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using Unity.Jobs.LowLevel.Unsafe;
 using static Define;
 
 namespace Data
 {
-
-
-    //각종 데이터들
-    //데이터는 JSON 형식으로 구현합니다.
-    //ILoader Interface를 상속받은 class 는 Dictionary를 반환하는
-    //MakeDict() 함수를 반드시 구현해야합니다.
-    //Data의 형식과 데이터를 받아와
-    //해당 형식을 List 로 저장한 후 ? , Dict로 반환 시켜주는 과정입니다.
-
-
-
     #region Item
-
-
-
     [Serializable]
     public class ItemData
     {
         public int itemcode;
         public string name;
         public ItemType itemType;
-        public string iconpath;
+        public string iconPath;
         public string itemtooltip;
-        public int count = 1;
+        public int count;
+        public int price;
+        public string itemgrade;
+        public ItemGrade itemGrade;
 
     }
     [Serializable]
@@ -35,67 +25,46 @@ namespace Data
     {
         public int attack;
         public int magicattack;
-        public int range;
-        public int available_code;
+        public string prefabPath;
     }
     [Serializable]
     public class BootData : ItemData
     {
         public int def;
         public int hp;
-        public string jobtype;
     }
     [Serializable]
     public class HatData : ItemData
     {
         public int mp;
-        public int magicdef;
-        public string jobtype;
+        public int def;
     }
     [Serializable]
     public class ClothData : ItemData
     {
         public int hp;
-        public int def;
-        public string jobtype;
+        public int magicdef;
     }
     [Serializable]
     public class EarringData : ItemData
     {
         public int attack;
-        public int hprecovery;
-        public int mprecovery;
-    }
-    [Serializable]
-    public class NecklaceData : ItemData
-    {
-        public int mp;
-        public int attack;
-        public int mprecovery;
-    }
-    [Serializable]
-    public class AccessoryData : ItemData
-    {
-        public int mp;
-        public int def;
-        public int range;
-        public int hprecovery;
+        public int magicattack;
     }
     [Serializable]
     public class RingData : ItemData
     {
-
-        public int hprecovery;
-        public int mprecovery;
-
+        public int hp;
+        public int mp;
     }
     [Serializable]
     public class ConsumeData : ItemData
     {
-        public int value;
+        public int hp;
+        public int mp;
     }
     [Serializable]
-    public class ETCData : ItemData
+    public class IngredientData : ItemData
     {
     }
 
@@ -103,57 +72,71 @@ namespace Data
     [Serializable]
     public class ItemLoader : ILoader<int, ItemData>
     {
-        public List<WeaponData> weapons = new List<WeaponData>();
-        public List<BootData> boots = new List<BootData>();
-        public List<HatData> hats = new List<HatData>();
-        public List<ClothData> cloths = new List<ClothData>();
-        public List<EarringData> earings = new List<EarringData>();
-        public List<NecklaceData> necklaces = new List<NecklaceData>();
-        public List<AccessoryData> accessorys = new List<AccessoryData>();
-        public List<RingData> rings = new List<RingData>();
-        public List<ConsumeData> consume = new List<ConsumeData>();
-        public List<ETCData> etc= new List<ETCData>();
+        public List<WeaponData> Weapon = new List<WeaponData>();
+        public List<BootData> Boot = new List<BootData>();
+        public List<HatData> Hat = new List<HatData>();
+        public List<ClothData> Cloth = new List<ClothData>();
+        public List<EarringData> Earing = new List<EarringData>();
+        public List<RingData> Ring = new List<RingData>();
+        public List<ConsumeData> Consume = new List<ConsumeData>();
+        public List<IngredientData> Ingredient = new List<IngredientData>();
 
         public Dictionary<int, ItemData> MakeDict()
         {
             Dictionary<int, ItemData> dict = new Dictionary<int, ItemData>();
-            foreach (ItemData item in weapons)
+            foreach (ItemData item in Weapon)
             {
                 item.itemType = ItemType.Weapon;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade),item.itemgrade);
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in boots)
+            foreach (ItemData item in Boot)
             {
                 item.itemType = ItemType.Boot;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
+
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in hats)
+            foreach (ItemData item in Hat)
             {
                 item.itemType = ItemType.Hat;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
+
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in cloths)
+            foreach (ItemData item in Cloth)
             {
                 item.itemType = ItemType.Cloth;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
+
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in earings)
+            foreach (ItemData item in Earing)
             {
                 item.itemType = ItemType.Earring;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
+
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in rings)
+            foreach (ItemData item in Ring)
             {
                 item.itemType = ItemType.Ring;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
+
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in consume)
+            foreach (ItemData item in Consume)
             {
                 item.itemType = ItemType.Consume;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
                 dict.Add(item.itemcode, item);
             }
-
-
+            foreach (ItemData item in Ingredient)
+            {
+                item.itemType = ItemType.Ingredient;
+                item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
+                dict.Add(item.itemcode, item);
+            }
             return dict;
         }
     }
@@ -164,7 +147,7 @@ namespace Data
     public class CharacterData
     {
         public string name;
-        public int charatercode;
+        public int charcode;
 
         public string jobType;
         public int maxhp;
@@ -174,108 +157,61 @@ namespace Data
         public int magicattack;
         public int attack;
         public int attackspeed;
-        public int attackrange;
         public int level;
-        public int limit;
-        public string Skill;
-        public string tmi;
         public string iconPath;
-        public string cardPath;
-        public bool isActive;
+        public string prefabPath;
 
 
     }
     [Serializable]
     public class CharacterLoader : ILoader<int, CharacterData>
     {
-        public List<CharacterData> characters = new List<CharacterData>();
+        public List<CharacterData> Character = new List<CharacterData>();
 
         public Dictionary<int, CharacterData> MakeDict()
         {
             Dictionary<int, CharacterData> dict = new Dictionary<int, CharacterData>();
-            foreach (CharacterData character in characters)
-                dict.Add(character.charatercode, character);
+            foreach (CharacterData character in Character)
+                dict.Add(character.charcode, character);
             return dict;
         }
     }
 
     #endregion
 
-    #region Gold
+    #region Monster
     [Serializable]
-    public class GoodsData
+    public class MonsterData
     {
-        public int goodscode;
-        public int price;
-        public int quantity;
-        public string MyiconPath;
-        public string ObjecticonPath;
+        public string name;
+        public int moncode;
+        public string environment;
+        public int maxhp;
+        public int def;
+        public int attack;
+        public int level;
+        public string prefabPath;
+
+        public MonsterEnvType EnvType;
     }
     [Serializable]
-    public class GoldData : GoodsData
+    public class MonsterDataLoader : ILoader<int, MonsterData>
     {
+        public List<MonsterData> Monster = new List<MonsterData>();
 
-    }
-    [Serializable]
-
-    public class DiamondData : GoodsData
-    {
-
-    }
-
-    [Serializable]
-    public class GoodsDataLoader : ILoader<int, GoodsData>
-    {
-        public List<GoldData> Gold = new List<GoldData>();
-        public List<DiamondData> Diamond = new List<DiamondData>();
-
-        public Dictionary<int, GoodsData> MakeDict()
+        public Dictionary<int, MonsterData> MakeDict()
         {
-            Dictionary<int, GoodsData> dict = new Dictionary<int, GoodsData>();
-            foreach (GoodsData goods in Gold)
+            Dictionary<int, MonsterData> dict = new Dictionary<int, MonsterData>();
+            foreach (MonsterData mon in Monster)
             {
-                dict.Add(goods.goodscode, goods);
+                mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
+                dict.Add(mon.moncode, mon);
+              
             }
-            foreach (DiamondData diamonds in Diamond)
-            {
-                dict.Add(diamonds.goodscode, diamonds);
-            }
+             
             return dict;
         }
     }
-
-
-
-    #endregion
-
-    #region  Stage
-    [Serializable]
-    public class Stage
-    {
-        public int StageCode;
-        public string stageName;
-        public string monsterCode;
-        public string rewardJewel;
-        public int rewardexp;
-        public string rewarditemCode;
-    }
-    [Serializable]
-    public class StageDataLoader : ILoader<int, Stage>
-    {
-        public List<Stage> Stages = new List<Stage>();
-
-        public Dictionary<int, Stage> MakeDict()
-        {
-            Dictionary<int, Stage> dict = new Dictionary<int, Stage>();
-            foreach (Stage stage in Stages)
-            {
-                dict.Add(stage.StageCode, stage);
-            }
-
-            return dict;
-        }
-    }
-
 
     #endregion
 
