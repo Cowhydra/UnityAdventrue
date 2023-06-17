@@ -11,6 +11,10 @@ public class LoadingScene : BaseScene
     private Slider ProgressSlider;
     [SerializeField]
     private TextMeshProUGUI ProgressText;
+    [SerializeField]
+    private Image background;
+    [SerializeField]
+    private List<Sprite> Images;
     private void Start()
     {
         Init();
@@ -20,8 +24,16 @@ public class LoadingScene : BaseScene
     protected override void Init()
     {
         base.Init();
-        
+        BackGroundImagesChanges();
+
     }
+    //로딩 이미지의 랜덤처리
+    private void BackGroundImagesChanges()
+    {
+        if (Images.Count == 0) return;
+        background.sprite = Images[UnityEngine.Random.Range(0, Images.Count)];
+    }
+
 
 
     public override void Clear()
