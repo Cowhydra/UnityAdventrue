@@ -6,8 +6,8 @@
     {
         None,
         LoadingScene,
-        Title,
-        Lobby,
+        LoginScene,
+        LobbyScene,
         Lava_Dungeon,
 
 
