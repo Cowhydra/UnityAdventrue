@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "966677147936",
+    "firebase_url": "https://unitychanadventure-default-rtdb.firebaseio.com",
+    "project_id": "unitychanadventure",
+    "storage_bucket": "unitychanadventure.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966677147936:android:17c2418fa6976f4ec7e745",
+        "android_client_info": {
+          "package_name": "com.KangYunSeok.UnityChanAdventure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966677147936-0306ne67cbrr6q0raaiu6vs6dfqu1aqq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEiLabau2Rlnv3zPSFyUxrw-IFSQl7gew"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966677147936-0306ne67cbrr6q0raaiu6vs6dfqu1aqq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

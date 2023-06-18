@@ -14,6 +14,7 @@ public class Item
     public int Count { get { return Info.count; }set { Info.count=value; }}
     public int Price { get { return Info.price; }}
     public ItemGrade ItemGrade { get; private set; }
+    public int Enhancement { get; set; }
 
     public Item(ItemType itemType)
     {

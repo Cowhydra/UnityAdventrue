@@ -23,7 +23,7 @@ public class DBManager
 
     public void ChecK_Account(string accountNumber, string password)
     {
-        DatabaseReference accountRef = reference.Child("Account").Child($"{accountNumber}");
+        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
 
         accountRef.GetValueAsync().ContinueWith(task =>
         {
@@ -68,8 +68,11 @@ public class DBManager
         });
     }
 
+
     public void CreateAccount(string accountNumber, string accountPassword)
     {
+        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
+
         // 계정 데이터 생성
         Dictionary<string, object> accountData = new Dictionary<string, object>
     {
@@ -79,13 +82,12 @@ public class DBManager
     };
 
         // 계정 데이터를 Firebase에 쓰기 전 중복 여부 확인
-        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
         accountRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
                 Debug.LogError("Error checking account duplication: " + task.Exception);
-                return ;
+                return;
             }
 
             if (task.IsCompleted)
@@ -95,62 +97,53 @@ public class DBManager
                 // 이미 해당 계정 번호가 존재하는 경우
                 if (snapshot.Exists)
                 {
-                    Managers.Event.PostNotification(Define.EVENT_TYPE.CreateAccount_Fail_IDSame,null);
+                    Managers.Event.PostNotification(Define.EVENT_TYPE.CreateAccount_Fail_IDSame, null);
                     Debug.Log("Account number already exists.");
-                    return ;
+                    return;
                 }
 
                 // 계정 데이터를 Firebase에 쓰기
-                DatabaseReference newAccountRef = reference.Child("Account").Child(accountNumber);
-                newAccountRef.UpdateChildrenAsync(accountData).ContinueWith(createTask =>
+                accountRef.SetValueAsync(accountData).ContinueWith(createTask =>
                 {
                     if (createTask.IsFaulted)
                     {
                         Debug.LogError("Error creating account: " + createTask.Exception);
-                        return ;
+                        return;
                     }
 
                     if (createTask.IsCompleted)
                     {
                         Debug.Log("Account created successfully.");
                         Managers.Event.PostNotification(Define.EVENT_TYPE.CreateAccount_Sucess, null);
-                        // 새로운 캐릭터 생성
-                        int charcode = 100;
-                        CreateCharacter(accountNumber, charcode);
+                       
+                        
+                        // 새로운 DB 생성해서 신규캐릭터 맞이하기
+                        
+                        CreateCharacter(accountNumber, 100);
+                        CreateInventory(accountNumber);
                     }
                 });
             }
         });
     }
+
+    #region 신규 캐릭터 처리
     private void CreateCharacter(string accountNumber, int charcode)
     {
-        // Character 데이터 생성
-        //원래 데이터 처리는 Server에서 해야 안전
-        //Dictionary<string, object> characterData = new Dictionary<string, object>
-        //{
-            
+       // Character 데이터 생성
+      // 원래 데이터 처리는 Server에서 해야 안전
+      // 공용데이터는 따로 저장할 필요 없을듯? ( prefab path 등 ) 
 
-        //    { "charcode", charcode },
-        //    { "jobType", $"{Managers.Data.CharacterDataDict[charcode].jobType}" },
-        //    { "maxhp", Managers.Data.CharacterDataDict[charcode].maxhp },
-        //    { "maxmana", Managers.Data.CharacterDataDict[charcode]. maxmana },
-        //    { "magicdef",Managers.Data.CharacterDataDict[charcode]. magicdef },
-        //    { "def", Managers.Data.CharacterDataDict[charcode].def },
-        //    { "magicattack", Managers.Data.CharacterDataDict[charcode].magicattack },
-        //    { "attack", Managers.Data.CharacterDataDict[charcode].attack },
-        //    { "attackspeed", Managers.Data.CharacterDataDict[charcode].attackspeed },
-        //    { "level", Managers.Data.CharacterDataDict[charcode].level },
-        //    { "iconPath", Managers.Data.CharacterDataDict[charcode].iconPath },
-        //    { "prefabPath", Managers.Data.CharacterDataDict[charcode].prefabPath }
-
-
-
-        //    // 추가 필드 및 값을 여기에 추가할 수 있습니다.
-        //};
-
+        Dictionary<string, object> characterData = new Dictionary<string, object>
+        {
+           { "charcode", charcode },
+           { "level", Managers.Data.CharacterDataDict[charcode].level },
+           //{ "iconPath", Managers.Data.CharacterDataDict[charcode].iconPath },
+           //{ "prefabPath", Managers.Data.CharacterDataDict[charcode].prefabPath }
+        };
         // Character 데이터를 Firebase에 쓰기
-        DatabaseReference characterRef = reference.Child("Character").Child(accountNumber).Child(charcode.ToString());
-        characterRef.UpdateChildrenAsync((IDictionary<string, object>)Managers.Data.CharacterDataDict).ContinueWith(task =>
+        DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
+        characterRef.UpdateChildrenAsync(characterData).ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -164,6 +157,49 @@ public class DBManager
             }
         });
     }
+
+
+
+    private void CreateInventory(string accountNumber)
+    {
+        // Character 데이터 생성
+        // 원래 데이터 처리는 Server에서 해야 안전
+
+
+        Dictionary<string, object> itemdata = new Dictionary<string, object>();
+
+        foreach (var i in Managers.Data.ItemDataDict.Keys)
+        {
+
+            itemdata.Add("itemcode", Managers.Data.ItemDataDict[i].itemcode);
+            itemdata.Add("count", Managers.Data.ItemDataDict[i].count);
+            itemdata.Add("Enhancement", 0);
+
+            DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Items").Child(i.ToString());
+            characterRef.UpdateChildrenAsync(itemdata).ContinueWith(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Error creating character: " + task.Exception);
+                    return;
+                }
+
+                if (task.IsCompleted)
+                {
+                    Debug.Log("Item Inven Created successfully.");
+                }
+            });
+            itemdata.Clear();
+
+        }
+
+
+    
+       
+    }
+
+
+    #endregion
 
 
     public void ReadDB()
