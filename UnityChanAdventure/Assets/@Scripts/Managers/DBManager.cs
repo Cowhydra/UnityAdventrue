@@ -11,6 +11,10 @@ public class DBManager
     public string DBurl = "https://unitychanadventure-default-rtdb.firebaseio.com/";
     DatabaseReference reference;
 
+    //이제 이해 완료
+    //Account - AccountNumber - 130  - AccountPW , Character,Items,Goods, 이런식으로 구조를 짯어야 헀는데
+    //지금은 Account 130 - AccountNumber,AccountPW,CHarcter,Itms,Goods 이런 형태...
+
     public void Init()
     {
 
@@ -22,8 +26,8 @@ public class DBManager
 
     public void ChecK_Account(string accountNumber, string password)
     {
-        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
-
+        //DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
+        DatabaseReference accountRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber);
         accountRef.GetValueAsync().ContinueWith(task =>
         {
             // 연결 자체의 실패
@@ -42,7 +46,9 @@ public class DBManager
                 if (snapshot.Exists)
                 {
                     // ID가 일치하는 경우
-                    string storedPassword = snapshot.Child("AccountPW").GetValue(true).ToString();
+                    string storedPassword = snapshot.Child("AccountPW").Value.ToString();
+                    Debug.Log($"저장된 비밀번호 : {storedPassword}");
+                   // string storedPassword = snapshot.Child("AccountPW").GetValue(true).ToString();
                     if (password == storedPassword)
                     {
                         Debug.Log("Login Successful");
@@ -70,12 +76,12 @@ public class DBManager
 
     public void CreateAccount(string accountNumber, string accountPassword)
     {
-        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
-
+        //DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
+        DatabaseReference accountRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber);
         // 계정 데이터 생성
         Dictionary<string, object> accountData = new Dictionary<string, object>
     {
-        { "AccountNumber", accountNumber },
+       // { "AccountNumber", accountNumber },
         { "AccountPW", accountPassword }
         // 추가 필드 및 값을 여기에 추가할 수 있습니다.
     };
@@ -120,6 +126,7 @@ public class DBManager
                         
                         CreateCharacter(accountNumber, 100);
                         CreateInventory(accountNumber);
+                        CreateGoods(accountNumber);
                     }
                 });
             }
@@ -135,13 +142,12 @@ public class DBManager
 
         Dictionary<string, object> characterData = new Dictionary<string, object>
         {
-           { "charcode", charcode },
            { "level", Managers.Data.CharacterDataDict[charcode].level },
-           //{ "iconPath", Managers.Data.CharacterDataDict[charcode].iconPath },
-           //{ "prefabPath", Managers.Data.CharacterDataDict[charcode].prefabPath }
+
         };
         // Character 데이터를 Firebase에 쓰기
-        DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
+        //  DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
+             DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
         characterRef.UpdateChildrenAsync(characterData).ContinueWith(task =>
         {
             if (task.IsFaulted)
@@ -157,6 +163,34 @@ public class DBManager
         });
     }
 
+    private void CreateGoods(string accountNumber)
+    {
+        // Character 데이터 생성
+        // 원래 데이터 처리는 Server에서 해야 안전
+        // 공용데이터는 따로 저장할 필요 없을듯? ( prefab path 등 ) 
+
+        Dictionary<string, object> AccountGoods = new Dictionary<string, object>
+        {
+           { "Gold", 0 },
+           { "RedDiamond", 0 },
+           { "BlueDiamond", 0 },
+        };
+        // Character 데이터를 Firebase에 쓰기
+        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Goods");
+        characterRef.UpdateChildrenAsync(AccountGoods).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error creating Goods: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                Debug.Log("Character created successfully.");
+            }
+        });
+    }
 
 
     private void CreateInventory(string accountNumber)
@@ -170,12 +204,12 @@ public class DBManager
         foreach (var i in Managers.Data.ItemDataDict.Keys)
         {
 
-            itemdata.Add("itemcode", Managers.Data.ItemDataDict[i].itemcode);
+           // itemdata.Add("itemcode", Managers.Data.ItemDataDict[i].itemcode);
             itemdata.Add("count", Managers.Data.ItemDataDict[i].count);
             itemdata.Add("Enhancement", 0);
 
-            DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Items").Child(i.ToString());
-            characterRef.UpdateChildrenAsync(itemdata).ContinueWith(task =>
+            DatabaseReference ItemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Items").Child(i.ToString());
+            ItemRef.UpdateChildrenAsync(itemdata).ContinueWith(task =>
             {
                 if (task.IsFaulted)
                 {
@@ -198,8 +232,9 @@ public class DBManager
     #region 데이터 정보 불러오기
     public void FetchAccountData(string accountNumber)
     {
-        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
 
+        DatabaseReference accountRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber);
+       
         accountRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
@@ -227,10 +262,11 @@ public class DBManager
             }
         });
     }
+
     public void FetchCharacterData(string accountNumber, int charcode)
     {
-        DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
-
+       // DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
+        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
         characterRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
@@ -260,9 +296,9 @@ public class DBManager
     }
     public void FetchAllItemData(string accountNumber)
     {
-        DatabaseReference itemsRef = reference.Child("Account").Child(accountNumber).Child("Items");
+        DatabaseReference ItemsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Items");
 
-        itemsRef.GetValueAsync().ContinueWith(task =>
+        ItemsRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -289,9 +325,11 @@ public class DBManager
         });
     }
     #endregion
+
+    #region 데이터 갱신
     public void UpdateItem(string accountNumber, int itemCode, int acquireCount, Define.UpdateDataTyoe updateType=Define.UpdateDataTyoe.UpdateDB_ItemCount)
     {
-        DatabaseReference itemRef = reference.Child("Account").Child(accountNumber).Child("Items").Child(itemCode.ToString());
+        DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Items").Child(itemCode.ToString());
 
         itemRef.RunTransaction(transaction =>
         {
@@ -326,4 +364,32 @@ public class DBManager
             }
         });
     }
+    public void UpdateCharacterLevel(string accountNumber, int charactercode, int acquireCount)
+    {
+        DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString());
+
+        itemRef.RunTransaction(transaction =>
+        {
+            if (transaction.Value != null)
+            {
+                int currentlevel = int.Parse(transaction.Child("level").Value.ToString());
+                transaction.Child("level").Value = $"{currentlevel + acquireCount}";
+                Debug.Log($"레벨 변경 :: 변경전 = {currentlevel} 변경 후 = {currentlevel + acquireCount}");
+                return TransactionResult.Success(transaction);
+            }
+            return TransactionResult.Abort();
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error updating item: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Item updated successfully.");
+            }
+        });
+    }
+
+    #endregion;
 }
