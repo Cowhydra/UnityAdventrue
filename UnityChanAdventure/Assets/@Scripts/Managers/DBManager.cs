@@ -66,7 +66,7 @@ public class DBManager
                 else
                 {
                     Managers.Event.PostNotification(Define.EVENT_TYPE.LoginFail_ID_NotFound, null);
-                    Debug.Log("회원가입 시키기: 경고창 UI 띄우기");
+                    Debug.Log("없는 계정 회원가입 시키기: 경고창 UI 띄우기");
                     // 회원가입 처리 로직 추가
                 }
             }
