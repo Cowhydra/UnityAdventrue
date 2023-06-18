@@ -95,15 +95,15 @@
     public enum ItemGrade
     {
         common
-,Uncommon
-,Rare
-,Relic
-,Chronicle
-,Unique
-,Legendary
-,Epic
-,RelicEpic
-, Mythic
+       ,Uncommon
+       ,Rare
+       ,Relic
+       ,Chronicle
+       ,Unique
+       ,Legendary
+       ,Epic
+       ,RelicEpic
+       ,Mythic
 
     }
     public enum MonsterEnvType
@@ -113,6 +113,11 @@
         Water,
         Lava,
     }
-
+    public enum UpdateDataTyoe
+    {
+        UpdateDB_CharacterLevel,
+        UpdateDB_ItemCount,
+        UpdateDB_ItemEnhance,
+    }
 
 }

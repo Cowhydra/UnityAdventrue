@@ -23,10 +23,15 @@ public class LoginScene : BaseScene
             {
                 Debug.Log("리소스 로딩 완료");
                 Managers.Data.Init();
-                //Managers.DB.Init();
-               // Managers.DB.Init();
-               // Managers.DB.ChecK_Account(129.ToString(), 4565.ToString());
-               // Managers.DB.CreateAccount(135.ToString(), 4568.ToString());
+                Managers.DB.Init();
+                Managers.DB.Init();
+                Managers.DB.ChecK_Account(129.ToString(), 4565.ToString());
+                Managers.DB.CreateAccount(135.ToString(), 4568.ToString());
+                Managers.DB.FetchAccountData(135.ToString());
+                Managers.DB.FetchCharacterData(135.ToString(),100);
+               // Managers.DB.FetchAllItemData(135.ToString());
+                Managers.DB.UpdateItem(135.ToString(), 10001, 5);
+
             }
         });
     }

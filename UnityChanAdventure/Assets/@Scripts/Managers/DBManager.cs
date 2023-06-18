@@ -4,7 +4,6 @@ using UnityEngine;
 using Firebase;
 using System;
 using Firebase.Database;
-using static Cinemachine.DocumentationSortingAttribute;
 
 public class DBManager
 {
@@ -191,29 +190,140 @@ public class DBManager
             });
             itemdata.Clear();
 
-        }
-
-
-    
-       
+        }  
     }
-
 
     #endregion
 
-
-    public void ReadDB()
+    #region 데이터 정보 불러오기
+    public void FetchAccountData(string accountNumber)
     {
+        DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
 
+        accountRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error retrieving account data: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    // 데이터가 존재하는 경우
+                    string accountPW = snapshot.Child("AccountPW").Value.ToString();
+                    Debug.Log("Account Password: " + accountPW);
+                    // 데이터 처리 코드 추가
+                }
+                else
+                {
+                    // 데이터가 존재하지 않는 경우
+                    Debug.Log("Account data does not exist.");
+                }
+            }
+        });
     }
-    public void ReadAllDB()
+    public void FetchCharacterData(string accountNumber, int charcode)
     {
+        DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
 
+        characterRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error retrieving character data: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                if (snapshot.Exists)
+                {
+                    // 데이터가 존재하는 경우
+                    int level = int.Parse(snapshot.Child("level").Value.ToString());
+                    Debug.Log("Character Level: " + level);
+                    // 데이터 처리 코드 추가
+                }
+                else
+                {
+                    // 데이터가 존재하지 않는 경우
+                    Debug.Log("Character data does not exist.");
+                }
+            }
+        });
     }
-
-    //Write DB 관련일은 원래 서버에서 해야함
-    public void WriteDB()
+    public void FetchAllItemData(string accountNumber)
     {
+        DatabaseReference itemsRef = reference.Child("Account").Child(accountNumber).Child("Items");
 
+        itemsRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error retrieving item data: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot itemSnapshot in snapshot.Children)
+                {
+                    // 아이템 데이터 추출
+                    int itemCode = int.Parse(itemSnapshot.Key);
+                    int count = int.Parse(itemSnapshot.Child("count").Value.ToString());
+
+                    // 추출한 데이터 활용
+                    Debug.Log("Item: itemCode = " + itemCode + ", count = " + count);
+                }
+                Debug.Log("추후 여기 위쪽에 데이터 동기화 과정 넣어야 합니다.");
+                Debug.Log("그냥 불러온 데이터를 itemcode에 맞게 내 Data나 inventory에 넣어주면 됨");
+            }
+        });
+    }
+    #endregion
+    public void UpdateItem(string accountNumber, int itemCode, int acquireCount, Define.UpdateDataTyoe updateType=Define.UpdateDataTyoe.UpdateDB_ItemCount)
+    {
+        DatabaseReference itemRef = reference.Child("Account").Child(accountNumber).Child("Items").Child(itemCode.ToString());
+
+        itemRef.RunTransaction(transaction =>
+        {
+            if (transaction.Value != null)
+            {
+                switch (updateType)
+                {
+                    case Define.UpdateDataTyoe.UpdateDB_ItemCount:
+                        int currentCount = int.Parse(transaction.Child("count").Value.ToString());
+                        transaction.Child("count").Value = $"{currentCount+ acquireCount}";
+                        Debug.Log($"아이템 개수 변경 :: 변경전 = {currentCount} 변경 후 = {currentCount + acquireCount}");
+                        break;
+                    case Define.UpdateDataTyoe.UpdateDB_ItemEnhance:
+                        int currentEnhance = int.Parse(transaction.Child("Enhancement").Value.ToString());
+                        transaction.Child("Enhancement").Value = $"{currentEnhance + acquireCount}";
+                        Debug.Log($"아이템 강화수치 변경 ::변경전 = {currentEnhance} 변경 후 = {currentEnhance + acquireCount}");
+                        break;
+                }
+
+                return TransactionResult.Success(transaction);
+            }
+            return TransactionResult.Abort();
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error updating item: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Item updated successfully.");
+            }
+        });
     }
 }
