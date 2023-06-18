@@ -8,6 +8,7 @@
         LoadingScene,
         LoginScene,
         LobbyScene,
+        CharacterSelectScene,
         Lava_Dungeon,
 
 
@@ -30,6 +31,11 @@
     }
     public enum EVENT_TYPE
     {
+        LoginSucess,
+        LoginFail_ID_NotFound,
+        LoginFail_PW_Wrong,
+        CreateAccount_Sucess,
+        CreateAccount_Fail_IDSame,
 
 
     }
@@ -38,10 +44,10 @@
     {
         None,
         Basic,
-        Q_SKill,
-        W_Skill,
-        E_Skill,
-        R_Skill,
+        QSKill,
+        WSkill,
+        ESkill,
+        RSkill,
 
     }
     public enum EGameState

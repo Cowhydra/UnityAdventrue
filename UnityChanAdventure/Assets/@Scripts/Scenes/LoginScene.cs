@@ -24,6 +24,8 @@ public class LoginScene : BaseScene
                 Debug.Log("리소스 로딩 완료");
                 Managers.Data.Init();
                 //Managers.DB.Init();
+                Managers.DB.ChecK_Account(123.ToString(), 4564.ToString());
+                Managers.DB.CreateAccount(123.ToString(), 4567.ToString());
             }
         });
     }

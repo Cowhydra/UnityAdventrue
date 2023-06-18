@@ -72,8 +72,29 @@ public class LoginUI : UI_Scene
     {
         if (Get<TMP_InputField>((int)InputFields.ID_InputField).text == null || Get<TMP_InputField>((int)InputFields.PW_InputField).text == null)
         {
-            Debug.Log("추후에 경고창 UI 어서 띄우기 --- ");
+            Debug.Log("추후에 경고창 UI 어서 띄우기 ---  ID 나 비밀번호  빈칸 없게");
             return;
+        }
+        else
+        {
+            if(Get<TMP_InputField>((int)InputFields.ID_InputField).text!=null)
+            {
+               if(Get<TMP_InputField>((int)InputFields.ID_InputField).text != null)
+                {
+                    Managers.DB.ChecK_Account(Get<TMP_InputField>((int)InputFields.ID_InputField).text, Get<TMP_InputField>((int)InputFields.ID_InputField).text);
+                }
+                else
+                {
+                    Debug.Log("아이디 및 비밀번호를 빈칸없이 입력해주세요 경고창 UI  띄우기");
+                }
+            }
+            else
+            {
+                Debug.Log("아이디 및 비밀번호를 빈칸없이 입력해주세요 경고창 UI  띄우기");
+            }
+
+
+            
         }
         //TODO : DB 관련 로직처리!
 
