@@ -70,7 +70,7 @@ public class LoginUI : UI_Scene
     //회원 가입 InputFeild의 Text 입력값으로 회원가입 그대로 진행
     private void Join()
     {
-        if (Get<InputField>((int)InputFields.ID_InputField).text == null || Get<InputField>((int)InputFields.PW_InputField).text == null)
+        if (Get<TMP_InputField>((int)InputFields.ID_InputField).text == null || Get<TMP_InputField>((int)InputFields.PW_InputField).text == null)
         {
             Debug.Log("추후에 경고창 UI 어서 띄우기 --- ");
             return;

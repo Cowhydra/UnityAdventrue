@@ -61,21 +61,55 @@ public class ResourceManager
     #region 어드레서블이었던 지역
     public T Load<T>(string key) where T : Object
     {
-        if (_resources.TryGetValue(key, out Object resource))
+        if (typeof(T) == typeof(GameObject))
         {
-            if (typeof(T) == typeof(Sprite))
+            if (_resources.TryGetValue($"{key}.prefab", out Object resource))
             {
-                Texture2D texture = resource as Texture2D;
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-                return sprite as T;
+                if (typeof(T) == typeof(Sprite))
+                {
+                    Texture2D texture = resource as Texture2D;
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+                    return sprite as T;
+                }
+                return resource as T;
             }
-            return resource as T;
         }
+        else if (typeof(T) == typeof(TextAsset))
+        {
+            if (_resources.TryGetValue($"{key}.json", out Object resource))
+            {
+                if (typeof(T) == typeof(Sprite))
+                {
+                    Texture2D texture = resource as Texture2D;
+                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+                    return sprite as T;
+                }
+                return resource as T;
+            }
+        }
+        else if (typeof(T) == typeof(Sprite))
+        {
+            if (_resources.TryGetValue($"{key}.png", out Object resource))
+            {
+
+               Texture2D texture = resource as Texture2D;
+               Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
+               return sprite as T;
+
+            }
+        }
+
+
+
+      
         return null;
     }
+
+
+
     public GameObject Instantiate(string key, Transform parent = null)
     {
-        GameObject original = Load2<GameObject>($"{key}");
+        GameObject original = Load<GameObject>($"{key}");
         if (original == null)
         {
             Debug.Log($"Failed to load prefab : {key}");
@@ -91,7 +125,7 @@ public class ResourceManager
     }
     public GameObject Instantiate(string key, Vector3 position,Transform parent=null)
     {
-        GameObject original = Load2<GameObject>($"{key}");
+        GameObject original = Load<GameObject>($"{key}");
         if (original == null)
         {
             Debug.Log($"Failed to load prefab : {key}");
