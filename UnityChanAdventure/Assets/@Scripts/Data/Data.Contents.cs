@@ -160,7 +160,9 @@ namespace Data
         public int level;
         public string iconPath;
         public string prefabPath;
-
+        public int exp;
+        public string dateTime;
+        public bool isActive;
 
     }
     [Serializable]

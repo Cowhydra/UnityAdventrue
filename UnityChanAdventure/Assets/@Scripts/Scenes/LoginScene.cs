@@ -21,16 +21,20 @@ public class LoginScene : BaseScene
         {
             if (count == totalCount)
             {
-                Debug.Log("리소스 로딩 완료");
+                Debug.Log($"리소스 로딩 완료: {totalCount}");
                 Managers.Data.Init();
-                Managers.DB.Init();
-                Managers.DB.ChecK_Account(57129.ToString(), 4565.ToString());
-               // Managers.DB.CreateAccount(16551.ToString(), 26519.ToString());
-               // Managers.DB.FetchAccountData(1681.ToString());
-                //Managers.DB.FetchCharacterData(1681.ToString(),100);
-               // Managers.DB.FetchAllItemData(1681.ToString());
-               // Managers.DB.UpdateItem(1611.ToString(), 10001, 5);
-              //  Managers.DB.UpdateCharacterLevel(1611.ToString(), 100, 5);
+                //Managers.DB.Init();
+                // Managers.DB.ChecK_Account(516551.ToString(), 26519.ToString());
+                //Managers.DB.CreateAccount(7777.ToString(), 8888.ToString());
+                // Managers.DB.FetchAccountData(516551.ToString());
+                // Managers.DB.FetchCharacterData(516551.ToString(),100);
+                // Managers.DB.FetchAllItemData(516551.ToString());
+                // Managers.DB.UpdateItem(516551.ToString(), 10001, 5);
+                // Managers.DB.UpdateCharacter(516551.ToString(), 100, 5,Define.Update_DB_Character.level);
+                // Managers.DB.UpdateCharacter(516551.ToString(), 100, 500, Define.Update_DB_Character.exp);
+                // Managers.DB.UpdateEquip(516551.ToString(), 100, 10002, Define.Update_DB_EQUIPType.Boot);
+               
+
             }
         });
     }

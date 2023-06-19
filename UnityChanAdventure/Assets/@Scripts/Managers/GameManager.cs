@@ -6,6 +6,8 @@ public class GameManager
 {
 
     public int AccountNumber;
+    public int currentCharNumber;
+
 
     #region ÀçÈ­
     private int _gold;

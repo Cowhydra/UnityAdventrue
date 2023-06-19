@@ -31,15 +31,26 @@
     }
     public enum EVENT_TYPE
     {
+        #region Login
         LoginSucess,
         LoginFail_ID_NotFound,
         LoginFail_PW_Wrong,
         CreateAccount_Sucess,
         CreateAccount_Fail_IDSame,
-
+        #endregion
+        SelectCharacter,
 
     }
 
+    #region GameContents
+
+    public enum Goods
+    {
+        Gold,
+        BlueDiamond,
+        RedDiamond,
+
+    }
     public enum ESkillType
     {
         None,
@@ -52,20 +63,19 @@
     }
     public enum EGameState
     {
-       None,
-       EnterDungeon,
-       ActiveBoss,
-       TimeOut,
-       KillBoss,
-       ExitDungeon,
+        None,
+        EnterDungeon,
+        ActiveBoss,
+        TimeOut,
+        KillBoss,
+        ExitDungeon,
 
     }
     public enum LayerMask
     {
-        Enviroment=6,
-        Skill=10
+        Enviroment = 6,
+        Skill = 10
     }
-
     public enum EDamageType
     {
         Nomal,
@@ -113,11 +123,29 @@
         Water,
         Lava,
     }
-    public enum UpdateDataTyoe
+    #endregion
+    #region AboutDB
+    public enum Update_DB_Item
     {
-        UpdateDB_CharacterLevel,
-        UpdateDB_ItemCount,
-        UpdateDB_ItemEnhance,
-    }
+      count,
+      Enhancement,
 
+    }
+    public enum Update_DB_Character
+    {
+        level,
+        exp,
+
+    }
+    public enum Update_DB_EQUIPType
+    {
+        Boot,
+        Cloth,
+        Weapon,
+        Earring,
+        Ring,
+        Hat,
+
+    }
+    #endregion
 }

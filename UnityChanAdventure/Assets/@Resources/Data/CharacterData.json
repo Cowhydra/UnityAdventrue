@@ -12,7 +12,11 @@
       "attackspeed": "3",
       "level": "1",
       "iconPath": "@Resources/Sprites/Creature/Characters/icon100",
-      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab100"
+      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab100",
+      "exp": "0",
+      "dateTime": "",
+      "isActive": "False",
+        "name": ""
     },
     {
       "charcode": "101",
@@ -26,7 +30,11 @@
       "attackspeed": "4",
       "level": "1",
       "iconPath": "@Resources/Sprites/Creature/Characters/icon101",
-      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab101"
+      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab101",
+      "exp": "0",
+      "dateTime": "",
+      "isActive": "False",
+      "name": ""
     },
     {
       "charcode": "102",
@@ -40,7 +48,11 @@
       "attackspeed": "4",
       "level": "1",
       "iconPath": "@Resources/Sprites/Creature/Characters/icon102",
-      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab102"
+      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab102",
+      "exp": "0",
+      "dateTime": "",
+      "isActive": "False",
+      "name": ""
     }
   ]
 }
