@@ -23,9 +23,10 @@ public class LoginScene : BaseScene
             {
                 Debug.Log($"리소스 로딩 완료: {totalCount}");
                 Managers.Data.Init();
-                //Managers.DB.Init();
-                // Managers.DB.ChecK_Account(516551.ToString(), 26519.ToString());
-                //Managers.DB.CreateAccount(7777.ToString(), 8888.ToString());
+                Managers.DB.Init();
+                //  Managers.DB.ChecK_Account(516551.ToString(), 26519.ToString());
+                // Managers.DB.CreateAccount(101010.ToString(), 8888.ToString());
+                // Managers.DB.DeleteCharacter(5555.ToString(), 100);
                 // Managers.DB.FetchAccountData(516551.ToString());
                 // Managers.DB.FetchCharacterData(516551.ToString(),100);
                 // Managers.DB.FetchAllItemData(516551.ToString());
@@ -33,8 +34,6 @@ public class LoginScene : BaseScene
                 // Managers.DB.UpdateCharacter(516551.ToString(), 100, 5,Define.Update_DB_Character.level);
                 // Managers.DB.UpdateCharacter(516551.ToString(), 100, 500, Define.Update_DB_Character.exp);
                 // Managers.DB.UpdateEquip(516551.ToString(), 100, 10002, Define.Update_DB_EQUIPType.Boot);
-               
-
             }
         });
     }

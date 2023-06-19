@@ -7,7 +7,7 @@
         None,
         LoadingScene,
         LoginScene,
-        LobbyScene,
+        TownScene,
         CharacterSelectScene,
         Lava_Dungeon,
 
@@ -31,17 +31,19 @@
     }
     public enum EVENT_TYPE
     {
-        #region Login
+
+        SelectCharacter,
+
+    }
+    public enum Login_Event_Type
+    {
         LoginSucess,
         LoginFail_ID_NotFound,
         LoginFail_PW_Wrong,
         CreateAccount_Sucess,
         CreateAccount_Fail_IDSame,
-        #endregion
-        SelectCharacter,
-
+        LoginNotBlink,
     }
-
     #region GameContents
 
     public enum Goods

@@ -24,6 +24,11 @@ public class DBManager
 
     public void ChecK_Account(string accountNumber, string password)
     {
+        if (accountNumber == string.Empty || password == string.Empty)
+        {
+            Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
+            return;
+        }
         //DatabaseReference accountRef = reference.Child("Account").Child(accountNumber);
         DatabaseReference accountRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber);
         accountRef.GetValueAsync().ContinueWith(task =>
@@ -32,7 +37,7 @@ public class DBManager
             if (task.IsFaulted)
             {
                 // Firebase 권한 및 네트워크 혹은 데이터 경로 확인 필요!
-                throw new Exception("Error retrieving account data");
+                Debug.Log("실패중");
                 
             }
 
@@ -50,27 +55,27 @@ public class DBManager
                     if (password == storedPassword)
                     {
                         Debug.Log("Login Successful");
-                        Managers.Event.PostNotification(Define.EVENT_TYPE.LoginSucess,null);
+                        Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginSucess);
                         // 로그인 성공 후 처리 로직 추가
                         Debug.Log("로그인 성공후 로직-> 씬 넘기고 DataBase에서 받아오기 등 ");
                     }
                     else
                     {
                         Debug.Log("Wrong Password");
-                        Managers.Event.PostNotification(Define.EVENT_TYPE.LoginFail_PW_Wrong, null);
+                        Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginFail_PW_Wrong);
                         // 비밀번호가 일치하지 않는 경우 처리 로직 추가
                     }
                 }
                 else
                 {
-                    Managers.Event.PostNotification(Define.EVENT_TYPE.LoginFail_ID_NotFound, null);
+                    Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginFail_ID_NotFound);
                     Debug.Log("없는 계정 회원가입 시키기: 경고창 UI 띄우기");
+                    
                     // 회원가입 처리 로직 추가
                 }
             }
         });
     }
-
 
     public void CreateAccount(string accountNumber, string accountPassword)
     {
@@ -98,7 +103,7 @@ public class DBManager
                 // 이미 해당 계정 번호가 존재하는 경우
                 if (snapshot.Exists)
                 {
-                    Managers.Event.PostNotification(Define.EVENT_TYPE.CreateAccount_Fail_IDSame, null);
+                    Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.CreateAccount_Fail_IDSame);
                     Debug.Log("Account number already exists.");
                     return;
                 }
@@ -115,14 +120,11 @@ public class DBManager
                     if (createTask.IsCompleted)
                     {
                         Debug.Log("Account created successfully.");
-                        Debug.Log("캐릭터 생성 후 생성합시다.");
+                        Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.CreateAccount_Sucess);
 
-                        CharacterInit(accountNumber, 100,"name");
-                        Managers.Event.PostNotification(Define.EVENT_TYPE.CreateAccount_Sucess, null);
-                      
 
                         // 새로운 DB 생성해서 신규캐릭터 맞이하기
-                      
+
                     }
                 });
             }
@@ -283,7 +285,7 @@ public class DBManager
                 if (snapshot.Exists)
                 {
                     // 데이터가 존재하는 경우
-                    Managers.Event.PostNotification(Define.EVENT_TYPE.CreateAccount_Fail_IDSame, null);
+                    Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.CreateAccount_Fail_IDSame);
                     return;
                    // string accountPW = snapshot.Child("AccountPW").Value.ToString();
                    // Debug.Log("Account Password: " + accountPW);
@@ -550,4 +552,60 @@ public class DBManager
 
 
     #endregion;
+    #region 데이터 삭제
+
+    public void DeleteCharacter(string accountNumber, int charcode)
+    {
+        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
+
+        characterRef.RemoveValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error deleting character: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                Debug.Log("Character deleted successfully.");
+            }
+        });
+    }
+    public void DeleteCharacterChildren(string accountNumber, int charcode)
+    {
+        DatabaseReference charactersRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
+
+        charactersRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error retrieving character: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot childSnapshot in snapshot.Children)
+                {
+                    DatabaseReference childRef = charactersRef.Child(childSnapshot.Key);
+                    childRef.RemoveValueAsync().ContinueWith(removeTask =>
+                    {
+                        if (removeTask.IsFaulted)
+                        {
+                            Debug.LogError("Error deleting child node: " + removeTask.Exception);
+                        }
+                        else if (removeTask.IsCompleted)
+                        {
+                            Debug.Log("Child node deleted successfully.");
+                        }
+                    });
+                }
+            }
+        });
+    }
+
+    #endregion
 }

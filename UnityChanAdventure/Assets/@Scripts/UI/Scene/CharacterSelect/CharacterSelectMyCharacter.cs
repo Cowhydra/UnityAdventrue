@@ -18,7 +18,7 @@ public class CharacterSelectMyCharacter : MonoBehaviour
         }
         foreach (var i in Managers.Data.CharacterDataDict.Keys)
         {
-            MyCharacter_SelectScene Character = Managers.UI.ShowSceneUI<MyCharacter_SelectScene>();
+            MyCharacter_SelectScene Character = Managers.UI.ShowWorldUI<MyCharacter_SelectScene>();
             Character.transform.SetParent(gameObject.transform);
             Character.Charcode = i;
         }

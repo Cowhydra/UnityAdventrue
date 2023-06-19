@@ -13,7 +13,6 @@ public class MyCharacter_SelectScene : UI_Scene,IListener
     public override void Init()
     {
         if (isinit) return;
-        base.Init();
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<GameObject>(typeof(GameObjects));
 
@@ -92,6 +91,7 @@ public class MyCharacter_SelectScene : UI_Scene,IListener
     {
        if(Event_Type == Define.EVENT_TYPE.SelectCharacter)
         {
+            Debug.Log($"{gameObject.name} :SelectCharacter 이벤트 받음 ");
             if (Sender.GetComponent<MyCharacter_SelectScene>().Charcode != this.Charcode)
             {
                 gameObject.GetComponent<Image>().color = Color.white;

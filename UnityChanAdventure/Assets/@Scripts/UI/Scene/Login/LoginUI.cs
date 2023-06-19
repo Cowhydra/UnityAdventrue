@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static Define;
 
-public class LoginUI : UI_Scene,IListener
+public class LoginUI : UI_Scene
 {
     private float fadeSpeed = 0.5f;
     enum Texts
@@ -53,9 +56,24 @@ public class LoginUI : UI_Scene,IListener
         Bind<TMP_InputField>(typeof(InputFields));
         Bind<Button>(typeof(Buttons));
         Bind<GameObject>(typeof(GameObjects));
-      
+        ButtonInit();
 
         #region BindEvent
+
+        GetObject((int)GameObjects.BackGround_Pannel)
+            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(true));
+
+        Managers.Event.LoginProgess -= Login_Event;
+        Managers.Event.LoginProgess += Login_Event;
+
+        #endregion
+    }
+    private void OnDestroy()
+    {
+        Managers.Event.LoginProgess -= Login_Event;
+    }
+    private void ButtonInit()
+    {
         GetButton((int)Buttons.GameStart_Button).gameObject
          .BindEvent((PointerEventData data) => GameStart());
         GetButton((int)Buttons.Join_Button).gameObject
@@ -64,21 +82,10 @@ public class LoginUI : UI_Scene,IListener
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(false));
         GetButton((int)Buttons.MakeCancel_Button).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
+        GetButton((int)Buttons.MakeSummit_Button).gameObject
+            .BindEvent((PointerEventData data) => MakeAccount());
 
 
-        GetObject((int)GameObjects.BackGround_Pannel)
-            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(true));
-        
-
-
-        Managers.Event.AddListener(Define.EVENT_TYPE.CreateAccount_Fail_IDSame, this);
-        Managers.Event.AddListener(Define.EVENT_TYPE.CreateAccount_Sucess, this);
-        Managers.Event.AddListener(Define.EVENT_TYPE.LoginFail_ID_NotFound, this);
-        Managers.Event.AddListener(Define.EVENT_TYPE.LoginFail_PW_Wrong, this);
-        Managers.Event.AddListener(Define.EVENT_TYPE.LoginSucess, this);
-
-
-        #endregion
     }
     void Start()
     {
@@ -95,7 +102,7 @@ public class LoginUI : UI_Scene,IListener
     private void GameStart()
     {
         //TODO : DB 관련 로직처리! , DB에서 아이디 비번 확인 후 통과 혹은 불통과 여부 결정
-       // Managers.DB.ChecK_Account(Get<TMP_InputField>((int)InputFields.ID_InputField).text, Get<TMP_InputField>((int)InputFields.ID_InputField).text);
+        Managers.DB.ChecK_Account(Get<TMP_InputField>((int)InputFields.ID_InputField).text, Get<TMP_InputField>((int)InputFields.PW_InputField).text);
         Debug.Log("DB 관련 처리");
     }
     //회원 가입 InputFeild의 Text 입력값으로 회원가입 그대로 진행
@@ -105,63 +112,110 @@ public class LoginUI : UI_Scene,IListener
     }
     private void MakeAccount()
     {
-        if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text == null || Get<TMP_InputField>((int)InputFields.MakePW_InputField).text == null)
+        if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text == string.Empty || Get<TMP_InputField>((int)InputFields.MakePW_InputField).text == string.Empty)
         {
-            Managers.UI.ShowPopupUI<WarningText>("ID나 비밀번호는 빈칸이 없어야 합니다.");
+            Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
             return;
         }
         else
         {
-            if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text != null)
+            if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text != string.Empty)
             {
-                if (Get<TMP_InputField>((int)InputFields.MakePW_InputField).text != null)
+                if (Get<TMP_InputField>((int)InputFields.MakePW_InputField).text != string.Empty)
                 {
-                    //Managers.DB.ChecK_Account(Get<TMP_InputField>((int)InputFields.MakeID_InputField).text, Get<TMP_InputField>((int)InputFields.ID_InputField).text);
-                       //ID 조회 성공 및 아이디 만들기 + Chearacter 만들기()
+                    Debug.Log($"{Get<TMP_InputField>((int)InputFields.MakeID_InputField).text}");
+                    Debug.Log($"{Get<TMP_InputField>((int)InputFields.MakePW_InputField).text}");
+
+                    Managers.DB.CheckAccountID(Get<TMP_InputField>((int)InputFields.MakeID_InputField).text, Get<TMP_InputField>((int)InputFields.MakePW_InputField).text);
+                    //ID 조회 성공 및 아이디 만들기 + Chearacter 만들기()
+                    Debug.Log("계정생성");
                 }
                 else
                 {
-                    Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("ID나 비밀번호는 빈칸이 없어야 합니다.",Color.red);
+                    Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
                 }
             }
             else
             {
-                Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("ID나 비밀번호는 빈칸이 없어야 합니다.",Color.red);
+                Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
 
             }
 
         }
     }
 
-
-    public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
+    #region ACtion으로 받아서 이벤트 처리 ( 이렇게 안하니까, DB 오래걸리는 작업할 떄 함수 씹힙 
+    private Queue<(Action<Define.Login_Event_Type>, Define.Login_Event_Type)> ActionQueue = new Queue<(Action<Define.Login_Event_Type>, Define.Login_Event_Type)>();
+    private void EnqueueAction(Action<Define.Login_Event_Type> action, Define.Login_Event_Type eventType)
     {
-
-        switch (Event_Type)
+        ActionQueue.Enqueue((action, eventType));
+    }
+    private void Login_Event(Define.Login_Event_Type EventType)
+    {
+        switch (EventType)
         {
-            case Define.EVENT_TYPE.LoginSucess:
-                Debug.Log("씬로드");
+            case Define.Login_Event_Type.LoginSucess:
+                EnqueueAction(action =>
+                {
+                    Managers.Scene.LoadScene(Define.Scene.CharacterSelectScene);
+                    Debug.Log("씬로드");
+                }, EventType);
                 break;
-            case Define.EVENT_TYPE.LoginFail_ID_NotFound:
-                Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("ID를 찾을 수 없습니다.", Color.red);
+            case Define.Login_Event_Type.LoginFail_ID_NotFound:
+                EnqueueAction(action =>
+                {
+                    Debug.Log("이벤트 왔나요??");
+                    Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("ID를 찾지 못했습니다. 회원가입 해주시길 바랍니다.", Color.red);
+                }, EventType);
                 break;
-            case Define.EVENT_TYPE.LoginFail_PW_Wrong:
-                Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("패스워드를 확인해주시길 바랍니다.", Color.red);
+            case Define.Login_Event_Type.LoginFail_PW_Wrong:
+                EnqueueAction(action =>
+                {
+                    Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("패스워드를 확인해주시길 바랍니다.", Color.red);
+                }, EventType);
                 break;
-            case Define.EVENT_TYPE.CreateAccount_Sucess:
-                Debug.Log("이게 안들어오는거 같은데");
-                Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("계정이 생성되었습니다..", Color.green);
+            case Define.Login_Event_Type.CreateAccount_Sucess:
+                EnqueueAction(action =>
+                {
+                    Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("계정이 생성되었습니다.. \n화면으로 돌아가 로그인을 진행해주시길 바랍니다.", Color.green);
+                }, EventType);
                 break;
-            case Define.EVENT_TYPE.CreateAccount_Fail_IDSame:
-                Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("이미 동일한 ID가 존재합니다.", Color.blue);
+            case Define.Login_Event_Type.CreateAccount_Fail_IDSame:
+                EnqueueAction(action =>
+                {
+                    Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("이미 동일한 ID가 존재합니다.", Color.blue);
+                }, EventType);
+                break;
+            case Define.Login_Event_Type.LoginNotBlink:
+                EnqueueAction(action =>
+                {
+                    Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("빈칸을 입력하지 마십시오.", Color.red);
+                }, EventType);
                 break;
         }
-
-
     }
 
+    private void Update()
+    {
+        if( ActionQueue.Count > 0)
+        {
+            StartCoroutine(ProcessActionQueue());
+        }
+    }
+  
 
+    private IEnumerator ProcessActionQueue()
+    {
+        while (ActionQueue.Count > 0)
+        {
+            (Action<Define.Login_Event_Type> action, Define.Login_Event_Type eventType) = ActionQueue.Dequeue();
+            action?.Invoke(eventType);
 
+            // Action을 실행한 후, 지정된 시간 지연이나 조건을 기다릴 수 있습니다.
+            yield return new WaitForSeconds(1.0f);
+        }
+    }
+    #endregion
     //글자 효과
     #region Effects
     private IEnumerator TextEffect_CO(TextMeshProUGUI Text)
@@ -200,8 +254,5 @@ public class LoginUI : UI_Scene,IListener
 
     #endregion
 
-    private IEnumerator LoadingBackGroundEffect_co()
-    {
-        yield return new WaitForSeconds(2.0f);
-    }
+ 
 }

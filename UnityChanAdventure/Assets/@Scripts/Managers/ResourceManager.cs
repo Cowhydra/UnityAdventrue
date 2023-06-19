@@ -65,12 +65,6 @@ public class ResourceManager
         {
             if (_resources.TryGetValue($"{key}.prefab", out Object resource))
             {
-                if (typeof(T) == typeof(Sprite))
-                {
-                    Texture2D texture = resource as Texture2D;
-                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-                    return sprite as T;
-                }
                 return resource as T;
             }
         }
@@ -116,8 +110,8 @@ public class ResourceManager
             return null;
         }
 
-        if (original.GetComponent<Poolable>() != null)
-            return Managers.Pool.Pop(original, parent).gameObject;
+        //if (original.GetComponent<Poolable>() != null)
+        //    return Managers.Pool.Pop(original, parent).gameObject;
 
         GameObject go = Object.Instantiate(original, parent);
         go.name = original.name;

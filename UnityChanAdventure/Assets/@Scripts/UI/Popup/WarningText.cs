@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
+
 public class WarningText : UI_Popup
 {
     private bool isInit = false;
@@ -9,20 +11,24 @@ public class WarningText : UI_Popup
     {
         WarningText_Text
     }
+    enum GameObjects
+    {
+        Warning_Pannel,
+    }
     // Start is called before the first frame update
     void Start()
     {
         Init();
-        StartCoroutine(nameof(Text_Destory_co));
     }
     public override void Init()
     {
         if (isInit) return;
         base.Init();
         Bind<TextMeshProUGUI>(typeof(Texts));
+        Bind<GameObject>(typeof(GameObjects));
         GetText((int)Texts.WarningText_Text).text = "";
         isInit = true;
-
+        StartCoroutine(nameof(Text_Destory_co));
     }
     public void Set_WarningText(string text,Color Textcolor)
     {
@@ -32,6 +38,7 @@ public class WarningText : UI_Popup
         }
         GetText((int)Texts.WarningText_Text).color = Textcolor;
         GetText((int)Texts.WarningText_Text).text = $"{text}";
+    
     }
     IEnumerator Text_Destory_co()
     {
