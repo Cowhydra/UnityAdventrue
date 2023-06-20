@@ -11,6 +11,18 @@ public class DataManager
     public Dictionary<int, Data.CharacterData> CharacterDataDict { get; private set; } = new Dictionary<int, Data.CharacterData>();
     public Dictionary<int, Data.ItemData> ItemDataDict { get; private set; } = new Dictionary<int, Data.ItemData>();
     public Dictionary<int,Data.MonsterData> MonsterDataDict { get; private set; }=new Dictionary<int, Data.MonsterData>();
+    public Dictionary<Define.ItemType, int> EquipData = new Dictionary<Define.ItemType, int>
+    {
+        {Define.ItemType.Boot,0 },
+        {Define.ItemType.Cloth,0 },
+        {Define.ItemType.Earring,0 },
+        {Define.ItemType.Hat,0 },
+        {Define.ItemType.Weapon,0 },
+        {Define.ItemType.Ring,0 },
+
+    };
+    
+    
     //public Dictionary<int, Data.Skill> SkillDataDict { get; private set; } = new Dictionary<int, Data.Skill>();
     public void Init()
     {

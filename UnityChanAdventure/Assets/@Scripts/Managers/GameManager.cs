@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager 
 {
 
-    public int AccountNumber;
+    public string AccountNumber;
     public int currentCharNumber;
 
 

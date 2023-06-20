@@ -18,7 +18,7 @@ namespace Data
         public int price;
         public string itemgrade;
         public ItemGrade itemGrade;
-
+        public int enhancement;
     }
     [Serializable]
     public class WeaponData : ItemData

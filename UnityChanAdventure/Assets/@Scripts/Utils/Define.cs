@@ -18,6 +18,7 @@
     {
 
     }
+    #region About Event
     public enum UIEvent
     {
         Click,
@@ -44,6 +45,7 @@
         CreateAccount_Fail_IDSame,
         LoginNotBlink,
     }
+    #endregion
     #region GameContents
 
     public enum Goods

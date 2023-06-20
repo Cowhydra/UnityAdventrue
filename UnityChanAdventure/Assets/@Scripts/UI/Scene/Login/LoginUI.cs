@@ -11,6 +11,7 @@ using static Define;
 public class LoginUI : UI_Scene
 {
     private float fadeSpeed = 0.5f;
+    #region Bind Objects
     enum Texts
     {
         LoginTitle_Text,
@@ -48,7 +49,7 @@ public class LoginUI : UI_Scene
         MakeAccount,
 
     }
-
+    #endregion
     public override void Init()
     {
         base.Init();
@@ -157,6 +158,8 @@ public class LoginUI : UI_Scene
             case Define.Login_Event_Type.LoginSucess:
                 EnqueueAction(action =>
                 {
+                    Managers.Game.AccountNumber = Get<TMP_InputField>((int)InputFields.ID_InputField).text;
+                    Managers.DB.DataFetch(Managers.Game.AccountNumber);
                     Managers.Scene.LoadScene(Define.Scene.CharacterSelectScene);
                     Debug.Log("¾À·Îµå");
                 }, EventType);

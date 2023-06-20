@@ -137,6 +137,18 @@ public class DBManager
         CreateGoods(accountNumber, charcode);
         CreateEquips(accountNumber, charcode);
     }
+    public void DataFetch(string accountNumber)
+    {
+        
+        Debug.Log("장착중인 장비도 여기서 갱신해줘야함");
+        foreach (var charkey in Managers.Data.CharacterDataDict.Keys)
+        {
+            FetchCharacterData(accountNumber, charkey);
+            FetchAllGoodsData(accountNumber, charkey);
+            FetchAllItemData(accountNumber, charkey);
+            FetchEquipData(accountNumber, charkey);
+        }
+    }
     #region 신규 캐릭터 처리
     private void CreateCharacter(string accountNumber, int charcode,string charname)
     {
@@ -151,9 +163,11 @@ public class DBManager
             {"DateTime",DateTime.Now.ToString() },
             {"name",charname }
         };
+        Managers.Data.CharacterDataDict[charcode].dateTime= DateTime.Now.ToString();
+        Managers.Data.CharacterDataDict[charcode].name = charname;
         // Character 데이터를 Firebase에 쓰기
         //  DatabaseReference characterRef = reference.Child("Account").Child(accountNumber).Child("Character").Child(charcode.ToString());
-             DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
+        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
         characterRef.UpdateChildrenAsync(characterData).ContinueWith(task =>
         {
             if (task.IsFaulted)
@@ -165,8 +179,12 @@ public class DBManager
             if (task.IsCompleted)
             {
                 Debug.Log("Character created successfully.");
+                Managers.Data.CharacterDataDict[charcode].isActive = true;
+                Managers.Event.CreateOrDeleteCharacter?.Invoke(charcode);
             }
         });
+
+        
     }
 
     private void CreateGoods(string accountNumber,int charcode)
@@ -303,7 +321,7 @@ public class DBManager
     //골드도 데이터를 가져옴 근데 매번 아이템을 구매하고 나서 해당 데이터를 DB에 넣어줄 것인지는 고민해봐야함
     //골드 구매할 떄도 DataBase의 골드를 확인 후 구매처리를 할 것인지 고민해야함
     //원래라면 해야 겠지만.. - 나는 서버가 없음 - 
-    public void FetchAllGoodsData(string accountNumber,int charcode,Define.Goods good=Define.Goods.Gold)
+    public void FetchAllGoodsData(string accountNumber,int charcode)
     {
 
         DatabaseReference GoodsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Goods");
@@ -343,17 +361,12 @@ public class DBManager
             }
         });
     }
-
-  
-
-
-
-    public void FetchEquipData(string accountNumber,int charcode ,Define.ItemType equipitem)
+    public void FetchEquipData(string accountNumber,int charcode)
     {
 
-        DatabaseReference accountRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("EQUIPS");
+        DatabaseReference equipRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("EQUIPS");
 
-        accountRef.GetValueAsync().ContinueWith(task =>
+        equipRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
             {
@@ -365,29 +378,20 @@ public class DBManager
             {
                 DataSnapshot snapshot = task.Result;
 
-                if (snapshot.Exists)
+                foreach (DataSnapshot itemSnapshot in snapshot.Children)
                 {
-                    // 데이터가 존재하는 경우
-                    string equipcount = snapshot.Child($"{equipitem}").Value.ToString();
-                    Debug.Log($"{equipitem} Code : {equipcount}");
-                    
-                    Debug.Log($"DB에 존재하는 장비 코드 확인 처리!");
-                    Debug.Log("내 캐릭터 장비에 해당 코드를 넣어주는 처리");
-                    // 데이터 처리 코드 추가
+                    // 아이템 데이터 추출
+                    string equiptype = itemSnapshot.Key;
+                    int itemcode = int.Parse(itemSnapshot.Child("equiptype").Value.ToString());
+                    Managers.Data.EquipData[(Define.ItemType)Enum.Parse(typeof(Define.ItemType), equiptype)]= itemcode;
                 }
-                else
-                {
-                    // 데이터가 존재하지 않는 경우
-                    Debug.Log("Goods data does not exist.");
-                }
+
             }
         });
     }
-
-
     public void FetchCharacterData(string accountNumber, int charcode)
     {
-           DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
+        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
         characterRef.GetValueAsync().ContinueWith(task =>
         {
             if (task.IsFaulted)
@@ -402,15 +406,14 @@ public class DBManager
                 
                if (snapshot.Exists)
                 {
-                    foreach (DataSnapshot itemSnapshot in snapshot.Children)
-                    {
-                        int code = int.Parse(itemSnapshot.Key);
+
+                        int code = int.Parse(snapshot.Key);
                         Managers.Data.CharacterDataDict[code].level= int.Parse(snapshot.Child("level").Value.ToString());
                         Managers.Data.CharacterDataDict[code].dateTime = snapshot.Child("DateTime").Value.ToString();
                         Managers.Data.CharacterDataDict[code].exp = int.Parse(snapshot.Child("exp").Value.ToString());
                         Managers.Data.CharacterDataDict[code].isActive = true;
-                        // 데이터 처리 코드 추가
-                    }
+                        Managers.Data.CharacterDataDict[code].name = snapshot.Child("name").Value.ToString();
+
 
                 }
                 else
@@ -442,7 +445,9 @@ public class DBManager
                     // 아이템 데이터 추출
                     int itemCode = int.Parse(itemSnapshot.Key);
                     int count = int.Parse(itemSnapshot.Child("count").Value.ToString());
+                    int enhancement = int.Parse(itemSnapshot.Child("Enhancement").Value.ToString());
                     Managers.Data.ItemDataDict[itemCode].count = count;
+                    Managers.Data.ItemDataDict[itemCode].enhancement = enhancement;
                     // 추출한 데이터 활용
                     Debug.Log("Item: itemCode = " + itemCode + ", count = " + count);
                 }
@@ -493,7 +498,7 @@ public class DBManager
 
     //캐릭터 업데이트는 언제 해줄까? DB 경험치 획득할 떄 마다 하면 내 FireBase 죽을듯
 
-    public void UpdateCharacter(string accountNumber, int charactercode, int acquireCount,Define.Update_DB_Character updateType)
+    public void UpdateCharacterLevel(string accountNumber, int charactercode, int acquireCount,Define.Update_DB_Character updateType)
     {
         DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString());
 
@@ -530,7 +535,7 @@ public class DBManager
             {
                 int currentItemcode = int.Parse(transaction.Child($"{updateType}").Value.ToString());
                 transaction.Child($"{updateType}").Value = $"{euipcode}";
-                Debug.Log($"레벨 변경 :: 변경전 = {currentItemcode} 변경 후 = {updateType}");
+                Debug.Log($"장비 변경 :: 변경전 = {currentItemcode} 변경 후 = {updateType}");
                 return TransactionResult.Success(transaction);
             }
             return TransactionResult.Abort();
@@ -546,7 +551,32 @@ public class DBManager
             }
         });
     }
+    public void UpdateCharacterActive(string accountNumber, int charactercode, bool isAcquire)
+    {
+        DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString());
 
+        itemRef.RunTransaction(transaction =>
+        {
+            if (transaction.Value != null)
+            {
+                //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
+  
+                transaction.Child($"isActive").Value = $"{isAcquire}";
+                return TransactionResult.Success(transaction);
+            }
+            return TransactionResult.Abort();
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error updating item: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Item updated successfully.");
+            }
+        });
+    }
 
 
 
@@ -569,6 +599,8 @@ public class DBManager
             if (task.IsCompleted)
             {
                 Debug.Log("Character deleted successfully.");
+                Managers.Event.CreateOrDeleteCharacter?.Invoke(charcode);
+                Managers.Data.CharacterDataDict[charcode].isActive = false;
             }
         });
     }

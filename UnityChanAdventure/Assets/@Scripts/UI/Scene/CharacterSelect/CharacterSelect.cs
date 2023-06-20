@@ -68,21 +68,22 @@ public class CharacterSelect : UI_Scene,IListener
     private void CreateCharacter()
     {
         Debug.Log("캐릭터 추가");
-        Managers.DB.CharacterInit(Managers.Game.AccountNumber.ToString(), Managers.Game.currentCharNumber,
+        Managers.DB.CharacterInit(Managers.Game.AccountNumber.ToString(), SelectCharcter,
             Get<TMP_InputField>((int)InputFields.CharacterName_InputField).text);
+        GetObject((int)GameObjects.MakeCharacter).SetActive(false);
     }
     private void DeleCharacter()
     {
-        if (Managers.Game.AccountNumber == 0)
+        if (SelectCharcter == 0)
         {
             Debug.Log("캐릭터를 선택하지 않음!");
         }
         Debug.Log("DB삭제");
-        Managers.DB.DeleteCharacter(Managers.Game.AccountNumber.ToString(), Managers.Game.currentCharNumber);
+        Managers.DB.DeleteCharacter(Managers.Game.AccountNumber.ToString(), SelectCharcter);
     }
     private void GameStart()
     {
-        if (SelectCharcter != -1)
+        if (Managers.Data.CharacterDataDict[SelectCharcter].isActive)
         {
             Managers.Game.currentCharNumber = SelectCharcter;
             Debug.Log("TownScene로 이동 구현");
@@ -96,6 +97,7 @@ public class CharacterSelect : UI_Scene,IListener
     public void ShowMakeCharacter()
     {
         GetObject((int)GameObjects.MakeCharacter).SetActive(true);
+   
     }
 
     public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
@@ -105,13 +107,14 @@ public class CharacterSelect : UI_Scene,IListener
             Debug.Log($"{gameObject.name} :SelectCharacter 이벤트 받음 ");
             if (Managers.Data.CharacterDataDict[Sender.GetComponent<MyCharacter_SelectScene>().Charcode].isActive)
             {
-                SelectCharcter = Sender.GetComponent<MyCharacter_SelectScene>().Charcode;
+              
             }
             else
             {
                 ShowMakeCharacter();
               
             }
+            SelectCharcter = Sender.GetComponent<MyCharacter_SelectScene>().Charcode;
         }
     }
 }
