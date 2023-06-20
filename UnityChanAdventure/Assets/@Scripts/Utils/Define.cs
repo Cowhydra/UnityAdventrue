@@ -47,6 +47,13 @@
     }
     #endregion
     #region GameContents
+   
+    public enum Behavior_NodeState
+    {
+        RUNNING,
+        SUCCESS,
+        FAILURE
+    }
 
     public enum Goods
     {
@@ -78,6 +85,7 @@
     public enum LayerMask
     {
         Enviroment = 6,
+        Enemy=8,
         Skill = 10
     }
     public enum EDamageType

@@ -627,11 +627,11 @@ public class DBManager
                     {
                         if (removeTask.IsFaulted)
                         {
-                            Debug.LogError("Error deleting child node: " + removeTask.Exception);
+                            Debug.LogError("Error deleting child Behavior_Node: " + removeTask.Exception);
                         }
                         else if (removeTask.IsCompleted)
                         {
-                            Debug.Log("Child node deleted successfully.");
+                            Debug.Log("Child Behavior_Node deleted successfully.");
                         }
                     });
                 }

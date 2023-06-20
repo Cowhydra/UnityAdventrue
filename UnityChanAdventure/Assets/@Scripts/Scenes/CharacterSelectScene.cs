@@ -6,7 +6,7 @@ public class CharacterSelectScene : BaseScene
 {
     public override void Clear()
     {
-
+        Managers.Event.ClearEventList();
     }
     // Start is called before the first frame update
   
