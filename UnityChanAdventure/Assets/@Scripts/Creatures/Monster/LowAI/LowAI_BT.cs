@@ -18,6 +18,11 @@ public class LowAI_BT : Behavior_Tree
         { 
             new Behavior_Sequence(new List<Behavior_Node>
             {
+                new CheckEnemyInAttackRange(transform),
+                new TaskAttack(transform),
+            }),
+             new Behavior_Sequence(new List<Behavior_Node>
+            {
                 new CheckEnemyInFovRange(transform),
                 new TaskGotoTarget(transform),
             }),

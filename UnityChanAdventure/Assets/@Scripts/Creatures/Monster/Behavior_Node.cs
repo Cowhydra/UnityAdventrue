@@ -22,6 +22,7 @@ namespace BehaviorTree
         }
         public Behavior_Node(List<Behavior_Node> children)
         {
+            //자식들을 부모에게 연결
             foreach (Behavior_Node child in children)
                 _Attach(child);
         }
