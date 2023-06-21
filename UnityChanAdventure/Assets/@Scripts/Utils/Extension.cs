@@ -64,6 +64,26 @@ public static class Extension
         
     }
 
+    public static void ShowDamageUI(this  GameObject TargetObject, float damage, Define.DamageType DamageType = Define.DamageType.Nomal)
+    {
+        DamageUI _damageUI = Managers.UI.ShowWorldUI<DamageUI>();
+        _damageUI.transform.SetParent(TargetObject.transform);
+        _damageUI.transform.localPosition = Vector3.zero;
+        _damageUI.SetDamage(damage);
+        _damageUI.Excute();
+
+        switch (DamageType)
+        {
+            case Define.DamageType.Nomal:
+                break;
+            case Define.DamageType.Cirtical:
+                _damageUI.SetColor(Color.red);
+                break;
+            case Define.DamageType.Item:
+                _damageUI.SetColor(Color.blue);
+                break;
+        }
+    }
 
 }
 

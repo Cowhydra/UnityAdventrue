@@ -1,0 +1,39 @@
+# Blender MTL File: 'VanTemp.blend'
+# Material Count: 3
+
+newmtl FA_113
+Ns 31.372549
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd aishaface.png
+
+newmtl HR_94
+Ns 31.372549
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd aishahair.png
+map_Bump aishahairn.png
+map_Ks aishahaird.png
+
+newmtl body_76
+Ns 31.372549
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd aishabody.png
+map_Bump aishabodyn.png
+map_Ks aishabodyd.png

@@ -1,0 +1,39 @@
+# Blender MTL File: 'None'
+# Material Count: 3
+
+newmtl vanillabody
+Ns 29.411765
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd vanillabody.png
+map_Bump vanillabodyn.png
+map_Ks vanillabodyd.png
+
+newmtl vanillaface
+Ns 29.411765
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd vanillaface.png
+
+newmtl vanillahair
+Ns 29.411765
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd vanillahair.png
+map_Bump vanillahairn.png
+map_Ks vanillahaird.png

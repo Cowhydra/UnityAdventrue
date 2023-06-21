@@ -31,6 +31,7 @@ public class Equipment
         {
             EQUIP.Add(equipitem.ItemType, equipitem);
             Debug.Log("장비 장착 관련 구조 생각해보자 이벤트가 가장 무난할듯?");
+            Debug.Log("장비 장착하면  UI 변경 예정");
             //장비를 장착하고, 아이템 인벤토리에서 해당 아이템을 제거해준 후, Refresh()를 통해 UI를 갱신합니다.
             Refresh();
             return true;

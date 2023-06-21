@@ -1,96 +1,136 @@
 ﻿using Data;
 using System;
+using System.Collections;
+using UnityEngine;
 
-
-
-public class MyCharacter
+public class MyCharacter:Creature,IDamage,IListener
 {
-
-    public int AccountNumber { get; set; }
-    // CharacterData 의  내 캐릭터 정보를 담은 class 에서 Mycharcter 로 옮기는 과정
-    public CharacterData CharacterDataInfo { get; } = new CharacterData();
-    public int CharacterCode { get { return CharacterDataInfo.charcode; } set { CharacterDataInfo.charcode = value; } }
-    private Equipment _Equip;
-    public Equipment EQUIP { get { return _Equip; } set { _Equip = value; } }
-
-    private Inventory _inven;
-    public Inventory Inven { get { return _inven; } set { _inven = value; } }
-
-
-    public string JobType { get { return CharacterDataInfo.jobType; } set { CharacterDataInfo.jobType = value; } }
-    public int MaxHp { get { return CharacterDataInfo.maxhp + EQUIP.EQUIP_MaxHp; } set { CharacterDataInfo.maxhp = value; } }
-
-    private int CurrentHp;
-    public int Hp { get { return CurrentHp; } set { CurrentHp = value; } }
-    private int CurrentMana;
-    public int Mana { get { return CurrentMana; } set { CurrentMana = value; } }
-    public int MaxMana { get { return CharacterDataInfo.maxmana + EQUIP.EQUIP_MaxMp; } set { CharacterDataInfo.maxmana = value; } }
-    public int MagicDef { get { return CharacterDataInfo.magicdef + EQUIP.EQUIP_MagicDef + (Level - 1) * 10; } set { CharacterDataInfo.magicdef = value; } }
-    public int Def { get { return CharacterDataInfo.def + EQUIP.EQUIP_Def + (Level - 1) * 10; } set { CharacterDataInfo.def = value; } }
-    public int MagicAttack { get { return CharacterDataInfo.magicattack + EQUIP.EQUIP_MagicAttack + (Level - 1) * 10; } set { CharacterDataInfo.magicattack = value; } }
-    public int Attack { get { return CharacterDataInfo.attack + EQUIP.EQUIP_Attack + (Level - 1) * 10; } set { CharacterDataInfo.attack = value; } }
-    public int AttackSpeed { get { return CharacterDataInfo.attackspeed; } set { CharacterDataInfo.attackspeed = value; } }
-    public string IconPath { get { return CharacterDataInfo.iconPath; } set { CharacterDataInfo.iconPath = value; } }
-    public string Name { get { return CharacterDataInfo.name; } set { CharacterDataInfo.name = value; } }
-    public int Level { get { return CharacterDataInfo.level; } set { CharacterDataInfo.level = value; } }
-
+    private int myCharacterCode;
+    //set을 구지해줄 필요는 없어보이는데?
+    public int MaxHp { get { return _maxhp; } private set { _maxhp = value; } }
+    public int MaxMana { get { return _maxmana; } private set { _maxmana = value; } }
+    public int MagicDef { get { return _magicdef; } private set { _magicdef = value; } }
+    public int Def { get { return _def; }  private set { _def = value; } }
+    public int MagicAttack { get { return _magicattack; } private set  { _magicattack=value; } }
+    public int Attack { get { return _attack; } private set  { _attack = value; } }
+    public int AttackSpeed { get { return _attackspeed; } private set { _attackspeed = value; } }
+    public string Name { get { return Managers.Data.CharacterDataDict[myCharacterCode].name; } private set { } }
+    public int Level 
+    {
+        get { return _level; } private set 
+        {
+            _level = value;
+            Managers.Data.CharacterDataDict[Managers.Game.currentCharNumber].level = _level;
+            Debug.Log("캐릭터 레벨업 DB ");
+        
+        } 
+    }
+    public Define.MonsterAttackType EnemyAttackType = Define.MonsterAttackType.Melee;
+    private int _mana;
+    public int Mana { get { return _mana; } set { _mana = value; } }
     private int _exp;
     public int Exp
     {
         get { return _exp; }
         set
         {
-            if (Exp > RequireExp)
+            _exp = value;
+            if (_exp > RequireExp)
             {
                 Level++;
-                Exp -= RequireExp;
+                _exp -= RequireExp;
             }
-            _exp = value;
+            
+        }
+    }
+    public int Hp
+    {
+        get { return _hp; }
+        set
+        {
+            _hp = Math.Clamp(value, 0, _maxhp);
+            if (_hp < 0)
+            {
+                Die();
+            }
+            Debug.Log("Hp 관련 이벤트");
+            Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
         }
     }
     public int RequireExp { get { return Level * 20 + 8; } }
 
 
-    public void StatInit()
+    public void DieStatSet()
     {
-        Hp = MaxHp;
-        Mana = 0;
+        Hp = 50;
+        _mana = 0;
+        isDie = false;
+    }
 
+    private void  InitCharacter()
+    {
+        _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp;
+        _maxmana= Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp;
+        _hp = MaxHp;
+        _mana = Mana;
+        _def = Managers.Data.CharacterDataDict[myCharacterCode].def + Managers.EQUIP.EQUIP_Def + (Level - 1) * 10;
+        _magicdef= Managers.Data.CharacterDataDict[myCharacterCode].magicdef + Managers.EQUIP.EQUIP_MagicDef + (Level - 1) * 10;
+        _magicattack= Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level - 1) * 10;
+        _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level - 1) * 10;
+        _attackspeed = Managers.Data.CharacterDataDict[myCharacterCode].attackspeed;
+        _level= Managers.Data.CharacterDataDict[myCharacterCode].level;
+        Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
+    }
+    private void CharacterEQUIPStatsChange()
+    {
+        _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp;
+        _maxmana = Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp;
+        _def = Managers.Data.CharacterDataDict[myCharacterCode].def + Managers.EQUIP.EQUIP_Def + (Level - 1) * 10;
+        _magicdef = Managers.Data.CharacterDataDict[myCharacterCode].magicdef + Managers.EQUIP.EQUIP_MagicDef + (Level - 1) * 10;
+        _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level - 1) * 10;
+        _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level - 1) * 10;
 
 
     }
-
-    public static MyCharacter MakeCharacter(CharacterData characterDataInfo)
+    public void OnDamage(int damage,Define.MonsterAttackType MonsterAttackType)
     {
-
-        CharacterData characterData = null;
-        MyCharacter myCharacter = null;
-
-        Managers.Data.CharacterDataDict.TryGetValue(characterDataInfo.charcode, out characterData);
-        if (characterData == null) return null;
-        myCharacter = new MyCharacter();
-        myCharacter.Mana = characterDataInfo.maxmana;
-        myCharacter.MaxMana = characterDataInfo.maxmana;
-        myCharacter.Hp = characterDataInfo.maxhp;
-        myCharacter.MaxHp = characterDataInfo.maxhp;
-        myCharacter.Attack = characterDataInfo.attack;
-        myCharacter.IconPath = characterDataInfo.iconPath;
-        myCharacter.CharacterCode = characterDataInfo.charcode;
-        myCharacter.AttackSpeed = characterDataInfo.attackspeed;
-        myCharacter.MagicAttack = characterDataInfo.magicattack;
-        myCharacter.JobType = characterDataInfo.jobType;
-        myCharacter.Def = characterDataInfo.def;
-        myCharacter.MagicDef = characterDataInfo.magicdef;
-        myCharacter.Level = characterDataInfo.level;
-        myCharacter.Name = characterDataInfo.name;
-        myCharacter.EQUIP = new Equipment();
-        myCharacter.Inven = new Inventory();
-        return myCharacter;
+        if (MonsterAttackType == Define.MonsterAttackType.RangeAttack)
+        {
+            Hp -= Math.Max(0, damage - _level - _magicdef);
+        }
+        else
+        {
+            Hp -= Math.Max(0,damage - _level - _def);
+        }
+      
+    }
+    public override void Die()
+    {
+        base.Die();
+    }
+    public void Start()
+    {
+        myCharacterCode = Managers.Game.currentCharNumber;
+        InitCharacter();
+        StartCoroutine(nameof(Regenerat_co));
+    }
+    protected IEnumerator Regenerat_co()
+    {
+        while (true)
+        {
+            Mana += 5;
+            Hp +=5;
+            yield return new WaitForSeconds(_healthRegenDelay);
+        }
     }
 
-
-
-
-
-
+    public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
+    {
+        switch (Event_Type)
+        {
+            case Define.EVENT_TYPE.PlayerEquipChanage:
+                CharacterEQUIPStatsChange();
+                break;
+        }
+    }
 }

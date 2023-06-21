@@ -7,10 +7,9 @@ public class TaskPatrol : Behavior_Node
     private Transform _transform;
     private Transform[] _waypoints;
     private int _currentWaypointIndex = 0;
-    private float _waitTime = 1f; 
+    private float _waitTime = 2f; 
     private float _waitCounter = 0f;
     private bool _waiting = false;
-    private float _speed = 0f;
     private Animator _animator;
 
     public TaskPatrol(Transform transform, Transform[] waypoints)

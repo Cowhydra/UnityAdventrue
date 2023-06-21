@@ -10,6 +10,8 @@
         TownScene,
         CharacterSelectScene,
         Lava_Dungeon,
+        TestScene,
+
 
 
     }
@@ -32,8 +34,10 @@
     }
     public enum EVENT_TYPE
     {
-
         SelectCharacter,
+
+        PlayerStatsChange,
+        PlayerEquipChanage,
 
     }
     public enum Login_Event_Type
@@ -47,7 +51,20 @@
     }
     #endregion
     #region GameContents
-   
+   public enum MonsterAttackType
+    {
+        Melee,
+        RangeAttack,
+        All,
+
+    }
+    public enum QuestState
+    {
+        Pending,
+        Active,
+        Completed
+    }
+
     public enum Behavior_NodeState
     {
         RUNNING,
@@ -62,7 +79,8 @@
         RedDiamond,
 
     }
-    public enum ESkillType
+
+    public enum SkillType
     {
         None,
         Basic,
@@ -72,7 +90,7 @@
         RSkill,
 
     }
-    public enum EGameState
+    public enum GameState
     {
         None,
         EnterDungeon,
@@ -88,7 +106,7 @@
         Enemy=8,
         Skill = 10
     }
-    public enum EDamageType
+    public enum DamageType
     {
         Nomal,
         Cirtical,

@@ -14,6 +14,8 @@ public class Managers : MonoBehaviour
     EventManager _event= new EventManager();
     DBManager _db= new DBManager();
     GameManager _game = new GameManager();
+    Inventory _inven = new Inventory();
+    Equipment _equip = new Equipment();
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
@@ -23,6 +25,8 @@ public class Managers : MonoBehaviour
     public static EventManager Event { get { return Instance._event; } }
     public static DBManager DB { get { return Instance._db; } }
     public static GameManager Game { get { return Instance._game; } }
+    public static Inventory Inven { get { return Instance._inven; } }
+    public static Equipment EQUIP { get { return Instance._equip; } }
 
     void Start()
     {

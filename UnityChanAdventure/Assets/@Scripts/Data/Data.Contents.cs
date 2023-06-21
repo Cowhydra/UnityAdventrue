@@ -148,8 +148,6 @@ namespace Data
     {
         public string name;
         public int charcode;
-
-        public string jobType;
         public int maxhp;
         public int maxmana;
         public int magicdef;
@@ -187,14 +185,15 @@ namespace Data
     {
         public string name;
         public int moncode;
-        public string environment;
+       // public string environment;
         public int maxhp;
         public int def;
         public int attack;
         public int level;
         public string prefabPath;
-
+        //public string attacktype;
         public MonsterEnvType EnvType;
+        public MonsterAttackType AttackType;
     }
     [Serializable]
     public class MonsterDataLoader : ILoader<int, MonsterData>
@@ -206,7 +205,8 @@ namespace Data
             Dictionary<int, MonsterData> dict = new Dictionary<int, MonsterData>();
             foreach (MonsterData mon in Monster)
             {
-                mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
+               // mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
+               // mon.AttackType = (MonsterAttackType)Enum.Parse(typeof(MonsterAttackType), mon.attacktype);
                 dict.Add(mon.moncode, mon);
               
             }

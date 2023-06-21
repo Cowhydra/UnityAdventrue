@@ -6,7 +6,7 @@ public class GameManager
 {
 
     public string AccountNumber;
-    public int currentCharNumber;
+    public int currentCharNumber=100;
 
 
     #region ÀçÈ­

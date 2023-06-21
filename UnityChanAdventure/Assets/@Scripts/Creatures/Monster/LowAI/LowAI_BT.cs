@@ -8,9 +8,11 @@ public class LowAI_BT : Behavior_Tree
     //Guard
     public UnityEngine.Transform[] waypoints;
 
+
     public static float speed = 2f;
     public static float fovRange = 6f;
     public static float attackRange = 2f;
+
     protected override Behavior_Node SetupTree()
     {
 

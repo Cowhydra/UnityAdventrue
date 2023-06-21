@@ -9,7 +9,7 @@ public class TaskAttack : Behavior_Node
     private float _attackCounter = 0f;
     private Animator _animator;
     private Transform _lastTarget;
-    //private EnemtManager _enemyManager;
+    private Creature _enemy;
     public TaskAttack(Transform transform)
     {
        // _animator=transform.GetComponent<Animator>();   
@@ -20,18 +20,18 @@ public class TaskAttack : Behavior_Node
         Transform target = (Transform)GetData("target");
         if (target != _lastTarget)
         {
-            //_enemyManager=target.GetComponent<EnemyManager>();
+            _enemy = target.GetComponent<Creature>();
             _lastTarget=target;
         }
 
         _attackCounter += Time.deltaTime;
         if (_attackCounter >= _attackTime)
         {
-            bool enemyisDead = false; //enemydead 확인하기
-            if (enemyisDead)
+          
+            if (_enemy.isDie)
             {
                 ClearData("target");
-               // _animator.SetBool("Attacking", false);
+                // _animator.SetBool("Attacking", false);
                 //_animator.SetBool("Walking", true);
             }
             else
