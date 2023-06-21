@@ -16,6 +16,8 @@ public class Managers : MonoBehaviour
     GameManager _game = new GameManager();
     Inventory _inven = new Inventory();
     Equipment _equip = new Equipment();
+    QuestManager _quest=new QuestManager();
+
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
@@ -27,6 +29,7 @@ public class Managers : MonoBehaviour
     public static GameManager Game { get { return Instance._game; } }
     public static Inventory Inven { get { return Instance._inven; } }
     public static Equipment EQUIP { get { return Instance._equip; } }
+    public static QuestManager Quest { get { return Instance._quest; } }
 
     void Start()
     {

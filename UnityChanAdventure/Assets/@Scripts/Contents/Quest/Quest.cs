@@ -5,18 +5,20 @@ using static Define;
 
 public abstract class Quest
 {
-    protected QuestChannel _questsChannel;
 
     public string UniqueId;
     public string Name;
     public QuestState State;
     public int LevelRequirement;
     public int ExperienceReward;
+    public int DiaReward;
+    public int itemReward;
+    public bool isCleared;
 
-    protected virtual void Enable()
+    public virtual void Enable()
     {
-        this._questsChannel.QuestActivatedEvent += this.QuestActiveEvent;
-        this._questsChannel.QuestCompleteEvent += this.QuestCompletedEvent;
+        Managers.Event.ActiveQuest += this.QuestActiveEvent;
+        Managers.Event.CompletedQuest += this.QuestCompletedEvent;
 
         if (State == QuestState.Active)
         {
@@ -24,10 +26,10 @@ public abstract class Quest
         }
     }
 
-    protected virtual void Disable()
+    public virtual void Disable()
     {
-        this._questsChannel.QuestActivatedEvent -= this.QuestActiveEvent;
-        this._questsChannel.QuestCompleteEvent -= this.QuestCompletedEvent;
+        Managers.Event.ActiveQuest -= this.QuestActiveEvent;
+        Managers.Event.CompletedQuest -= this.QuestCompletedEvent;
     }
 
     private void QuestActiveEvent(Quest activeQuest)
@@ -52,6 +54,6 @@ public abstract class Quest
 
     protected void Complete()
     {
-        this._questsChannel.CompleteQuest(this);
+        Managers.Event.CompletedQuest?.Invoke(this);
     }
 }

@@ -68,4 +68,14 @@ public class Monster : Creature,IDamage,IAttack
         Hp += _level * 5 + UnityEngine.Random.Range(5, 10);
         yield return new WaitForSeconds(_healthRegenDelay);
     }
+
+    #region ¸ó½ºÅÍ Á×´Â Äù½ºÆ®
+    public Action<int, int> MonsterReceivedGoldAndExp;
+
+    public void ReceiveReward(int goldReward, int expReward)
+    {
+
+        MonsterReceivedGoldAndExp?.Invoke(goldReward, expReward);
+    }
+    #endregion
 }

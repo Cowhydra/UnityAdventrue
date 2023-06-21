@@ -6,7 +6,8 @@ using UnityEngine;
 public class MyCharacter:Creature,IDamage,IListener
 {
     private int myCharacterCode;
-    //set을 구지해줄 필요는 없어보이는데?
+
+    #region 스텟
     public int MaxHp { get { return _maxhp; } private set { _maxhp = value; } }
     public int MaxMana { get { return _maxmana; } private set { _maxmana = value; } }
     public int MagicDef { get { return _magicdef; } private set { _magicdef = value; } }
@@ -21,7 +22,7 @@ public class MyCharacter:Creature,IDamage,IListener
         {
             _level = value;
             Managers.Data.CharacterDataDict[Managers.Game.currentCharNumber].level = _level;
-            Debug.Log("캐릭터 레벨업 DB ");
+            Debug.Log("캐릭터 레벨업 하면 DB 갱신 ");
         
         } 
     }
@@ -39,6 +40,8 @@ public class MyCharacter:Creature,IDamage,IListener
             {
                 Level++;
                 _exp -= RequireExp;
+
+                Debug.Log("캐릭터 경험치를 획득하게 되면 DB를 갱신해야 합니다.");
             }
             
         }
@@ -92,6 +95,7 @@ public class MyCharacter:Creature,IDamage,IListener
 
 
     }
+    #endregion
     public void OnDamage(int damage,Define.MonsterAttackType MonsterAttackType)
     {
         if (MonsterAttackType == Define.MonsterAttackType.RangeAttack)
@@ -133,4 +137,6 @@ public class MyCharacter:Creature,IDamage,IListener
                 break;
         }
     }
+
+ 
 }

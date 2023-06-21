@@ -24,6 +24,7 @@ public class GameManager
             return;
         }
         _gold += Amount;
+        Debug.Log(" 골드 DB처리");
     }
     public void BlueDiamondChange(int Amount)
     {
@@ -33,6 +34,7 @@ public class GameManager
             return;
         }
         _bluediamond += Amount;
+        Debug.Log(" 파란보석 DB처리");
     }
     public void RedDiamondChange(int Amount)
     {
@@ -42,6 +44,7 @@ public class GameManager
             return;
         }
         _reddiamond += Amount;
+        Debug.Log(" 붉은보석 DB처리");
     }
     #endregion
 

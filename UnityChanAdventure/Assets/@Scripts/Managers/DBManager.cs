@@ -455,6 +455,7 @@ public class DBManager
                 Debug.Log("그냥 불러온 데이터를 itemcode에 맞게 내 Data나 inventory에 넣어주면 됨");
             }
         });
+        Managers.Inven.init();
     }
     #endregion
 

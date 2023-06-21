@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class CollectItemQuest : Quest
+{
+    private int _objectItemCode;
+    private int _amountToCollect;
+
+    public CollectItemQuest(string uniqueId, string name, int levelRequirement, int experienceReward, int DiaRward, int objectItemCode, int amountToCollect)
+    {
+        this.UniqueId = uniqueId;
+        this.Name = name;
+        this.LevelRequirement = levelRequirement;
+        this.ExperienceReward = experienceReward;
+        this.DiaReward = DiaRward;
+        this._objectItemCode = objectItemCode;
+        this._amountToCollect = amountToCollect;
+    }
+    protected override void QuestActive()
+    {
+        var uniqueId = _objectItemCode;
+        this.TryComplete();
+
+        Managers.Event.AddItem += this.ItemAddedEvent;
+    }
+
+    protected override void QuestCompleted()
+    {
+        Managers.Event.AddItem -= this.ItemAddedEvent;
+
+        if (DiaReward != 0)
+        {
+            Managers.Game.BlueDiamondChange(DiaReward);
+        }
+        if (ExperienceReward != 0)
+        {
+            GameObject.FindObjectOfType<MyCharacter>().Exp += ExperienceReward;
+        }
+        if (itemReward != 0)
+        {
+            Managers.Inven.Add(itemReward);
+        }
+
+    }
+
+    private void ItemAddedEvent(int AdditemCode)
+    {
+        if (_objectItemCode != AdditemCode) return;
+
+        this.TryComplete();
+    }
+
+    private void TryComplete()
+    {
+        if (Managers.Inven.Items[_objectItemCode].Count >= this._amountToCollect)
+        {
+            this.Complete();
+        }
+    }
+}
