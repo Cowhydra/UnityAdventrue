@@ -72,6 +72,10 @@ public class MyCharacter:Creature,IDamage,IListener
 
     private void  InitCharacter()
     {
+        if (!Managers.Data.CharacterDataDict.ContainsKey(myCharacterCode))
+        {
+            return;
+        }
         _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp;
         _maxmana= Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp;
         _hp = MaxHp;
