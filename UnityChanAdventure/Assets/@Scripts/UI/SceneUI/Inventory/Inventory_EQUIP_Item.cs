@@ -10,7 +10,8 @@ public class Inventory_EQUIP_Item : MonoBehaviour,IListener
     private Define.ItemType MyEquipType;
     [SerializeField]
     private Image MyImage;
-
+    [SerializeField]
+    private Sprite defaultImage;
     private int mycode;
     private void Start()
     {
@@ -39,7 +40,15 @@ public class Inventory_EQUIP_Item : MonoBehaviour,IListener
 
     private void RefreshUI()
     {
-        MyImage.sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[mycode].iconPath}");
+        if (mycode == 0)
+        {
+            MyImage.sprite = defaultImage;
+        }
+        else
+        {
+            MyImage.sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[mycode].iconPath}");
+
+        }
     }
 
 }

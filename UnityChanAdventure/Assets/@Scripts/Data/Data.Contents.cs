@@ -214,6 +214,52 @@ namespace Data
             return dict;
         }
     }
+    #endregion
+
+    #region Quest
+
+
+    [Serializable]
+    public class QuestData
+    {
+        public string Name;
+        public int UniqueId;
+        public int LevelRequirement;
+        public int ExperienceReward;
+        public int DiaReward;
+        public int itemReward;
+        public bool isCleared;
+
+        public int enemyToTargetCode;
+        public int objectItemCode;
+        public int Amount;
+
+
+        public string script1;
+        public string script2;
+        public string script3;
+
+        public QuestState State;
+        public QuestType QuestType;
+
+    }
+    [Serializable]
+    public class QuestDataLoader : ILoader<int, QuestData>
+    {
+        public List<QuestData> Quest = new List<QuestData>();
+
+        public Dictionary<int, QuestData> MakeDict()
+        {
+            Dictionary<int, QuestData> dict = new Dictionary<int, QuestData>();
+            foreach (QuestData quest in Quest)
+            {
+               dict.Add(quest.UniqueId, quest);
+
+            }
+            return dict;
+        }
+    }
+
 
     #endregion
 

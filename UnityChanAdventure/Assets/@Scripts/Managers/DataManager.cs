@@ -21,6 +21,8 @@ public class DataManager
         {Define.ItemType.Ring,0 },
 
     };
+    public Dictionary<int, Data.QuestData> QuestData { get; private set; } = new Dictionary<int, Data.QuestData>();
+
     
     
     //public Dictionary<int, Data.Skill> SkillDataDict { get; private set; } = new Dictionary<int, Data.Skill>();
@@ -29,6 +31,7 @@ public class DataManager
         ItemDataDict = LoadJson<Data.ItemLoader, int, Data.ItemData>("ItemData").MakeDict();
         CharacterDataDict = LoadJson<Data.CharacterLoader, int, Data.CharacterData>("CharacterData").MakeDict();
         MonsterDataDict = LoadJson<Data.MonsterDataLoader, int, Data.MonsterData>("MonsterData").MakeDict();
+        QuestData = LoadJson<Data.QuestDataLoader, int, Data.QuestData>("QuestData").MakeDict();
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
