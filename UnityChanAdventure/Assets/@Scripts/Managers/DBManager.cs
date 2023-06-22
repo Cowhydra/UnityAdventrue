@@ -388,6 +388,7 @@ public class DBManager
 
             }
         });
+        Managers.EQUIP.Init();
     }
     public void FetchCharacterData(string accountNumber, int charcode)
     {
@@ -544,11 +545,11 @@ public class DBManager
         {
             if (task.IsFaulted)
             {
-                Debug.LogError("Error updating item: " + task.Exception);
+                Debug.LogError("Error updating EQUIP: " + task.Exception);
             }
             else if (task.IsCompleted)
             {
-                Debug.Log("Item updated successfully.");
+                Debug.Log("EQUIP updated successfully.");
             }
         });
     }

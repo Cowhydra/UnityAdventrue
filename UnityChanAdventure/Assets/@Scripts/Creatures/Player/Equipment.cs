@@ -37,6 +37,10 @@ public class Equipment
             return true;
         }
     }
+    public void UnEquip(ItemType itemtype)
+    {
+        EQUIP.Remove(itemtype);
+    }
 
 
     public void SumEquipAblity()
@@ -101,7 +105,16 @@ public class Equipment
         EQUIP_MagicDef = 0;
     }
 
-
+    public void Init()
+    {
+        foreach(Define.ItemType itemtype in Managers.Data.EquipData.Keys)
+        {
+            if (Managers.Data.EquipData[itemtype] != 0)
+            {
+                EQUIP.Add(itemtype, Managers.Inven.GetItem(Managers.Data.EquipData[itemtype]));
+            }
+        }
+    }
 
 
 

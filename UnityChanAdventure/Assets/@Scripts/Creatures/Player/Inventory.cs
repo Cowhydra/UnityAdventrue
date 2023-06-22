@@ -85,7 +85,7 @@ public class Inventory
         return true;
     }
 
-    public Item Get(int itemId)
+    public Item GetItem(int itemId)
     {
         Item item = null;
         Items.TryGetValue(itemId, out item);

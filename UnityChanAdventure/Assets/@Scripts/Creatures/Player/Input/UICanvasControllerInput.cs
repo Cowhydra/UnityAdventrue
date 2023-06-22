@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace StarterAssets
 {
-    public class UICanvasControllerInput : MonoBehaviour
+    public class UICanvasControllerInput : MonoBehaviour,IListener
     {
 
         [Header("Output")]
@@ -27,7 +27,23 @@ namespace StarterAssets
         {
             starterAssetsInputs.SprintInput(virtualSprintState);
         }
-        
+        private void Start()
+        {
+            Managers.Event.AddListener(Define.EVENT_TYPE.InventoryOpen, this);
+            Managers.Event.AddListener(Define.EVENT_TYPE.InventoryClose, this);
+        }
+        public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
+        {
+            switch (Event_Type)
+            {
+                case Define.EVENT_TYPE.InventoryOpen:
+                    gameObject.SetActive(false);
+                    break;
+                    case Define.EVENT_TYPE.InventoryClose:
+                    gameObject.SetActive(true);
+                    break;
+            }
+        }
     }
 
 }

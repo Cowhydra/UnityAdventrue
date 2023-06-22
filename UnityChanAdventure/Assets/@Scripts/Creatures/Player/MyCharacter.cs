@@ -23,12 +23,16 @@ public class MyCharacter:Creature,IDamage,IListener
             _level = value;
             Managers.Data.CharacterDataDict[Managers.Game.currentCharNumber].level = _level;
             Debug.Log("캐릭터 레벨업 하면 DB 갱신 ");
-        
+            InitCharacter();
         } 
     }
     public Define.MonsterAttackType EnemyAttackType = Define.MonsterAttackType.Melee;
     private int _mana;
-    public int Mana { get { return _mana; } set { _mana = value; } }
+    public int Mana { get { return _mana; } 
+        set 
+        {
+            _mana = Math.Clamp(value, 0, _maxmana);
+        } }
     private int _exp;
     public int Exp
     {
@@ -74,8 +78,12 @@ public class MyCharacter:Creature,IDamage,IListener
     {
         if (!Managers.Data.CharacterDataDict.ContainsKey(myCharacterCode))
         {
+            _maxhp = 1000;
+            _maxmana = 100;
+            _attack = 50;
             return;
         }
+
         _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp;
         _maxmana= Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp;
         _hp = MaxHp;
@@ -96,8 +104,7 @@ public class MyCharacter:Creature,IDamage,IListener
         _magicdef = Managers.Data.CharacterDataDict[myCharacterCode].magicdef + Managers.EQUIP.EQUIP_MagicDef + (Level - 1) * 10;
         _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level - 1) * 10;
         _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level - 1) * 10;
-
-
+        Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
     }
     #endregion
     public void OnDamage(int damage,Define.MonsterAttackType MonsterAttackType)
@@ -121,6 +128,7 @@ public class MyCharacter:Creature,IDamage,IListener
         myCharacterCode = Managers.Game.currentCharNumber;
         InitCharacter();
         StartCoroutine(nameof(Regenerat_co));
+
     }
     protected IEnumerator Regenerat_co()
     {

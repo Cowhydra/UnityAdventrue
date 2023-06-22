@@ -39,6 +39,12 @@
         PlayerStatsChange,
         PlayerEquipChanage,
 
+        InventoryOpen,
+        InventoryClose,
+        InventoryItemSelect,
+        GoodsChange,
+
+
     }
     public enum Login_Event_Type
     {
@@ -63,6 +69,12 @@
         Pending,
         Active,
         Completed
+    }
+    public enum QuestType
+    {
+        DefeatEnemy,
+        CollectItem,
+
     }
 
     public enum Behavior_NodeState

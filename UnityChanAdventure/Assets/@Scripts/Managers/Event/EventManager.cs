@@ -15,6 +15,8 @@ public class EventManager
 
     public Action<int> MonsterDie;
     public Action<int> AddItem;
+    public Action<int> RemoveItem;
+
     public Action<Quest> CompletedQuest;
     public Action<Quest> ActiveQuest;
 
