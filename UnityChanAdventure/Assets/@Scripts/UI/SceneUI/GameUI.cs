@@ -36,6 +36,7 @@ public class GameUI : UI_Scene,IListener
         EquipButton,
         UnEquipButton,
         QuikEnrollButton,
+        DecomposeButton,
 
     }
 
@@ -49,6 +50,7 @@ public class GameUI : UI_Scene,IListener
         InitText();
         Managers.Event.AddListener(Define.EVENT_TYPE.PlayerStatsChange, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.InventoryItemSelect, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.GoodsChange, this);
         InitButtons();
 
 
@@ -81,6 +83,12 @@ public class GameUI : UI_Scene,IListener
         GetText((int)Texts.AblityDef_Text).text = $"{mychar.Def}";
         GetText((int)Texts.AblityMagicDef_Text).text = $"{mychar.MagicDef}";
     }
+    private void TextWithGoods()
+    {
+        GetText((int)Texts.BlueDiamond_Text).text = $"{Managers.Game.BlueDiamond}";
+        GetText((int)Texts.RedDiamond_Text).text = $"{Managers.Game.RedDiamond}";
+        GetText((int)Texts.Gold_Text).text = $"{Managers.Game.Gold}";
+    }
     private void InitButtons()
     {
         GetButton((int)Buttons.Inventory_Button).gameObject
@@ -91,8 +99,9 @@ public class GameUI : UI_Scene,IListener
             .BindEvent((PointerEventData data) => UnEquipTry());
         GetButton((int)Buttons.QuikEnrollButton).gameObject
             .BindEvent((PointerEventData data) => QuikSlotEnroll());
-    
-    
+        GetButton((int)Buttons.DecomposeButton).gameObject
+            .BindEvent((PointerEventData data) => DeCompose());
+
     }
     private void EquipTry()
     {
@@ -131,6 +140,10 @@ public class GameUI : UI_Scene,IListener
             return;
         }
      
+    }
+    private void DeCompose()
+    {
+
     }
     private void QuikSlotEnroll()
     {
@@ -174,6 +187,9 @@ public class GameUI : UI_Scene,IListener
                 {
                     SelectItemcode = Inven_item.MyItemCode;
                 }
+                break;
+            case Define.EVENT_TYPE.GoodsChange:
+                TextWithGoods();
                 break;
         }
     }

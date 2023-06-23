@@ -18,6 +18,7 @@
 
     public enum SortingOrder
     {
+        ShopUI=30,
 
     }
     #region About Event
@@ -43,6 +44,7 @@
         InventoryClose,
         InventoryItemSelect,
         GoodsChange,
+        ShopOpen,
 
 
     }

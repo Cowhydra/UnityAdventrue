@@ -11,7 +11,6 @@ public class Inventory_Main :MonoBehaviour
     private List<Inventory_Item> InvenUI = new List<Inventory_Item>();
     private void Start()
     {
-
         foreach (Transform transforom in gameObject.GetComponentInChildren<Transform>())
         {
             Managers.Resource.Destroy(transforom.gameObject);
