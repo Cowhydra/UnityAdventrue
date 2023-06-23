@@ -21,7 +21,7 @@ public class TownScene : BaseScene
                 Debug.Log("여기서 캐릭터가 들어오면 인벤토리 DB업데이트 해줘야함 Fetch!");
                 //데이터 Init()은 지워 주어야 합니다.
                 //이거 살짝 불안 
-
+                Managers.UI.ShowSceneUI<ShopUI>();
 
                 // Managers.DB.ChecK_Account(516551.ToString(), 26519.ToString());
                 //Managers.DB.CharacterInit(230619.ToString(), 100,"호호호");

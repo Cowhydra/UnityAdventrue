@@ -31,6 +31,8 @@ namespace StarterAssets
         {
             Managers.Event.AddListener(Define.EVENT_TYPE.InventoryOpen, this);
             Managers.Event.AddListener(Define.EVENT_TYPE.InventoryClose, this);
+            Managers.Event.AddListener(Define.EVENT_TYPE.ShopClose, this);
+            Managers.Event.AddListener(Define.EVENT_TYPE.ShopOpen, this);
         }
         public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
         {
@@ -39,9 +41,16 @@ namespace StarterAssets
                 case Define.EVENT_TYPE.InventoryOpen:
                     gameObject.SetActive(false);
                     break;
-                    case Define.EVENT_TYPE.InventoryClose:
+                case Define.EVENT_TYPE.InventoryClose:
                     gameObject.SetActive(true);
                     break;
+                case Define.EVENT_TYPE.ShopClose:
+                    gameObject.SetActive(true);
+                    break;
+                case Define.EVENT_TYPE.ShopOpen:
+                    gameObject.SetActive(false);
+                    break;
+
             }
         }
     }

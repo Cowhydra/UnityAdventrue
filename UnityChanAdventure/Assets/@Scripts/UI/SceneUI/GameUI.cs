@@ -26,7 +26,7 @@ public class GameUI : UI_Scene,IListener
     {
         BackGround,//클릭시 인벤창 꺼지도록 설정 예정
         Inventory,
-
+        Quest,
     }
     enum Buttons
     {
@@ -37,6 +37,7 @@ public class GameUI : UI_Scene,IListener
         UnEquipButton,
         QuikEnrollButton,
         DecomposeButton,
+        Shop_Button,
 
     }
 
@@ -51,6 +52,8 @@ public class GameUI : UI_Scene,IListener
         Managers.Event.AddListener(Define.EVENT_TYPE.PlayerStatsChange, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.InventoryItemSelect, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.GoodsChange, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.ShopClose, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.ShopOpen, this);
         InitButtons();
 
 
@@ -101,6 +104,8 @@ public class GameUI : UI_Scene,IListener
             .BindEvent((PointerEventData data) => QuikSlotEnroll());
         GetButton((int)Buttons.DecomposeButton).gameObject
             .BindEvent((PointerEventData data) => DeCompose());
+        GetButton((int)Buttons.Shop_Button).gameObject
+            .BindEvent((PointerEventData data) => ShowOnShop());
 
     }
     private void EquipTry()
@@ -166,7 +171,11 @@ public class GameUI : UI_Scene,IListener
         Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryOpen, this);
     }
 
+    private void ShowOnShop()
+    {
 
+        Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
+    }
 
     public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
     {
@@ -190,6 +199,12 @@ public class GameUI : UI_Scene,IListener
                 break;
             case Define.EVENT_TYPE.GoodsChange:
                 TextWithGoods();
+                break;
+            case Define.EVENT_TYPE.ShopOpen:
+                GetObject((int)GameObjects.Quest).SetActive(false);
+                break;
+            case Define.EVENT_TYPE.ShopClose:
+                GetObject((int)GameObjects.Quest).SetActive(true);
                 break;
         }
     }

@@ -40,8 +40,8 @@ public class PlayerStatus_Canvas : UI_Scene,IListener
     }
     private void RefreshUI(MyCharacter character)
     {
-        GetImage((int)Images.PlayerHp_Fill).fillAmount = character.Hp / character.MaxHp;
-        GetImage((int)Images.PlayerMp_Fill).fillAmount = character.Mana / character.MaxMana;
+        GetImage((int)Images.PlayerHp_Fill).fillAmount = (float)character.Hp / character.MaxHp;
+        GetImage((int)Images.PlayerMp_Fill).fillAmount = (float)character.Mana / character.MaxMana;
         GetText((int)Texts.PlayerHp_Text).text = $"{character.Hp}/{character.MaxHp}";
         GetText((int)Texts.PlayerMp_Text).text = $"{character.Mana}/{character.MaxMana}";
         GetImage((int)Images.PlayerExp_Fill).fillAmount = character.Exp / character.RequireExp;

@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class ShopItemType : MonoBehaviour
 {
-    enum MyItemType
-    {
-        Weapon,
-        Boot,
-        Cloth,
-        Earring,
-        Hat,
-        Ring,
 
-    }
-    [SerializeField] private MyItemType _myItemType;
-    private void Start()
+    [SerializeField] private Define.ItemType _myItemType;
+    private void Awake()
     {
+        Debug.Log($"{_myItemType}");
         foreach (Transform transforom in gameObject.GetComponentInChildren<Transform>())
         {
             Managers.Resource.Destroy(transforom.gameObject);
         }
 
-        switch (_myItemType)
+       foreach(var i in Managers.Data.ItemDataDict.Keys)
         {
-
+            if (_myItemType == Managers.Data.ItemDataDict[i].itemType)
+            {
+                Shop_Item shopitem=Managers.UI.ShowSceneUI<Shop_Item>();
+                shopitem.MyItemCode = i;
+                shopitem.transform.SetParent(gameObject.transform);
+            }
         }
+
     }
+  
 
 }

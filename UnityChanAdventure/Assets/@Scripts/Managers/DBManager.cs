@@ -136,6 +136,7 @@ public class DBManager
         CreateInventory(accountNumber, charcode);
         CreateGoods(accountNumber, charcode);
         CreateEquips(accountNumber, charcode);
+        CreateQuest(accountNumber, charcode);   
     }
     public void DataFetch(string accountNumber)
     {
@@ -280,6 +281,37 @@ public class DBManager
         }  
     }
 
+    private void CreateQuest(string accountNumber, int charcode)
+    {
+        // Character 데이터 생성
+        // 원래 데이터 처리는 Server에서 해야 안전
+        // 공용데이터는 따로 저장할 필요 없을듯? ( prefab path 등 ) 
+
+        Dictionary<string, object> AccountQuest = new Dictionary<string, object>();
+
+        foreach (var i in Managers.Data.QuestData.Keys)
+        {
+            AccountQuest.Add("isCleared", 0);
+
+            DatabaseReference QuestRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Quests").Child(i.ToString());
+            QuestRef.UpdateChildrenAsync(AccountQuest).ContinueWith(task =>
+            {
+                if (task.IsFaulted)
+                {
+                    Debug.LogError("Error creating character: " + task.Exception);
+                    return;
+                }
+
+                if (task.IsCompleted)
+                {
+                    Debug.Log("Item Inven Created successfully.");
+                }
+            });
+            AccountQuest.Clear();
+
+        }
+    }
+
     #endregion
 
     #region 데이터 정보 불러오기
@@ -360,6 +392,43 @@ public class DBManager
 
             }
         });
+    }
+    public void FetchQuestData(string accountNumber, int charcode)
+    {
+
+        DatabaseReference questRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Quests");
+
+        questRef.GetValueAsync().ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error retrieving account data: " + task.Exception);
+                return;
+            }
+
+            if (task.IsCompleted)
+            {
+                DataSnapshot snapshot = task.Result;
+
+                foreach (DataSnapshot questsnapshot in snapshot.Children)
+                {
+                    // 아이템 데이터 추출
+                    int questkey = int.Parse(questsnapshot.Key);
+                    int isclear = int.Parse(questsnapshot.Child("isCleared").Value.ToString());
+
+                    if (isclear == 0)
+                    {
+                        Managers.Data.QuestData[questkey].isCleared = false;
+                    }
+                    else
+                    {
+                        Managers.Data.QuestData[questkey].isCleared = true;
+                    }
+                }
+
+            }
+        });
+        Managers.EQUIP.Init();
     }
     public void FetchEquipData(string accountNumber,int charcode)
     {
@@ -564,6 +633,33 @@ public class DBManager
                 //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
   
                 transaction.Child($"isActive").Value = $"{isAcquire}";
+                return TransactionResult.Success(transaction);
+            }
+            return TransactionResult.Abort();
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error updating item: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Item updated successfully.");
+            }
+        });
+    }
+    public void UpdateQuestClear(string accountNumber, int charactercode, int questid,int iscleard)
+    {
+        DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString()).Child("Quests").Child(questid.ToString());
+     
+
+        itemRef.RunTransaction(transaction =>
+        {
+            if (transaction.Value != null)
+            {
+                //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
+
+                transaction.Child($"isActive").Value = $"{iscleard}";
                 return TransactionResult.Success(transaction);
             }
             return TransactionResult.Abort();

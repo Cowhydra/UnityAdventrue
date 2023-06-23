@@ -45,6 +45,7 @@
         InventoryItemSelect,
         GoodsChange,
         ShopOpen,
+        ShopClose,
 
 
     }

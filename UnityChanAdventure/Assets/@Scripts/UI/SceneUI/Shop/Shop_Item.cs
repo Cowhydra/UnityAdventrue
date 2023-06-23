@@ -6,9 +6,11 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Shop_Item : UI_Scene
 {
+    [SerializeField]
     private int _myitemcode;
     private int price;
-    
+    private bool isinit;
+
     public int MyItemCode
     {
         get { return _myitemcode; }
@@ -37,24 +39,31 @@ public class Shop_Item : UI_Scene
     private void Start()
     {
         Init();
+        gameObject.GetOrAddComponent<GraphicRaycaster>();
     }
     public override void Init()
     {
-        base.Init();
-        Bind<Button>(typeof(Buttons));
-        Bind<TextMeshProUGUI>(typeof(Texts));
-        Bind<Image>(typeof(Images));
-    
-
-
+        if (!isinit)
+        {
+            base.Init();
+            Bind<Button>(typeof(Buttons));
+            Bind<TextMeshProUGUI>(typeof(Texts));
+            Bind<Image>(typeof(Images));
+            isinit = true;
+        }
     }
     private void AfterCodeSetInit()
     {
+        if (!isinit)
+        {
+            Init();
+        }
         GetText((int)Texts.ItemName).text = $"{Managers.Data.ItemDataDict[_myitemcode].name}";
         GetButton((int)Buttons.Purchase_Button).gameObject
             .BindEvent((PointerEventData data) => PurchaseItem());
         price = Managers.Data.ItemDataDict[_myitemcode].price;
         GetText((int)Texts.PriceText).text = $"{price}";
+        GetImage((int)Images.Shop_Item_Image).sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[_myitemcode].iconPath}");
     }
     private void PurchaseItem()
     {
@@ -66,7 +75,9 @@ public class Shop_Item : UI_Scene
         {
             Managers.Game.GoldChange(-price);
             Managers.Inven.Add(_myitemcode);
+            Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("아이템 구매를 성공하셨습니다.", Color.green);
+
         }
-        
+
     }
 }

@@ -76,7 +76,7 @@ namespace Data
         public List<BootData> Boot = new List<BootData>();
         public List<HatData> Hat = new List<HatData>();
         public List<ClothData> Cloth = new List<ClothData>();
-        public List<EarringData> Earing = new List<EarringData>();
+        public List<EarringData> Earring = new List<EarringData>();
         public List<RingData> Ring = new List<RingData>();
         public List<ConsumeData> Consume = new List<ConsumeData>();
         public List<IngredientData> Ingredient = new List<IngredientData>();
@@ -111,7 +111,7 @@ namespace Data
 
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in Earing)
+            foreach (ItemData item in Earring)
             {
                 item.itemType = ItemType.Earring;
                 item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
