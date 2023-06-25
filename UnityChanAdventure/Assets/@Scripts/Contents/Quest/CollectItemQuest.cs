@@ -7,7 +7,7 @@ public class CollectItemQuest : Quest
     private int _objectItemCode;
     private int _amountToCollect;
 
-    public CollectItemQuest(string uniqueId, string name, int levelRequirement, int experienceReward, int DiaRward, int objectItemCode, int amountToCollect)
+    public CollectItemQuest(int uniqueId, string name, int levelRequirement, int experienceReward, int DiaRward, int itemcode, int objectItemCode, int amountToCollect)
     {
         this.UniqueId = uniqueId;
         this.Name = name;
@@ -15,6 +15,7 @@ public class CollectItemQuest : Quest
         this.ExperienceReward = experienceReward;
         this.DiaReward = DiaRward;
         this._objectItemCode = objectItemCode;
+        this.itemReward= itemcode;
         this._amountToCollect = amountToCollect;
     }
     protected override void QuestActive()

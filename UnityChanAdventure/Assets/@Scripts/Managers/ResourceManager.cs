@@ -98,8 +98,29 @@ public class ResourceManager
       
         return null;
     }
+    public GameObject PoolInstantiate(GameObject go, Transform parent = null)
+    {
 
+        if (go.GetComponent<Poolable>() != null)
+            return Managers.Pool.Pop(go, parent).gameObject;
 
+        return go;
+    }
+    public GameObject PoolInstantiate(string key, Vector3 position, Transform parent = null)
+    {
+        GameObject original = Load<GameObject>($"{key}");
+        if (original == null)
+        {
+            Debug.Log($"Failed to load prefab : {key}");
+            return null;
+        }
+        if (original.GetComponent<Poolable>() != null)
+            return Managers.Pool.Pop(original, parent).gameObject;
+
+        GameObject go = Object.Instantiate(original, position, Quaternion.identity);
+        go.name = original.name;
+        return go;
+    }
 
     public GameObject Instantiate(string key, Transform parent = null)
     {
@@ -109,10 +130,6 @@ public class ResourceManager
             Debug.Log($"Failed to load prefab : {key}");
             return null;
         }
-
-        //if (original.GetComponent<Poolable>() != null)
-        //    return Managers.Pool.Pop(original, parent).gameObject;
-
         GameObject go = Object.Instantiate(original, parent);
         go.name = original.name;
         return go;
@@ -125,8 +142,6 @@ public class ResourceManager
             Debug.Log($"Failed to load prefab : {key}");
             return null;
         }
-        if (original.GetComponent<Poolable>() != null)
-            return Managers.Pool.Pop(original, parent).gameObject;
 
         GameObject go = Object.Instantiate(original, position, Quaternion.identity);
         go.name = original.name;

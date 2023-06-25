@@ -6,7 +6,7 @@ using static Define;
 public abstract class Quest
 {
 
-    public string UniqueId;
+    public int UniqueId;
     public string Name;
     public QuestState State;
     public int LevelRequirement;

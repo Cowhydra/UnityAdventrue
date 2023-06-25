@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface IDamage
 {
-    public void OnDamage(int damage,Define.MonsterAttackType attacktype);
+    //  public void OnDamage(int damage,Define.MonsterAttackType attacktype);
+    public void OnDamage(int damage);
 }
 
 public interface IAttack

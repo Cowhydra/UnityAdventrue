@@ -18,7 +18,7 @@
 
     public enum SortingOrder
     {
-        ShopUI=30,
+        ShopUI=10,
 
     }
     #region About Event
@@ -117,7 +117,8 @@
     }
     public enum LayerMask
     {
-        Enviroment = 6,
+        Enviroment = 5,
+        Player=6,
         Enemy=8,
         Skill = 10
     }

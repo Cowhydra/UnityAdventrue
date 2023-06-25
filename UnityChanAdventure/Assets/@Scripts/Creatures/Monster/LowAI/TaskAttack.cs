@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BehaviorTree;
+using UnityEngine.UIElements;
 
 public class TaskAttack : Behavior_Node
 {
@@ -10,9 +11,16 @@ public class TaskAttack : Behavior_Node
     private Animator _animator;
     private Transform _lastTarget;
     private Creature _enemy;
-    public TaskAttack(Transform transform)
+    private GameObject Projectile;
+    private Transform myTransform;
+    public TaskAttack(Transform transform,GameObject Projectile=null)
     {
-       // _animator=transform.GetComponent<Animator>();   
+        myTransform = transform;
+        _animator =transform.GetComponent<Animator>();   
+        if(Projectile!=null)
+        {
+           this.Projectile= Projectile;
+        }
     }
 
     public override Define.Behavior_NodeState Evaluate()
@@ -22,6 +30,7 @@ public class TaskAttack : Behavior_Node
         {
             _enemy = target.GetComponent<Creature>();
             _lastTarget=target;
+            //방법 1. 그냥 LowAI 에 Static 으로 내 코드 작성 후 DataManageㄱ에서 불러오는건데 모발겜이라..
         }
 
         _attackCounter += Time.deltaTime;
@@ -31,11 +40,22 @@ public class TaskAttack : Behavior_Node
             if (_enemy.isDie)
             {
                 ClearData("target");
-                // _animator.SetBool("Attacking", false);
-                //_animator.SetBool("Walking", true);
+                 _animator.SetBool("Attack", false);
+                _animator.SetBool("Walk", true);
             }
             else
             {
+                myTransform.LookAt(target.position);
+                if (Projectile != null)
+                {
+                   GameObject Pro= Managers.Resource.PoolInstantiate(Projectile);
+                    Pro.GetOrAddComponent<MonProjectileController>().SetProjectile( myTransform.position, 10);
+                }
+                else
+                {
+                    _enemy.GetComponent<IDamage>().OnDamage(10);
+                }
+
                 _attackCounter = 0f;
             }
         }

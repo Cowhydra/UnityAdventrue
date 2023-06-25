@@ -8,7 +8,6 @@ public class ShopItemType : MonoBehaviour
     [SerializeField] private Define.ItemType _myItemType;
     private void Awake()
     {
-        Debug.Log($"{_myItemType}");
         foreach (Transform transforom in gameObject.GetComponentInChildren<Transform>())
         {
             Managers.Resource.Destroy(transforom.gameObject);

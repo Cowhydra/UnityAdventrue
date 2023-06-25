@@ -12,11 +12,18 @@ public class CheckEnemyInAttackRange : Behavior_Node
     public CheckEnemyInAttackRange(Transform transform)
     {
         _transform = transform;
-       // _animator = transform.GetComponent<Animator>();
+        _animator = transform.GetComponent<Animator>();
     }
 
     public override Define.Behavior_NodeState Evaluate()
     {
+        Debug.Log("추후 여기에 몬스터 죽었는지 확인해야함");
+        //if (_transform.GetComponent<Monster>().isDie)
+        //{
+        //    state = Define.Behavior_NodeState.FAILURE;
+        //    return state;
+        //}
+
         object t = GetData("target");
         if (t == null)
         {
@@ -28,13 +35,14 @@ public class CheckEnemyInAttackRange : Behavior_Node
         if (Vector3.Distance(_transform.position, target.position) <= LowAI_BT.attackRange)
         {
          
-           // _animator.SetBool("Attacking", true);
-           //  _animator.SetBool("Walking", false);
+            _animator.SetBool("Attack", true);
+             _animator.SetBool("Walk", false);
 
             state = Define.Behavior_NodeState.SUCCESS;
             return state;
         }
-
+        //_animator.SetBool("Walk", true);
+         _animator.SetBool("Attack", false);
         state = Define.Behavior_NodeState.FAILURE;
         return state;
     }

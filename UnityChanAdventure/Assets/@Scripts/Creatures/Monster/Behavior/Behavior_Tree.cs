@@ -11,7 +11,7 @@ namespace BehaviorTree
 
         private Behavior_Node _root = null;
 
-        protected void Start()
+        protected virtual void Start()
         {
             _root = SetupTree();
         }

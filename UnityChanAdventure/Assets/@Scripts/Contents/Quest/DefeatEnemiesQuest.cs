@@ -10,7 +10,7 @@ public class DefeatEnemiesQuest : Quest
 
     public int NumberOfEnemiesToDestroy;
     private int _actualEnemiesDestroyed;
-    public DefeatEnemiesQuest(string uniqueId, string name, int levelRequirement, int experienceReward, int DiaReword, int itemReward,int enemyToTargetCode, int numberOfEnemiesToDestroy)
+    public DefeatEnemiesQuest(int uniqueId, string name, int levelRequirement, int experienceReward, int DiaReword, int itemReward,int enemyToTargetCode, int numberOfEnemiesToDestroy)
     {
         this.UniqueId = uniqueId;
         this.Name = name;

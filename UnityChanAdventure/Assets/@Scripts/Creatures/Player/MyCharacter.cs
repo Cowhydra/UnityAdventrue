@@ -64,7 +64,6 @@ public class MyCharacter : Creature, IDamage, IListener
             {
                 Die();
             }
-            Debug.Log("Hp 관련 이벤트");
             Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
         }
     }
@@ -111,17 +110,11 @@ public class MyCharacter : Creature, IDamage, IListener
         Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
     }
     #endregion
-    public void OnDamage(int damage, Define.MonsterAttackType MonsterAttackType)
+    public void OnDamage(int damage)
     {
-        if (MonsterAttackType == Define.MonsterAttackType.RangeAttack)
-        {
-            Hp -= Math.Max(0, damage - _level - _magicdef);
-        }
-        else
-        {
-            Hp -= Math.Max(0, damage - _level - _def);
-        }
+        Hp -= Math.Max(0, damage - _level -Def);
 
+        Debug.Log("공격받음");
     }
     public override void Die()
     {
