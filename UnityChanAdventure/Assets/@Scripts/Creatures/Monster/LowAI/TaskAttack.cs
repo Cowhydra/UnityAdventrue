@@ -12,10 +12,10 @@ public class TaskAttack : Behavior_Node
     private Transform _lastTarget;
     private Creature _enemy;
     private GameObject Projectile;
-    private Transform myTransform;
+    private Transform transform;
     public TaskAttack(Transform transform,GameObject Projectile=null)
     {
-        myTransform = transform;
+        this.transform = transform;
         _animator =transform.GetComponent<Animator>();   
         if(Projectile!=null)
         {
@@ -45,12 +45,12 @@ public class TaskAttack : Behavior_Node
             }
             else
             {
-                myTransform.LookAt(target.position);
+                transform.LookAt(target.position);
                 if (Projectile != null)
                 {
-                    GameObject Pro = GameObject.Instantiate(Projectile);
+                    GameObject Pro = Managers.Resource.Instantiate($"{transform.gameObject.name}_Projectile");
                     //   GameObject Pro= Managers.Resource.PoolInstantiate(Projectile);
-                    Pro.GetOrAddComponent<MonProjectileController>().SetProjectile( myTransform.position, 10);
+                    Pro.GetOrAddComponent<MonProjectileController>().SetProjectile(transform.position, 10);
                 }
                 else
                 {

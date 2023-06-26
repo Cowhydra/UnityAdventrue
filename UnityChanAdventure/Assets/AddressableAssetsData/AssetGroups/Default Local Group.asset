@@ -16,7 +16,31 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: c4d4a15c4a74c0f46bf70ab7416f9cde
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 01959e243519bf4459cddd221c05d92a
+    m_Address: RSkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b7a52f08b82d4e4bae94aa7a22ab000
+    m_Address: QSkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba55605749908cb4c9ef50a46ccaeaad
+    m_Address: WSkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eea7bb1b866c014597c48ed7d785ce4
+    m_Address: ESkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5fb094523b4edde42b4b262a97d0ca73, type: 2}
   m_SchemaSet:

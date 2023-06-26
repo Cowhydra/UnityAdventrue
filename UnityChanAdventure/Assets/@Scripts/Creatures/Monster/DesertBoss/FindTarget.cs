@@ -44,9 +44,9 @@ public class FindTarget : Behavior_Node
                         closestDistance = distance;
                     }
                 }
-                if (closestEnemy != null && (_transform.position - closestEnemy.transform.position).sqrMagnitude < 25f)
+                if (closestEnemy != null)
                 {
-                    parent.parent.SetData("target", closestEnemy.transform);
+                    parent.SetData("target", closestEnemy.transform);
                     _animator.SetBool("Walk", true);
                     state = Define.Behavior_NodeState.SUCCESS;
                     return state;
@@ -58,17 +58,15 @@ public class FindTarget : Behavior_Node
         }
         else
         {
-           
-            Transform target = (Transform)GetData("target");
-            if ((_transform.position - target.position).sqrMagnitude >= 256f)
-            {
-                Debug.Log("Å¸°Ù Àç¼³Á¤");
-                state = Define.Behavior_NodeState.FAILURE;
-                ClearData("target");
-                //_animator.SetBool("Walk", true);
-                //_animator.SetBool("Attack", false);
-                return state;
-            }
+            //if ((_transform.position - target.position).sqrMagnitude >= 3600)
+            //{
+            //    Debug.Log("Å¸°Ù Àç¼³Á¤");
+            //    state = Define.Behavior_NodeState.FAILURE;
+            //    ClearData("target");
+            //    //_animator.SetBool("Walk", true);
+            //    //_animator.SetBool("Attack", false);
+            //    return state;
+            //}
             state = Define.Behavior_NodeState.SUCCESS;
             return state;
         }

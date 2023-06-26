@@ -17,6 +17,7 @@ public class CheckEnemyInRange : Behavior_Node
 
     public override Define.Behavior_NodeState Evaluate()
     {
+      
         Debug.Log("추후 여기에 몬스터 죽었는지 확인해야함");
         //if (_transform.GetComponent<Monster>().isDie)
         //{
@@ -38,8 +39,8 @@ public class CheckEnemyInRange : Behavior_Node
         {
             if (Vector3.Distance(_transform.position, target.position) >= DeserBoss_BT.longAttackRange)
             {
-                _animator.SetBool("Attack", true);
-                _animator.SetBool("Walk", false);
+                //_animator.SetBool("Attack", true);
+                //_animator.SetBool("Walk", false);
                 state = Define.Behavior_NodeState.SUCCESS;
                 return state;
             }
@@ -48,8 +49,8 @@ public class CheckEnemyInRange : Behavior_Node
         {
             if (Vector3.Distance(_transform.position, target.position) <= DeserBoss_BT.shortattackRange)
             {
-                _animator.SetBool("Attack", true);
-                _animator.SetBool("Walk", false);
+                //_animator.SetBool("Attack", true);
+                //_animator.SetBool("Walk", false);
                 state = Define.Behavior_NodeState.SUCCESS;
                 return state;
             }

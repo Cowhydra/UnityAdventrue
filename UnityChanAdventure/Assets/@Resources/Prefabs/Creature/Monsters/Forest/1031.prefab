@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 7448467212269955176}
   - component: {fileID: 7448467212276877184}
   - component: {fileID: 5044231293914760447}
-  - component: {fileID: 3104700033890426045}
+  - component: {fileID: -2326185118368843067}
   m_Layer: 8
   m_Name: 1031
   m_TagString: Untagged
@@ -160,7 +160,7 @@ Transform:
   - {fileID: 7448467212269955178}
   - {fileID: 7448467212269955186}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &7448467212276877184
 Animator:
@@ -199,32 +199,28 @@ MonoBehaviour:
   _fovRange: 5
   _attackRange: 6
   MyProjectile: {fileID: 6298343680682847451, guid: 2d225022cd1518f47bcbe2d3cc6102db, type: 3}
---- !u!143 &3104700033890426045
-CharacterController:
+--- !u!195 &-2326185118368843067
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7448467212269597768}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 0.1
-  m_Radius: 0.2
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.1, z: 0}
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7448467212269597770
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7448467212269955186}
+  - component: {fileID: 5157738882085726104}
   m_Layer: 8
   m_Name: Root
   m_TagString: Untagged
@@ -454,6 +451,27 @@ Transform:
   m_Father: {fileID: 7448467212269955176}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5157738882085726104
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448467212269597778}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &7448467212269597780
 GameObject:
   m_ObjectHideFlags: 0

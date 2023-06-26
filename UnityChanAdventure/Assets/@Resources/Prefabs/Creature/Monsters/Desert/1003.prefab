@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 598351415708713686}
   - component: {fileID: 3257312363034048468}
   - component: {fileID: 6678947166888565512}
-  - component: {fileID: 8241419584995762178}
-  - component: {fileID: 8531674927535633041}
+  - component: {fileID: -986202542284668847}
   m_Layer: 8
   m_Name: 1003
   m_TagString: Untagged
@@ -35,7 +34,7 @@ Transform:
   - {fileID: 807472233459352064}
   - {fileID: 3627032889857214786}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3257312363034048468
 Animator:
@@ -74,45 +73,28 @@ MonoBehaviour:
   _fovRange: 3
   _attackRange: 1
   MyProjectile: {fileID: 0}
---- !u!143 &8241419584995762178
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217885674573650028}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 0.1
-  m_Radius: 0.1
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.15, z: 0}
---- !u!114 &8531674927535633041
-MonoBehaviour:
+--- !u!195 &-986202542284668847
+NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 217885674573650028}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 893c88007e757e74aa600cf7a8be304d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyCode: 0
+  m_AgentTypeID: -1372625422
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &238519043650642085
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +660,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3627032889857214786}
+  - component: {fileID: 2491521509286742668}
   m_Layer: 8
   m_Name: root
   m_TagString: Untagged
@@ -701,6 +684,27 @@ Transform:
   m_Father: {fileID: 598351415708713686}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2491521509286742668
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3982664807133676998}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0.1, z: 0}
 --- !u!1 &4975899803878872469
 GameObject:
   m_ObjectHideFlags: 0

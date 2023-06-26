@@ -14,9 +14,11 @@ public class LazyPattern : Behavior_Node
         _animator = transform.GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public override Define.Behavior_NodeState Evaluate()
     {
-        
+       
+        state = Define.Behavior_NodeState.FAILURE;
+        return state;
     }
+
 }

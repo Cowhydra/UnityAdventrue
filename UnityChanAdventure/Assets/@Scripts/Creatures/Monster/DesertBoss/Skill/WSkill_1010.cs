@@ -1,12 +1,18 @@
+using Data;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class WSkill_1010 : MonoBehaviour
 {
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(nameof(LifeCycle));
+    }
+    private void Update()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localScale = 100*Vector3.one;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -17,8 +23,11 @@ public class WSkill_1010 : MonoBehaviour
     }
     private IEnumerator LifeCycle()
     {
-        yield return new WaitForSeconds(2);
-        DeserBoss_BT.IsAttackChange?.Invoke(false);
-        this.enabled=false;
+        yield return new WaitForSeconds(3);
+        Managers.Resource.Destroy(gameObject);
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
 }

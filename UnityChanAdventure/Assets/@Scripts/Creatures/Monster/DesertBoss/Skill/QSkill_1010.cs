@@ -16,9 +16,19 @@ public class QSkill_1010 : MonoBehaviour
             }
         }
     }
-    private void Start()
+    private void Update()
+    {
+        transform.localPosition = Vector3.zero;
+        transform.localScale = Vector3.one;
+    }
+
+    private void OnEnable()
     {
         StartCoroutine(nameof(Attack_Time));
+    }
+    private void OnDisable()
+    {
+        StopAllCoroutines();
     }
     IEnumerator Attack_co(IDamage _object)
     {
@@ -29,9 +39,10 @@ public class QSkill_1010 : MonoBehaviour
     }
     IEnumerator Attack_Time()
     {
-        yield return new WaitForSeconds(7);
-        GetComponent<WSkill_1010>().enabled = true;
-        this.enabled = false;
+        yield return new WaitForSeconds(2);
+         Managers.Resource.Instantiate($"WSkill_{gameObject.transform.parent.name}",transform);
+        yield return new WaitForSeconds(1);
+        Managers.Resource.Destroy(gameObject);
     }
 
 }
