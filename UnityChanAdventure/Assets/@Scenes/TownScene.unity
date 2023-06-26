@@ -7122,7 +7122,7 @@ GameObject:
   - component: {fileID: 1258454105622130927}
   - component: {fileID: 193703327971229231}
   - component: {fileID: 1215046394761914441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7190,7 +7190,7 @@ GameObject:
   - component: {fileID: 1239077300429347812}
   - component: {fileID: 213031806115730724}
   - component: {fileID: 1195790535924466498}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7208,7 +7208,7 @@ GameObject:
   - component: {fileID: 6249744474998264411}
   - component: {fileID: 2457314685011503734}
   - component: {fileID: 8772691111926677586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7311,7 +7311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7412046457508436033}
   - component: {fileID: 4573037893345556014}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7329,7 +7329,7 @@ GameObject:
   - component: {fileID: 5566595289241418821}
   - component: {fileID: 1369186536847965510}
   - component: {fileID: 956746063674730665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8147,7 +8147,7 @@ GameObject:
   - component: {fileID: 7645774045187441358}
   - component: {fileID: 897631031187391348}
   - component: {fileID: 3402198164661041980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8183,7 +8183,7 @@ GameObject:
   - component: {fileID: 4028866504300243717}
   - component: {fileID: 5382485461451542835}
   - component: {fileID: 1841663736843988426}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8215,7 +8215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4003109243963314874}
   - component: {fileID: 4611255231321080958}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8248,7 +8248,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4014666472278496793}
   - component: {fileID: 4595197143578214621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8326,7 +8326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3765605726991452493}
   - component: {fileID: 4337389629747142537}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8440,7 +8440,7 @@ GameObject:
   - component: {fileID: 2562829307357291666}
   - component: {fileID: 3036017660776646605}
   - component: {fileID: 4329278383469350688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9568,7 +9568,7 @@ GameObject:
   - component: {fileID: 1540548535521573916}
   - component: {fileID: 4007449172956702870}
   - component: {fileID: 9063240387460108035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9658,7 +9658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3660133355727313266}
   - component: {fileID: 4231406124355899318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9841,7 +9841,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!222 &395577011477211304
 CanvasRenderer:
@@ -9877,7 +9877,7 @@ GameObject:
   - component: {fileID: 968742291222725544}
   - component: {fileID: 3695982755233089539}
   - component: {fileID: 7536928803436049930}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9896,7 +9896,7 @@ GameObject:
   - component: {fileID: 2630119850291445702}
   - component: {fileID: 3256936263462771865}
   - component: {fileID: 4252594849495716980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10036,7 +10036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3463499761860916475}
   - component: {fileID: 4063175095262421567}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10155,7 +10155,7 @@ GameObject:
   - component: {fileID: 4578982096800629138}
   - component: {fileID: 2577796693006073490}
   - component: {fileID: 6898003914306224306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_06_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10173,7 +10173,7 @@ GameObject:
   - component: {fileID: 7026110144355479606}
   - component: {fileID: 7750579712324607980}
   - component: {fileID: 4658094165974332860}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10191,7 +10191,7 @@ GameObject:
   - component: {fileID: 5694107425154705904}
   - component: {fileID: 873260555647214254}
   - component: {fileID: 2539661473021864142}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10456,7 +10456,7 @@ GameObject:
   - component: {fileID: 3305468677608317561}
   - component: {fileID: 2352104805959023366}
   - component: {fileID: 1844881949020891192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10612,7 +10612,7 @@ GameObject:
   - component: {fileID: 1838928666623329027}
   - component: {fileID: 739697070246055363}
   - component: {fileID: 1742740173605034917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10654,7 +10654,7 @@ GameObject:
   - component: {fileID: 2494554775853255396}
   - component: {fileID: 3451244671267230619}
   - component: {fileID: 1646985123852271781}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10672,7 +10672,7 @@ GameObject:
   - component: {fileID: 7930987499722155111}
   - component: {fileID: 7214434275798944701}
   - component: {fileID: 5707636438790250989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10900,7 +10900,7 @@ GameObject:
   - component: {fileID: 4349402781788903596}
   - component: {fileID: 4685758425233138330}
   - component: {fileID: 1313820864040099427}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10943,7 +10943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5728839849868643207}
   - component: {fileID: 3777763922318417444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11066,7 +11066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 31402310512521022}
   - component: {fileID: 3795646598212213381}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11152,7 +11152,7 @@ GameObject:
   - component: {fileID: 1656281786807608028}
   - component: {fileID: 6157935680445308235}
   - component: {fileID: 7649296394686515436}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11226,7 +11226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4428527291091168999}
   - component: {fileID: 3820975040012662819}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11244,7 +11244,7 @@ GameObject:
   - component: {fileID: 7060071117857236042}
   - component: {fileID: 976977843567036414}
   - component: {fileID: 964533382383073510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11525,7 +11525,7 @@ GameObject:
   - component: {fileID: 8824148470206067893}
   - component: {fileID: 4023477479290849632}
   - component: {fileID: 7055687990958336914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11628,7 +11628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4241600749956665554}
   - component: {fileID: 3652049856793970198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11729,7 +11729,7 @@ GameObject:
   - component: {fileID: 7682760510734206898}
   - component: {fileID: 4261846625549992340}
   - component: {fileID: 6229619996793437433}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11746,7 +11746,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4277080370992725442}
   - component: {fileID: 3686376038593145606}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11946,7 +11946,7 @@ GameObject:
   - component: {fileID: 7804102873781631941}
   - component: {fileID: 6792966086821026098}
   - component: {fileID: 8891343091749008730}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12036,7 +12036,7 @@ GameObject:
   - component: {fileID: 3877147010174901407}
   - component: {fileID: 9130464130377526387}
   - component: {fileID: 7942624926365561350}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_06_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12159,7 +12159,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!33 &1040718460853251308
 MeshFilter:
@@ -12180,7 +12180,7 @@ GameObject:
   - component: {fileID: 1277688558940729230}
   - component: {fileID: 2940099112169678354}
   - component: {fileID: 6144909689353017980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12301,7 +12301,7 @@ GameObject:
   - component: {fileID: 3755189053313917960}
   - component: {fileID: 5581068610060272671}
   - component: {fileID: 4587361088019903285}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12415,7 +12415,7 @@ GameObject:
   - component: {fileID: 3351890308183030813}
   - component: {fileID: 2825630735095340866}
   - component: {fileID: 3530855180345595823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12433,7 +12433,7 @@ GameObject:
   - component: {fileID: 4178749310623143564}
   - component: {fileID: 4946888513788767418}
   - component: {fileID: 1700787876265791555}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12618,7 +12618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8963966718550417066}
   - component: {fileID: 3320658772722820151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12650,7 +12650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2751571523569214195}
   - component: {fileID: 3340568313203160119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12669,7 +12669,7 @@ GameObject:
   - component: {fileID: 5702896236788914343}
   - component: {fileID: 3565768808788103159}
   - component: {fileID: 7387660160136665051}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12787,7 +12787,7 @@ GameObject:
   - component: {fileID: 8795755255960110141}
   - component: {fileID: 1613495548400805769}
   - component: {fileID: 1623569153536678033}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13037,7 +13037,7 @@ GameObject:
   - component: {fileID: 8117009362406751519}
   - component: {fileID: 4804674081924571112}
   - component: {fileID: 7461534789331284864}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13127,7 +13127,7 @@ GameObject:
   - component: {fileID: 5132444936435698237}
   - component: {fileID: 3718764555766985232}
   - component: {fileID: 7511804140119791668}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13179,7 +13179,7 @@ GameObject:
   - component: {fileID: 8133943379163371028}
   - component: {fileID: 4821484884462253283}
   - component: {fileID: 7478307658930657419}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13198,7 +13198,7 @@ GameObject:
   - component: {fileID: 5676637403214850909}
   - component: {fileID: 3503679131082406925}
   - component: {fileID: 7450514591154856993}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13217,7 +13217,7 @@ GameObject:
   - component: {fileID: 3768036645264587238}
   - component: {fileID: 6869909003704850731}
   - component: {fileID: 7494732255929221409}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13386,7 +13386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2621255153012419486}
   - component: {fileID: 3175898904428133722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_07 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13439,7 +13439,7 @@ GameObject:
   - component: {fileID: 5363785881932892877}
   - component: {fileID: 3034343642493039147}
   - component: {fileID: 1629910056346970918}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13566,7 +13566,7 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   CinemachineCameraTarget: {fileID: 4888264393320489068}
   TopClamp: 70
   BottomClamp: -30
@@ -13670,7 +13670,7 @@ GameObject:
   - component: {fileID: 2684697210504965080}
   - component: {fileID: 6348654203869483502}
   - component: {fileID: 803463963724852503}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_shroom_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13687,7 +13687,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2685541461391247685}
   - component: {fileID: 3258190698318733185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13781,7 +13781,7 @@ GameObject:
   - component: {fileID: 5443805878769400119}
   - component: {fileID: 3170412344084070865}
   - component: {fileID: 1692558248399591644}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13963,7 +13963,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2703048051174512740}
   - component: {fileID: 3310349651048894112}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13981,7 +13981,7 @@ GameObject:
   - component: {fileID: 375191808031102560}
   - component: {fileID: 2866685780457292522}
   - component: {fileID: 7895596642061968767}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14218,7 +14218,7 @@ GameObject:
   - component: {fileID: 155706134534178339}
   - component: {fileID: 8354175002838006093}
   - component: {fileID: 3250299120019043829}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14350,7 +14350,7 @@ GameObject:
   - component: {fileID: 315100508686741607}
   - component: {fileID: 2784077030568223981}
   - component: {fileID: 7852394941083485048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14384,7 +14384,7 @@ GameObject:
   - component: {fileID: 4324466151623588082}
   - component: {fileID: 7414804606060654523}
   - component: {fileID: 9167969294137305296}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14450,7 +14450,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &1579387208726316730
 MeshRenderer:
@@ -15324,7 +15324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8547462245457673641}
   - component: {fileID: 3018214661958892121}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15392,7 +15392,7 @@ GameObject:
   - component: {fileID: 4612881494714707481}
   - component: {fileID: 2339592413769619199}
   - component: {fileID: 2086674192279343090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15468,7 +15468,7 @@ GameObject:
   - component: {fileID: 8005180367810139066}
   - component: {fileID: 7066809550549052505}
   - component: {fileID: 3191836138913768349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15563,7 +15563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3317833772209753930}
   - component: {fileID: 2772192803748403598}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15581,7 +15581,7 @@ GameObject:
   - component: {fileID: 5876498023127442198}
   - component: {fileID: 1339392632807172168}
   - component: {fileID: 4446948384351183400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15669,7 +15669,7 @@ GameObject:
   - component: {fileID: 3383507760806218820}
   - component: {fileID: 6030219703076451954}
   - component: {fileID: 41427079600081547}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15716,7 +15716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3355236780045022541}
   - component: {fileID: 2802273082396550025}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15787,7 +15787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3360944484566553436}
   - component: {fileID: 2798960392719549848}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15832,7 +15832,7 @@ GameObject:
   - component: {fileID: 4981760613294106570}
   - component: {fileID: 6418052428734566827}
   - component: {fileID: 9163102351428298967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16031,7 +16031,7 @@ GameObject:
   - component: {fileID: 8652066748894062072}
   - component: {fileID: 5339747723789289231}
   - component: {fileID: 8015153377350904679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16391,7 +16391,7 @@ GameObject:
   - component: {fileID: 8210514531519799993}
   - component: {fileID: 1702258550449758979}
   - component: {fileID: 3809390799154338635}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16409,7 +16409,7 @@ GameObject:
   - component: {fileID: 966091949129379518}
   - component: {fileID: 8984381651595399632}
   - component: {fileID: 2475418153266781544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16542,7 +16542,7 @@ GameObject:
   - component: {fileID: 126666896428615972}
   - component: {fileID: 676830806593636228}
   - component: {fileID: 7407052912073357283}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16558,7 +16558,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3815050022180259562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FX_particle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16577,7 +16577,7 @@ GameObject:
   - component: {fileID: 4323308165580475888}
   - component: {fileID: 3624728689241108143}
   - component: {fileID: 2628740657475380802}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16723,7 +16723,7 @@ GameObject:
   - component: {fileID: 7874822567656725379}
   - component: {fileID: 4955557662066411436}
   - component: {fileID: 6855909438742215833}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_04_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16758,7 +16758,7 @@ GameObject:
   - component: {fileID: 4102073493440061996}
   - component: {fileID: 8579255458650695608}
   - component: {fileID: 5727429104580624203}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_05_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16775,7 +16775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3251766428995077275}
   - component: {fileID: 2689500827407667807}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_cliff_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16847,7 +16847,7 @@ GameObject:
   - component: {fileID: 8539300959225280518}
   - component: {fileID: 625350110898269242}
   - component: {fileID: 2992769554866272919}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16866,7 +16866,7 @@ GameObject:
   - component: {fileID: 4948530427946979209}
   - component: {fileID: 4248108360780568793}
   - component: {fileID: 7858299879683686645}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16920,7 +16920,7 @@ GameObject:
   - component: {fileID: 998322508590128446}
   - component: {fileID: 2169609643733455870}
   - component: {fileID: 896385777289692568}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17128,7 +17128,7 @@ GameObject:
   - component: {fileID: 574692995014116584}
   - component: {fileID: 1107653428447480392}
   - component: {fileID: 6985251822595389999}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17206,7 +17206,7 @@ GameObject:
   - component: {fileID: 596614710552044739}
   - component: {fileID: 530146067517616442}
   - component: {fileID: 6856104568667665388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17334,7 +17334,7 @@ GameObject:
   - component: {fileID: 3108290846751991507}
   - component: {fileID: 6231249816673787109}
   - component: {fileID: 379799743972565020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17567,7 +17567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3146765866112849215}
   - component: {fileID: 2582832478392747003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17640,7 +17640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8600648727769325063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FX_volumetric
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17709,7 +17709,7 @@ GameObject:
   - component: {fileID: 4313190268753243575}
   - component: {fileID: 5820787311130365306}
   - component: {fileID: 7463561518228034928}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17726,7 +17726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2913005666325331895}
   - component: {fileID: 2314443037751601523}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17884,7 +17884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2899734042887197108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_FX_volumetriclight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17949,7 +17949,7 @@ GameObject:
   - component: {fileID: 2949153394952240236}
   - component: {fileID: 6176257925733729882}
   - component: {fileID: 471453781734144675}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18018,7 +18018,7 @@ GameObject:
   - component: {fileID: 7909717449070004113}
   - component: {fileID: 7226626662972223594}
   - component: {fileID: 1947749764609785337}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_04_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18037,7 +18037,7 @@ GameObject:
   - component: {fileID: 4063967957000005525}
   - component: {fileID: 4071770460172661753}
   - component: {fileID: 3856018136040543362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18248,7 +18248,7 @@ GameObject:
   - component: {fileID: 694767000163347465}
   - component: {fileID: 5999204180000242496}
   - component: {fileID: 5376438779561196587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18453,7 +18453,7 @@ GameObject:
   - component: {fileID: 1683467972741907195}
   - component: {fileID: 7640329884506028237}
   - component: {fileID: 4124011826231084084}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_shroom_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18752,7 +18752,7 @@ GameObject:
   - component: {fileID: 862992041926881048}
   - component: {fileID: 5844770982587267153}
   - component: {fileID: 5242553642028711738}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18879,7 +18879,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1532721155643275867}
   - component: {fileID: 2105097832739237023}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19012,7 +19012,7 @@ GameObject:
   - component: {fileID: 3129753048340756660}
   - component: {fileID: 1536977138221200159}
   - component: {fileID: 5658272636552498454}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19055,7 +19055,7 @@ GameObject:
   - component: {fileID: 5849819059565931071}
   - component: {fileID: 6386227164834504132}
   - component: {fileID: 2877098104166862935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_04_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19156,7 +19156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1549493612174393861}
   - component: {fileID: 2158199133510194369}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_11 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19315,7 +19315,7 @@ GameObject:
   - component: {fileID: 3868263288615302741}
   - component: {fileID: 2767485639035025557}
   - component: {fileID: 3748278990926999283}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19351,7 +19351,7 @@ GameObject:
   - component: {fileID: 3862732221660936395}
   - component: {fileID: 2764628583287240203}
   - component: {fileID: 3760916254111834221}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19471,7 +19471,7 @@ GameObject:
   - component: {fileID: 4279565084020721070}
   - component: {fileID: 149190173816966194}
   - component: {fileID: 9194179945855217756}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19602,7 +19602,7 @@ GameObject:
   - component: {fileID: 3782106409165798560}
   - component: {fileID: 1621521046149048362}
   - component: {fileID: 6690805450168094655}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19716,7 +19716,7 @@ GameObject:
   - component: {fileID: 5678751068467593182}
   - component: {fileID: 2927553426087165540}
   - component: {fileID: 856473149904422444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19841,7 +19841,7 @@ GameObject:
   - component: {fileID: 4176606938827460237}
   - component: {fileID: 36133838955513617}
   - component: {fileID: 9010033616951851903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19874,7 +19874,7 @@ GameObject:
   - component: {fileID: 7072833230854399533}
   - component: {fileID: 3806777826663624354}
   - component: {fileID: 5989379830079831457}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19935,7 +19935,7 @@ GameObject:
   - component: {fileID: 1213921575194473405}
   - component: {fileID: 7891346146745452939}
   - component: {fileID: 4521395128184796530}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19969,7 +19969,7 @@ GameObject:
   - component: {fileID: 8011367709693130196}
   - component: {fileID: 3185699897235996298}
   - component: {fileID: 222119301190989034}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20069,7 +20069,7 @@ GameObject:
   - component: {fileID: 1114405131676045176}
   - component: {fileID: 6166011856926922801}
   - component: {fileID: 5498778469337341786}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20110,7 +20110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260159246670300712}
   - component: {fileID: 1805770547779277036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_pine_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20279,7 +20279,7 @@ GameObject:
   - component: {fileID: 2257535143596909996}
   - component: {fileID: 8765203240621104702}
   - component: {fileID: 2917369015495437090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20523,7 +20523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2179182962449418693}
   - component: {fileID: 1607114148610285313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20652,7 +20652,7 @@ GameObject:
   - component: {fileID: 695452955738049403}
   - component: {fileID: 5726877152536612}
   - component: {fileID: 1595099635985752265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20821,7 +20821,7 @@ GameObject:
   - component: {fileID: 2678414421783146238}
   - component: {fileID: 3544456070817220304}
   - component: {fileID: 5814201742556906932}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21041,7 +21041,7 @@ GameObject:
   - component: {fileID: 6403555377129640523}
   - component: {fileID: 5860074842930242992}
   - component: {fileID: 3323310985052596259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_04_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21091,7 +21091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2089034890159756759}
   - component: {fileID: 1481157321346548499}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21125,7 +21125,7 @@ GameObject:
   - component: {fileID: 8984431061803529318}
   - component: {fileID: 580598910201203787}
   - component: {fileID: 6028715817073272431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21278,7 +21278,7 @@ GameObject:
   - component: {fileID: 2580743435855015690}
   - component: {fileID: 2156038104553022625}
   - component: {fileID: 5060217837185047208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21318,7 +21318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2106240052325917660}
   - component: {fileID: 1533828330713527576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_cliff_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21386,7 +21386,7 @@ GameObject:
   - component: {fileID: 3821088967503263766}
   - component: {fileID: 5623766092666329634}
   - component: {fileID: 1662717716658223939}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21419,7 +21419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1894444810591368366}
   - component: {fileID: 1313350228072161898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21464,7 +21464,7 @@ GameObject:
   - component: {fileID: 1503102341451559554}
   - component: {fileID: 8227010222306625808}
   - component: {fileID: 2590946874829372428}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21512,7 +21512,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1878474745607312980}
   - component: {fileID: 1324674302431019152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_11 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21574,7 +21574,7 @@ GameObject:
   - component: {fileID: 695588843403297876}
   - component: {fileID: 7114327128001537177}
   - component: {fileID: 6192265063419870355}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21591,7 +21591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3863000678844408634}
   - component: {fileID: 1330775441185113090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_08 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21974,7 +21974,7 @@ GameObject:
   - component: {fileID: 561809974543877188}
   - component: {fileID: 770339655649238331}
   - component: {fileID: 3715125913014767109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21993,7 +21993,7 @@ GameObject:
   - component: {fileID: 912340762524241176}
   - component: {fileID: 368080491871972935}
   - component: {fileID: 1381788678234826410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22011,7 +22011,7 @@ GameObject:
   - component: {fileID: 1989398835113824228}
   - component: {fileID: 7404134444158039506}
   - component: {fileID: 3890068183835330859}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_shroom_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22064,7 +22064,7 @@ GameObject:
   - component: {fileID: 4667175377432552943}
   - component: {fileID: 4533193125786612179}
   - component: {fileID: 2291461055018116990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22082,7 +22082,7 @@ GameObject:
   - component: {fileID: 1531120314172375416}
   - component: {fileID: 8345029889740389098}
   - component: {fileID: 2456522528332107766}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22161,7 +22161,7 @@ GameObject:
   - component: {fileID: 3741820138637716579}
   - component: {fileID: 3970983981397127295}
   - component: {fileID: 5818915248522674412}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_05_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22388,7 +22388,7 @@ GameObject:
   - component: {fileID: 3352661760856097790}
   - component: {fileID: 3352661760856097791}
   - component: {fileID: 3352661760856097788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_FX_particle_glow_yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27155,7 +27155,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791473078784604049}
   - component: {fileID: 1202190416261914965}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_cliff_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27173,7 +27173,7 @@ GameObject:
   - component: {fileID: 4160247363581655160}
   - component: {fileID: 5222762626350778134}
   - component: {fileID: 1625349613898140590}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27296,7 +27296,7 @@ GameObject:
   - component: {fileID: 1456505980337502252}
   - component: {fileID: 7879153790303098939}
   - component: {fileID: 2270382034719977233}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27646,7 +27646,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2431947175696682336}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27687,7 +27687,7 @@ GameObject:
   - component: {fileID: 1155147872676608205}
   - component: {fileID: 1852402805914311570}
   - component: {fileID: 1117940211815666559}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27771,7 +27771,7 @@ GameObject:
   - component: {fileID: 1193209058373585565}
   - component: {fileID: 1818828654146791874}
   - component: {fileID: 1084084640838902063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27805,7 +27805,7 @@ GameObject:
   - component: {fileID: 774204762055176906}
   - component: {fileID: 8345288828910113501}
   - component: {fileID: 74889075007481335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27823,7 +27823,7 @@ GameObject:
   - component: {fileID: 2350086995036442390}
   - component: {fileID: 171522555254872988}
   - component: {fileID: 5204778042297416713}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28166,7 +28166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2303112507779630020}
   - component: {fileID: 928206409027365489}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28389,7 +28389,7 @@ GameObject:
   - component: {fileID: 6828873429096790317}
   - component: {fileID: 3652856187620645529}
   - component: {fileID: 3629293773574907265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28490,7 +28490,7 @@ GameObject:
   - component: {fileID: 2700865404902710107}
   - component: {fileID: 542428358757617617}
   - component: {fileID: 5610745579896596548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28515,7 +28515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 145959931107333284}
   - component: {fileID: 753529810744885856}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28634,7 +28634,7 @@ GameObject:
   - component: {fileID: 1569961943782490453}
   - component: {fileID: 2052311325091291658}
   - component: {fileID: 742513930068536039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28881,7 +28881,7 @@ GameObject:
   - component: {fileID: 6056304944680492592}
   - component: {fileID: 7351169674857069767}
   - component: {fileID: 4838425226177286319}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28933,7 +28933,7 @@ GameObject:
   - component: {fileID: 6069070849649414318}
   - component: {fileID: 7363776082994917977}
   - component: {fileID: 4832486170648731185}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29089,7 +29089,7 @@ GameObject:
   - component: {fileID: 6379846998260418021}
   - component: {fileID: 2784849018154799577}
   - component: {fileID: 540434139007518580}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29152,7 +29152,7 @@ GameObject:
   m_Component:
   - component: {fileID: 253001909008721889}
   - component: {fileID: 860549763114725669}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29292,7 +29292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 13862176303159791}
   - component: {fileID: 595215143652495147}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29310,7 +29310,7 @@ GameObject:
   - component: {fileID: 5035340520088224070}
   - component: {fileID: 8803088207138613578}
   - component: {fileID: 191353157856425532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_05_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29358,7 +29358,7 @@ GameObject:
   - component: {fileID: 11492445092538594}
   - component: {fileID: 9039800798679683796}
   - component: {fileID: 3336986476655390253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29563,7 +29563,7 @@ GameObject:
   - component: {fileID: 4994212498999112133}
   - component: {fileID: 3986842322971155059}
   - component: {fileID: 3986842322971155056}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_FX_particle_glow_yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34381,7 +34381,7 @@ GameObject:
   - component: {fileID: 2515049253061658989}
   - component: {fileID: 9005722462190871557}
   - component: {fileID: 3442520012218128636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34398,7 +34398,7 @@ GameObject:
   m_Component:
   - component: {fileID: 118902731848884469}
   - component: {fileID: 708740736998651441}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34722,7 +34722,7 @@ GameObject:
   - component: {fileID: 2756523224250267748}
   - component: {fileID: 2249325009185255928}
   - component: {fileID: 7114978721090309526}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34804,7 +34804,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &4208152644320032308
 GameObject:
@@ -34816,7 +34816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881866943907628071}
   - component: {fileID: 310356700228752099}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_12 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35205,7 +35205,7 @@ GameObject:
   - component: {fileID: 6659762751548853636}
   - component: {fileID: 6224656572574081630}
   - component: {fileID: 9027787565148211214}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35406,7 +35406,7 @@ GameObject:
   - component: {fileID: 2602125194074078069}
   - component: {fileID: 2119662133742383849}
   - component: {fileID: 6980793983796579975}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35563,7 +35563,7 @@ GameObject:
   - component: {fileID: 1606207504600947746}
   - component: {fileID: 1959450473767716189}
   - component: {fileID: 2454269740166927971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35627,7 +35627,7 @@ GameObject:
   - component: {fileID: 5146605835707720250}
   - component: {fileID: 6849921626104985364}
   - component: {fileID: 8673129196411031335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35762,7 +35762,7 @@ GameObject:
   - component: {fileID: 7299008935263067862}
   - component: {fileID: 4963135161446504620}
   - component: {fileID: 693938299247429267}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35780,7 +35780,7 @@ GameObject:
   - component: {fileID: 2508501023944546308}
   - component: {fileID: 1997885251850178968}
   - component: {fileID: 7364410495180942838}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35807,7 +35807,7 @@ GameObject:
   - component: {fileID: 2042938901143217637}
   - component: {fileID: 1579387208726316730}
   - component: {fileID: 278566179725758039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36043,7 +36043,7 @@ GameObject:
   - component: {fileID: 1463278546183608817}
   - component: {fileID: 5668807730780753592}
   - component: {fileID: 6302260357633018323}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36104,7 +36104,7 @@ GameObject:
   - component: {fileID: 3828769185397216453}
   - component: {fileID: 4566505114936975252}
   - component: {fileID: 6568862663202882335}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36370,7 +36370,7 @@ GameObject:
   - component: {fileID: 2899681447041425438}
   - component: {fileID: 6483895837207879536}
   - component: {fileID: 508890102488650696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36607,7 +36607,7 @@ GameObject:
   - component: {fileID: 1083105819565567950}
   - component: {fileID: 3451928843383574779}
   - component: {fileID: 7906918606687803307}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36742,7 +36742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686387232339403834}
   - component: {fileID: 141044370043187966}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36817,7 +36817,7 @@ GameObject:
   - component: {fileID: 323334449390367403}
   - component: {fileID: 5948994445355973156}
   - component: {fileID: 3838750881279682855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36878,7 +36878,7 @@ GameObject:
   - component: {fileID: 7003463191614621740}
   - component: {fileID: 7531051008100461427}
   - component: {fileID: 9130235460943913886}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37124,7 +37124,7 @@ GameObject:
   - component: {fileID: 8555204321754838568}
   - component: {fileID: 856026700974803998}
   - component: {fileID: 6403484065232695527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37175,7 +37175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2892602030119964585}
   - component: {fileID: 9138865820769553390}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37405,7 +37405,7 @@ GameObject:
   - component: {fileID: 2315477274562104735}
   - component: {fileID: 1309125605557956456}
   - component: {fileID: 3966511329665794816}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37423,7 +37423,7 @@ GameObject:
   - component: {fileID: 6777425041825618879}
   - component: {fileID: 7455804032862704163}
   - component: {fileID: 1941640904168861261}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37440,7 +37440,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8624913293360128320}
   - component: {fileID: 9205998000274175876}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37458,7 +37458,7 @@ GameObject:
   - component: {fileID: 5995038711843008424}
   - component: {fileID: 8200727830701062946}
   - component: {fileID: 4293230428834520247}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37526,7 +37526,7 @@ GameObject:
   - component: {fileID: 1059263354010211400}
   - component: {fileID: 5833170190729680203}
   - component: {fileID: 5671384319245090980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37694,7 +37694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8450782341022181249}
   - component: {fileID: 9022024338224673093}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37946,7 +37946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5561315664978589493}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38131,7 +38131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8328372544395494640}
   - component: {fileID: 8928329234662117940}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38187,7 +38187,7 @@ GameObject:
   - component: {fileID: 164113187692232551}
   - component: {fileID: 6103688152254511080}
   - component: {fileID: 3710475102680360171}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38247,7 +38247,7 @@ GameObject:
   - component: {fileID: 1135711633947923571}
   - component: {fileID: 5537495593809239853}
   - component: {fileID: 7204039325305705805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38484,7 +38484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8149951839469645104}
   - component: {fileID: 8748783866781318132}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38502,7 +38502,7 @@ GameObject:
   - component: {fileID: 1773151741569893440}
   - component: {fileID: 7037257995901627688}
   - component: {fileID: 7652802914681523786}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_04_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38553,7 +38553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8199342858770270177}
   - component: {fileID: 8771451271000969509}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38616,7 +38616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9102788782427958982}
   - component: {fileID: 8511808506298202114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38655,7 +38655,7 @@ GameObject:
   - component: {fileID: 7569771445859479888}
   - component: {fileID: 6971534088754893327}
   - component: {fileID: 8541476278506838754}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38748,7 +38748,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9085837706334635469}
   - component: {fileID: 8531224893581628169}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38805,7 +38805,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &5217935366198919499
 GameObject:
@@ -38819,7 +38819,7 @@ GameObject:
   - component: {fileID: 1672695752128890326}
   - component: {fileID: 7597147969912967814}
   - component: {fileID: 4509343214993787562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38886,7 +38886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9118440057084197217}
   - component: {fileID: 8572789348577587109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38928,7 +38928,7 @@ GameObject:
   - component: {fileID: 2926640450347948577}
   - component: {fileID: 1915520120694946006}
   - component: {fileID: 4590391373236933822}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39095,7 +39095,7 @@ GameObject:
   - component: {fileID: 1560138476604447297}
   - component: {fileID: 690737266343980064}
   - component: {fileID: 3435573915021088092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39139,7 +39139,7 @@ GameObject:
   - component: {fileID: 9195477846098126390}
   - component: {fileID: 200375954850716672}
   - component: {fileID: 5907431565669163257}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39200,7 +39200,7 @@ GameObject:
   - component: {fileID: 9006210478997736616}
   - component: {fileID: 79247440353253340}
   - component: {fileID: 5919139809738533669}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_shroom_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39291,7 +39291,7 @@ GameObject:
   - component: {fileID: 3167998630231814551}
   - component: {fileID: 1872993204106810208}
   - component: {fileID: 4386267038946787080}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39382,7 +39382,7 @@ GameObject:
   - component: {fileID: 9033031726112639491}
   - component: {fileID: 211939339284533}
   - component: {fileID: 5997749801293434060}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_10 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39449,7 +39449,7 @@ GameObject:
   - component: {fileID: 9039681383010671408}
   - component: {fileID: 11365573378121990}
   - component: {fileID: 5986666568817630719}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39544,7 +39544,7 @@ GameObject:
   - component: {fileID: 9069572168911875842}
   - component: {fileID: 37877534923019572}
   - component: {fileID: 6033161045986912717}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39577,7 +39577,7 @@ GameObject:
   - component: {fileID: 1413587810178180166}
   - component: {fileID: 8353556358018145440}
   - component: {fileID: 5723924250625459629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39642,7 +39642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9048151546974700821}
   - component: {fileID: 8494601929754547153}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39702,7 +39702,7 @@ GameObject:
   - component: {fileID: 6055685920015489124}
   - component: {fileID: 7889189630802989560}
   - component: {fileID: 1222241818248981910}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39727,7 +39727,7 @@ GameObject:
   m_Component:
   - component: {fileID: 767916924651225964}
   - component: {fileID: 8225640970524886385}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39745,7 +39745,7 @@ GameObject:
   - component: {fileID: 1464777947428836813}
   - component: {fileID: 3888927676581712823}
   - component: {fileID: 8699260171303325064}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39763,7 +39763,7 @@ GameObject:
   - component: {fileID: 3051741547034458673}
   - component: {fileID: 8926782978204826647}
   - component: {fileID: 1635753756487762298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39781,7 +39781,7 @@ GameObject:
   - component: {fileID: 8823718498621154110}
   - component: {fileID: 517671542257375496}
   - component: {fileID: 6058373859405440497}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_shroom_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39899,7 +39899,7 @@ GameObject:
   - component: {fileID: 5814090817945547112}
   - component: {fileID: 1380043949757533951}
   - component: {fileID: 3203261934693227352}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39918,7 +39918,7 @@ GameObject:
   - component: {fileID: 5929312596894296862}
   - component: {fileID: 2973988980327139626}
   - component: {fileID: 8096683486778845259}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40001,7 +40001,7 @@ GameObject:
   - component: {fileID: 5988364728042603312}
   - component: {fileID: 7668758902038317740}
   - component: {fileID: 1722250591154304706}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40457,7 +40457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8666626028782650354}
   - component: {fileID: 8085532408603252022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40554,7 +40554,7 @@ GameObject:
   - component: {fileID: 8647532709044417552}
   - component: {fileID: 385395944149405222}
   - component: {fileID: 6225587646843663071}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40613,7 +40613,7 @@ GameObject:
   - component: {fileID: 2352548210743384110}
   - component: {fileID: 3670132794214836456}
   - component: {fileID: 6795323014380877039}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_06_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40646,7 +40646,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8658627124779992470}
   - component: {fileID: 8095785380174418770}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40724,7 +40724,7 @@ GameObject:
   - component: {fileID: 4086188485911662739}
   - component: {fileID: 8437179426471701830}
   - component: {fileID: 2533965657845895092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40742,7 +40742,7 @@ GameObject:
   - component: {fileID: 8530356894520317922}
   - component: {fileID: 1193959464310353008}
   - component: {fileID: 4704319389622327660}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40889,7 +40889,7 @@ GameObject:
   - component: {fileID: 8692872657210015940}
   - component: {fileID: 430180767238896370}
   - component: {fileID: 6252340210817910283}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40977,7 +40977,7 @@ GameObject:
   - component: {fileID: 4916280932790673374}
   - component: {fileID: 5640716790649656463}
   - component: {fileID: 3040475062539601924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41002,7 +41002,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8750521651121199821}
   - component: {fileID: 8143501544612662281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41062,7 +41062,7 @@ GameObject:
   - component: {fileID: 7407755606309190958}
   - component: {fileID: 4334882817992436327}
   - component: {fileID: 2735125383756180748}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41196,7 +41196,7 @@ GameObject:
   - component: {fileID: 3500782493945609809}
   - component: {fileID: 1106307593557052030}
   - component: {fileID: 414837002194934143}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_06_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41214,7 +41214,7 @@ GameObject:
   - component: {fileID: 2694038632897932281}
   - component: {fileID: 5266854994234230861}
   - component: {fileID: 5331130124582369109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41355,7 +41355,7 @@ GameObject:
   - component: {fileID: 8769295409645145880}
   - component: {fileID: 2546769353962510417}
   - component: {fileID: 4218315688245960506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41388,7 +41388,7 @@ GameObject:
   - component: {fileID: 4734766927137925988}
   - component: {fileID: 5941237601546986916}
   - component: {fileID: 4620445253928285122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41606,7 +41606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7395354960182611824}
   - component: {fileID: 7985456844633119156}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41711,7 +41711,7 @@ GameObject:
   - component: {fileID: 7451254872638247603}
   - component: {fileID: 1887899308121876613}
   - component: {fileID: 5264605711366919292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42055,7 +42055,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &5919139809738533669
 MeshRenderer:
@@ -42110,7 +42110,7 @@ GameObject:
   - component: {fileID: 6813258314719132714}
   - component: {fileID: 5374586470812881924}
   - component: {fileID: 3104700058850449248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42178,7 +42178,7 @@ GameObject:
   - component: {fileID: 3806102012396007639}
   - component: {fileID: 7307730909794383601}
   - component: {fileID: 593162359866887068}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42195,7 +42195,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311190582500283219}
   - component: {fileID: 7845874068269969119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42759,7 +42759,7 @@ GameObject:
   - component: {fileID: 7078228313848041721}
   - component: {fileID: 2261349729986767567}
   - component: {fileID: 5502665311939368502}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42828,7 +42828,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7074239499677470353}
   - component: {fileID: 7664882261574686805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42864,7 +42864,7 @@ GameObject:
   - component: {fileID: 7121482535068065115}
   - component: {fileID: 2274194793190811501}
   - component: {fileID: 5526789163164474260}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42947,7 +42947,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8656262623901337406}
   - component: {fileID: 7677556417942443475}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42973,7 +42973,7 @@ GameObject:
   - component: {fileID: 5437383575872793170}
   - component: {fileID: 8215517780944774094}
   - component: {fileID: 1119478460317753248}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42999,7 +42999,7 @@ GameObject:
   - component: {fileID: 2491590185267025690}
   - component: {fileID: 386505944496358529}
   - component: {fileID: 2129793135293495208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_06_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43022,7 +43022,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!1 &6112083375839669869
 GameObject:
@@ -47997,7 +47997,7 @@ GameObject:
   - component: {fileID: 6162118644762792625}
   - component: {fileID: 6162118644762792624}
   - component: {fileID: 6162118644762792627}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_FX_particle_glow_yellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48188,7 +48188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7182309018195043205}
   - component: {fileID: 7772985812338324801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_03 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48650,7 +48650,7 @@ GameObject:
   - component: {fileID: 9124895420574733388}
   - component: {fileID: 2614091676001993477}
   - component: {fileID: 4439028024997135470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48810,7 +48810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7961942229626417416}
   - component: {fileID: 7353567646930593740}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48858,7 +48858,7 @@ GameObject:
   - component: {fileID: 3851270915228733451}
   - component: {fileID: 5430908047995257911}
   - component: {fileID: 7672922693258089114}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48947,7 +48947,7 @@ GameObject:
   - component: {fileID: 5091517782395558056}
   - component: {fileID: 4441720412945316508}
   - component: {fileID: 7258853366977977341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48979,7 +48979,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7981914802280803390}
   - component: {fileID: 7401362176317537018}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_pine_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49242,7 +49242,7 @@ GameObject:
   - component: {fileID: 408477354761708717}
   - component: {fileID: 1844355656190989004}
   - component: {fileID: 4584688700840979376}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49327,7 +49327,7 @@ GameObject:
   - component: {fileID: 7592085662379391816}
   - component: {fileID: 5313333110705030269}
   - component: {fileID: 855809526604301101}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49385,7 +49385,7 @@ GameObject:
   - component: {fileID: 8338016544434752707}
   - component: {fileID: 2977916552387009418}
   - component: {fileID: 3498779781847735521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49466,7 +49466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7848886169341671979}
   - component: {fileID: 7250591941729725679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49731,7 +49731,7 @@ GameObject:
   - component: {fileID: 1004612999444877874}
   - component: {fileID: 8741686851559729695}
   - component: {fileID: 2518720940100042811}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49749,7 +49749,7 @@ GameObject:
   - component: {fileID: 5359708823470036844}
   - component: {fileID: 6460206642775546284}
   - component: {fileID: 5461698470839537610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49785,7 +49785,7 @@ GameObject:
   - component: {fileID: 399595013715187167}
   - component: {fileID: 1320236900810663902}
   - component: {fileID: 7465293147164094330}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49810,7 +49810,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7895244464494881147}
   - component: {fileID: 7341454068320845759}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49869,7 +49869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8039969811672812826}
   - component: {fileID: 7073697824490699677}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49961,7 +49961,7 @@ GameObject:
   - component: {fileID: 8905265557130497944}
   - component: {fileID: 8895193300844403700}
   - component: {fileID: 8534482458940275855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49979,7 +49979,7 @@ GameObject:
   - component: {fileID: 4682088324902902548}
   - component: {fileID: 248600558912398467}
   - component: {fileID: 4332910957895217444}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50038,7 +50038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7686995538628795281}
   - component: {fileID: 7124183481104551253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_cliff_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50055,7 +50055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7735572144121394322}
   - component: {fileID: 7145483588833190486}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50145,7 +50145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7742566405435168559}
   - component: {fileID: 7133844238820442603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_cliff_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50178,7 +50178,7 @@ GameObject:
   - component: {fileID: 7714426892179737460}
   - component: {fileID: 1608947103337754946}
   - component: {fileID: 5001433989104061883}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_shroom_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50210,7 +50210,7 @@ GameObject:
   - component: {fileID: 4850092159995612389}
   - component: {fileID: 4053908458586730193}
   - component: {fileID: 7015176382714564528}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50228,7 +50228,7 @@ GameObject:
   - component: {fileID: 4724727144898542867}
   - component: {fileID: 151064291823977092}
   - component: {fileID: 4416363581599651619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50262,7 +50262,7 @@ GameObject:
   - component: {fileID: 7757118701282552357}
   - component: {fileID: 1656714309510844435}
   - component: {fileID: 5026401498967878890}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50294,7 +50294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7527699086017936694}
   - component: {fileID: 6918757152100953074}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50498,7 +50498,7 @@ GameObject:
   - component: {fileID: 3848563296299183370}
   - component: {fileID: 5982732743702916272}
   - component: {fileID: 8089837283468055800}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50524,7 +50524,7 @@ GameObject:
   - component: {fileID: 7589188446145281081}
   - component: {fileID: 1443738008060937743}
   - component: {fileID: 5131211287920392950}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50584,7 +50584,7 @@ GameObject:
   - component: {fileID: 6340733375704464549}
   - component: {fileID: 7621676245612902158}
   - component: {fileID: 3609611196948171015}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50686,7 +50686,7 @@ GameObject:
   - component: {fileID: 6326209351640199739}
   - component: {fileID: 7633698829218183568}
   - component: {fileID: 3612468304201451417}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50965,7 +50965,7 @@ GameObject:
   - component: {fileID: 8027450056714008196}
   - component: {fileID: 5730683968461736369}
   - component: {fileID: 998612598275444449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51056,7 +51056,7 @@ GameObject:
   - component: {fileID: 4038083050855003632}
   - component: {fileID: 3121445789546298912}
   - component: {fileID: 8677612960673186521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51433,7 +51433,7 @@ GameObject:
   - component: {fileID: 5258933015207637387}
   - component: {fileID: 1305552666471163586}
   - component: {fileID: 847740802036736425}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51637,7 +51637,7 @@ GameObject:
   - component: {fileID: 6998263518971540012}
   - component: {fileID: 1823867151709499640}
   - component: {fileID: 8628656341384298420}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_04_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51698,7 +51698,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &7114327128001537177
 MeshRenderer:
@@ -52002,7 +52002,7 @@ GameObject:
   - component: {fileID: 8945071650271226554}
   - component: {fileID: 4995988615298016038}
   - component: {fileID: 4098028762150821704}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52018,7 +52018,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1587866555332790929}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: assets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52234,7 +52234,7 @@ GameObject:
   - component: {fileID: 5601909446728825411}
   - component: {fileID: 1682306096841665802}
   - component: {fileID: 1046320022897191521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52294,7 +52294,7 @@ GameObject:
   - component: {fileID: 8320166829446946935}
   - component: {fileID: 194212952171437849}
   - component: {fileID: 6648834317165384609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52397,7 +52397,7 @@ GameObject:
   - component: {fileID: 5563409511800113171}
   - component: {fileID: 1715882405890727770}
   - component: {fileID: 1012622771872028721}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52576,7 +52576,7 @@ GameObject:
   - component: {fileID: 5999140880390460701}
   - component: {fileID: 3322034090835554091}
   - component: {fileID: 9018094370610893778}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53021,7 +53021,7 @@ GameObject:
   - component: {fileID: 5781151031455152655}
   - component: {fileID: 3270106480300998713}
   - component: {fileID: 9105515316431076544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53076,7 +53076,7 @@ GameObject:
   - component: {fileID: 5823782805056393148}
   - component: {fileID: 3281221028724159882}
   - component: {fileID: 9130402072476174707}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53238,7 +53238,7 @@ GameObject:
   - component: {fileID: 8731547929217314009}
   - component: {fileID: 4637202373300004165}
   - component: {fileID: 4454315821732960555}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53256,7 +53256,7 @@ GameObject:
   - component: {fileID: 8052189964652730704}
   - component: {fileID: 5873904874442101499}
   - component: {fileID: 744788522193054962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53447,7 +53447,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1356586395839440802}
   - component: {fileID: 6483825883297757957}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53523,7 +53523,7 @@ GameObject:
   - component: {fileID: 3763429145300626641}
   - component: {fileID: 2884879444229298864}
   - component: {fileID: 1022676889673507788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53618,7 +53618,7 @@ GameObject:
   - component: {fileID: 5295186096000772399}
   - component: {fileID: 4669847872058739312}
   - component: {fileID: 6266785129628992157}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53863,7 +53863,7 @@ GameObject:
   - component: {fileID: 4713898528248173883}
   - component: {fileID: 1985554383100543602}
   - component: {fileID: 167651120196306201}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54414,7 +54414,7 @@ GameObject:
   - component: {fileID: 5607342631423021681}
   - component: {fileID: 5563775746529592861}
   - component: {fileID: 4626323995882987878}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54433,7 +54433,7 @@ GameObject:
   - component: {fileID: 5471345327324848652}
   - component: {fileID: 4781971512090067283}
   - component: {fileID: 6082762188693096894}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54676,7 +54676,7 @@ GameObject:
   - component: {fileID: 752776444492621333}
   - component: {fileID: 6614060683634892851}
   - component: {fileID: 3934120410097868126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54732,7 +54732,7 @@ GameObject:
   - component: {fileID: 6517380058510578616}
   - component: {fileID: 2821896725352147342}
   - component: {fileID: 8364852972625597815}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54758,7 +54758,7 @@ GameObject:
   - component: {fileID: 2358539961055046059}
   - component: {fileID: 9150153992997103784}
   - component: {fileID: 6970648688183147847}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54817,7 +54817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6524488304285657212}
   - component: {fileID: 5978595700268154552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54876,7 +54876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6538761571012994786}
   - component: {fileID: 5966644533415276582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54894,7 +54894,7 @@ GameObject:
   - component: {fileID: 1191263298635596518}
   - component: {fileID: 2876508474740152191}
   - component: {fileID: 8419444718068460422}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54993,7 +54993,7 @@ GameObject:
   - component: {fileID: 7039952104261525837}
   - component: {fileID: 8478374423591045475}
   - component: {fileID: 1452830019182168583}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55129,7 +55129,7 @@ GameObject:
   - component: {fileID: 3877375785237078877}
   - component: {fileID: 1469550537434539303}
   - component: {fileID: 6423576158107777816}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55155,7 +55155,7 @@ GameObject:
   - component: {fileID: 8192700616834675156}
   - component: {fileID: 3619622719516397123}
   - component: {fileID: 966541933753621476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55336,7 +55336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6375961410385368501}
   - component: {fileID: 5766975362052670321}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55369,7 +55369,7 @@ GameObject:
   - component: {fileID: 6373964506914735190}
   - component: {fileID: 2679598132078509664}
   - component: {fileID: 8508233347361473177}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55386,7 +55386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6371894264141273713}
   - component: {fileID: 5773080929735494837}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55474,7 +55474,7 @@ GameObject:
   - component: {fileID: 7324814550691227982}
   - component: {fileID: 8060037583852446239}
   - component: {fileID: 841386457121226388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55514,7 +55514,7 @@ GameObject:
   - component: {fileID: 5433479500593193074}
   - component: {fileID: 2340614356435910847}
   - component: {fileID: 1670829737163741365}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55696,7 +55696,7 @@ GameObject:
   - component: {fileID: 1045740906154959165}
   - component: {fileID: 4362861370888405962}
   - component: {fileID: 1849550672425349026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55879,7 +55879,7 @@ GameObject:
   - component: {fileID: 6120918862641989039}
   - component: {fileID: 3287403007109260728}
   - component: {fileID: 6864989208408593042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_03_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56051,7 +56051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3254286714786996327}
   - component: {fileID: 5638530682895091407}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56070,7 +56070,7 @@ GameObject:
   - component: {fileID: 6914921354518209840}
   - component: {fileID: 1226407012115475565}
   - component: {fileID: 3107315096926219868}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_pine_01_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56087,7 +56087,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5104399162553538284}
   - component: {fileID: 5667192339400228904}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_pine_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56127,7 +56127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5082880437442974548}
   - component: {fileID: 5690749228282283408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56212,7 +56212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5150265304792981141}
   - component: {fileID: 5695634709988395089}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56230,7 +56230,7 @@ GameObject:
   - component: {fileID: 2968353059044629591}
   - component: {fileID: 5278901290537198769}
   - component: {fileID: 8485011743392988604}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56478,7 +56478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5133780432321953028}
   - component: {fileID: 5714298870346591168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56496,7 +56496,7 @@ GameObject:
   - component: {fileID: 5170232141925403490}
   - component: {fileID: 4223070240978399572}
   - component: {fileID: 7613288342775500205}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_08
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56636,7 +56636,7 @@ GameObject:
   - component: {fileID: 3279334874699239834}
   - component: {fileID: 6102471436065208562}
   - component: {fileID: 6858206082661522320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_04_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56701,7 +56701,7 @@ GameObject:
   - component: {fileID: 6169278543456449147}
   - component: {fileID: 6159348535950190103}
   - component: {fileID: 6375099696180756844}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56720,7 +56720,7 @@ GameObject:
   - component: {fileID: 3285723453209984455}
   - component: {fileID: 6035344863074757271}
   - component: {fileID: 305048771563582139}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56787,7 +56787,7 @@ GameObject:
   - component: {fileID: 8926362014746412909}
   - component: {fileID: 5033797008567684294}
   - component: {fileID: 2164520435323876047}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56805,7 +56805,7 @@ GameObject:
   - component: {fileID: 7841879968018547271}
   - component: {fileID: 6171587496960445403}
   - component: {fileID: 2895722750431688629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56839,7 +56839,7 @@ GameObject:
   - component: {fileID: 5928410803184320422}
   - component: {fileID: 6626787779398982905}
   - component: {fileID: 5602937921119818772}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56887,7 +56887,7 @@ GameObject:
   - component: {fileID: 385327990460869921}
   - component: {fileID: 5258826673217163508}
   - component: {fileID: 2217898933811720710}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57073,7 +57073,7 @@ GameObject:
   - component: {fileID: 5534446310419247091}
   - component: {fileID: 3043989353481999457}
   - component: {fileID: 8928032706270945661}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_07_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57148,7 +57148,7 @@ GameObject:
   - component: {fileID: 4104980298663020961}
   - component: {fileID: 7401392069874305186}
   - component: {fileID: 8714568911854787917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_05_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57311,7 +57311,7 @@ GameObject:
   - component: {fileID: 4824775522910157141}
   - component: {fileID: 4588619885470286691}
   - component: {fileID: 7823460716178571162}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57553,7 +57553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4856797847016899795}
   - component: {fileID: 5410320132139979287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57590,7 +57590,7 @@ GameObject:
   - component: {fileID: 6095223251719003351}
   - component: {fileID: 6711615890664980360}
   - component: {fileID: 5409602900729247589}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57944,7 +57944,7 @@ GameObject:
   - component: {fileID: 8815878358347972922}
   - component: {fileID: 7945362483500411156}
   - component: {fileID: 1135989847124060784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_03_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57990,7 +57990,7 @@ GameObject:
   - component: {fileID: 6665719417867338797}
   - component: {fileID: 5907135679267282258}
   - component: {fileID: 7549246948323462764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_08_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58223,7 +58223,7 @@ GameObject:
   - component: {fileID: 7106384412877069259}
   - component: {fileID: 7890902593413975602}
   - component: {fileID: 3890175305705147620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58242,7 +58242,7 @@ GameObject:
   - component: {fileID: 6254142087160504262}
   - component: {fileID: 6879753383782120601}
   - component: {fileID: 5282578851011998836}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58283,7 +58283,7 @@ GameObject:
   - component: {fileID: 5880455030713236934}
   - component: {fileID: 828284360133683855}
   - component: {fileID: 1342968531311226340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58335,7 +58335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5649372183849239858}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_FX_volumetriclight (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58370,7 +58370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5624992580182714743}
   - component: {fileID: 5079042663852130227}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_stone_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58606,7 +58606,7 @@ GameObject:
   - component: {fileID: 7301394769734419042}
   - component: {fileID: 2799807102343904757}
   - component: {fileID: 1839802716310792274}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58761,7 +58761,7 @@ GameObject:
   - component: {fileID: 2210309189460076962}
   - component: {fileID: 1486978026845111928}
   - component: {fileID: 4578338358361009192}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58862,7 +58862,7 @@ GameObject:
   - component: {fileID: 7296867423091762935}
   - component: {fileID: 6644419323952607083}
   - component: {fileID: 2431933308272186117}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58880,7 +58880,7 @@ GameObject:
   - component: {fileID: 7035412709425303662}
   - component: {fileID: 7567272517160902350}
   - component: {fileID: 480740755881209513}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane_volumetriclight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59239,7 +59239,7 @@ GameObject:
   - component: {fileID: 8311383393095557002}
   - component: {fileID: 5579003818312684577}
   - component: {fileID: 1638978221926459944}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59369,7 +59369,7 @@ GameObject:
   - component: {fileID: 8291984821348004993}
   - component: {fileID: 5559800409695534890}
   - component: {fileID: 1655681341115416867}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59402,7 +59402,7 @@ GameObject:
   - component: {fileID: 2511760553907531839}
   - component: {fileID: 3982634122866837335}
   - component: {fileID: 7239995760888527790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_PLANT_bush_09
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59476,7 +59476,7 @@ GameObject:
   - component: {fileID: 6968628516369585711}
   - component: {fileID: 2539081125174012344}
   - component: {fileID: 2048579002422492191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59518,7 +59518,7 @@ GameObject:
   - component: {fileID: 7091742141822363609}
   - component: {fileID: 1830274248636892653}
   - component: {fileID: 4647425886250214540}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59580,7 +59580,7 @@ GameObject:
   - component: {fileID: 777349408457783664}
   - component: {fileID: 5146026748624127141}
   - component: {fileID: 1249407752804214359}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_01_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59663,7 +59663,7 @@ GameObject:
   - component: {fileID: 6094607660606094245}
   - component: {fileID: 1040718460853251308}
   - component: {fileID: 1705977030833318791}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59866,7 +59866,7 @@ GameObject:
   - component: {fileID: 2720947041897307569}
   - component: {fileID: 317906458529536971}
   - component: {fileID: 5271650468393584116}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59901,7 +59901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5459936512934222793}
   - component: {fileID: 4879097979185335565}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_ENV_tree_birch_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59962,7 +59962,7 @@ GameObject:
   - component: {fileID: 7134098939232944606}
   - component: {fileID: 1733310207289320426}
   - component: {fileID: 4689793056812286603}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60041,7 +60041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5214360180851706110}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: P_FX_volumetriclight (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60196,7 +60196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5204004339259748365}
   - component: {fileID: 4633017409695983305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60233,7 +60233,7 @@ GameObject:
   - component: {fileID: 8478996439909898146}
   - component: {fileID: 9211703101862649075}
   - component: {fileID: 1990800863789662328}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_tree_birch_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60397,7 +60397,7 @@ GameObject:
   - component: {fileID: 8004102630284937158}
   - component: {fileID: 8994402720392890630}
   - component: {fileID: 7979837554297757536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_01_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60438,7 +60438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5283798336161109514}
   - component: {fileID: 4692834382785069262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_cliff_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60557,7 +60557,7 @@ GameObject:
   - component: {fileID: 6957470495061532527}
   - component: {fileID: 6484040953543382771}
   - component: {fileID: 2626089764526713501}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60580,7 +60580,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!23 &9194179945855217756
 MeshRenderer:
@@ -60677,7 +60677,7 @@ GameObject:
   - component: {fileID: 6918988089094991167}
   - component: {fileID: 6445558623820375203}
   - component: {fileID: 2664291726434916557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SM_ENV_stone_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

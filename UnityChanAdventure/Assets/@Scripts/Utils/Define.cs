@@ -117,7 +117,7 @@
     }
     public enum LayerMask
     {
-        Enviroment = 5,
+        Enviroment = 7,
         Player=6,
         Enemy=8,
         Skill = 10

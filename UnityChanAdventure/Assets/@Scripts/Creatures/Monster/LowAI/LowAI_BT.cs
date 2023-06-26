@@ -7,6 +7,7 @@ using BehaviorTree;
 public class LowAI_BT : Behavior_Tree
 {
     //Guard
+    [SerializeField]
     protected List<Vector3> waypoints=new List<Vector3>();
 
     public static float speed = 2f;
@@ -35,10 +36,11 @@ public class LowAI_BT : Behavior_Tree
         speed = _speed;
         fovRange = _fovRange;
         attackRange = _attackRange;
-        waypoints.Add(gameObject.transform.position + Vector3.left * 4);
-        waypoints.Add(gameObject.transform.position + Vector3.right * 4);
-        waypoints.Add(gameObject.transform.position + Vector3.forward * 4);
-        waypoints.Add(gameObject.transform.position + Vector3.back * 4);
+
+        waypoints.Add(gameObject.transform.position + Vector3.left * 2);
+        waypoints.Add(gameObject.transform.position + Vector3.right *2);
+        waypoints.Add(gameObject.transform.position + Vector3.forward * 2);
+        waypoints.Add(gameObject.transform.position + Vector3.back * 2);
 
     }
     protected override Behavior_Node SetupTree()

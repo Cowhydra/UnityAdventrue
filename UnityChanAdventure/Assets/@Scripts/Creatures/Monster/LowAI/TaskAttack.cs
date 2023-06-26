@@ -48,7 +48,8 @@ public class TaskAttack : Behavior_Node
                 myTransform.LookAt(target.position);
                 if (Projectile != null)
                 {
-                   GameObject Pro= Managers.Resource.PoolInstantiate(Projectile);
+                    GameObject Pro = GameObject.Instantiate(Projectile);
+                    //   GameObject Pro= Managers.Resource.PoolInstantiate(Projectile);
                     Pro.GetOrAddComponent<MonProjectileController>().SetProjectile( myTransform.position, 10);
                 }
                 else

@@ -390,7 +390,6 @@ GameObject:
   - component: {fileID: 3429649430302357381}
   - component: {fileID: 7353327878120492791}
   - component: {fileID: 518058950936188266}
-  - component: {fileID: 4558385325173670716}
   m_Layer: 8
   m_Name: 1001
   m_TagString: Untagged
@@ -448,9 +447,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074aa3a3534ae544cb704cdccb5af05c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.5
-  _fovRange: 5
-  _attackRange: 6
+  _speed: 0
+  _fovRange: 8
+  _attackRange: 10
   MyProjectile: {fileID: 6298343680682847451, guid: bc8c9ccde23c8ce46ab976d8ada3c8f4, type: 3}
 --- !u!143 &518058950936188266
 CharacterController:
@@ -472,25 +471,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 0.2
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.32, z: 0}
---- !u!114 &4558385325173670716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2547320149348038888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 893c88007e757e74aa600cf7a8be304d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MyCode: 0
+  m_Center: {x: 0, y: 0.16, z: 0}
 --- !u!1 &3222022711924321964
 GameObject:
   m_ObjectHideFlags: 0

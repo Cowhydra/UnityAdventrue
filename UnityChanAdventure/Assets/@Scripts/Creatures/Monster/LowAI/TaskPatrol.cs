@@ -40,8 +40,10 @@ public class TaskPatrol : Behavior_Node
         else
         {
             Vector3 wp = _waypoints[_currentWaypointIndex];
+
             if (Vector3.Distance(_transform.position, wp) < 0.3f)
             {
+              
                 _transform.position = wp;
                 _waitCounter = 0f;
                 _waiting = true;
