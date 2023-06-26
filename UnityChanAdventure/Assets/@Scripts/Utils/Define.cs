@@ -60,6 +60,12 @@
     }
     #endregion
     #region GameContents
+    public enum BossDistance
+    {
+        Long,
+        Short,
+
+    }
    public enum MonsterAttackType
     {
         Melee,

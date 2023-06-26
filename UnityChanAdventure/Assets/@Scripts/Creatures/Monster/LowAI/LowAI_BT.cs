@@ -6,7 +6,6 @@ using BehaviorTree;
 //https://medium.com/geekculture/how-to-create-a-simple-behaviour-tree-in-unity-c-3964c84c060e
 public class LowAI_BT : Behavior_Tree
 {
-    //Guard
     [SerializeField]
     protected List<Vector3> waypoints=new List<Vector3>();
 
@@ -56,9 +55,9 @@ public class LowAI_BT : Behavior_Tree
              new Behavior_Sequence(new List<Behavior_Node>
             {
                 new CheckEnemyInFovRange(transform),
-                new TaskGotoTarget(transform,characterController),
+                new TaskGotoTarget(transform),
             }),
-            new TaskPatrol(transform, waypoints,characterController),
+            new TaskPatrol(transform, waypoints),
         });
 
         return root;

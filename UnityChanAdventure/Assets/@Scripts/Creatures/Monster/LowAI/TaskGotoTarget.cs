@@ -9,10 +9,9 @@ public class TaskGotoTarget : Behavior_Node
 
     CharacterController _characterController;
     Animator _animator;
-    public TaskGotoTarget(Transform transform,CharacterController characterController)
+    public TaskGotoTarget(Transform transform)
     {
         _transform = transform;
-        _characterController = characterController;
         _animator=transform.GetComponent<Animator>();   
     }
 

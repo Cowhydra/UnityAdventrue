@@ -12,12 +12,11 @@ public class TaskPatrol : Behavior_Node
     private bool _waiting = false;
     private Animator _animator;
     private CharacterController _characterController;
-    public TaskPatrol(Transform transform, List<Vector3> waypoints, CharacterController characterController)
+    public TaskPatrol(Transform transform, List<Vector3> waypoints)
     {
         _transform = transform;
         _waypoints = waypoints;
         _animator = transform.GetComponent<Animator>();
-        _characterController = characterController;
     }
 
     public override Define.Behavior_NodeState Evaluate()

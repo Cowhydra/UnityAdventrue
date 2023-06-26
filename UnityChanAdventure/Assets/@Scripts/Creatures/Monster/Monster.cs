@@ -24,6 +24,10 @@ public class Monster : Creature, IDamage, IAttack
             Debug.Log("Hp 관련 이벤트");
         }
     }
+    public float MyHpRatio()
+    {
+        return _hp / _maxhp;
+    } 
     public void MyAttack(Define.MonsterAttackType attacktype)
     {
 
@@ -38,7 +42,7 @@ public class Monster : Creature, IDamage, IAttack
     }
     public void OnDamage(int damage)
     {
-        Hp -= Math.Max(0, damage - _level - _def);
+        Hp -= Math.Max(1, damage - _level - _def);
         _animator.SetTrigger("Damage");
     }
 
@@ -85,5 +89,7 @@ public class Monster : Creature, IDamage, IAttack
         yield return new WaitForSeconds(2.0f);
         Managers.Resource.Destroy(gameObject);
     }
+
+
 }
 
