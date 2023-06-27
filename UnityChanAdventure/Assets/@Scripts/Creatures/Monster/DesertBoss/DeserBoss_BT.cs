@@ -52,7 +52,6 @@ public class DeserBoss_BT : Behavior_Tree
 
         Behavior_Node root = new Behavior_Selector(new List<Behavior_Node>
         {
-            //πﬂæ«∆–≈œ
             new Behavior_Sequence(new List<Behavior_Node>
             {
                new CheckMyHp(transform),
