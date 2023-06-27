@@ -45,7 +45,7 @@ public class CheckEnemyInRange : Behavior_Node
                 return state;
             }
         }
-        else
+        else if (_distance == Define.BossDistance.Short)
         {
             if (Vector3.Distance(_transform.position, target.position) <= DeserBoss_BT.shortattackRange)
             {
@@ -55,6 +55,15 @@ public class CheckEnemyInRange : Behavior_Node
                 return state;
             }
 
+        }
+        else if(_distance == Define.BossDistance.Medium)
+        {
+            if(Vector3.Distance(_transform.position, target.position)>DeserBoss_BT.shortattackRange 
+                && Vector3.Distance(_transform.position, target.position) < DeserBoss_BT.longAttackRange)
+            {
+                state = Define.Behavior_NodeState.SUCCESS;
+                return state;
+            }
         }
 
         state = Define.Behavior_NodeState.FAILURE;

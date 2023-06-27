@@ -58,7 +58,7 @@ public class DeserBoss_BT : Behavior_Tree
                new CheckMyHp(transform),
                new LazyPattern(transform)
             }),
-            
+
             new Behavior_Sequence(new List<Behavior_Node>
             {
                new CheckEnemyInRange(transform,Define.BossDistance.Long),
@@ -69,11 +69,11 @@ public class DeserBoss_BT : Behavior_Tree
                    new CheckEnemyInRange(transform,Define.BossDistance.Short),
                    new ShortAttack(transform)
             }),
-             //new Behavior_Sequence(new List<Behavior_Node>
-             //{
-             //    //랜덤무빙 ( 몬스터와 나 사이의 거리가 short~ long distance 사이일 떄 발동
-             //}),
-             //찾은 적이 없을 경우 발동
+             new Behavior_Sequence(new List<Behavior_Node>
+             {
+                 new CheckEnemyInRange(transform,Define.BossDistance.Medium),
+                 new MiddleAttack(transform)
+             }),
              new FindTarget(transform),
              new TaskPatrol(transform)
 

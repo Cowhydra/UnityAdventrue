@@ -64,6 +64,7 @@
     {
         Long,
         Short,
+        Medium
 
     }
    public enum MonsterAttackType
@@ -126,6 +127,7 @@
         Enviroment = 7,
         Player=6,
         Enemy=8,
+        DestoryableEnv=9,
         Skill = 10
     }
     public enum DamageType

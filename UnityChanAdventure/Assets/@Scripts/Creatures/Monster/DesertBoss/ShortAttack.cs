@@ -44,7 +44,8 @@ public class ShortAttack : Behavior_Node
             else
             {
                 transform.LookAt(target.position);
-                navMesh.SetDestination(target.position-target.forward);
+                Debug.Log($"target Pos: {target.position}");
+                navMesh.SetDestination(target.position+0.5f*target.forward);
                 navMesh.speed += 15;
                 Managers.Resource.Instantiate($"ESkill_{transform.name}",transform);
                 Debug.Log("ShortAttack");

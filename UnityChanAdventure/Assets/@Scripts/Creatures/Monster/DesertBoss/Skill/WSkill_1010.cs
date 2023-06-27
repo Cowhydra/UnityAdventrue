@@ -12,7 +12,7 @@ public class WSkill_1010 : MonoBehaviour
     private void Update()
     {
         transform.localPosition = Vector3.zero;
-        transform.localScale = 100*Vector3.one;
+        transform.localScale = 120*Vector3.one;
     }
     private void OnTriggerEnter(Collider other)
     {

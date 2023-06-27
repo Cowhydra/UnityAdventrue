@@ -4918,8 +4918,8 @@ GameObject:
   - component: {fileID: 1247113620371614905}
   - component: {fileID: 3447237396142766500}
   - component: {fileID: 2263843085865809621}
-  - component: {fileID: 2736519414278195920}
   - component: {fileID: 517982166710177109}
+  - component: {fileID: 1581497833305924001}
   m_Layer: 0
   m_Name: ESkill_1010
   m_TagString: Untagged
@@ -4941,7 +4941,7 @@ Transform:
   m_Children:
   - {fileID: 3823428498438928131}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &3447237396142766500
 ParticleSystem:
@@ -9817,8 +9817,20 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!65 &2736519414278195920
-BoxCollider:
+--- !u!114 &517982166710177109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7677656580862755427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29cc151182bbb3b4c9c1988aa71ea5a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!135 &1581497833305924001
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9836,17 +9848,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1300062, y: 0.15270577, z: 0.15262036}
-  m_Center: {x: 0.0102411155, y: 0.09463253, z: -0.038095355}
---- !u!114 &517982166710177109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7677656580862755427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29cc151182bbb3b4c9c1988aa71ea5a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0, z: 0}

@@ -46,12 +46,12 @@ public class LongAttack : Behavior_Node
             {
        
                 transform.LookAt(target.position);
-                navMesh.SetDestination(target.position + target.forward);
-                navMesh.speed += 30;
+                navMesh.SetDestination(target.position-0.5f*target.forward);
+                navMesh.speed += 20;
                 GameObject QSkill= Managers.Resource.Instantiate($"QSkill_{transform.gameObject.name}",transform);
             }
             _attackCounter = 0f;
-            navMesh.speed -= 25;
+            navMesh.speed -= 20;
         }
 
         state = Define.Behavior_NodeState.RUNNING;
