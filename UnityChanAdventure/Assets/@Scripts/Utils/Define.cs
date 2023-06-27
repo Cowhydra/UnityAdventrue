@@ -67,6 +67,12 @@
         Medium
 
     }
+    public enum BossHp
+    {
+        Low,
+        Middle,
+        High,
+    }
    public enum MonsterAttackType
     {
         Melee,
