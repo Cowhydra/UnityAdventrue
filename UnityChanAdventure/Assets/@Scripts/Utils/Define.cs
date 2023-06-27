@@ -19,7 +19,7 @@
     public enum SortingOrder
     {
         ShopUI=10,
-
+        InvenItem=20,
     }
     #region About Event
     public enum UIEvent
@@ -38,7 +38,7 @@
         SelectCharacter,
 
         PlayerStatsChange,
-        PlayerEquipChanage,
+        PlayerEquipChanageUI,
 
         InventoryOpen,
         InventoryClose,

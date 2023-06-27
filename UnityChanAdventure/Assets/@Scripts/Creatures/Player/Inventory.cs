@@ -30,6 +30,24 @@ public class Inventory
             return false;
         }
     }
+    public bool Sub(int itemcode,int count = 1)
+    {
+        if (!Items.ContainsKey(itemcode))
+        {
+            Debug.Log("없는데 어떻게 뻅니까");
+            return false;
+        }
+        else
+        {
+            Items[itemcode].Count--;
+            if (Items[itemcode].Count == 0)
+            {
+                Items.Remove(itemcode);
+            }
+            Managers.Event.AddItem?.Invoke(itemcode);
+        }
+        return true;
+    }
     public bool Add(int itemcode, int count = 1)
     {
         //아이템을 획득할 경우 Add함수를 이용해 쉽게 아이템을 추가할 수 있습니다.
@@ -57,6 +75,7 @@ public class Inventory
         }
         else
         {
+            item.Count++;
             Items.Add(item.ItemCode, item);
 
         }

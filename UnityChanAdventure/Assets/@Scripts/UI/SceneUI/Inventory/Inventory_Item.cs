@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
-public class Inventory_Item : UI_Scene
+public class Inventory_Item : UI_Scene,IListener
 {
     [SerializeField]
     private int _myitemcode;
@@ -16,6 +16,7 @@ public class Inventory_Item : UI_Scene
         {
             _myitemcode = value;
             Init();
+            RefreshUI();
         }
     }
     [SerializeField]
@@ -25,7 +26,7 @@ public class Inventory_Item : UI_Scene
     enum Images
     {
         Item_Icon,
-
+        Fill,
     }
     enum Texts
     {
@@ -37,14 +38,17 @@ public class Inventory_Item : UI_Scene
         if (!isinit)
         {
             base.Init();
+            Managers.Event.AddListener(Define.EVENT_TYPE.InventoryItemSelect, this);
             Bind<Image>(typeof(Images));
             Bind<TextMeshProUGUI>(typeof(Texts));
+            GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.InvenItem;
+            gameObject.GetOrAddComponent<GraphicRaycaster>();
 
-            gameObject.BindEvent((PointerEventData data) => InventoryItemSelect());
+            gameObject.BindEvent((PointerEventData data) => Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryItemSelect, this));
             currentcolor = GetComponent<Image>().color;
             isinit = true;
 
-            RefreshUI();
+        
         }
 
     }
@@ -64,8 +68,8 @@ public class Inventory_Item : UI_Scene
         if (isActive)
         {
             GetImage((int)Images.Item_Icon).sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[MyItemCode].iconPath}");
-            GetText((int)Texts.Item_Count).text = $"{Managers.Data.ItemDataDict[MyItemCode].count}";
-            if (Managers.Data.ItemDataDict[MyItemCode].count == 0)
+            GetText((int)Texts.Item_Count).text = $"{Managers.Inven.Items[MyItemCode].Count}";
+            if (Managers.Inven.Items[MyItemCode].Count == 0)
             {
                 isActive = false;
                 RefreshUI();
@@ -79,17 +83,28 @@ public class Inventory_Item : UI_Scene
         
     }
 
-    private void InventoryItemSelect()
+    private void InventoryItemSelect(int senderitemcode)
     {
         if (!isActive||MyItemCode==0) return;
-        Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryItemSelect, this);
-        if (GetComponent<Image>().color == currentcolor)
+        if (senderitemcode != MyItemCode)
         {
-            GetComponent<Image>().color = Color.red;
+            GetImage((int)Images.Fill).fillAmount = 0;
         }
         else
         {
-            GetComponent<Image>().color = currentcolor;
+            GetImage((int)Images.Fill).fillAmount = 1;
+        }
+
+    }
+
+    public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
+    {
+       switch(Event_Type)
+        {
+            case Define.EVENT_TYPE.InventoryItemSelect:
+                int sendercode= Sender.GetComponent<Inventory_Item>().MyItemCode;
+                InventoryItemSelect(sendercode);
+                break;
         }
     }
 }

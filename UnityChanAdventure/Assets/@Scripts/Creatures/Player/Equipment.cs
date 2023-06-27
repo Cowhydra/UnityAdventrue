@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 
@@ -107,15 +108,22 @@ public class Equipment
 
     public void Init()
     {
+        Debug.Log("씬 넘어갈 떄 마다 장비창 불러오기 행햐ㅏㅁ ");
         foreach(Define.ItemType itemtype in Managers.Data.EquipData.Keys)
         {
             if (Managers.Data.EquipData[itemtype] != 0)
             {
-                EQUIP.Add(itemtype, Managers.Inven.GetItem(Managers.Data.EquipData[itemtype]));
+                if (!EQUIP.ContainsKey(itemtype))
+                {
+                    EQUIP.Add(itemtype, Item.MakeItem(Managers.Data.ItemDataDict[Managers.Data.EquipData[itemtype]]));
+                }
             }
         }
     }
-
+    public void Clear()
+    {
+        EQUIP.Clear();
+    }
 
 
 }

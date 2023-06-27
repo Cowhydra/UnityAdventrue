@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.63248, g: 0.8730662, b: 0.9879039, a: 1}
+  m_IndirectSpecularColor: {r: 0.632482, g: 0.8730669, b: 0.9879051, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5673,6 +5673,7 @@ GameObject:
   - component: {fileID: 1893933912}
   - component: {fileID: 1893933911}
   - component: {fileID: 1893933910}
+  - component: {fileID: 1893933913}
   m_Layer: 5
   m_Name: Equip_Ring
   m_TagString: Untagged
@@ -5783,6 +5784,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893933908}
   m_CullTransparentMesh: 1
+--- !u!114 &1893933913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893933908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c81e2923e2c8479d323bfc5662740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyEquipType: 5
+  MyImage: {fileID: 609662974}
+  defaultImage: {fileID: 21300000, guid: b98923572a3286c40ad7a32f1b5e9b38, type: 3}
 --- !u!1 &1919825605
 GameObject:
   m_ObjectHideFlags: 0
@@ -14805,6 +14821,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 224773862783526833}
     m_Modifications:
+    - target: {fileID: 1440403634968502677, guid: 73c2670e68926d74ea7e955b0d5d721b, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5861579876992918411, guid: 73c2670e68926d74ea7e955b0d5d721b, type: 3}
       propertyPath: m_Name
       value: Inventory_Item
@@ -27405,6 +27425,7 @@ GameObject:
   - component: {fileID: 4564167373648452827}
   - component: {fileID: 1413443865880432775}
   - component: {fileID: 8900117118272844833}
+  - component: {fileID: 8900117118272844834}
   m_Layer: 5
   m_Name: Equip_Boot
   m_TagString: Untagged
@@ -27444,6 +27465,7 @@ GameObject:
   - component: {fileID: 4564167372326243400}
   - component: {fileID: 1413443867169210388}
   - component: {fileID: 8900117119066694834}
+  - component: {fileID: 8900117119066694835}
   m_Layer: 5
   m_Name: Equip_Cloth
   m_TagString: Untagged
@@ -27463,6 +27485,7 @@ GameObject:
   - component: {fileID: 4564167372886630745}
   - component: {fileID: 1413443867665607941}
   - component: {fileID: 8900117118506043811}
+  - component: {fileID: 8900117118506043812}
   m_Layer: 5
   m_Name: Equip_Earring
   m_TagString: Untagged
@@ -27482,6 +27505,7 @@ GameObject:
   - component: {fileID: 4564167372684067440}
   - component: {fileID: 1413443867599916588}
   - component: {fileID: 8900117118439910026}
+  - component: {fileID: 8900117118439910027}
   m_Layer: 5
   m_Name: Equip_Hat
   m_TagString: Untagged
@@ -37465,6 +37489,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8900117118272844834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861579876678579013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c81e2923e2c8479d323bfc5662740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyEquipType: 3
+  MyImage: {fileID: 2137325644008398208}
+  defaultImage: {fileID: 21300000, guid: b98923572a3286c40ad7a32f1b5e9b38, type: 3}
 --- !u!114 &8900117118439910026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37509,6 +37548,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8900117118439910027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861579878725086702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c81e2923e2c8479d323bfc5662740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyEquipType: 1
+  MyImage: {fileID: 2137325642818601771}
+  defaultImage: {fileID: 21300000, guid: b98923572a3286c40ad7a32f1b5e9b38, type: 3}
 --- !u!114 &8900117118506043811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37553,6 +37607,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8900117118506043812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861579878522588871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c81e2923e2c8479d323bfc5662740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyEquipType: 4
+  MyImage: {fileID: 2137325642618740738}
+  defaultImage: {fileID: 21300000, guid: b98923572a3286c40ad7a32f1b5e9b38, type: 3}
 --- !u!114 &8900117119066694834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37597,6 +37666,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8900117119066694835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5861579878076277718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0c81e2923e2c8479d323bfc5662740, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyEquipType: 2
+  MyImage: {fileID: 2137325643248258323}
+  defaultImage: {fileID: 21300000, guid: b98923572a3286c40ad7a32f1b5e9b38, type: 3}
 --- !u!33 &8901922652453596845
 MeshFilter:
   m_ObjectHideFlags: 0

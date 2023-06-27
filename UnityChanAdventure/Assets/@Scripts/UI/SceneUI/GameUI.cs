@@ -113,14 +113,15 @@ public class GameUI : UI_Scene,IListener
         if (SelectItemcode == 0) return;
         if (Managers.EQUIP.Equip(Managers.Inven.GetItem(SelectItemcode)))
         {
-            Managers.Inven.Items[SelectItemcode].Count--;
-            Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanage,this);
+            Managers.Inven.Sub(SelectItemcode);
+            Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
+            
             Debug.Log("DB처리 장비 아이템 갱신  + 인벤 아이템 개수 감소");
         }
         else
         {
-            Debug.Log("장착 실패");
-            Debug.Log("장착에 실패하셨습니다.");
+            Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("이미 장착한 장비가 있습니다.", Color.red);
+        
         }
     }
     private void UnEquipTry()
@@ -131,8 +132,8 @@ public class GameUI : UI_Scene,IListener
             if (Managers.EQUIP.EQUIP[Managers.Inven.GetItem(SelectItemcode).ItemType].ItemCode == SelectItemcode)
             {
                 Managers.EQUIP.UnEquip(Managers.Inven.GetItem(SelectItemcode).ItemType);
-                Managers.Inven.Items[SelectItemcode].Count--;
-                Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanage, this);
+                Managers.Inven.Items[SelectItemcode].Count++;
+                Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
             }
             else
             {
@@ -163,11 +164,16 @@ public class GameUI : UI_Scene,IListener
     private void ShutOffInven()
     {
         GetObject((int)GameObjects.Inventory).SetActive(false);
+        GetButton((int)Buttons.Shop_Button).gameObject.SetActive(true);
+        GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(true);
         Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryClose, this);
     }
     private void ShowOnInven()
     {
         GetObject((int)GameObjects.Inventory).SetActive(true);
+        GetButton((int)Buttons.Shop_Button).gameObject.SetActive(false);
+        GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(false);
+ 
         Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryOpen, this);
     }
 
@@ -202,9 +208,13 @@ public class GameUI : UI_Scene,IListener
                 break;
             case Define.EVENT_TYPE.ShopOpen:
                 GetObject((int)GameObjects.Quest).SetActive(false);
+                GetButton((int)Buttons.Shop_Button).gameObject.SetActive(false);
+                GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(false);
                 break;
             case Define.EVENT_TYPE.ShopClose:
                 GetObject((int)GameObjects.Quest).SetActive(true);
+                GetButton((int)Buttons.Shop_Button).gameObject.SetActive(true);
+                GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(true);
                 break;
         }
     }

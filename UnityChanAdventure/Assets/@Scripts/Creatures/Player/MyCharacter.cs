@@ -141,7 +141,7 @@ public class MyCharacter : Creature, IDamage, IListener
     {
         switch (Event_Type)
         {
-            case Define.EVENT_TYPE.PlayerEquipChanage:
+            case Define.EVENT_TYPE.PlayerEquipChanageUI:
                 CharacterEQUIPStatsChange();
                 break;
         }

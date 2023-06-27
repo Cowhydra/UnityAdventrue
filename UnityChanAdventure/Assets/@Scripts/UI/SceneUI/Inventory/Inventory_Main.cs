@@ -75,11 +75,10 @@ public class Inventory_Main :MonoBehaviour
             }
             else
             {
-                checkitem2.MyItemCode = itemcode;
                 checkitem2.isActive = true;
                 checkitem2.transform.SetSiblingIndex(currentactiveItemCount);
                 currentactiveItemCount++;
-                checkitem2.RefreshUI();
+                checkitem2.MyItemCode = itemcode;
             }
         }
         else
