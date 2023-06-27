@@ -22,7 +22,7 @@ public class TownScene : BaseScene
                 //데이터 Init()은 지워 주어야 합니다.
                 //이거 살짝 불안 
                 Managers.UI.ShowSceneUI<ShopUI>();
-
+                Managers.Game.GoldChange(30000);
                 // Managers.DB.ChecK_Account(516551.ToString(), 26519.ToString());
                 //Managers.DB.CharacterInit(230619.ToString(), 100,"호호호");
                 // Managers.DB.DeleteCharacter(5555.ToString(), 100);

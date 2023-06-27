@@ -67,10 +67,10 @@ public class HighHpAttack : Behavior_Node
             {
 
                 transform.LookAt(target.position);
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 15; i++)
                 {
-                    GameObject QSkill = Managers.Resource.Instantiate($"QSkill_{transform.gameObject.name}", transform);
-                    QSkill.SetRandomPositionSphere(2, 5);
+                    GameObject WSKill = Managers.Resource.Instantiate($"WSkill_{transform.gameObject.name}", transform);
+                   
                 }
 
             }

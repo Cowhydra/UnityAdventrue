@@ -15,6 +15,7 @@ public class Inventory_Main :MonoBehaviour
         {
             Managers.Resource.Destroy(transforom.gameObject);
         }
+        Debug.Log("이벤트 연동");
         Managers.Event.AddItem -= ItemAddEvent;
         Managers.Event.AddItem += ItemAddEvent;
         Managers.Event.RemoveItem -= ItemRemoveEvent;
@@ -30,8 +31,11 @@ public class Inventory_Main :MonoBehaviour
             Inventory_Item _item = Managers.UI.ShowSceneUI<Inventory_Item>();
             if (myitem.Count == 0)
             {
+                _item.MyItemCode = 0;
                 _item.transform.SetParent(gameObject.transform);
                 _item.isActive = false;
+                _item.RefreshUI();
+                InvenUI.Add(_item);
                 //Count가 없으면, myitemcode를 가질 수 없음
             }
             else
@@ -41,6 +45,8 @@ public class Inventory_Main :MonoBehaviour
                 _item.MyItemCode = myitem.ItemCode;
                 _item.isActive = true;
                 currentactiveItemCount++;
+                _item.RefreshUI();
+                InvenUI.Add(_item);
             }
 
         }
@@ -49,18 +55,22 @@ public class Inventory_Main :MonoBehaviour
             Inventory_Item _item = Managers.UI.ShowSceneUI<Inventory_Item>();
             _item.transform.SetParent(gameObject.transform);
             _item.transform.SetSiblingIndex(MaxSlot-1);
+            InvenUI.Add(_item);
         }
+ 
     }
 
 
     private void ItemAddEvent(int itemcode)
     {
+        //우선 활성된 아이템인지 체크 
         Inventory_Item checkitem = InvenUI.Find(s => s.MyItemCode == itemcode);
         if (checkitem == null)
         {
-            Inventory_Item checkitem2 = InvenUI.First(s => s.MyItemCode == itemcode);
+            //만약 비활성된 아이템 에서 아이템 코드가 0인 것들이 있는지 확인
+            Inventory_Item checkitem2 = InvenUI.FirstOrDefault(s => s.MyItemCode == 0);
             if(checkitem2 == null)
-            {
+            {//아이템 코드가 0이 아닌 것이 없다면 인벤 꽉참
                 Debug.Log("인벤토리창이 꽉 찼습니다.");
             }
             else

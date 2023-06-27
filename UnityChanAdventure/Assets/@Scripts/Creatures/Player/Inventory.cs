@@ -43,6 +43,9 @@ public class Inventory
             Add(item, count);
 
         }
+        Debug.Log("인벤에 아이템 추가 + 추후 DB 연동");
+        Managers.Event.AddItem?.Invoke(itemcode);
+
         return true;
     }
     public void Add(Item item, int count = 1)

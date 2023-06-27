@@ -289,7 +289,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77c4d1fd50625246885e403d64b299a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MyItemCode: 0
   UnActiveImage: {fileID: 21300000, guid: b98923572a3286c40ad7a32f1b5e9b38, type: 3}
   isActive: 0
 --- !u!1 &8967163183889361957
@@ -358,7 +357,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 16
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a38c614600eb4b4fb6193af041d874d, type: 2}
   m_sharedMaterial: {fileID: 4407350713530443844, guid: 1a38c614600eb4b4fb6193af041d874d, type: 2}
@@ -385,7 +384,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.05
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

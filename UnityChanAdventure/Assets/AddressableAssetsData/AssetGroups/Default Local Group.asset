@@ -47,6 +47,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - LoadingResource
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b76af97c259a04abd79b08b67e4bb3
+    m_Address: WSkill_1030.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f15fd7c1fa4f7874780a2e05cd4b6545
+    m_Address: ESkill_1030.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5fb094523b4edde42b4b262a97d0ca73, type: 2}
   m_SchemaSet:
