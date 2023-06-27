@@ -41,6 +41,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - LoadingResource
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fb50f95c2806e24cad50e3efe8b492b
+    m_Address: QSkill_1030.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5fb094523b4edde42b4b262a97d0ca73, type: 2}
   m_SchemaSet:

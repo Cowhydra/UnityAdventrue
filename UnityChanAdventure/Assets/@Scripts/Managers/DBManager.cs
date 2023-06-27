@@ -138,6 +138,7 @@ public class DBManager
         CreateEquips(accountNumber, charcode);
         CreateQuest(accountNumber, charcode);   
     }
+
     public void DataFetch(string accountNumber)
     {
         
