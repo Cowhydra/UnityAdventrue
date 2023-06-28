@@ -10831,7 +10831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c20b3513422ac4bb879d2bbadb9458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC_Type: 0
+  NPC_Type: 2
 --- !u!135 &919132148320126453
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10883,7 +10883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c20b3513422ac4bb879d2bbadb9458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC_Type: 0
+  NPC_Type: 1
 --- !u!135 &919132148903078221
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10935,7 +10935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c20b3513422ac4bb879d2bbadb9458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPC_Type: 0
+  NPC_Type: 3
 --- !u!135 &919132149131666277
 SphereCollider:
   m_ObjectHideFlags: 0

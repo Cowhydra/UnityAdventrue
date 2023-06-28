@@ -23,12 +23,10 @@ public class CollectItemQuest : Quest
         var uniqueId = _objectItemCode;
         this.TryComplete();
 
-        Managers.Event.AddItem += this.ItemAddedEvent;
     }
 
     protected override void QuestCompleted()
     {
-        Managers.Event.AddItem -= this.ItemAddedEvent;
 
         if (DiaReward != 0)
         {
@@ -45,12 +43,6 @@ public class CollectItemQuest : Quest
 
     }
 
-    private void ItemAddedEvent(int AdditemCode)
-    {
-        if (_objectItemCode != AdditemCode) return;
-
-        this.TryComplete();
-    }
 
     private void TryComplete()
     {

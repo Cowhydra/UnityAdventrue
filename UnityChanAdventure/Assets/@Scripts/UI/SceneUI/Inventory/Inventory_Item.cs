@@ -62,23 +62,32 @@ public class Inventory_Item : UI_Scene,IListener
 
     public void RefreshUI()
     {
-        Debug.Log($"RereshUI :{MyItemCode}");
-        if (MyItemCode == 0) return;
 
+        if (MyItemCode == 0)
+        {
+            GetImage((int)Images.Item_Icon).sprite = UnActiveImage;
+            GetText((int)Texts.Item_Count).text = "";
+            GetImage((int)Images.Fill).fillAmount = 0;
+            isActive = false;
+            return;
+        }
+        Debug.Log($"RereshUI :{MyItemCode}");
         if (isActive)
         {
-            GetImage((int)Images.Item_Icon).sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[MyItemCode].iconPath}");
-            GetText((int)Texts.Item_Count).text = $"{Managers.Inven.Items[MyItemCode].Count}";
-            if (Managers.Inven.Items[MyItemCode].Count == 0)
+            if (!Managers.Inven.Items.ContainsKey(MyItemCode)||Managers.Inven.Items[MyItemCode].Count == 0)
             {
                 isActive = false;
                 RefreshUI();
             }
+            GetImage((int)Images.Item_Icon).sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[MyItemCode].iconPath}");
+            GetText((int)Texts.Item_Count).text = $"{Managers.Inven.Items[MyItemCode].Count}";
+
         }
         else
         {
             GetImage((int)Images.Item_Icon).sprite = UnActiveImage;
             GetText((int)Texts.Item_Count).text = "";
+            GetImage((int)Images.Fill).fillAmount = 0;
         }
         
     }

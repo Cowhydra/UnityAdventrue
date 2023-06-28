@@ -25,7 +25,7 @@ public class TownScene : BaseScene
 
                 Debug.Log("튜토리얼 창 띄우기 -> 따로 DB에 속성 만들기 귀찮으니 골드 등으로 첫 유저인지 확인");
                 //DialogSystem dialog = Managers.UI.ShowPopupUI<DialogSystem>();
-               // dialog.TalkType = Define.TalkingBar_Type.TuotorialNpc;
+               // dialog.TalkType = Define.Npc_Type.TuotorialNpc;
               
                 Managers.Game.GoldChange(30000);
 

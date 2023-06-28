@@ -115,7 +115,7 @@ public class GameUI : UI_Scene,IListener
         {
             Managers.Inven.Sub(SelectItemcode);
             Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
-            
+            Managers.Event.RemoveItem?.Invoke(SelectItemcode);
             Debug.Log("DB처리 장비 아이템 갱신  + 인벤 아이템 개수 감소");
         }
         else
@@ -132,8 +132,9 @@ public class GameUI : UI_Scene,IListener
             if (Managers.EQUIP.EQUIP[Managers.Inven.GetItem(SelectItemcode).ItemType].ItemCode == SelectItemcode)
             {
                 Managers.EQUIP.UnEquip(Managers.Inven.GetItem(SelectItemcode).ItemType);
-                Managers.Inven.Items[SelectItemcode].Count++;
+                Managers.Inven.Add(SelectItemcode);
                 Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
+                Managers.Event.AddItem?.Invoke(SelectItemcode);
             }
             else
             {

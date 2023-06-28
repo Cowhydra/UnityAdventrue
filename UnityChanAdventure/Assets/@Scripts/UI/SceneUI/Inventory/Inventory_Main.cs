@@ -96,12 +96,15 @@ public class Inventory_Main :MonoBehaviour
         }
         else
         {
-            if (Managers.Data.ItemDataDict[itemcode].count == 0)
+            if (!Managers.Inven.Items.ContainsKey(itemcode)||Managers.Inven.Items[itemcode].Count == 0)
             {
                 checkitem.transform.SetSiblingIndex(MaxSlot - 1);
                 checkitem.MyItemCode = 0;
             }
-            checkitem.RefreshUI();
+            else
+            {
+                checkitem.RefreshUI();
+            }
         }
     }
 

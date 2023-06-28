@@ -14,7 +14,7 @@ public class Npc : MonoBehaviour
         if (other.CompareTag("Player"))
         {   
             DialogSystem dialog = Managers.UI.ShowPopupUI<DialogSystem>();
-            dialog.TalkType = Define.TalkingBar_Type.TuotorialNpc;
+            dialog.TalkType = NPC_Type;
             Debug.Log("Äù½ºÆ® ¶ç¿ì±â");
         }
     }

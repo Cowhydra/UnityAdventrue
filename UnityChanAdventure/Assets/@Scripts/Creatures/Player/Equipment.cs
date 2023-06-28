@@ -41,6 +41,7 @@ public class Equipment
     public void UnEquip(ItemType itemtype)
     {
         EQUIP.Remove(itemtype);
+        
     }
 
 

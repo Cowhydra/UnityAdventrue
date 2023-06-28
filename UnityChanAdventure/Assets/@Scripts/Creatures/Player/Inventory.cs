@@ -44,7 +44,7 @@ public class Inventory
             {
                 Items.Remove(itemcode);
             }
-            Managers.Event.AddItem?.Invoke(itemcode);
+            Managers.Event.RemoveItem?.Invoke(itemcode);
         }
         return true;
     }
@@ -59,7 +59,6 @@ public class Inventory
         {
             Item item = Item.MakeItem(Managers.Data.ItemDataDict[itemcode]);
             Add(item, count);
-
         }
         Debug.Log("인벤에 아이템 추가 + 추후 DB 연동");
         Managers.Event.AddItem?.Invoke(itemcode);
@@ -75,7 +74,7 @@ public class Inventory
         }
         else
         {
-            item.Count++;
+            item.Count += count;
             Items.Add(item.ItemCode, item);
 
         }

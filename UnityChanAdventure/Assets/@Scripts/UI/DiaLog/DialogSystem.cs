@@ -33,8 +33,8 @@ public class DialogSystem : UI_Popup
 	private Speaker[] speakers;                 // 대화에 참여하는 캐릭터들의 UI 배열
 	private List<DialogData> dialogs;   // 현재 분기의 대사 목록 배열
 	[SerializeField]
-	Define.TalkingBar_Type _TalkType;
-	public Define.TalkingBar_Type TalkType
+	Define.Npc_Type _TalkType;
+	public Define.Npc_Type TalkType
     {
         get
         {
@@ -135,27 +135,27 @@ public class DialogSystem : UI_Popup
     {
         switch (TalkType)
         {
-            case Define.TalkingBar_Type.None:
+            case Define.Npc_Type.None:
 				Debug.Log("버그");
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
 				break;
-            case Define.TalkingBar_Type.QuestNpc:
+            case Define.Npc_Type.QuestNpc:
 				Debug.Log("퀘스트창 보여주기");
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
 				break;
-            case Define.TalkingBar_Type.ShopNpc:
+            case Define.Npc_Type.ShopNpc:
 				Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
 				break;
-            case Define.TalkingBar_Type.EnhanceNpc:
+            case Define.Npc_Type.EnhanceNpc:
 				Debug.Log("강화창 보여주기");
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
 				break;
-            case Define.TalkingBar_Type.TuotorialNpc:
+            case Define.Npc_Type.TuotorialNpc:
 				Debug.Log("보여줄게 없음");
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
@@ -166,22 +166,22 @@ public class DialogSystem : UI_Popup
     {
         switch (TalkType)
         {
-            case Define.TalkingBar_Type.None:
+            case Define.Npc_Type.None:
 
                 break;
-            case Define.TalkingBar_Type.QuestNpc:
+            case Define.Npc_Type.QuestNpc:
 				GetButton((int)Buttons.AcceptionButton).gameObject.SetActive(true);
 				GetButton((int)Buttons.CancelButton).gameObject.SetActive(true);
 				break;
-            case Define.TalkingBar_Type.ShopNpc:
+            case Define.Npc_Type.ShopNpc:
 				GetButton((int)Buttons.AcceptionButton).gameObject.SetActive(true);
 				GetButton((int)Buttons.CancelButton).gameObject.SetActive(true);
 				break;
-            case Define.TalkingBar_Type.EnhanceNpc:
+            case Define.Npc_Type.EnhanceNpc:
 				GetButton((int)Buttons.AcceptionButton).gameObject.SetActive(true);
 				GetButton((int)Buttons.CancelButton).gameObject.SetActive(true);
 				break;
-            case Define.TalkingBar_Type.TuotorialNpc:
+            case Define.Npc_Type.TuotorialNpc:
 				GetButton((int)Buttons.AcceptionButton).gameObject.SetActive(true);
 				GetButton((int)Buttons.CancelButton).gameObject.SetActive(false);
 				break;
@@ -193,26 +193,27 @@ public class DialogSystem : UI_Popup
 		SetSpeaker(1, GetImage((int)Images.Npc), GetImage((int)Images.NpcDialog), GetText((int)Texts.NpcName_Text), GetText((int)Texts.NpcContents_Text), GetObject((int)GameObjects.NpcDilogArrow));
         switch (TalkType)
         {
-            case Define.TalkingBar_Type.None:
+            case Define.Npc_Type.None:
                 break;
-            case Define.TalkingBar_Type.QuestNpc:
+            case Define.Npc_Type.QuestNpc:
 				dialogs.Clear();
-				SetDiaLog(1, "도움이 필요한 주민", "어서오세요!!");
-				SetDiaLog(1, "도움이 필요한 주민", "도움을 주셨으면 좋겠습니다...");
+				SetDiaLog(1, "도와줘", "어서오세요!!");
+				SetDiaLog(1, "도와줘", "마을이 심각한 어려움에 빠졌습니다..");
+				SetDiaLog(1, "도와줘", "도움을 주셨으면 좋겠습니다...");
 				break;
-            case Define.TalkingBar_Type.ShopNpc:
+            case Define.Npc_Type.ShopNpc:
 				dialogs.Clear();
 				SetDiaLog(1, "상점주인", "어서오세요!!!");
-				SetDiaLog(1, "도움이 필요한 주민", "원하시는 상품이 있으시다면 말씀해주세요...");
+				SetDiaLog(1, "상점주인", "원하시는 상품이 있으시다면 말씀해주세요...");
 
 				break;
-            case Define.TalkingBar_Type.EnhanceNpc:
+            case Define.Npc_Type.EnhanceNpc:
 				dialogs.Clear();
 				SetDiaLog(1, "강화창 주인", "어서오세요!!");
 				SetDiaLog(1, "강화창 주인", "강화를 하시겠습니까??");
 
 				break;
-            case Define.TalkingBar_Type.TuotorialNpc:
+            case Define.Npc_Type.TuotorialNpc:
 				dialogs.Clear();
 				SetDiaLog(1, "???", "어서오세요!!");
 				SetDiaLog(1, "???", "이 세계를 구해주세요!!!");
@@ -228,7 +229,7 @@ public class DialogSystem : UI_Popup
 		GetButton((int)Buttons.AcceptionButton).gameObject
 	       .BindEvent((PointerEventData data) => ShowNextUI());
 		GetButton((int)Buttons.CancelButton).gameObject
-			.BindEvent((PointerEventData data) => isButtonClicked = true);
+			.BindEvent((PointerEventData data) => Managers.Resource.Destroy(gameObject));
 	}
     private void Setup()
 	{

@@ -69,13 +69,9 @@
     }
     #endregion
     #region GameContents
-    public enum Npc_Type 
-    { 
-        Shop,
-        Enhance,
-        Quest,
-    }
-    public enum TalkingBar_Type
+
+  
+    public enum Npc_Type
     {
         None,
         QuestNpc,
