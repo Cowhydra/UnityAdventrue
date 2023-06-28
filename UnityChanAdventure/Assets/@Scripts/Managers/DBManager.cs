@@ -483,8 +483,9 @@ public class DBManager
                         Managers.Data.CharacterDataDict[code].dateTime = snapshot.Child("DateTime").Value.ToString();
                         Managers.Data.CharacterDataDict[code].exp = int.Parse(snapshot.Child("exp").Value.ToString());
                         Managers.Data.CharacterDataDict[code].isActive = true;
+                        Debug.Log("디버그 숨겨놓기~");
                         Managers.Data.CharacterDataDict[code].name = snapshot.Child("name").Value.ToString();
-
+                        Managers.Game.CharacterName = snapshot.Child("name").Value.ToString();
 
                 }
                 else

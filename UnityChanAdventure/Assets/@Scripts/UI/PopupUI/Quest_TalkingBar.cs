@@ -23,6 +23,7 @@ public class Quest_TalkingBar : UI_Popup
             if (!isinit)
             {
                 Init();
+              
             }
         }
     }

@@ -122,6 +122,7 @@ public class MyCharacter : Creature, IDamage, IListener
     }
     public void Start()
     {
+        //멀티 고려시, 캐릭터 코드 혹은, 계정 넘버 가지고 있어야할듯?
         myCharacterCode = Managers.Game.currentCharNumber;
         InitCharacter();
         StartCoroutine(nameof(Regenerat_co));

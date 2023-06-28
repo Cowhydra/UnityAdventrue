@@ -37,7 +37,7 @@ public class GameUI : UI_Scene,IListener
         UnEquipButton,
         QuikEnrollButton,
         DecomposeButton,
-        Shop_Button,
+        Dungeon_Button,
 
     }
 
@@ -104,8 +104,8 @@ public class GameUI : UI_Scene,IListener
             .BindEvent((PointerEventData data) => QuikSlotEnroll());
         GetButton((int)Buttons.DecomposeButton).gameObject
             .BindEvent((PointerEventData data) => DeCompose());
-        GetButton((int)Buttons.Shop_Button).gameObject
-            .BindEvent((PointerEventData data) => ShowOnShop());
+        GetButton((int)Buttons.Dungeon_Button).gameObject
+            .BindEvent((PointerEventData data) => ShowOnDungeon());
 
     }
     private void EquipTry()
@@ -164,23 +164,23 @@ public class GameUI : UI_Scene,IListener
     private void ShutOffInven()
     {
         GetObject((int)GameObjects.Inventory).SetActive(false);
-        GetButton((int)Buttons.Shop_Button).gameObject.SetActive(true);
+        GetButton((int)Buttons.Dungeon_Button).gameObject.SetActive(true);
         GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(true);
         Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryClose, this);
     }
     private void ShowOnInven()
     {
         GetObject((int)GameObjects.Inventory).SetActive(true);
-        GetButton((int)Buttons.Shop_Button).gameObject.SetActive(false);
+        GetButton((int)Buttons.Dungeon_Button).gameObject.SetActive(false);
         GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(false);
  
         Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryOpen, this);
     }
 
-    private void ShowOnShop()
+    private void ShowOnDungeon()
     {
-
-        Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
+        Managers.UI.ShowPopupUI<DungeonUI>();
+        Debug.Log("던전 UI 생성");
     }
 
     public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
@@ -208,12 +208,12 @@ public class GameUI : UI_Scene,IListener
                 break;
             case Define.EVENT_TYPE.ShopOpen:
                 GetObject((int)GameObjects.Quest).SetActive(false);
-                GetButton((int)Buttons.Shop_Button).gameObject.SetActive(false);
+                GetButton((int)Buttons.Dungeon_Button).gameObject.SetActive(false);
                 GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(false);
                 break;
             case Define.EVENT_TYPE.ShopClose:
                 GetObject((int)GameObjects.Quest).SetActive(true);
-                GetButton((int)Buttons.Shop_Button).gameObject.SetActive(true);
+                GetButton((int)Buttons.Dungeon_Button).gameObject.SetActive(true);
                 GetButton((int)Buttons.Inventory_Button).gameObject.SetActive(true);
                 break;
         }

@@ -9,9 +9,13 @@
         LoginScene,
         TownScene,
         CharacterSelectScene,
-        Lava_Dungeon,
-        TestScene,
 
+
+        TestScene,
+        LavaScene,
+        DesertScene,
+        WaterScene,
+        FightScene,
 
 
     }
@@ -20,6 +24,8 @@
     {
         ShopUI=10,
         InvenItem=20,
+        DialogSystem=100,
+
     }
     #region About Event
     public enum UIEvent
@@ -47,6 +53,9 @@
         ShopOpen,
         ShopClose,
 
+        DialogOpen,
+        DialogClose
+
 
     }
     public enum Login_Event_Type
@@ -60,6 +69,20 @@
     }
     #endregion
     #region GameContents
+    public enum Npc_Type 
+    { 
+        Shop,
+        Enhance,
+        Quest,
+    }
+    public enum TalkingBar_Type
+    {
+        None,
+        QuestNpc,
+        ShopNpc,
+        EnhanceNpc,
+        TuotorialNpc,
+    }
     public enum BossDistance
     {
         Long,

@@ -56,7 +56,7 @@ public class ShopUI : UI_Scene,IListener
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
         InitButton();
-
+        Debug.Log("디버그 숨겨놓기~");
         ChanageShopPannel(ShowShopTpye.Weapon);
         GetObject((int)GameObjects.Blokcer).BindEvent((PointerEventData data) => ShutoffShop());
         Managers.Event.AddListener(Define.EVENT_TYPE.ShopOpen, this);

@@ -7,8 +7,7 @@ public class GameManager
 
     public string AccountNumber;
     public int currentCharNumber=100;
-
-
+    public string CharacterName;
     #region ÀçÈ­
     private int _gold;
     private int _bluediamond;
