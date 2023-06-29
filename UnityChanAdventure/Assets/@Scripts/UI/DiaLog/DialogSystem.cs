@@ -86,10 +86,7 @@ public class DialogSystem : UI_Popup
 		CancelButton,
 		AcceptionButton,
 	}
-    private void Start()
-    {
-		
-    }
+
 	private void SetSpeaker(int nthspeaker,Image speakerImage,Image dialogimage,TextMeshProUGUI speakername,TextMeshProUGUI Dialog,GameObject Arrow)
     {
 		
@@ -110,6 +107,7 @@ public class DialogSystem : UI_Popup
     public override void Init()
     {
         base.Init();
+		Debug.Log("추후 Npc 사진 변경 시 NPC 이미지 변경하면 됨 ");
 		GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.DialogSystem;
 		isButtonClicked = false;
 
