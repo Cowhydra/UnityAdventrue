@@ -54,6 +54,7 @@ public abstract class Quest
 
     protected void Complete()
     {
-        Managers.Event.CompletedQuest?.Invoke(this);
+        // Managers.Event.CompletedQuest?.Invoke(this);
+        Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("완료한 퀘스트가 존재합니다.", Color.green);
     }
 }

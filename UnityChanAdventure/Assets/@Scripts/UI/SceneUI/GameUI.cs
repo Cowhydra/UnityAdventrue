@@ -20,6 +20,7 @@ public class GameUI : UI_Scene,IListener
         AblityMagicAttack_Text,
         AblityDef_Text,
         AblityMagicDef_Text,
+        Quest_Content_Text,
 
     }
     enum GameObjects 
@@ -27,12 +28,13 @@ public class GameUI : UI_Scene,IListener
         BackGround,//클릭시 인벤창 꺼지도록 설정 예정
         Inventory,
         Quest,
+        Quest_Contents,
+
     }
     enum Buttons
     {
         Inventory_Button,
-        Quest_Button,
-        
+      
         EquipButton,
         UnEquipButton,
         QuikEnrollButton,
@@ -41,7 +43,10 @@ public class GameUI : UI_Scene,IListener
 
     }
 
-
+    private void OnDestroy()
+    {
+        Managers.Event.ActiveQuest -= ShowQusetUI;
+    }
     public override void Init()
     {
         base.Init();
@@ -54,6 +59,9 @@ public class GameUI : UI_Scene,IListener
         Managers.Event.AddListener(Define.EVENT_TYPE.GoodsChange, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.ShopClose, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.ShopOpen, this);
+        Managers.Event.ActiveQuest -= ShowQusetUI;
+        Managers.Event.ActiveQuest += ShowQusetUI;
+       
         InitButtons();
 
 
@@ -76,6 +84,7 @@ public class GameUI : UI_Scene,IListener
         GetText((int)Texts.AblityMagicAttack_Text).text = "";
         GetText((int)Texts.AblityDef_Text).text = "";
         GetText((int)Texts.AblityMagicDef_Text).text = "";
+        GetText((int)Texts.Quest_Content_Text).text = "";
     }
     private void TextWithCharacter(MyCharacter mychar)
     {
@@ -154,6 +163,10 @@ public class GameUI : UI_Scene,IListener
     }
     private void QuikSlotEnroll()
     {
+        if (Managers.Data.ItemDataDict[SelectItemcode].itemType != Define.ItemType.Consume)
+        {
+            return;
+        }
 
     }
     private void InitGameObject()
@@ -161,7 +174,24 @@ public class GameUI : UI_Scene,IListener
         GetObject((int)GameObjects.BackGround)
             .BindEvent((PointerEventData data) => ShutOffInven());
         GetObject((int)GameObjects.Inventory).SetActive(false);
+
+        foreach (Transform transforom in GetObject((int)GameObjects.Quest_Contents).GetComponentInChildren<Transform>())
+        {
+            Managers.Resource.Destroy(transforom.gameObject);
+        }
+        GetObject((int)GameObjects.Quest).SetActive(false);
+
     }
+
+    private void ShowQusetUI(Quest quest)
+    {
+        GetObject((int)GameObjects.Quest).SetActive(true);
+        Quest_Content_Text QuestText = Managers.UI.ShowSceneUI<Quest_Content_Text>();
+        QuestText.QuestID = quest.UniqueId;
+        QuestText.transform.SetParent(GetObject((int)GameObjects.Quest_Contents).transform);
+
+    }
+
     private void ShutOffInven()
     {
         GetObject((int)GameObjects.Inventory).SetActive(false);

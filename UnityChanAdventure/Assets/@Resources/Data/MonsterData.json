@@ -2,443 +2,443 @@
   "Monster": [
     {
       "moncode": "1001",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "AntoA",
       "maxhp": "50",
       "def": "0",
       "attack": "5",
       "level": "1",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1001",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1002",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "CactusoA",
       "maxhp": "55",
       "def": "0",
       "attack": "5",
       "level": "1",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1002",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1003",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "MegaGolemA",
       "maxhp": "60",
       "def": "0",
       "attack": "5",
       "level": "1",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1003",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1004",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "RatoA",
       "maxhp": "65",
       "def": "3",
       "attack": "7",
       "level": "3",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1004",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1005",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "ScopiontoA",
       "maxhp": "70",
       "def": "3",
       "attack": "7",
       "level": "3",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1005",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1006",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "WormoA",
       "maxhp": "75",
       "def": "3",
       "attack": "7",
       "level": "3",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1006",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1007",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "CactusoB",
       "maxhp": "80",
       "def": "5",
       "attack": "9",
       "level": "5",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1007",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1008",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "MegaGolemB",
       "maxhp": "85",
       "def": "5",
       "attack": "9",
       "level": "5",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1008",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1009",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "RatoB",
       "maxhp": "90",
       "def": "5",
       "attack": "9",
       "level": "5",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1009",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1010",
-      "EnvType": "Desert",
+      "environment": "Desert",
       "name": "GolemChild",
       "maxhp": "300",
       "def": "20",
       "attack": "30",
       "level": "10",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1010",
-      "AttackType": "All"
+      "attacktype": "All"
     },
     {
       "moncode": "1011",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireButterflyA",
       "maxhp": "120",
       "def": "20",
       "attack": "13",
       "level": "7",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1011",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1012",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FirePigA",
       "maxhp": "130",
       "def": "20",
       "attack": "13",
       "level": "7",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1012",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1013",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireGazerA",
       "maxhp": "140",
       "def": "25",
       "attack": "13",
       "level": "9",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1013",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1014",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireGolemA",
       "maxhp": "150",
       "def": "25",
       "attack": "15",
       "level": "9",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1014",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1015",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireTamporaA",
       "maxhp": "150",
       "def": "25",
       "attack": "15",
       "level": "9",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1015",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1016",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FirePigB",
       "maxhp": "160",
       "def": "30",
       "attack": "15",
       "level": "11",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1016",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1017",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireButterflyB",
       "maxhp": "170",
       "def": "30",
       "attack": "17",
       "level": "11",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1017",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1018",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireGazerB",
       "maxhp": "170",
       "def": "30",
       "attack": "17",
       "level": "11",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1018",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1019",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "FireTamporaB",
       "maxhp": "190",
       "def": "35",
       "attack": "18",
       "level": "13",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1019",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1020",
-      "EnvType": "Lava",
+      "environment": "Lava",
       "name": "Minotos",
       "maxhp": "500",
       "def": "60",
       "attack": "40",
       "level": "20",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1020",
-      "AttackType": "All"
+      "attacktype": "All"
     },
     {
       "moncode": "1021",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterCrabA",
       "maxhp": "250",
       "def": "35",
       "attack": "20",
       "level": "13",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1021",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1022",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterOctopusAaA",
       "maxhp": "250",
       "def": "40",
       "attack": "20",
       "level": "15",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1022",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1023",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterShellfishA",
       "maxhp": "260",
       "def": "40",
       "attack": "20",
       "level": "15",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1023",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1024",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterStarfishA",
       "maxhp": "280",
       "def": "40",
       "attack": "25",
       "level": "15",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1024",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1025",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterPuffeA",
       "maxhp": "280",
       "def": "45",
       "attack": "25",
       "level": "17",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1025",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1026",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterOctopusAaB",
       "maxhp": "300",
       "def": "45",
       "attack": "25",
       "level": "17",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1026",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1027",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterShellfishB",
       "maxhp": "320",
       "def": "45",
       "attack": "30",
       "level": "17",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1027",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1028",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterStarfishB",
       "maxhp": "340",
       "def": "50",
       "attack": "30",
       "level": "19",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1028",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1029",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "WaterPuffeB",
       "maxhp": "360",
       "def": "50",
       "attack": "30",
       "level": "19",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1029",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1030",
-      "EnvType": "Water",
+      "environment": "Water",
       "name": "Krake",
       "maxhp": "1000",
       "def": "80",
       "attack": "50",
       "level": "30",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1030",
-      "AttackType": "All"
+      "attacktype": "All"
     },
     {
       "moncode": "1031",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestBeeA",
       "maxhp": "500",
       "def": "55",
       "attack": "35",
       "level": "21",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1031",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1032",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestDevilTreeA",
       "maxhp": "520",
       "def": "55",
       "attack": "35",
       "level": "21",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1032",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1033",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestPlantaA",
       "maxhp": "540",
       "def": "55",
       "attack": "35",
       "level": "21",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1033",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1034",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestRabbyA",
       "maxhp": "580",
       "def": "60",
       "attack": "45",
       "level": "23",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1034",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1035",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestTurnipaA",
       "maxhp": "600",
       "def": "60",
       "attack": "45",
       "level": "23",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1035",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1036",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestPlantaB",
       "maxhp": "620",
       "def": "60",
       "attack": "45",
       "level": "23",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1036",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1037",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestRabbyB",
       "maxhp": "640",
       "def": "65",
       "attack": "60",
       "level": "25",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1037",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1038",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestTurnipaB",
       "maxhp": "680",
       "def": "65",
       "attack": "60",
       "level": "25",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1038",
-      "AttackType": "Melee"
+      "attacktype": "Melee"
     },
     {
       "moncode": "1039",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "ForestDevilTreeB",
       "maxhp": "700",
       "def": "65",
       "attack": "60",
       "level": "25",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1039",
-      "AttackType": "RangeAttack"
+      "attacktype": "RangeAttack"
     },
     {
       "moncode": "1040",
-      "EnvType": "Forest",
+      "environment": "Forest",
       "name": "FlowerDryad",
       "maxhp": "2000",
       "def": "100",
       "attack": "200",
       "level": "40",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1040",
-      "AttackType": "All"
+      "attacktype": "All"
     }
   ]
 }

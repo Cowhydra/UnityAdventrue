@@ -17,6 +17,10 @@ public class FindTarget : Behavior_Node
 
     public override Define.Behavior_NodeState Evaluate()
     {
+        if (_enemyLayerMask != (int)Define.LayerMask.Player)
+        {
+            Debug.Log("이상한 에러");
+        }
         Debug.Log("추후 여기에 몬스터 죽었는지 확인해야함");
         //if (_transform.GetComponent<Monster>().isDie)
         //{

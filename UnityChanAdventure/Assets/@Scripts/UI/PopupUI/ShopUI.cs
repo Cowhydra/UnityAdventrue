@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class ShopUI : UI_Scene,IListener
 {
+    #region Object BInd
     enum GameObjects
     {
         ShopView,
@@ -45,6 +46,8 @@ public class ShopUI : UI_Scene,IListener
         Ring,
 
     }
+    #endregion
+
     private void Start()
     {
         Init();

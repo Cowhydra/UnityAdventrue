@@ -5,12 +5,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Quest_TalkingBar : UI_Popup
+public class Quest_TalkingBar : UI_Scene
 {
     //느낌표 같은 UI 추가하자
     private int _quesid;
-    private  int  currenttalkingnum;
-    private int totaltalkingcount;
     private bool isinit = false;
     [SerializeField]
     private int talkingcount = 3;
@@ -45,28 +43,23 @@ public class Quest_TalkingBar : UI_Popup
         ItemReward,
 
     }
-    public void Excute(string text)
-    {
-        GetText((int)Texts.TalkingText).text = $"{text}";
-
-    }
     public override void Init()
     {
         if (!isinit)
         {
             base.Init();
+            GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.QuestInfo + 2;
             Bind<GameObject>(typeof(GameObjects));
             Bind<TextMeshProUGUI>(typeof(Texts));
             Bind<Button>(typeof(buttons));
 
-
-            totaltalkingcount = talkingcount;
             GetButton((int)buttons.YesButton).gameObject
                 .BindEvent((PointerEventData data) => SetQuest());
             GetButton((int)buttons.CancelButton).gameObject
-                .BindEvent((PointerEventData data) => Managers.UI.ClosePopupUI());
-            GetObject((int)GameObjects.BottomPannel).SetActive(false);
-            gameObject.BindEvent((PointerEventData data) => ProgressTalk());
+                .BindEvent((PointerEventData data) => Managers.Resource.Destroy(gameObject));
+            GetObject((int)GameObjects.BottomPannel).SetActive(true);
+            GetText((int)Texts.TitleText).text = Managers.Data.QuestData[QuestId].Name;
+            GetText((int)Texts.TalkingText).text =$"{Managers.Data.QuestData[QuestId].script1}\n{Managers.Data.QuestData[QuestId].script2}\n{Managers.Data.QuestData[QuestId].script3}" ;
 
             if (Managers.Data.QuestData[QuestId].DiaReward == 0)
             {
@@ -86,28 +79,6 @@ public class Quest_TalkingBar : UI_Popup
         }
         return;
     }
-    private void ProgressTalk()
-    {
-        switch (currenttalkingnum)
-        {
-            case 0:
-                Excute($"{Managers.Data.QuestData[QuestId].script1}");
-                break;
-            case 1:
-                Excute($"{Managers.Data.QuestData[QuestId].script2}");
-                break;
-            case 2:
-                Excute($"{Managers.Data.QuestData[QuestId].script3}");
-                GetObject((int)GameObjects.BottomPannel).SetActive(true);
-                break;
-            default:
-                Excute($"{Managers.Data.QuestData[QuestId].script3}");
-                GetObject((int)GameObjects.BottomPannel).SetActive(true);
-                break;
-        }
-        currenttalkingnum++;
-
-    }
     private void SetQuest()
     {
         if (Managers.Data.QuestData[QuestId].QuestType == Define.QuestType.DefeatEnemy)
@@ -118,6 +89,7 @@ public class Quest_TalkingBar : UI_Popup
              Managers.Data.QuestData[QuestId].enemyToTargetCode, Managers.Data.QuestData[QuestId].Amount
              ) ;
             Managers.Quest.StartQuest(_myquest);
+           
         }
         else
         {
@@ -128,8 +100,10 @@ public class Quest_TalkingBar : UI_Popup
                 );
             Managers.Quest.StartQuest(_myquest);
         }
+        Managers.Data.QuestData[QuestId].State = Define.QuestState.Active;
 
-
+        Managers.Resource.Destroy(gameObject);
+        Debug.Log("퀘스트 시작 UI 만들기");
 
     }
 

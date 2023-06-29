@@ -32,7 +32,7 @@ public class DefeatEnemiesQuest : Quest
     protected override void QuestCompleted()
     {
         //퀘스트가 완료되면 이벤트 제거
-        Managers.Event.MonsterDie -= EnemyDiedEvent;
+   
         if (DiaReward != 0)
         {
             Managers.Game.BlueDiamondChange(DiaReward);
@@ -45,7 +45,8 @@ public class DefeatEnemiesQuest : Quest
         {
             Managers.Inven.Add(itemReward);
         }
-        
+
+        Managers.Event.MonsterDie -= EnemyDiedEvent;
     }
 
     protected override void QuestActive()

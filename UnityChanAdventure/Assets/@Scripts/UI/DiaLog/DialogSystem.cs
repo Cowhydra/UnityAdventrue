@@ -144,6 +144,7 @@ public class DialogSystem : UI_Popup
 				Debug.Log("퀘스트창 보여주기");
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
+				Managers.UI.ShowPopupUI<QuestUI>();
 				break;
             case Define.Npc_Type.ShopNpc:
 				Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);

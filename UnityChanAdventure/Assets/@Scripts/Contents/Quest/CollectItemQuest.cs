@@ -21,7 +21,10 @@ public class CollectItemQuest : Quest
     protected override void QuestActive()
     {
         var uniqueId = _objectItemCode;
-        this.TryComplete();
+        Managers.Event.AddItem -= TryComplete;
+        Managers.Event.AddItem += TryComplete;
+
+         this.TryComplete(_objectItemCode);
 
     }
 
@@ -40,13 +43,13 @@ public class CollectItemQuest : Quest
         {
             Managers.Inven.Add(itemReward);
         }
-
+        Managers.Event.AddItem -= TryComplete;
     }
 
 
-    private void TryComplete()
+    private void TryComplete(int objectitemcode)
     {
-        if (Managers.Inven.Items[_objectItemCode].Count >= this._amountToCollect)
+        if (Managers.Inven.Items[objectitemcode].Count >= this._amountToCollect)
         {
             this.Complete();
         }

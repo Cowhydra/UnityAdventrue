@@ -24,6 +24,7 @@
     {
         ShopUI=10,
         InvenItem=20,
+        QuestInfo=500,
         DialogSystem=100,
 
     }
@@ -54,7 +55,9 @@
         ShopClose,
 
         DialogOpen,
-        DialogClose
+        DialogClose,
+
+        
 
 
     }

@@ -185,13 +185,13 @@ namespace Data
     {
         public string name;
         public int moncode;
-       // public string environment;
+        public string environment;
         public int maxhp;
         public int def;
         public int attack;
         public int level;
         public string prefabPath;
-        //public string attacktype;
+        public string attacktype;
         public MonsterEnvType EnvType;
         public MonsterAttackType AttackType;
     }
@@ -205,8 +205,8 @@ namespace Data
             Dictionary<int, MonsterData> dict = new Dictionary<int, MonsterData>();
             foreach (MonsterData mon in Monster)
             {
-               // mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
-               // mon.AttackType = (MonsterAttackType)Enum.Parse(typeof(MonsterAttackType), mon.attacktype);
+                mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
+                mon.AttackType = (MonsterAttackType)Enum.Parse(typeof(MonsterAttackType), mon.attacktype);
                 dict.Add(mon.moncode, mon);
               
             }
@@ -239,7 +239,10 @@ namespace Data
         public string script2;
         public string script3;
 
+        public string state;
         public QuestState State;
+
+        public string questtype;
         public QuestType QuestType;
 
     }
@@ -253,7 +256,10 @@ namespace Data
             Dictionary<int, QuestData> dict = new Dictionary<int, QuestData>();
             foreach (QuestData quest in Quest)
             {
-               dict.Add(quest.UniqueId, quest);
+                quest.State = (QuestState)Enum.Parse(typeof(QuestState), quest.state);
+                quest.QuestType = (QuestType)Enum.Parse(typeof(QuestType), quest.questtype);
+
+                dict.Add(quest.UniqueId, quest);
 
             }
             return dict;

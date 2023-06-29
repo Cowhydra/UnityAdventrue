@@ -75,7 +75,9 @@ public class Monster : Creature, IDamage, IAttack
         GameObject Exp = Managers.Resource.Instantiate("Exp");
         Exp.GetComponent<Exp>().SetValue(_level);
         _animator.SetTrigger("Die");
-        Debug.Log("죽음 처리");
+        //퀘스트 관련 몬스터 이벤트
+        Managers.Event.MonsterDie?.Invoke(MyCode);
+        Debug.Log("죽음 처리( 자연스런 죽음 등등)");
     }
     private IEnumerator HpRegen_co()
     {
