@@ -30,14 +30,15 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        _animator=GetComponent<Animator>();
+        _animator=GetComponentInChildren<Animator>();
 
     }
     private void Start()
     {
         #region Event
+        Debug.Log("조이스틱 정상작동 확인");
         Managers.Event.MoveInputAction -= SetMoveDir;
-        Managers.Event.MoveInputAction += SetMoveDir;
+       // Managers.Event.MoveInputAction += SetMoveDir;
         Managers.Event.KeyInputAction -= KeyInputExcute;
         Managers.Event.KeyInputAction += KeyInputExcute;
         #endregion
@@ -80,6 +81,12 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
+        #region PC 테스트용 임시코드
+        _direction.x = Input.GetAxis("Horizontal");
+        _direction.z = Input.GetAxis("Vertical");
+        _animator.SetFloat("PosX", _direction.x);
+        _animator.SetFloat("PosZ", _direction.z);
+        #endregion
         _characterController.Move(_direction * speed * Time.deltaTime);
     }
 
