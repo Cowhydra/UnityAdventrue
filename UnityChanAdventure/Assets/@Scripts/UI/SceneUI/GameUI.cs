@@ -163,7 +163,7 @@ public class GameUI : UI_Scene,IListener
     }
     private void QuikSlotEnroll()
     {
-        if (Managers.Data.ItemDataDict[SelectItemcode].itemType != Define.ItemType.Consume)
+        if (!Managers.Data.ItemDataDict.ContainsKey(SelectItemcode)||(Managers.Data.ItemDataDict[SelectItemcode].itemType != Define.ItemType.Consume))
         {
             return;
         }

@@ -150,7 +150,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mobile",
+                    "groups": "Mobile;PC",
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -161,7 +161,7 @@
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mobile",
+                    "groups": "Mobile;PC",
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -172,7 +172,7 @@
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Mobile",
+                    "groups": "PC",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -183,7 +183,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Mobile;PC",
                     "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -193,30 +193,8 @@
         {
             "name": "UI",
             "id": "0872a7d4-328c-40c0-a327-ed6d3f80196c",
-            "actions": [
-                {
-                    "name": "New action",
-                    "type": "Button",
-                    "id": "46a19026-4daf-43da-8804-60e9c95b4178",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "b1ba2e1e-d209-4ab9-9d73-0e8ee4bbbffc",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "New action",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
