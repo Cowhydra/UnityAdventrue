@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,21 +24,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpPower;
 
 
-    [SerializeField] private PlayerInput _playerinput;
- 
-    private void PlayerInputAction(InputAction.CallbackContext context)
-    {
-        switch (context.action.name)
-        {
-            case "Move":
-                Move(context);
-                break;
-            case "Jump":
-                Jump(context);
-                break;
-        }
-    }
 
+ 
+  
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -46,20 +34,7 @@ public class PlayerController : MonoBehaviour
 
     }
  
-    private void OnEnable()
-    {
-        if (_playerinput == null)
-        {
-            Debug.Log("player input is null");
-        }
-        _playerinput.onActionTriggered -= PlayerInputAction;
-        _playerinput.onActionTriggered += PlayerInputAction;
-        
-    }
-    private void OnDisable()
-    {
-        _playerinput.onActionTriggered -= PlayerInputAction;
-    }
+  
     private void Update()
     {
         ApplyGravity();
@@ -95,20 +70,20 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(_direction * speed * Time.deltaTime);
     }
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        _inputdir = context.ReadValue<Vector2>();
-        _direction = new Vector3(_inputdir.x, 0.0f, _inputdir.y);
-        Debug.Log(_direction);
-    }
+    //public void Move(InputAction.CallbackContext context)
+    //{
+    //    _inputdir = context.ReadValue<Vector2>();
+    //    _direction = new Vector3(_inputdir.x, 0.0f, _inputdir.y);
+    //    Debug.Log(_direction);
+    //}
 
-    public void Jump(InputAction.CallbackContext context)
-    {
-        if (!context.started) return;
-        if (!IsGrounded()) return;
-        Debug.Log("점프");
-        _velocity += jumpPower;
-    }
+    //public void Jump(InputAction.CallbackContext context)
+    //{
+    //    if (!context.started) return;
+    //    if (!IsGrounded()) return;
+    //    Debug.Log("점프");
+    //    _velocity += jumpPower;
+    //}
 
     private bool IsGrounded() => _characterController.isGrounded;
 }
