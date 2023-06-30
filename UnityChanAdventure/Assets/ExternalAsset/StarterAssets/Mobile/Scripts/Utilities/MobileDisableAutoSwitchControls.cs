@@ -22,7 +22,9 @@ public class MobileDisableAutoSwitchControls : MonoBehaviour
 
     void Start()
     {
-        DisableAutoSwitchControls();
+        playerInput = FindAnyObjectByType<PlayerInput>();
+    
+       DisableAutoSwitchControls();
     }
 
     void DisableAutoSwitchControls()
