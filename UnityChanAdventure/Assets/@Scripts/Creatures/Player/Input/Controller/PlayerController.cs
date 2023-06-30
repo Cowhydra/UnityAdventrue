@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,12 +7,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    private Vector2 _inputdir;
     private CharacterController _characterController;
     private Vector3 _direction;
 
     [SerializeField] private float speed;
-
+    private bool _isSprint;
 
     [SerializeField] private float smoothTime = 0.05f;
     private float _currentVelocity;
@@ -24,17 +24,30 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpPower;
 
 
-
+    private Animator _animator;
  
   
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-     
+        _animator=GetComponent<Animator>();
 
     }
- 
-  
+    private void Start()
+    {
+        #region Event
+        Managers.Event.MoveInputAction -= SetMoveDir;
+        Managers.Event.MoveInputAction += SetMoveDir;
+        Managers.Event.KeyInputAction -= KeyInputExcute;
+        Managers.Event.KeyInputAction += KeyInputExcute;
+        #endregion
+    }
+    private void OnDestroy()
+    {
+        Managers.Event.KeyInputAction -= KeyInputExcute;
+        Managers.Event.MoveInputAction -= SetMoveDir;
+    }
+
     private void Update()
     {
         ApplyGravity();
@@ -58,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        if (_inputdir.sqrMagnitude == 0) return;
+        if (_direction.sqrMagnitude == 0) return;
 
         var targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
@@ -70,20 +83,52 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(_direction * speed * Time.deltaTime);
     }
 
-    //public void Move(InputAction.CallbackContext context)
-    //{
-    //    _inputdir = context.ReadValue<Vector2>();
-    //    _direction = new Vector3(_inputdir.x, 0.0f, _inputdir.y);
-    //    Debug.Log(_direction);
-    //}
+    private void SetMoveDir(Vector2 movedir)
+    {
+        _direction = new Vector3(movedir.x, 0.0f, movedir.y);
+        _animator.SetFloat("PosX", _direction.x);
+        _animator.SetFloat("PosZ", _direction.z);
+    }
 
-    //public void Jump(InputAction.CallbackContext context)
-    //{
-    //    if (!context.started) return;
-    //    if (!IsGrounded()) return;
-    //    Debug.Log("점프");
-    //    _velocity += jumpPower;
-    //}
+    private void KeyInputExcute(Define.KeyInput KeyInput)
+    {
+        switch (KeyInput)
+        {
+            case Define.KeyInput.Jump:
+                Jump();
+                break;
+            case Define.KeyInput.Sprint:
+                StartCoroutine(nameof(_isSprint));
+                break;
+            case Define.KeyInput.Attack:
+                break;
+            case Define.KeyInput.Auto:
+                break;
+        }
+    }
+
+
+
+    private void Jump()
+    {
+        if (!IsGrounded()) return;
+        Debug.Log("점프");
+        _velocity += jumpPower;
+    }
+
+
+    private IEnumerator Sprint_co()
+    {
+        if (!_isSprint)
+        {
+            _isSprint = true;
+            speed += 3;
+            yield return new WaitForSeconds(speed);
+            speed -= 3;
+            _isSprint = false;
+        }
+      
+    }
 
     private bool IsGrounded() => _characterController.isGrounded;
 }

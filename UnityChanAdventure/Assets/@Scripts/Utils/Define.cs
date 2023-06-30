@@ -1,7 +1,7 @@
 ﻿public class Define
 {
 
-
+   
     public enum Scene
     {
         None,
@@ -29,6 +29,14 @@
 
     }
     #region About Event
+    public enum KeyInput
+    {
+        Jump,
+        Sprint,
+        Attack,
+        Auto,
+
+    }
     public enum UIEvent
     {
         Click,
@@ -133,7 +141,6 @@
     public enum SkillType
     {
         None,
-        Basic,
         QSKill,
         WSkill,
         ESkill,

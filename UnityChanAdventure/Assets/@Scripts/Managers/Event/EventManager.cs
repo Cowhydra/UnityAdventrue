@@ -10,6 +10,13 @@ public class EventManager
 
     //Sender와 관련이 없는 이벤트들
 
+    //KeyEvent
+    public Action<Vector2> MoveInputAction;
+    public Action<Define.SkillType> SkillInputAction;
+    public Action<Define.KeyInput> KeyInputAction;
+
+
+
     public Action<Define.Login_Event_Type> LoginProgess;
     public Action<int> CreateOrDeleteCharacter;
 
