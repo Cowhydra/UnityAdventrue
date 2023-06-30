@@ -35,12 +35,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - LoadingResource
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 685ce059a9d491d49ae99aa4f60cb37f
-    m_Address: Player.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9deaa1287de0ba74f8d1d5e29fca1af5
     m_Address: 1033_Projectile.prefab
     m_ReadOnly: 0
