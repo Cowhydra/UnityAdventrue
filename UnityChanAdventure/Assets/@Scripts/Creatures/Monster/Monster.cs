@@ -8,6 +8,8 @@ public class Monster : Creature, IDamage, IAttack
     public int MyCode;
     private Define.MonsterAttackType _attackType;
     private Animator _animator;
+    private SkinnedMeshRenderer meshRenderer;
+    private Color origihmeshcolor;
     public int AttackRange { get; set; }
     public int Hp
     {
@@ -36,16 +38,22 @@ public class Monster : Creature, IDamage, IAttack
     {
         MyCode = int.Parse(gameObject.name);
         _animator = GetComponent<Animator>();
+        meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
+        origihmeshcolor=meshRenderer.material.color;    
         Init();
+      
 
-     
     }
     public void OnDamage(int damage)
     {
         Hp -= Math.Max(1, damage - _level - _def);
         _animator.SetTrigger("Damage");
+        StartCoroutine(nameof(OnHitColor));
     }
-
+    private void OnDisable()
+    {
+        StopAllCoroutines();
+    }
     private void Init()
     {
         _hp = Managers.Data.MonsterDataDict[MyCode].maxhp;
@@ -92,6 +100,11 @@ public class Monster : Creature, IDamage, IAttack
         Managers.Resource.Destroy(gameObject);
     }
 
-
+    private IEnumerator OnHitColor()
+    {
+        meshRenderer.material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        meshRenderer.material.color = origihmeshcolor;
+    }
 }
 

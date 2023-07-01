@@ -6,6 +6,7 @@ using UnityEngine;
 public class MyCharacter : Creature, IDamage, IListener
 {
     private int myCharacterCode;
+    private Animator _animator;
 
     #region 스텟
     public int MaxHp { get { return _maxhp; } private set { _maxhp = value; } }
@@ -113,7 +114,9 @@ public class MyCharacter : Creature, IDamage, IListener
     public void OnDamage(int damage)
     {
         Hp -= Math.Max(0, damage - _level -Def);
-
+        Debug.Log("Hit Animator");
+        _animator.SetFloat("Damaged", damage - _level - Def / damage);
+        _animator.SetTrigger("Damaged");
         Debug.Log("공격받음");
     }
     public override void Die()
@@ -125,6 +128,7 @@ public class MyCharacter : Creature, IDamage, IListener
         //멀티 고려시, 캐릭터 코드 혹은, 계정 넘버 가지고 있어야할듯?
         myCharacterCode = Managers.Game.currentCharNumber;
         InitCharacter();
+        _animator=GetComponent<Animator>();
         StartCoroutine(nameof(Regenerat_co));
 
     }

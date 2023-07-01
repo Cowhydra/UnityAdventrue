@@ -10,6 +10,12 @@ public class PlayerController : MonoBehaviour
     private CharacterController _characterController;
     private Vector3 _direction;
 
+    private MyCharacter _mycharacter;
+    [SerializeField] private Animator _battleanim_TowHand;
+    [SerializeField] private Animator _town_anim;
+    [SerializeField] private Animator _battleanim_Magic;
+    [SerializeField] private PlayerAttackArea attackarea;
+
     [SerializeField] private float speed;
     private bool _isSprint;
 
@@ -30,8 +36,9 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
-        _animator=GetComponentInChildren<Animator>();
-
+        _animator=GetComponent<Animator>();
+        attackarea=GetComponentInChildren<PlayerAttackArea>();
+        _mycharacter=GetComponent<MyCharacter>(); 
     }
     private void Start()
     {
@@ -84,8 +91,9 @@ public class PlayerController : MonoBehaviour
         #region PC 테스트용 임시코드
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
-        _animator.SetFloat("PosX", _direction.x);
-        _animator.SetFloat("PosZ", _direction.z);
+        float offset = _isSprint == true ? 1f : 0.5f;
+        _animator.SetFloat("PosX", _direction.x * offset);
+        _animator.SetFloat("PosZ", _direction.z*offset);
         #endregion
         _characterController.Move(_direction * speed * Time.deltaTime);
     }
@@ -93,29 +101,10 @@ public class PlayerController : MonoBehaviour
     private void SetMoveDir(Vector2 movedir)
     {
         _direction = new Vector3(movedir.x, 0.0f, movedir.y);
-        _animator.SetFloat("PosX", _direction.x);
-        _animator.SetFloat("PosZ", _direction.z);
+        float offset = _isSprint == true ? 1f : 0.5f;
+        _animator.SetFloat("PosX", _direction.x*offset);
+        _animator.SetFloat("PosZ", _direction.z*offset);
     }
-
-    private void KeyInputExcute(Define.KeyInput KeyInput)
-    {
-        switch (KeyInput)
-        {
-            case Define.KeyInput.Jump:
-                Jump();
-                break;
-            case Define.KeyInput.Sprint:
-                StartCoroutine(nameof(_isSprint));
-                break;
-            case Define.KeyInput.Attack:
-                break;
-            case Define.KeyInput.Auto:
-                break;
-        }
-    }
-
-
-
     private void Jump()
     {
         if (!IsGrounded()) return;
@@ -137,5 +126,33 @@ public class PlayerController : MonoBehaviour
       
     }
 
+    private void KeyInputExcute(Define.KeyInput KeyInput)
+    {
+        switch (KeyInput)
+        {
+            case Define.KeyInput.Jump:
+                Jump();
+                break;
+            case Define.KeyInput.Sprint:
+                StartCoroutine(nameof(Sprint_co));
+                break;
+            case Define.KeyInput.Attack:
+                OnBaseAttack();
+                break;
+            case Define.KeyInput.Auto:
+                break;
+        }
+    }
+    private void OnBaseAttack()
+    {
+        if (!IsGrounded()) return;
+        _animator.SetTrigger("OnBaseAttack");
+       
+    }
+    public void OnAttackAnimationEvent(int damage)
+    {
+        attackarea.gameObject.SetActive(true);
+        attackarea.SetDamage(damage*_mycharacter.Level+_mycharacter.Attack);
+    }
     private bool IsGrounded() => _characterController.isGrounded;
 }
