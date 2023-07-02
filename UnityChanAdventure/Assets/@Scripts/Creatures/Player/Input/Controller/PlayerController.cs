@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool _isSprint;
 
     [SerializeField] private float smoothTime = 0.05f;
-    private float _currentVelocity;
+    [SerializeField] private float _currentVelocity;
 
 
     private float _gravity = -9.81f;
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ApplyGravity();
-        ApplyRotation();
+       // ApplyRotation();
         ApplyMovement();
     }
 
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyRotation()
     {
-        if (_direction.sqrMagnitude == 0) return;
+        if (_direction.sqrMagnitude < 0.1f) return;
 
         var targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
         var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsGrounded()) return;
         _animator.SetTrigger("OnBaseAttack");
+        _direction = Vector2.zero;
        
     }
     public void OnAttackAnimationEvent(int damage)
