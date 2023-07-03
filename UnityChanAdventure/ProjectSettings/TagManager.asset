@@ -8,6 +8,8 @@ TagManager:
   - Boss
   - DesertBoss
   - AroundTarget
+  - StartPoint
+  - BossCamera
   layers:
   - Default
   - TransparentFX

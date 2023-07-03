@@ -8,6 +8,9 @@ public class MyCharacter : Creature, IDamage, IListener
     private int myCharacterCode;
     private Animator _animator;
 
+    private bool ishitted;
+    [SerializeField]
+    private float ishittedcooltime = 8.0f;
     #region 스텟
     public int MaxHp { get { return _maxhp; } private set { _maxhp = value; } }
     public int MaxMana { get { return _maxmana; } private set { _maxmana = value; } }
@@ -113,13 +116,28 @@ public class MyCharacter : Creature, IDamage, IListener
     #endregion
     public void OnDamage(int damage)
     {
-        Hp -= Math.Max(0, damage - _level -Def);
+      
         Debug.Log("Hit Animator");
-        _animator.SetFloat("Damaged", damage - _level - Def / damage);
-        _animator.SetTrigger("Damaged");
+        if (!ishitted)
+        {
+            Hp -= Math.Max(0, damage - _level - Def);
+            ishitted = true;
+            StartCoroutine(nameof(HitAnimation_co), damage);
+        }
         Debug.Log("공격받음");
     }
-    public override void Die()
+    IEnumerator HitAnimation_co(int damage)
+    {
+        if (!ishitted)
+        {
+            _animator.SetFloat("Damaged", damage - _level - Def / damage);
+            _animator.SetTrigger("Damaged");
+            yield return new WaitForSeconds(ishittedcooltime);
+            ishitted = false;
+        }
+
+    }
+   public override void Die()
     {
         base.Die();
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Joystick_UI : UI_Scene
+public class Joystick_UI : UI_Scene,IListener
 {
     private GameObject _handler;
     private Vector2 _moveDir;
@@ -23,6 +23,8 @@ public class Joystick_UI : UI_Scene
         Move_Handle,
         Look_Area,
         Move_Area,
+        PlayerInput_Area,
+        PlayerMain_Cm
     }
     enum Buttons
     {
@@ -43,6 +45,7 @@ public class Joystick_UI : UI_Scene
     public override void Init()
     {
         base.Init();
+        GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.JoyStick;
         _playerController = transform.root.GetComponentInChildren<PlayerController>();
         if(_AroundTarget == null)
         {
@@ -58,11 +61,22 @@ public class Joystick_UI : UI_Scene
 
         _joystickOriginalPos = GetObject((int)GameObjects.Move_Area).transform.position;
 
+        #region Event
         _handler.BindEvent((PointerEventData data) => OnDragEvent_JoyStick(data), Define.UIEvent.OnDrag);
         _handler.BindEvent((PointerEventData data) => EndDragEvent_JoyStick(), Define.UIEvent.OnEndDrag);
       
         GetObject((int)GameObjects.Look_Area).BindEvent((PointerEventData data) => DragEvent_Look(data),Define.UIEvent.OnDrag);
         GetObject((int)GameObjects.Look_Area).BindEvent((PointerEventData data) => StartDrag(data), Define.UIEvent.OnBeginDrag);
+
+        Managers.Event.AddListener(Define.EVENT_TYPE.InventoryOpen, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.InventoryClose, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.ShopClose, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.ShopOpen, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.DialogOpen, this);
+        Managers.Event.AddListener(Define.EVENT_TYPE.DialogClose, this);
+
+
+        #endregion
     }
 
     private float dragStartPosition;
@@ -112,6 +126,7 @@ public class Joystick_UI : UI_Scene
 
     private void OnDragEvent_JoyStick(PointerEventData data)
     {
+     
         Vector2 dragPos = data.position;
         _moveDir = (dragPos - _joystickOriginalPos).normalized;
         Managers.Event.MoveInputAction?.Invoke(_moveDir);
@@ -127,5 +142,37 @@ public class Joystick_UI : UI_Scene
             newPos = _joystickOriginalPos + _moveDir * _joystickRadius;
         }
         _handler.transform.position = newPos;
+    }
+
+    public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
+    {
+        switch (Event_Type)
+        {
+            case Define.EVENT_TYPE.InventoryOpen:
+                GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
+                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(false);
+                break;
+            case Define.EVENT_TYPE.InventoryClose:
+                GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
+                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(true);
+                break;
+            case Define.EVENT_TYPE.ShopClose:
+                GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
+                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(true);
+                break;
+            case Define.EVENT_TYPE.ShopOpen:
+                GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
+                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(false);
+                break;
+            case Define.EVENT_TYPE.DialogOpen:
+                GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
+                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(false);
+                break;
+            case Define.EVENT_TYPE.DialogClose:
+                GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
+                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(true);
+                break;
+
+        }
     }
 }

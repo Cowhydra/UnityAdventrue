@@ -1,7 +1,15 @@
 ﻿public class Define
 {
 
-   
+   public enum CinemachinePriority
+    {
+
+        PlayerMain_cm=25,
+        Boss_com=26,
+        PlayerSub_cm=20,
+
+    }
+
     public enum Scene
     {
         None,
@@ -22,6 +30,7 @@
 
     public enum SortingOrder
     {
+        JoyStick=1,
         ShopUI=10,
         InvenItem=20,
         QuestInfo=500,
@@ -89,6 +98,8 @@
         ShopNpc,
         EnhanceNpc,
         TuotorialNpc,
+        Boss,
+        Dungeon,
     }
     public enum BossDistance
     {

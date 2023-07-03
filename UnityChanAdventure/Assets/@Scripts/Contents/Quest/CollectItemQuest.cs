@@ -49,6 +49,10 @@ public class CollectItemQuest : Quest
 
     private void TryComplete(int objectitemcode)
     {
+        if (!Managers.Inven.Items.ContainsKey(objectitemcode))
+        {
+            return;
+        }
         if (Managers.Inven.Items[objectitemcode].Count >= this._amountToCollect)
         {
             this.Complete();

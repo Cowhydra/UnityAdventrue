@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1755820156693510330}
   - component: {fileID: 2881428649158951228}
   - component: {fileID: 6600910235564724025}
-  - component: {fileID: 3794616017746003519}
+  - component: {fileID: 7732266073566961489}
   m_Layer: 0
   m_Name: Itemoutside
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_Children:
   - {fileID: 1920758428556768762}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1755820156693510330
 MeshFilter:
@@ -107,7 +107,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3794616017746003519
+--- !u!114 &7732266073566961489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,11 +116,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3920448960663413364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dfecd3def9454f4d826b64a73a75412, type: 3}
+  m_Script: {fileID: 11500000, guid: 2475bed61f2e87c4e93dbff51a6ce1ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetMaterial: {fileID: 2100000, guid: 0a535a92f10d8774aa627e8e4273655c, type: 2}
-  newBaseMapTexture: {fileID: 2800000, guid: 8de44be8dea115542921b9fce4bf8d15, type: 3}
+  newBaseMapTexture: {fileID: 0}
 --- !u!1 &6079390572662247053
 GameObject:
   m_ObjectHideFlags: 0

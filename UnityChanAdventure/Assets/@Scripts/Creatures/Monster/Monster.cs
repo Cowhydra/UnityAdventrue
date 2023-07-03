@@ -82,9 +82,19 @@ public class Monster : Creature, IDamage, IAttack
         Gold.GetComponent<Gold>().SetValue(_level);
         GameObject Exp = Managers.Resource.Instantiate("Exp");
         Exp.GetComponent<Exp>().SetValue(_level);
-        _animator.SetTrigger("Die");
+
         //퀘스트 관련 몬스터 이벤트
         Managers.Event.MonsterDie?.Invoke(MyCode);
+
+        if (Util.Probability(30))
+        {
+            //아이템 생성
+            int itemcode=UnityEngine.Random.Range(0, Managers.Data.ItemCodes.Count);
+           GameObject dropitem= Managers.Resource.Instantiate("Itemoutside");
+            dropitem.GetOrAddComponent<Itemoutside>().ItemCode = itemcode;
+
+        }
+        _animator.SetTrigger("Die");
         Debug.Log("죽음 처리( 자연스런 죽음 등등)");
     }
     private IEnumerator HpRegen_co()

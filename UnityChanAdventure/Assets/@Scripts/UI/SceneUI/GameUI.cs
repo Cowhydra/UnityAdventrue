@@ -20,7 +20,6 @@ public class GameUI : UI_Scene,IListener
         AblityMagicAttack_Text,
         AblityDef_Text,
         AblityMagicDef_Text,
-        Quest_Content_Text,
 
     }
     enum GameObjects 
@@ -67,6 +66,7 @@ public class GameUI : UI_Scene,IListener
 
 
         InitGameObject();
+        TextWithGoods();
     }
     private void Start()
     {
@@ -84,7 +84,6 @@ public class GameUI : UI_Scene,IListener
         GetText((int)Texts.AblityMagicAttack_Text).text = "";
         GetText((int)Texts.AblityDef_Text).text = "";
         GetText((int)Texts.AblityMagicDef_Text).text = "";
-        GetText((int)Texts.Quest_Content_Text).text = "";
     }
     private void TextWithCharacter(MyCharacter mychar)
     {

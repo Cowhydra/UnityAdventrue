@@ -81,7 +81,7 @@ public class ResourceManager
                 return resource as T;
             }
         }
-        else if (typeof(T) == typeof(Sprite))
+        else //if (typeof(T) == typeof(Sprite))
         {
             if (_resources.TryGetValue($"{key}.png", out Object resource))
             {

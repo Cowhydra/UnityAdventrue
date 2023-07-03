@@ -16,13 +16,15 @@ public class TownScene : BaseScene
         {
             if (count == totalCount)
             {
-                Debug.Log($"리소스 로딩 완료: {totalCount}");
+                
+                Debug.Log($"(테스트용 추후 삭제 해야 댐)리소스 로딩 완료: {totalCount}");
                 Managers.Data.Init();
                 Debug.Log("여기서 캐릭터가 들어오면 인벤토리 DB업데이트 해줘야함 Fetch!");
                 //데이터 Init()은 지워 주어야 합니다.
                 //이거 살짝 불안 
                 Managers.UI.ShowSceneUI<ShopUI>();
-
+                Managers.UI.ShowSceneUI<GameUI>();
+                Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
                 Debug.Log("튜토리얼 창 띄우기 -> 따로 DB에 속성 만들기 귀찮으니 골드 등으로 첫 유저인지 확인");
                 //DialogSystem dialog = Managers.UI.ShowPopupUI<DialogSystem>();
                // dialog.TalkType = Define.Npc_Type.TuotorialNpc;

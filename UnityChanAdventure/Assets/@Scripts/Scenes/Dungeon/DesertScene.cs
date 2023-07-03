@@ -17,7 +17,12 @@ public class DesertScene : BaseScene
             {
                 Debug.Log($"리소스 로딩 완료: {totalCount}");
                 Managers.Data.Init();
+                GameObject.FindAnyObjectByType<DeserBoss_BT>().enabled = false;
+                Managers.UI.ShowSceneUI<GameUI>();
+                Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
 
+
+               // Managers.UI.ShowPopupUI<DialogSystem>().TalkType = Define.Npc_Type.Dungeon;
             }
         });
     }

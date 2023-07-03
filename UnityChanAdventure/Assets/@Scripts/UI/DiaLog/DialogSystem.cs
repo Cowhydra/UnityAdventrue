@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System;
 
-[System.Serializable]
 public struct Speaker
 {
 	public Image characterimage;       // 캐릭터 이미지 (청자/화자 알파값 제어)
@@ -14,8 +14,6 @@ public struct Speaker
 	public TextMeshProUGUI textDialogue;        // 현재 대사 출력 Text UI
 	public GameObject objectArrow;      // 대사가 완료되었을 때 출력되는 커서 오브젝트
 }
-
-[System.Serializable]
 public struct DialogData
 {
 	public int speakerIndex;    // 이름과 대사를 출력할 현재 DialogSystem의 speakers 배열 순번
@@ -25,6 +23,8 @@ public struct DialogData
 }
 
 
+//임시 DialogSystem
+//추후 체계적으로 한다면 excel, csv 파일 등을 통해 해당 값을 불러오도록 해야함
 
 public class DialogSystem : UI_Popup
 {
@@ -59,7 +59,7 @@ public class DialogSystem : UI_Popup
 	private float typingSpeed = 0.1f;           // 텍스트 타이핑 효과의 재생 속도
 	private bool isTypingEffect = false;        // 텍스트 타이핑 효과를 재생중인지
 	private bool isButtonClicked = false;
-
+    #region UIBind
     enum Texts
     {
 		PlayerName_Text,
@@ -86,8 +86,8 @@ public class DialogSystem : UI_Popup
 		CancelButton,
 		AcceptionButton,
 	}
-
-	private void SetSpeaker(int nthspeaker,Image speakerImage,Image dialogimage,TextMeshProUGUI speakername,TextMeshProUGUI Dialog,GameObject Arrow)
+    #endregion
+    private void SetSpeaker(int nthspeaker,Image speakerImage,Image dialogimage,TextMeshProUGUI speakername,TextMeshProUGUI Dialog,GameObject Arrow)
     {
 		
 		speakers[nthspeaker].characterimage = speakerImage;       // 캐릭터 이미지 (청자/화자 알파값 제어)
@@ -108,6 +108,7 @@ public class DialogSystem : UI_Popup
     {
         base.Init();
 		Debug.Log("추후 Npc 사진 변경 시 NPC 이미지 변경하면 됨 ");
+
 		GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.DialogSystem;
 		isButtonClicked = false;
 
@@ -158,6 +159,11 @@ public class DialogSystem : UI_Popup
 				Debug.Log("보여줄게 없음");
 				isButtonClicked = true;
 				Managers.Resource.Destroy(gameObject);
+                break;
+            case Define.Npc_Type.Boss:
+				Debug.Log("보여줄게 없음");
+				isButtonClicked = true;
+				Managers.Resource.Destroy(gameObject);
 				break;
         }
     }
@@ -183,6 +189,18 @@ public class DialogSystem : UI_Popup
             case Define.Npc_Type.TuotorialNpc:
 				GetButton((int)Buttons.AcceptionButton).gameObject.SetActive(true);
 				GetButton((int)Buttons.CancelButton).gameObject.SetActive(false);
+				break;
+			case Define.Npc_Type.Boss:
+				GetImage((int)Images.NpcDialog).gameObject
+					.BindEvent((PointerEventData data) => ShowNextUI());
+				GetImage((int)Images.PlayerDialog).gameObject
+					.BindEvent((PointerEventData data) => ShowNextUI());
+				break;
+			case Define.Npc_Type.Dungeon:
+				GetImage((int)Images.NpcDialog).gameObject
+					.BindEvent((PointerEventData data) => ShowNextUI());
+				GetImage((int)Images.PlayerDialog).gameObject
+					.BindEvent((PointerEventData data) => ShowNextUI());
 				break;
         }
     }
@@ -222,14 +240,42 @@ public class DialogSystem : UI_Popup
 				SetDiaLog(1, "???", ".................................;;");
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "네..");
 				SetDiaLog(1, "???", "우선 마을을 찾아 주민들을 도와주세요");
-
+				break;
+			case Define.Npc_Type.Boss:
+				dialogs.Clear();
+				SetDiaLog(0, $"{Managers.Game.CharacterName}", "심상치 않은 분위기가 느껴져!!");
+				SetDiaLog(0, $"{Managers.Game.CharacterName}", "잠깐 저기 뭐가 있는 것 같아!!");
+				SetDiaLog(1, $"{Managers.Game.CharacterName}", "크아아아아앙!!");
+				SetDiaLog(0, $"{Managers.Game.CharacterName}", "적이 공격해온다!! ");
+	
+				switch ((Define.Scene)Enum.Parse(typeof(Define.Scene), Managers.Scene.CurrentScene.gameObject.name))
+                {
+                    case Define.Scene.LavaScene:
+						GetImage((int)Images.Npc).sprite = Managers.Resource.Load<Sprite>("LavaBoss");
+					    break;
+                    case Define.Scene.DesertScene:
+						GetImage((int)Images.Npc).sprite = Managers.Resource.Load<Sprite>("DesertBoss");
+						break;
+                    case Define.Scene.WaterScene:
+						GetImage((int)Images.Npc).sprite = Managers.Resource.Load<Sprite>("WaterBoss");
+						break;
+                    case Define.Scene.FightScene:
+						break;
+                }
+                break;
+			case Define.Npc_Type.Dungeon:
+				dialogs.Clear();
+				SetDiaLog(0, $"{Managers.Game.CharacterName}", "여기가 던전인가?? ");
+				SetDiaLog(1, $"{Managers.Game.CharacterName}", "그런거 같아!");
+				SetDiaLog(1, $"{Managers.Game.CharacterName}", "어서 적들을 물리치고 좋은 장비를 습득하자!");
+				SetDiaLog(0, $"{Managers.Game.CharacterName}", "그래!! ");
 				break;
         }
-		GetButton((int)Buttons.AcceptionButton).gameObject
+        GetButton((int)Buttons.AcceptionButton).gameObject
 	       .BindEvent((PointerEventData data) => ShowNextUI());
 		GetButton((int)Buttons.CancelButton).gameObject
 			.BindEvent((PointerEventData data) => Managers.Resource.Destroy(gameObject));
-	}
+    }
     private void Setup()
 	{
 		// 모든 대화 관련 게임오브젝트 비활성화

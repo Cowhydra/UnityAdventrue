@@ -22,7 +22,7 @@ public class DataManager
 
     };
     public Dictionary<int, Data.QuestData> QuestData { get; private set; } = new Dictionary<int, Data.QuestData>();
-
+    public List<int> ItemCodes { get; private set; } = new List<int>();
     
     
     //public Dictionary<int, Data.Skill> SkillDataDict { get; private set; } = new Dictionary<int, Data.Skill>();
@@ -32,6 +32,10 @@ public class DataManager
         CharacterDataDict = LoadJson<Data.CharacterLoader, int, Data.CharacterData>("CharacterData").MakeDict();
         MonsterDataDict = LoadJson<Data.MonsterDataLoader, int, Data.MonsterData>("MonsterData").MakeDict();
         QuestData = LoadJson<Data.QuestDataLoader, int, Data.QuestData>("QuestData").MakeDict();
+        foreach(var code in ItemDataDict.Keys)
+        {
+            ItemCodes.Add(code);
+        }
     }
 
     Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
