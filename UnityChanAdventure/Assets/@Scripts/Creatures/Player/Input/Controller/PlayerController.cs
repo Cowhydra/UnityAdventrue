@@ -83,26 +83,20 @@ public class PlayerController : MonoBehaviour
     float rotateSpeed = 5.0f;
     private void ApplyRotation()
     {
-        //if (new Vector2(_direction.x, _direction.z).sqrMagnitude < 0.1f) return;
-
-        //var targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg;
-        //var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
-        //transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
-
-        Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
+        Vector3 forwardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
         Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 dir = new Vector3(horizontal, 0, vertical);
+        // Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+        Vector3 rotateVec = forwardVec * moveInput.z + rightVec * moveInput.x;
 
-        Vector3 rotateVec = fowardVec * dir.z + rightVec * dir.x;
-
-        if (!(horizontal == 0 && vertical == 0))
+        if (moveInput != Vector3.zero)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(rotateVec), Time.deltaTime * rotateSpeed);
-
+            Quaternion targetRotation = Quaternion.LookRotation(rotateVec);
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * rotateSpeed);
         }
     }
 
@@ -110,27 +104,25 @@ public class PlayerController : MonoBehaviour
     {
         if (isAttacking) return;
         #region PC 테스트용 임시코드
-
-
-        Vector3 fowardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
+        Vector3 forwardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
         Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 
-        Vector3 moveInput = Vector3.forward * Input.GetAxis("Vertical") + Vector3.right * Input.GetAxis("Horizontal");
-       
-        //Vector3 moveInput = Vector3.forward * _direction.z + Vector3.right * _direction.x;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+       // Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+
         if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
 
-        Vector3 moveVec = fowardVec * moveInput.z + rightVec * moveInput.x + Vector3.up * _direction.y;
+        Vector3 moveVec = forwardVec * moveInput.z + rightVec * moveInput.x+_direction.y*Vector3.up;
 
-        //_direction.x = Input.GetAxis("Horizontal");
-        //_direction.z = Input.GetAxis("Vertical");
-        float offset = _isSprint == true ? 1f : 0.5f;
+        float offset = _isSprint ? 1f : 0.5f;
         _animator.SetFloat("PosX", moveVec.x * offset);
         _animator.SetFloat("PosZ", moveVec.z * offset);
-        #endregion
-
 
         _characterController.Move(moveVec * speed * Time.deltaTime);
+        #endregion
     }
 
     private void SetMoveDir(Vector2 movedir)
