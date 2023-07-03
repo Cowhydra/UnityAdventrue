@@ -95,10 +95,10 @@ public class MyCharacter : Creature, IDamage, IListener
         _maxmana = Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp;
         _hp = MaxHp;
         _mana = Mana;
-        _def = Managers.Data.CharacterDataDict[myCharacterCode].def + Managers.EQUIP.EQUIP_Def + (Level - 1) * 10;
-        _magicdef = Managers.Data.CharacterDataDict[myCharacterCode].magicdef + Managers.EQUIP.EQUIP_MagicDef + (Level - 1) * 10;
-        _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level - 1) * 10;
-        _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level - 1) * 10;
+        _def = Managers.Data.CharacterDataDict[myCharacterCode].def + Managers.EQUIP.EQUIP_Def + (Level +1) * 5;
+        _magicdef = Managers.Data.CharacterDataDict[myCharacterCode].magicdef + Managers.EQUIP.EQUIP_MagicDef + (Level + 1) * 5;
+        _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level + 1) * 5;
+        _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level +1) * 5;
         _attackspeed = Managers.Data.CharacterDataDict[myCharacterCode].attackspeed;
         _level = Managers.Data.CharacterDataDict[myCharacterCode].level;
         Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);

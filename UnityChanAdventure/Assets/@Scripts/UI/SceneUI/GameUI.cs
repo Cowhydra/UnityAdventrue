@@ -87,12 +87,12 @@ public class GameUI : UI_Scene,IListener
     }
     private void TextWithCharacter(MyCharacter mychar)
     {
-        GetText((int)Texts.AblityHP_Text).text = $"{mychar.Hp}/{mychar.MaxHp}";
-        GetText((int)Texts.AblityMP_Text).text = $"{mychar.Mana}/{mychar.MaxMana}";
-        GetText((int)Texts.AblityAttack_Text).text = $"{mychar.Attack}";
-        GetText((int)Texts.AblityMagicAttack_Text).text = $"{mychar.MagicAttack}";
-        GetText((int)Texts.AblityDef_Text).text = $"{mychar.Def}";
-        GetText((int)Texts.AblityMagicDef_Text).text = $"{mychar.MagicDef}";
+        GetText((int)Texts.AblityHP_Text).text = $"{mychar.Hp}/{mychar.MaxHp}+({Managers.EQUIP.EQUIP_MaxHp})";
+        GetText((int)Texts.AblityMP_Text).text = $"{mychar.Mana}/{mychar.MaxMana}+({Managers.EQUIP.EQUIP_MaxMp})";
+        GetText((int)Texts.AblityAttack_Text).text = $"{mychar.Attack}+({ Managers.EQUIP.EQUIP_Attack})";
+        GetText((int)Texts.AblityMagicAttack_Text).text = $"{mychar.MagicAttack}+({Managers.EQUIP.EQUIP_MagicAttack})";
+        GetText((int)Texts.AblityDef_Text).text = $"{mychar.Def}+({Managers.EQUIP.EQUIP_Def})"; 
+        GetText((int)Texts.AblityMagicDef_Text).text = $"{mychar.MagicDef}+({Managers.EQUIP.EQUIP_MagicDef})";
     }
     private void TextWithGoods()
     {
@@ -135,6 +135,7 @@ public class GameUI : UI_Scene,IListener
     private void UnEquipTry()
     {
         if (SelectItemcode == 0) return;
+        Debug.Log("장비 장착 해제시 선택한 타입의 장비 모두 해제 ");
         if (Managers.EQUIP.EQUIP.ContainsKey(Managers.Inven.GetItem(SelectItemcode).ItemType))
         {
             if (Managers.EQUIP.EQUIP[Managers.Inven.GetItem(SelectItemcode).ItemType].ItemCode == SelectItemcode)
