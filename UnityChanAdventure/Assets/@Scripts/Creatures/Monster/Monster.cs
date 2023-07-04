@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : Creature, IDamage, IAttack
+public class Monster : Creature, IDamage
 {
     public int MyCode;
     private Define.MonsterAttackType _attackType;
@@ -30,10 +30,7 @@ public class Monster : Creature, IDamage, IAttack
     {
         return _hp / _maxhp;
     } 
-    public void MyAttack(Define.MonsterAttackType attacktype)
-    {
 
-    }
     private void Awake()
     {
         MyCode = int.Parse(gameObject.name.Substring(0,4));
@@ -91,22 +88,21 @@ public class Monster : Creature, IDamage, IAttack
         if (Util.Probability(30))
         {
             //아이템 생성
-            int itemcode=UnityEngine.Random.Range(0, Managers.Data.ItemCodes.Count);
-           GameObject dropitem= Managers.Resource.Instantiate("Itemoutside");
+            int itemcode=Managers.Data.ItemCodes[UnityEngine.Random.Range(0, Managers.Data.ItemCodes.Count)];
+            GameObject dropitem= Managers.Resource.Instantiate("Itemoutside");
             dropitem.GetOrAddComponent<Itemoutside>().ItemCode = itemcode;
 
         }
-        _animator.SetTrigger("Die");
         gameObject.GetOrAddComponent<LowAI_BT>().enabled = false;
-        Debug.Log("죽음 처리( 자연스런 죽음 등등)");
+        _animator.SetTrigger("Die");
+        StartCoroutine(nameof(Monster_Die));
+        
+       
     }
     private IEnumerator Monster_Die()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(2.0f);
-
-        }
+      yield return new WaitForSeconds(1.0f);
+      Managers.Resource.Destroy(gameObject);
     }
 
 

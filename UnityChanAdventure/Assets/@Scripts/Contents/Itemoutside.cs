@@ -14,29 +14,34 @@ public class Itemoutside : MonoBehaviour
             SetNewBaseMap();
         }
     }
+    [SerializeField]
     private Texture newBaseMapTexture;
-
-    private Renderer renderer;
-    private Material material;
+    [SerializeField]
+    private Material targetMaterial;
 
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
-        material = renderer.material;
-     
+        if (targetMaterial == null)
+            targetMaterial = gameObject.transform.GetChild(0).GetComponent<Renderer>().material;
     }
 
     private void SetNewBaseMap()
     {
         newBaseMapTexture = Managers.Resource.Load<Texture>($"{Managers.Data.ItemDataDict[_itemcode].iconPath}");
-        if (newBaseMapTexture != null)
+        if (targetMaterial != null && newBaseMapTexture != null)
         {
-            material.SetTexture("_BaseMap", newBaseMapTexture);
-            renderer.material = material;
+            targetMaterial.SetTexture("_BaseMap", newBaseMapTexture);
         }
         else
         {
             Debug.LogError("New BaseMap texture is not assigned.");
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == (int)Define.LayerMask.Player)
+        {
+            Managers.Inven.Add(ItemCode);
         }
     }
 }

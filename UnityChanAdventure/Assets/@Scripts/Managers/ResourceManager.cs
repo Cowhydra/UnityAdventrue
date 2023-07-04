@@ -86,6 +86,15 @@ public class ResourceManager
 
             }
         }
+        else if (typeof(T) == typeof(Texture))
+        {
+            if (_resources.TryGetValue($"{key}.png", out Object resource))
+            {
+
+                return resource as T;
+
+            }
+        }
         else if (typeof(T) == typeof(RuntimeAnimatorController))
         {
             if (_resources.TryGetValue($"{key}.controller", out Object resource))
