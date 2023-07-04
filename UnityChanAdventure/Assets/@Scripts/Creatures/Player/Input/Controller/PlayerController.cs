@@ -89,8 +89,8 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        // Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+        Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+        //Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
         Vector3 rotateVec = forwardVec * moveInput.z + rightVec * moveInput.x;
 
         if (moveInput != Vector3.zero)
@@ -110,8 +110,8 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-       // Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+        Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+        //Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
 
         if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
 
