@@ -54,7 +54,8 @@ public class TaskAttack : Behavior_Node
                 }
                 else
                 {
-                    _enemy.GetComponent<IDamage>().OnDamage(10);
+
+                    _enemy.GetComponent<IDamage>().OnDamage(LowAI_BT.attackdamage);
                 }
 
                 _attackCounter = 0f;

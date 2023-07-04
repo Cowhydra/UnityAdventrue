@@ -18,7 +18,7 @@ public class TestScene : BaseScene
             {
                 Debug.Log($"리소스 로딩 완료: {totalCount}");
                 Managers.Data.Init();
-
+                Managers.EQUIP.Init();
                 // Managers.DB.ChecK_Account(516551.ToString(), 26519.ToString());
                 //Managers.DB.CharacterInit(230619.ToString(), 100,"호호호");
                 // Managers.DB.DeleteCharacter(5555.ToString(), 100);

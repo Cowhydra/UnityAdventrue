@@ -72,7 +72,6 @@ public class Monster : Creature, IDamage, IAttack
     {
         isDie = false;
         _hp = _maxhp;
-        StartCoroutine(nameof(HpRegen_co));
         _hpregen = _level * 2;
 
         gameObject.GetOrAddComponent<LowAI_BT>().enabled = true;
@@ -101,11 +100,15 @@ public class Monster : Creature, IDamage, IAttack
         gameObject.GetOrAddComponent<LowAI_BT>().enabled = false;
         Debug.Log("죽음 처리( 자연스런 죽음 등등)");
     }
-    private IEnumerator HpRegen_co()
+    private IEnumerator Monster_Die()
     {
-        Hp += _level * 5 + UnityEngine.Random.Range(5, 10);
-        yield return new WaitForSeconds(_healthRegenDelay);
+        while (true)
+        {
+            yield return new WaitForSeconds(2.0f);
+
+        }
     }
+
 
 
     private IEnumerator MonDie_Co()

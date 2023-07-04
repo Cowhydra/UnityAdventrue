@@ -13,7 +13,7 @@ public class PlayerAttackArea : MonoBehaviour
 
         if (other.gameObject.layer == (int)Define.LayerMask.Enemy)
         {
-            if(other.TryGetComponent(out IDamage damage))
+            if(other.gameObject.transform.root.TryGetComponent(out IDamage damage))
             {
                 damage.OnDamage(baseAttackdamage);
             }

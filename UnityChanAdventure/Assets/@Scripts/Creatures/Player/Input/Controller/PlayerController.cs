@@ -50,9 +50,10 @@ public class PlayerController : MonoBehaviour
         Managers.Event.KeyInputAction -= KeyInputExcute;
         Managers.Event.KeyInputAction += KeyInputExcute;
         #endregion
+        DontDestroyOnLoad(gameObject.transform.root);
 
-        gameObject.transform.position = GameObject.FindAnyObjectByType<BaseScene>().gameObject.transform.position;
     }
+  
     private void OnDestroy()
     {
         Managers.Event.KeyInputAction -= KeyInputExcute;
@@ -119,8 +120,8 @@ public class PlayerController : MonoBehaviour
         Vector3 moveVec = forwardVec * moveInput.z + rightVec * moveInput.x+_direction.y*Vector3.up;
 
         float offset = _isSprint ? 1f : 0.5f;
-        _animator.SetFloat("PosX", moveVec.x * offset);
-        _animator.SetFloat("PosZ", moveVec.z * offset);
+        _animator.SetFloat("PosX", horizontal * offset);
+        _animator.SetFloat("PosZ", vertical * offset);
 
         _characterController.Move(moveVec * speed * Time.deltaTime);
         #endregion
@@ -130,8 +131,8 @@ public class PlayerController : MonoBehaviour
     {
         _direction = new Vector3(movedir.x, 0.0f, movedir.y);
         float offset = _isSprint == true ? 1f : 0.5f;
-        _animator.SetFloat("PosX", _direction.x*offset);
-        _animator.SetFloat("PosZ", _direction.z*offset);
+        _animator.SetFloat("PosX", -_direction.x*offset);
+        _animator.SetFloat("PosZ", -_direction.z*offset);
     }
     private void Jump()
     {

@@ -26,7 +26,6 @@ public class EventManager
 
     public Action<Quest> CompletedQuest;
     public Action<Quest> ActiveQuest;
-
     
 
     // 이벤트 리스너를 추가하는 메서드

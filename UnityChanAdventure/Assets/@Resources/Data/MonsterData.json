@@ -11,7 +11,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1001",
       "attackType": "Melee",
       "speed": "2",
-      "fovRange": "4",
+      "fovRange": "5",
       "attackRange": "8"
     },
     {
@@ -25,7 +25,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1002",
       "attackType": "Melee",
       "speed": "1",
-      "fovRange": "1",
+      "fovRange": "6",
       "attackRange": "2"
     },
     {
@@ -39,7 +39,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1003",
       "attackType": "Melee",
       "speed": "2",
-      "fovRange": "2",
+      "fovRange": "5",
       "attackRange": "2"
     },
     {
@@ -53,7 +53,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1004",
       "attackType": "Melee",
       "speed": "3",
-      "fovRange": "3",
+      "fovRange": "7",
       "attackRange": "2"
     },
     {
@@ -81,7 +81,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1006",
       "attackType": "RangeAttack",
       "speed": "4",
-      "fovRange": "5",
+      "fovRange": "4",
       "attackRange": "8"
     },
     {
@@ -95,7 +95,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1007",
       "attackType": "Melee",
       "speed": "5",
-      "fovRange": "2",
+      "fovRange": "7",
       "attackRange": "2"
     },
     {
@@ -123,7 +123,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1009",
       "attackType": "Melee",
       "speed": "4",
-      "fovRange": "5",
+      "fovRange": "3",
       "attackRange": "6"
     },
     {
@@ -165,7 +165,7 @@
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1012",
       "attackType": "Melee",
       "speed": "1",
-      "fovRange": "1",
+      "fovRange": "8",
       "attackRange": "2"
     },
     {

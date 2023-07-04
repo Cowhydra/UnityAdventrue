@@ -10,7 +10,7 @@ public class MyCharacter : Creature, IDamage, IListener
 
     private bool ishitted;
     [SerializeField]
-    private float ishittedcooltime = 8.0f;
+    private float ishittedcooltime = 3.0f;
     #region 스텟
     public int MaxHp { get { return _maxhp; } private set { _maxhp = value; } }
     public int MaxMana { get { return _maxmana; } private set { _maxmana = value; } }
@@ -121,15 +121,15 @@ public class MyCharacter : Creature, IDamage, IListener
         Debug.Log("Hit Animator");
         if (!ishitted)
         {
+            Debug.Log($"damage  : {damage - _level - Def}");
             Hp -= Math.Max(0, damage - _level - Def);
             ishitted = true;
             StartCoroutine(nameof(HitAnimation_co), damage);
         }
-        Debug.Log("공격받음");
     }
     IEnumerator HitAnimation_co(int damage)
     {
-        if (!ishitted)
+        while (ishitted)
         {
             _animator.SetFloat("Damaged", damage - _level - Def / damage);
             _animator.SetTrigger("Damaged");
@@ -149,6 +149,7 @@ public class MyCharacter : Creature, IDamage, IListener
         InitCharacter();
         _animator=GetComponent<Animator>();
         StartCoroutine(nameof(Regenerat_co));
+        Managers.Event.AddListener(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
 
     }
     protected IEnumerator Regenerat_co()
@@ -156,7 +157,6 @@ public class MyCharacter : Creature, IDamage, IListener
         while (true)
         {
             Mana += 5;
-            Hp += 5;
             yield return new WaitForSeconds(_healthRegenDelay);
         }
     }

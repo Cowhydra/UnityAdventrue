@@ -22,9 +22,6 @@ public class TownScene : BaseScene
        Debug.Log("튜토리얼 창 띄우기 -> 따로 DB에 속성 만들기 귀찮으니 골드 등으로 첫 유저인지 확인");
         //DialogSystem dialog = Managers.UI.ShowPopupUI<DialogSystem>();
         // dialog.TalkType = Define.Npc_Type.TuotorialNpc;
-       player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(nameof(playerStartPos_Fix));
-      
         if (Managers.Game.Gold > 0)
         {
 
@@ -35,24 +32,10 @@ public class TownScene : BaseScene
             Managers.Game.GoldChange(30000);
         }
 
-        DontDestroyOnLoad(this);
+     
 
     }
-    private IEnumerator playerStartPos_Fix()
-    {
-        while (true)
-        {
-            player.transform.position = transform.position;
-            if ((player.transform.position - transform.position).sqrMagnitude < 0.1f)
-            {
-                yield break;
-            }
 
-            yield return null;
-        }
-
-      
-    }
 
     public override void Clear()
     {
