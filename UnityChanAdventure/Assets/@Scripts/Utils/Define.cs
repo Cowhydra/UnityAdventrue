@@ -218,10 +218,16 @@
     }
     public enum MonsterEnvType
     {
+        None,
         Desert,
         Forest,
         Water,
         Lava,
+    }
+    public enum BossAttack_Number
+    {
+        LongRange=25,
+        ShortRange=10,
     }
     #endregion
     #region AboutDB

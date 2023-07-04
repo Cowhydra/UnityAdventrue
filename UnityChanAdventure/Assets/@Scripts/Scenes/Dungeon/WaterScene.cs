@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class WaterScene : BaseScene
 {
+    GameObject player;
     void Start()
     {
-        SetResources();
+        Inits();
     }
 
-    public void SetResources()
+    public void Inits()
     {
-        Managers.Resource.LoadAllAsync<Object>("LoadingResource", (key, count, totalCount) =>
-        {
-            if (count == totalCount)
-            {
-                Debug.Log($"리소스 로딩 완료: {totalCount}");
-                Managers.Data.Init();
-
-   
-
-            }
-        });
+        FindAnyObjectByType<WaterBoss_BT>().enabled = false;
+        Managers.UI.ShowSceneUI<GameUI>();
+        Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(nameof(playerStartPos_Fix));
     }
 
     public override void Clear()
     {
+
+    }
+    private IEnumerator playerStartPos_Fix()
+    {
+        while (true)
+        {
+            player.transform.position = transform.position;
+            if ((player.transform.position - transform.position).sqrMagnitude < 0.1f)
+            {
+                yield break;
+            }
+
+            yield return null;
+        }
+
 
     }
 }

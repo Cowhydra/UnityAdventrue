@@ -12,6 +12,8 @@ public class Joystick_UI : UI_Scene,IListener
     private Vector2 _joystickOriginalPos;
     private Vector2 _joystickTouchPos;
 
+
+    private GameObject PlayerMain_Cm;
     private PlayerController _playerController;
 
     [Header("Camera Setting")]
@@ -24,7 +26,6 @@ public class Joystick_UI : UI_Scene,IListener
         Look_Area,
         Move_Area,
         PlayerInput_Area,
-        PlayerMain_Cm
     }
     enum Buttons
     {
@@ -60,7 +61,7 @@ public class Joystick_UI : UI_Scene,IListener
         _joystickRadius = GetObject((int)GameObjects.Move_Area).GetComponent<RectTransform>().sizeDelta.y / 5;
 
         _joystickOriginalPos = GetObject((int)GameObjects.Move_Area).transform.position;
-
+        PlayerMain_Cm = GameObject.Find("PlayerMain_Cm");
         #region Event
         _handler.BindEvent((PointerEventData data) => OnDragEvent_JoyStick(data), Define.UIEvent.OnDrag);
         _handler.BindEvent((PointerEventData data) => EndDragEvent_JoyStick(), Define.UIEvent.OnEndDrag);
@@ -150,27 +151,27 @@ public class Joystick_UI : UI_Scene,IListener
         {
             case Define.EVENT_TYPE.InventoryOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
-                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(false);
+               PlayerMain_Cm.SetActive(false);
                 break;
             case Define.EVENT_TYPE.InventoryClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
-                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(true);
+                PlayerMain_Cm.SetActive(true);
                 break;
             case Define.EVENT_TYPE.ShopClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
-                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(true);
+                PlayerMain_Cm.SetActive(true);
                 break;
             case Define.EVENT_TYPE.ShopOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
-                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(false);
+                PlayerMain_Cm.SetActive(false);
                 break;
             case Define.EVENT_TYPE.DialogOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
-                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(false);
+                PlayerMain_Cm.SetActive(false);
                 break;
             case Define.EVENT_TYPE.DialogClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
-                GetObject((int)GameObjects.PlayerMain_Cm).SetActive(true);
+                PlayerMain_Cm.SetActive(true);
                 break;
 
         }

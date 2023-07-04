@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class GameUI : UI_Scene,IListener
 {
     public int SelectItemcode = 0;
+    private int  Equipitemcode;
     enum Texts
     {
         BlueDiamond_Text,
@@ -35,7 +36,7 @@ public class GameUI : UI_Scene,IListener
         Inventory_Button,
       
         EquipButton,
-        UnEquipButton,
+        UseButton,
         QuikEnrollButton,
         DecomposeButton,
         Dungeon_Button,
@@ -106,8 +107,8 @@ public class GameUI : UI_Scene,IListener
             .BindEvent((PointerEventData data) => ShowOnInven());
         GetButton((int)Buttons.EquipButton).gameObject
             .BindEvent((PointerEventData data) => EquipTry());
-        GetButton((int)Buttons.UnEquipButton).gameObject
-            .BindEvent((PointerEventData data) => UnEquipTry());
+        GetButton((int)Buttons.UseButton).gameObject
+            .BindEvent((PointerEventData data) => ItemUse());
         GetButton((int)Buttons.QuikEnrollButton).gameObject
             .BindEvent((PointerEventData data) => QuikSlotEnroll());
         GetButton((int)Buttons.DecomposeButton).gameObject
@@ -115,6 +116,18 @@ public class GameUI : UI_Scene,IListener
         GetButton((int)Buttons.Dungeon_Button).gameObject
             .BindEvent((PointerEventData data) => ShowOnDungeon());
 
+    }
+    private void ItemUse()
+    {
+        if (SelectItemcode == 0) return;
+        if (!Managers.Inven.Items.ContainsKey(SelectItemcode)) return;
+        if (Managers.Data.ItemDataDict[SelectItemcode].itemType == Define.ItemType.Consume)
+        {
+            Managers.Inven.Sub(SelectItemcode);
+            Item.Consume item = (Item.Consume)Item.MakeItem(Managers.Data.ItemDataDict[SelectItemcode]);
+            GetComponent<MyCharacter>().Hp += item.Hp;
+            GetComponent<MyCharacter>().Mana += item.Mp;
+        }
     }
     private void EquipTry()
     {
@@ -128,35 +141,31 @@ public class GameUI : UI_Scene,IListener
         }
         else
         {
-            Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("이미 장착한 장비가 있습니다.", Color.red);
-        
-        }
-    }
-    private void UnEquipTry()
-    {
-        if (SelectItemcode == 0) return;
-        Debug.Log("장비 장착 해제시 선택한 타입의 장비 모두 해제 ");
-        if (Managers.EQUIP.EQUIP.ContainsKey(Managers.Inven.GetItem(SelectItemcode).ItemType))
-        {
-            if (Managers.EQUIP.EQUIP[Managers.Inven.GetItem(SelectItemcode).ItemType].ItemCode == SelectItemcode)
+            if (!Managers.EQUIP.EQUIP.ContainsKey(Managers.Data.ItemDataDict[SelectItemcode].itemType)) return;
+
+            Equipitemcode = Managers.EQUIP.EQUIP[Managers.Data.ItemDataDict[SelectItemcode].itemType].ItemCode;
+
+            //장비 장착 해제 과정( 장비 장착 해제 -> 인벤 더하기 -> 
+            Managers.EQUIP.UnEquip(Item.MakeItem(Managers.Data.ItemDataDict[Equipitemcode]).ItemType);
+
+            Managers.Inven.Add(Equipitemcode);
+            Managers.Event.AddItem?.Invoke(Equipitemcode);
+
+            Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
+       
+
+            if (Managers.EQUIP.Equip(Managers.Inven.GetItem(SelectItemcode)))
             {
-                Managers.EQUIP.UnEquip(Managers.Inven.GetItem(SelectItemcode).ItemType);
-                Managers.Inven.Add(SelectItemcode);
+                Managers.Inven.Sub(SelectItemcode);
                 Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
-                Managers.Event.AddItem?.Invoke(SelectItemcode);
+                Managers.Event.RemoveItem?.Invoke(SelectItemcode);
+                Debug.Log("DB처리 장비 아이템 갱신  + 인벤 아이템 개수 감소");
+              
             }
-            else
-            {
-                Debug.Log("이상한 버그 발생");
-            }
+           
         }
-        else
-        {
-            Debug.Log("없는 아이템 장착헤제 시도");
-            return;
-        }
-     
     }
+
     private void DeCompose()
     {
 

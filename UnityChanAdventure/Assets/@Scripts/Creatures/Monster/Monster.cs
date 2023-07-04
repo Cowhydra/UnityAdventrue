@@ -36,12 +36,12 @@ public class Monster : Creature, IDamage, IAttack
     }
     private void Awake()
     {
-        MyCode = int.Parse(gameObject.name);
+        MyCode = int.Parse(gameObject.name.Substring(0,4));
         _animator = GetComponent<Animator>();
         meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         origihmeshcolor=meshRenderer.material.color;    
         Init();
-      
+        _animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>(Managers.Data.MonsterDataDict[MyCode].prefabPath+"_anim");
 
     }
     public void OnDamage(int damage)
@@ -74,6 +74,9 @@ public class Monster : Creature, IDamage, IAttack
         _hp = _maxhp;
         StartCoroutine(nameof(HpRegen_co));
         _hpregen = _level * 2;
+
+        gameObject.GetOrAddComponent<LowAI_BT>().enabled = true;
+
     }
     public override void Die()
     {
@@ -95,6 +98,7 @@ public class Monster : Creature, IDamage, IAttack
 
         }
         _animator.SetTrigger("Die");
+        gameObject.GetOrAddComponent<LowAI_BT>().enabled = false;
         Debug.Log("죽음 처리( 자연스런 죽음 등등)");
     }
     private IEnumerator HpRegen_co()

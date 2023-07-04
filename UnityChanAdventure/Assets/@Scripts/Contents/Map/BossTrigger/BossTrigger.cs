@@ -27,7 +27,20 @@ public class BossTrigger : MonoBehaviour,IListener
         GameObject.FindGameObjectWithTag("AroundTarget").SetActive(true);
         Time.timeScale = 1f;
         yield return new WaitForSeconds(0.5f);
-        GameObject.FindObjectOfType<DeserBoss_BT>().enabled = true;
+        switch (Managers.Scene.CurrentScene.SceneType)
+        {
+            case Define.Scene.LavaScene:
+                break;
+            case Define.Scene.DesertScene:
+                GameObject.FindObjectOfType<DeserBoss_BT>().enabled = true;
+                break;
+            case Define.Scene.WaterScene:
+                GameObject.FindObjectOfType<WaterBoss_BT>().enabled = true;
+                break;
+            case Define.Scene.FightScene:
+                break;
+        }
+      
     }
 
     public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)

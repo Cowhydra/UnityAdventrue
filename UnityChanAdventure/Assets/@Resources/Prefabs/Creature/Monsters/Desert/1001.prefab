@@ -410,8 +410,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2887430240616178258}
   - component: {fileID: 3429649430302357381}
-  - component: {fileID: 7353327878120492791}
   - component: {fileID: 741763538774805039}
+  - component: {fileID: -7156614306762166286}
+  - component: {fileID: -1438636763188413552}
   m_Layer: 8
   m_Name: 1001
   m_TagString: Untagged
@@ -457,22 +458,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7353327878120492791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2547320149348038888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 074aa3a3534ae544cb704cdccb5af05c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 0
-  _fovRange: 8
-  _attackRange: 10
-  MyProjectile: {fileID: 6298343680682847451, guid: bc8c9ccde23c8ce46ab976d8ada3c8f4, type: 3}
 --- !u!195 &741763538774805039
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -495,6 +480,32 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7156614306762166286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2547320149348038888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893c88007e757e74aa600cf7a8be304d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyCode: 0
+--- !u!114 &-1438636763188413552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2547320149348038888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f10c09ef6e87945b42a9a0e8b0e97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0
 --- !u!1 &3222022711924321964
 GameObject:
   m_ObjectHideFlags: 0

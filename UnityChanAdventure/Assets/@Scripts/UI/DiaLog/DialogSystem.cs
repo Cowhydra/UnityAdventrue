@@ -137,33 +137,33 @@ public class DialogSystem : UI_Popup
             case Define.Npc_Type.None:
 				Debug.Log("버그");
 				isButtonClicked = true;
-				Managers.Resource.Destroy(gameObject);
+				Managers.UI.ClosePopupUI();
 				break;
             case Define.Npc_Type.QuestNpc:
 				Debug.Log("퀘스트창 보여주기");
 				isButtonClicked = true;
-				Managers.Resource.Destroy(gameObject);
+				Managers.UI.ClosePopupUI();
 				Managers.UI.ShowPopupUI<QuestUI>();
 				break;
             case Define.Npc_Type.ShopNpc:
 				Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
 				isButtonClicked = true;
-				Managers.Resource.Destroy(gameObject);
+				Managers.UI.ClosePopupUI();
 				break;
             case Define.Npc_Type.EnhanceNpc:
 				Debug.Log("강화창 보여주기");
 				isButtonClicked = true;
-				Managers.Resource.Destroy(gameObject);
+				Managers.UI.ClosePopupUI();
 				break;
             case Define.Npc_Type.TuotorialNpc:
 				Debug.Log("보여줄게 없음");
 				isButtonClicked = true;
-				Managers.Resource.Destroy(gameObject);
-                break;
+				Managers.UI.ClosePopupUI();
+				break;
             case Define.Npc_Type.Boss:
 				Debug.Log("보여줄게 없음");
 				isButtonClicked = true;
-				Managers.Resource.Destroy(gameObject);
+				Managers.UI.ClosePopupUI();
 				break;
         }
     }
@@ -274,7 +274,7 @@ public class DialogSystem : UI_Popup
         GetButton((int)Buttons.AcceptionButton).gameObject
 	       .BindEvent((PointerEventData data) => ShowNextUI());
 		GetButton((int)Buttons.CancelButton).gameObject
-			.BindEvent((PointerEventData data) => Managers.Resource.Destroy(gameObject));
+			.BindEvent((PointerEventData data) => Managers.UI.ClosePopupUI());
     }
     private void Setup()
 	{

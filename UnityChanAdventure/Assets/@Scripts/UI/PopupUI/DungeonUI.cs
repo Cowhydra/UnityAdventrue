@@ -36,11 +36,12 @@ public class DungeonUI : UI_Popup
         Bind<TextMeshProUGUI>(typeof(Texts));
 
          GetButton((int)Buttons.GoDesert_Button).gameObject.BindEvent((PointerEventData data)=> Change_Dungeon(Buttons.GoDesert_Button));
-        GetButton((int)Buttons.GoWater_Button ).gameObject.BindEvent((PointerEventData data)=>Change_Dungeon(Buttons.GoWater_Button));
+         GetButton((int)Buttons.GoWater_Button ).gameObject.BindEvent((PointerEventData data)=>Change_Dungeon(Buttons.GoWater_Button));
          GetButton((int)Buttons.GoLava_Button  ).gameObject.BindEvent((PointerEventData data)=>Change_Dungeon(Buttons.GoLava_Button));
          GetButton((int)Buttons.GoFight_Button ).gameObject.BindEvent((PointerEventData data)=>Change_Dungeon(Buttons.GoFight_Button));
          GetButton((int)Buttons.StartButton    ).gameObject.BindEvent((PointerEventData data)=> ChangeSecne());
          GetButton((int)Buttons.CancelButton   ).gameObject.BindEvent((PointerEventData data)=>Managers.UI.ClosePopupUI());
+         Change_Dungeon(Buttons.GoDesert_Button);
 
     }
     private void ChangeSecne()
@@ -66,12 +67,12 @@ public class DungeonUI : UI_Popup
             case Buttons.GoWater_Button:
                 ChoiceScene = Define.Scene.WaterScene;
                 GetText((int)Texts.InfoPannel_TitleText).text = "물 던전";
-                GetText((int)Texts.InfoPannel_ContentsText).text = "사막 던전은 위험한 곳\n 출현 몬스터 Lv.21~30";
+                GetText((int)Texts.InfoPannel_ContentsText).text = "물 던전은 위험한 곳\n 출현 몬스터 Lv.21~30";
                 break;
             case Buttons.GoLava_Button:
                 ChoiceScene = Define.Scene.LavaScene;
                 GetText((int)Texts.InfoPannel_TitleText).text = "화산 던전";
-                GetText((int)Texts.InfoPannel_ContentsText).text = "사막 던전은 위험한 곳\n 출현 몬스터 Lv.11~20";
+                GetText((int)Texts.InfoPannel_ContentsText).text = "화산 던전은 위험한 곳\n 출현 몬스터 Lv.11~20";
                 break;
             case Buttons.GoFight_Button:
                 Debug.Log("아직 미구현 ");

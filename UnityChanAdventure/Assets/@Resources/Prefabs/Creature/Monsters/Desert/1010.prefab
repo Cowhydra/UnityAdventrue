@@ -1922,6 +1922,7 @@ GameObject:
   - component: {fileID: 8464051084258985797}
   - component: {fileID: 6353318712018081176}
   - component: {fileID: 6652888186162804617}
+  - component: {fileID: -559382873776982199}
   m_Layer: 8
   m_Name: 1010
   m_TagString: DesertBoss
@@ -1983,12 +1984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0a861a582400f4eb12b472aefafcfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0
-  _fovRange: 0
   _shortattackRange: 10
   _longAttackRange: 20
-  Projectile1: {fileID: 0}
-  Projectile2: {fileID: 0}
 --- !u!195 &6652888186162804617
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2011,6 +2008,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-559382873776982199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770531904313274384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893c88007e757e74aa600cf7a8be304d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyCode: 0
 --- !u!1 &8951914255579103344
 GameObject:
   m_ObjectHideFlags: 0

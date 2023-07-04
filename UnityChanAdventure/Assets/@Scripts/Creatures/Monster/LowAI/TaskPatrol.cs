@@ -8,6 +8,7 @@ public class TaskPatrol : Behavior_Node
 {
 
     private Transform _transform;
+    [SerializeField]
     private Animator _animator;
     private NavMeshAgent _navMeshAgent;
     private float _waitTime = 2f;

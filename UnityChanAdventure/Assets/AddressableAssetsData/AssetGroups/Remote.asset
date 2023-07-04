@@ -101,6 +101,78 @@ MonoBehaviour:
     m_SerializedLabels:
     - LoadingResource
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01959e243519bf4459cddd221c05d92a
+    m_Address: RSkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b7a52f08b82d4e4bae94aa7a22ab000
+    m_Address: QSkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba55605749908cb4c9ef50a46ccaeaad
+    m_Address: WSkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eea7bb1b866c014597c48ed7d785ce4
+    m_Address: ESkill_1010.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7fb50f95c2806e24cad50e3efe8b492b
+    m_Address: QSkill_1030.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63b76af97c259a04abd79b08b67e4bb3
+    m_Address: WSkill_1030.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f15fd7c1fa4f7874780a2e05cd4b6545
+    m_Address: ESkill_1030.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44dce4f1b0993124c84c728669680d4a
+    m_Address: LavaBoss.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 753a4175362f2e24683257c31c2a0444
+    m_Address: WaterBoss.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 517f463418561ff48bab1d74b107ad95
+    m_Address: DesertBoss.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 45633c37ba7f80c4a95e75952eb7a700
+    m_Address: Itemoutside.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d5290f9794be3ef4ca5e0341010ed609
+    m_Address: Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 5fb094523b4edde42b4b262a97d0ca73, type: 2}
   m_SchemaSet:

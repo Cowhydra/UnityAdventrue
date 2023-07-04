@@ -8,11 +8,13 @@ public class CheckEnemyInAttackRange : Behavior_Node
 {
     private Transform _transform;
     private Animator _animator;
+    private int attackRange;
 
     public CheckEnemyInAttackRange(Transform transform)
     {
         _transform = transform;
         _animator = transform.GetComponent<Animator>();
+       
     }
 
     public override Define.Behavior_NodeState Evaluate()

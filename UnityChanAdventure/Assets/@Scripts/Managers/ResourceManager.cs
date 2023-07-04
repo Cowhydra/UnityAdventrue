@@ -72,16 +72,10 @@ public class ResourceManager
         {
             if (_resources.TryGetValue($"{key}.json", out Object resource))
             {
-                if (typeof(T) == typeof(Sprite))
-                {
-                    Texture2D texture = resource as Texture2D;
-                    Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.zero);
-                    return sprite as T;
-                }
                 return resource as T;
             }
         }
-        else //if (typeof(T) == typeof(Sprite))
+        else if (typeof(T) == typeof(Sprite))
         {
             if (_resources.TryGetValue($"{key}.png", out Object resource))
             {
@@ -91,6 +85,16 @@ public class ResourceManager
                return sprite as T;
 
             }
+        }
+        else if (typeof(T) == typeof(RuntimeAnimatorController))
+        {
+            if (_resources.TryGetValue($"{key}.controller", out Object resource))
+            {
+
+                return resource as T;
+
+            }
+            
         }
 
         return null;

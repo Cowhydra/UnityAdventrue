@@ -69,6 +69,7 @@ public class MyCharacter : Creature, IDamage, IListener
                 Die();
             }
             Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
+            Debug.Log(_hp);
         }
     }
     public int RequireExp { get { return Level * 20 + 8; } }
@@ -93,8 +94,8 @@ public class MyCharacter : Creature, IDamage, IListener
 
         _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp;
         _maxmana = Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp;
-        _hp = MaxHp;
-        _mana = Mana;
+        _hp = _maxhp;
+        _mana = _maxmana;
         _def = Managers.Data.CharacterDataDict[myCharacterCode].def + Managers.EQUIP.EQUIP_Def + (Level +1) * 5;
         _magicdef = Managers.Data.CharacterDataDict[myCharacterCode].magicdef + Managers.EQUIP.EQUIP_MagicDef + (Level + 1) * 5;
         _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level + 1) * 5;

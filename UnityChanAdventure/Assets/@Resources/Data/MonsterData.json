@@ -9,7 +9,10 @@
       "attack": "5",
       "level": "1",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1001",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "4",
+      "attackRange": "8"
     },
     {
       "moncode": "1002",
@@ -20,7 +23,10 @@
       "attack": "5",
       "level": "1",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1002",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "1",
+      "fovRange": "1",
+      "attackRange": "2"
     },
     {
       "moncode": "1003",
@@ -31,7 +37,10 @@
       "attack": "5",
       "level": "1",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1003",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "2",
+      "attackRange": "2"
     },
     {
       "moncode": "1004",
@@ -42,7 +51,10 @@
       "attack": "7",
       "level": "3",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1004",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "3",
+      "fovRange": "3",
+      "attackRange": "2"
     },
     {
       "moncode": "1005",
@@ -53,7 +65,10 @@
       "attack": "7",
       "level": "3",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1005",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "4",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1006",
@@ -64,7 +79,10 @@
       "attack": "7",
       "level": "3",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1006",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "4",
+      "fovRange": "5",
+      "attackRange": "8"
     },
     {
       "moncode": "1007",
@@ -75,7 +93,10 @@
       "attack": "9",
       "level": "5",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1007",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "5",
+      "fovRange": "2",
+      "attackRange": "2"
     },
     {
       "moncode": "1008",
@@ -86,7 +107,10 @@
       "attack": "9",
       "level": "5",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1008",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "6",
+      "fovRange": "8",
+      "attackRange": "2"
     },
     {
       "moncode": "1009",
@@ -97,7 +121,10 @@
       "attack": "9",
       "level": "5",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1009",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "4",
+      "fovRange": "5",
+      "attackRange": "6"
     },
     {
       "moncode": "1010",
@@ -108,7 +135,10 @@
       "attack": "30",
       "level": "10",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1010",
-      "attacktype": "All"
+      "attackType": "All",
+      "speed": "0",
+      "fovRange": "0",
+      "attackRange": "0"
     },
     {
       "moncode": "1011",
@@ -119,7 +149,10 @@
       "attack": "13",
       "level": "7",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1011",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "2",
+      "fovRange": "4",
+      "attackRange": "8"
     },
     {
       "moncode": "1012",
@@ -130,7 +163,10 @@
       "attack": "13",
       "level": "7",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1012",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "1",
+      "fovRange": "1",
+      "attackRange": "2"
     },
     {
       "moncode": "1013",
@@ -141,7 +177,10 @@
       "attack": "13",
       "level": "9",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1013",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "4",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1014",
@@ -152,7 +191,10 @@
       "attack": "15",
       "level": "9",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1014",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "3",
+      "attackRange": "2"
     },
     {
       "moncode": "1015",
@@ -163,7 +205,10 @@
       "attack": "15",
       "level": "9",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1015",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "4",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1016",
@@ -174,7 +219,10 @@
       "attack": "15",
       "level": "11",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1016",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "4",
+      "fovRange": "5",
+      "attackRange": "8"
     },
     {
       "moncode": "1017",
@@ -185,7 +233,10 @@
       "attack": "17",
       "level": "11",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1017",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "2",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1018",
@@ -196,7 +247,10 @@
       "attack": "17",
       "level": "11",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1018",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "3",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1019",
@@ -207,7 +261,10 @@
       "attack": "18",
       "level": "13",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1019",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "1",
+      "fovRange": "5",
+      "attackRange": "6"
     },
     {
       "moncode": "1020",
@@ -218,7 +275,10 @@
       "attack": "40",
       "level": "20",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Lava/1020",
-      "attacktype": "All"
+      "attackType": "All",
+      "speed": "0",
+      "fovRange": "0",
+      "attackRange": "0"
     },
     {
       "moncode": "1021",
@@ -229,7 +289,10 @@
       "attack": "20",
       "level": "13",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1021",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "4",
+      "attackRange": "8"
     },
     {
       "moncode": "1022",
@@ -240,7 +303,10 @@
       "attack": "20",
       "level": "15",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1022",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "1",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1023",
@@ -251,7 +317,10 @@
       "attack": "20",
       "level": "15",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1023",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "2",
+      "attackRange": "2"
     },
     {
       "moncode": "1024",
@@ -262,7 +331,10 @@
       "attack": "25",
       "level": "15",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1024",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "4",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1025",
@@ -273,7 +345,10 @@
       "attack": "25",
       "level": "17",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1025",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "3",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1026",
@@ -284,7 +359,10 @@
       "attack": "25",
       "level": "17",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1026",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "2",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1027",
@@ -295,7 +373,10 @@
       "attack": "30",
       "level": "17",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1027",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "5",
+      "fovRange": "2",
+      "attackRange": "2"
     },
     {
       "moncode": "1028",
@@ -306,7 +387,10 @@
       "attack": "30",
       "level": "19",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1028",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "3",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1029",
@@ -317,7 +401,10 @@
       "attack": "30",
       "level": "19",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1029",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "8",
+      "fovRange": "5",
+      "attackRange": "6"
     },
     {
       "moncode": "1030",
@@ -328,7 +415,10 @@
       "attack": "50",
       "level": "30",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1030",
-      "attacktype": "All"
+      "attackType": "All",
+      "speed": "0",
+      "fovRange": "0",
+      "attackRange": "0"
     },
     {
       "moncode": "1031",
@@ -339,7 +429,10 @@
       "attack": "35",
       "level": "21",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1031",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "4",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1032",
@@ -350,7 +443,10 @@
       "attack": "35",
       "level": "21",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1032",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "1",
+      "fovRange": "1",
+      "attackRange": "2"
     },
     {
       "moncode": "1033",
@@ -361,7 +457,10 @@
       "attack": "35",
       "level": "21",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1033",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "2",
+      "attackRange": "2"
     },
     {
       "moncode": "1034",
@@ -372,7 +471,10 @@
       "attack": "45",
       "level": "23",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1034",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "3",
+      "fovRange": "3",
+      "attackRange": "2"
     },
     {
       "moncode": "1035",
@@ -383,7 +485,10 @@
       "attack": "45",
       "level": "23",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1035",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "8",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1036",
@@ -394,7 +499,10 @@
       "attack": "45",
       "level": "23",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1036",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "6",
+      "fovRange": "5",
+      "attackRange": "8"
     },
     {
       "moncode": "1037",
@@ -405,7 +513,10 @@
       "attack": "60",
       "level": "25",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1037",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "5",
+      "fovRange": "2",
+      "attackRange": "3"
     },
     {
       "moncode": "1038",
@@ -416,7 +527,10 @@
       "attack": "60",
       "level": "25",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1038",
-      "attacktype": "Melee"
+      "attackType": "Melee",
+      "speed": "2",
+      "fovRange": "8",
+      "attackRange": "2"
     },
     {
       "moncode": "1039",
@@ -427,7 +541,10 @@
       "attack": "60",
       "level": "25",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1039",
-      "attacktype": "RangeAttack"
+      "attackType": "RangeAttack",
+      "speed": "4",
+      "fovRange": "6",
+      "attackRange": "8"
     },
     {
       "moncode": "1040",
@@ -438,7 +555,10 @@
       "attack": "200",
       "level": "40",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1040",
-      "attacktype": "All"
+      "attackType": "All",
+      "speed": "0",
+      "fovRange": "0",
+      "attackRange": "0"
     }
   ]
 }

@@ -191,7 +191,10 @@ namespace Data
         public int attack;
         public int level;
         public string prefabPath;
-        public string attacktype;
+        public string attackType;
+        public int fovRange;
+        public int attackRange;
+        public int speed;
         public MonsterEnvType EnvType;
         public MonsterAttackType AttackType;
     }
@@ -206,7 +209,7 @@ namespace Data
             foreach (MonsterData mon in Monster)
             {
                 mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
-                mon.AttackType = (MonsterAttackType)Enum.Parse(typeof(MonsterAttackType), mon.attacktype);
+                mon.AttackType = (MonsterAttackType)Enum.Parse(typeof(MonsterAttackType), mon.attackType);
                 dict.Add(mon.moncode, mon);
               
             }

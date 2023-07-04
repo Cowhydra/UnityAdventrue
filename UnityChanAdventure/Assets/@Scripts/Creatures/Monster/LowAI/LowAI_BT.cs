@@ -7,17 +7,10 @@ using BehaviorTree;
 public class LowAI_BT : Behavior_Tree
 {
 
-    public static float speed = 2f;
-    public static float fovRange = 6f;
-    public static float attackRange = 2f;
+    public static float speed ;
+    public static float fovRange ;
+    public static float attackRange ;
 
-
-    [SerializeField]
-    private float _speed;
-    [SerializeField]
-    private float _fovRange;
-    [SerializeField]
-    private float _attackRange;
 
     [Header("발사체가 있는 몬스터는 여기")]
     [SerializeField]
@@ -25,9 +18,9 @@ public class LowAI_BT : Behavior_Tree
     protected override void Start()
     {
         base.Start();
-        speed = _speed;
-        fovRange = _fovRange;
-        attackRange = _attackRange;
+        speed = Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].speed;
+        fovRange = Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].fovRange;
+        attackRange = Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].attackRange;
     }
     protected override Behavior_Node SetupTree()
     {

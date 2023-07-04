@@ -100,6 +100,7 @@ public class Inventory_Main :MonoBehaviour
             {
                 checkitem.transform.SetSiblingIndex(MaxSlot - 1);
                 checkitem.MyItemCode = 0;
+                currentactiveItemCount--;
             }
             else
             {

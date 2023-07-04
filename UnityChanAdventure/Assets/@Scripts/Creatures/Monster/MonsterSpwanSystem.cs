@@ -9,11 +9,12 @@ public class MonsterSpwanSystem : MonoBehaviour
     private Transform[] MonsterSpawnPoint;
     [SerializeField]
     private Define.MonsterEnvType CurrentEnv;
-    List<GameObject> MonsterList=new List<GameObject>();
+    List<int> MonsterCodeList=new List<int>();
+    
 
     private void Start()
     {
-        MonsterList.Clear();
+        MonsterCodeList.Clear();
         SettingMonster();
         for(int i= 0; i < MonsterSpawnPoint.Length; i++)
         {
@@ -24,21 +25,49 @@ public class MonsterSpwanSystem : MonoBehaviour
 
     private void SettingMonster()
     {
+        switch (Managers.Scene.CurrentScene.SceneType)
+        {
+            case Define.Scene.LavaScene:
+                CurrentEnv = Define.MonsterEnvType.Lava;
+                break;
+            case Define.Scene.DesertScene:
+                CurrentEnv=Define.MonsterEnvType.Desert;
+                break;
+            case Define.Scene.WaterScene:
+                CurrentEnv= Define.MonsterEnvType.Water;
+                break;
+            case Define.Scene.FightScene:
+                CurrentEnv = Define.MonsterEnvType.None;
+                break;
+        }
         foreach (var monster in Managers.Data.MonsterDataDict.Values)
         {
-            if (monster.EnvType == CurrentEnv && monster.moncode % 10 != 0)
+            if (CurrentEnv == Define.MonsterEnvType.None)
             {
-                MonsterList.Add(Managers.Resource.Load<GameObject>($"{monster.prefabPath}")); ;
+                if (monster.moncode % 10 != 0)
+                {
+                    MonsterCodeList.Add(monster.moncode);
+                }
             }
+            else
+            {
+                if (monster.EnvType == CurrentEnv && monster.moncode % 10 != 0)
+                {
+                    MonsterCodeList.Add(monster.moncode);
+                }
+
+            }
+           
         }
     }
     private void RandSpawn(Transform transform)
     {
        for(int i = 0; i < 5; i++)
         {
-            int randValue = Random.Range(0, MonsterList.Count);
-           GameObject monster = Instantiate(MonsterList[randValue]);
-           monster.SetRandomPositionSphere(2, 3);
+           int randValue = Random.Range(0, MonsterCodeList.Count);
+            GameObject monster = Managers.Resource.Instantiate(Managers.Data.MonsterDataDict[MonsterCodeList[randValue]].prefabPath);
+            monster.gameObject.transform.position = transform.position;
+            monster.SetRandomPositionSphere(2, 3);
         }
     }
 }

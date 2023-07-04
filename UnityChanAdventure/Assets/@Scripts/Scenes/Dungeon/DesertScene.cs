@@ -4,31 +4,44 @@ using UnityEngine;
 
 public class DesertScene : BaseScene
 {
+    GameObject player;
     void Start()
     {
-        SetResources();
+        Inits();
     }
 
-    public void SetResources()
+    public void Inits()
     {
-        Managers.Resource.LoadAllAsync<Object>("LoadingResource", (key, count, totalCount) =>
-        {
-            if (count == totalCount)
-            {
-                Debug.Log($"리소스 로딩 완료: {totalCount}");
-                Managers.Data.Init();
-                GameObject.FindAnyObjectByType<DeserBoss_BT>().enabled = false;
-                Managers.UI.ShowSceneUI<GameUI>();
-                Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        GameObject.FindAnyObjectByType<DeserBoss_BT>().enabled = false;
+        Managers.UI.ShowSceneUI<GameUI>();
+        Managers.Resource.Instantiate("Player");
 
-
-               // Managers.UI.ShowPopupUI<DialogSystem>().TalkType = Define.Npc_Type.Dungeon;
-            }
-        });
+        Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        player.transform.position = gameObject.transform.position;
+       // StartCoroutine(nameof(playerStartPos_Fix));
+        //Managers.UI.ShowPopupUI<DialogSystem>().TalkType = Define.Npc_Type.Dungeon;
     }
 
     public override void Clear()
     {
 
     }
+    private IEnumerator playerStartPos_Fix()
+    {
+        while (true)
+        {
+            player.transform.position = transform.position;
+
+            if ((player.transform.position - transform.position).sqrMagnitude < 0.1f)
+            {
+                yield break;
+            }
+
+            yield return null;
+        }
+
+
+    }
+
 }

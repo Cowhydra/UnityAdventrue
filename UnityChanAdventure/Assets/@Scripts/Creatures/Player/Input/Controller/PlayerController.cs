@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
         Managers.Event.KeyInputAction -= KeyInputExcute;
         Managers.Event.KeyInputAction += KeyInputExcute;
         #endregion
-        gameObject.transform.position = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-     
+
+        gameObject.transform.position = GameObject.FindAnyObjectByType<BaseScene>().gameObject.transform.position;
     }
     private void OnDestroy()
     {

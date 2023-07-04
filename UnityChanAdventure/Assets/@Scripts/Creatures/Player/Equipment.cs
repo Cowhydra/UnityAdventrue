@@ -23,9 +23,7 @@ public class Equipment
       
         if (EQUIP.ContainsKey(equipitem.ItemType))
         {
-            //경고 UI
-            Debug.Log("이미 해당 부위에 장착한 장비가 존재");
-            Debug.Log("경고 UI!");
+           
             return false;
         }
         else
