@@ -146,9 +146,9 @@ public class DialogSystem : UI_Popup
 				Managers.UI.ShowPopupUI<QuestUI>();
 				break;
             case Define.Npc_Type.ShopNpc:
-				Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
 				isButtonClicked = true;
 				Managers.UI.ClosePopupUI();
+				Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
 				break;
             case Define.Npc_Type.EnhanceNpc:
 				Debug.Log("강화창 보여주기");

@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour
         attackarea=GetComponentInChildren<PlayerAttackArea>();
         _mycharacter=GetComponent<MyCharacter>(); 
     }
+   
     private void Start()
     {
         #region Event
