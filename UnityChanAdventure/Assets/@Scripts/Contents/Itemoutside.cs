@@ -19,14 +19,12 @@ public class Itemoutside : MonoBehaviour
     [SerializeField]
     private Material targetMaterial;
 
-    private void Start()
-    {
-        if (targetMaterial == null)
-            targetMaterial = gameObject.transform.GetChild(0).GetComponent<Renderer>().material;
-    }
 
     private void SetNewBaseMap()
     {
+        if (targetMaterial == null)
+            targetMaterial = gameObject.transform.GetChild(0).GetComponent<Renderer>().material;
+        
         newBaseMapTexture = Managers.Resource.Load<Texture>($"{Managers.Data.ItemDataDict[_itemcode].iconPath}");
         if (targetMaterial != null && newBaseMapTexture != null)
         {

@@ -7,17 +7,17 @@ public class DesertScene : BaseScene
     GameObject player;
     void Start()
     {
-        Init();
+        Inits();
     }
-    protected override void Init()
+     public void Inits()
     {
-        base.Init();
         GameObject.FindAnyObjectByType<DeserBoss_BT>().enabled = false;
         Managers.UI.ShowSceneUI<GameUI>();
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
 
         player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = gameObject.transform.position;
+        player.transform.position = GameObject.Find($"{gameObject.name}").transform.position;
+        Debug.Log($"{gameObject.name}");
     }
 
     public override void Clear()

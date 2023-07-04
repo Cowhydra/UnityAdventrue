@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
         Managers.Event.KeyInputAction -= KeyInputExcute;
         Managers.Event.KeyInputAction += KeyInputExcute;
         #endregion
-        DontDestroyOnLoad(gameObject.transform.root);
+        DontDestroyOnLoad(gameObject.transform.parent);
 
     }
   

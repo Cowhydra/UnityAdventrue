@@ -50,6 +50,7 @@ public class GameUI : UI_Scene,IListener
     public override void Init()
     {
         base.Init();
+        Debug.Log("누가 실행하니?");
         Bind<TextMeshProUGUI>(typeof(Texts));
         Bind<Button>(typeof(Buttons));
         Bind<GameObject>(typeof(GameObjects));

@@ -22,8 +22,12 @@ public class LowAI_BT : Behavior_Tree
         fovRange = Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].fovRange;
         attackRange = Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].attackRange;
         attackdamage = Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].attack
-            + Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].level*10
-            ;
+            + Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].level*10;
+
+        if (Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].AttackType == Define.MonsterAttackType.RangeAttack)
+        {
+            MyProjectile = Managers.Resource.Load<GameObject>($"{Managers.Data.MonsterDataDict[GetComponent<Monster>().MyCode].prefabPath}_Projectile");
+        }
     }
     protected override Behavior_Node SetupTree()
     {

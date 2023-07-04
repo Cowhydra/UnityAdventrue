@@ -77,11 +77,13 @@ public class Monster : Creature, IDamage
     public override void Die()
     {
         base.Die();
+        //골드 및 경험 치 생성
         GameObject Gold = Managers.Resource.Instantiate("Gold");
         Gold.GetComponent<Gold>().SetValue(_level);
+        Gold.transform.position = gameObject.transform.position;
         GameObject Exp = Managers.Resource.Instantiate("Exp");
         Exp.GetComponent<Exp>().SetValue(_level);
-
+        Exp.transform.position = gameObject.transform.position;
         //퀘스트 관련 몬스터 이벤트
         Managers.Event.MonsterDie?.Invoke(MyCode);
 
@@ -90,28 +92,22 @@ public class Monster : Creature, IDamage
             //아이템 생성
             int itemcode=Managers.Data.ItemCodes[UnityEngine.Random.Range(0, Managers.Data.ItemCodes.Count)];
             GameObject dropitem= Managers.Resource.Instantiate("Itemoutside");
+            dropitem.transform.position = gameObject.transform.position;
             dropitem.GetOrAddComponent<Itemoutside>().ItemCode = itemcode;
 
         }
         gameObject.GetOrAddComponent<LowAI_BT>().enabled = false;
-        _animator.SetTrigger("Die");
         StartCoroutine(nameof(Monster_Die));
         
        
     }
     private IEnumerator Monster_Die()
     {
-      yield return new WaitForSeconds(1.0f);
+        _animator.SetTrigger("Die");
+        yield return new WaitForSeconds(3.0f);
       Managers.Resource.Destroy(gameObject);
     }
 
-
-
-    private IEnumerator MonDie_Co()
-    {
-        yield return new WaitForSeconds(2.0f);
-        Managers.Resource.Destroy(gameObject);
-    }
 
     private IEnumerator OnHitColor()
     {
