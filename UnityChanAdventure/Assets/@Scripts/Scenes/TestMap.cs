@@ -17,9 +17,8 @@ public class TestMap : MonoBehaviour
                 Debug.Log($"리소스 로딩 완료: {totalCount}");
                 Managers.Data.Init();
                 Managers.EQUIP.Init();
-              GameObject go= Managers.Resource.Instantiate("Itemoutside");
-                go.GetComponent<Itemoutside>().ItemCode = 10001;
-                Managers.Scene.LoadScene(Define.Scene.TownScene);
+                Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+
             }
 
         });
