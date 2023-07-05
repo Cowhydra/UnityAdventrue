@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Inventory 
 {
-
+    //인벤토리를 현재 매니저에 넣어뒀음..
+    //기존 2D 프리코네 프로젝트는 캐릭터 마다 인벤이 필요해서 매니저에 둘 수 없었으나, 이건 가능  혼자 쓸 것이기에
+    //매니저를 쓰지 않는다면 Inven Object를 하나 생성해서 다녀야 할듯
     public Dictionary<int, Item> Items { get; } = new Dictionary<int, Item>();
 
     public void init()
@@ -30,6 +32,8 @@ public class Inventory
             return false;
         }
     }
+
+    //아이템 추가 제거 를 진행 - > UI및 다른 아이템 획득 기능을 통해 여기서 전부 진행 -> DB 업데이트 편하게 하기 위함
     public bool Sub(int itemcode,int count = 1)
     {
         if (!Items.ContainsKey(itemcode))
@@ -46,6 +50,7 @@ public class Inventory
             }
             Managers.Event.RemoveItem?.Invoke(itemcode);
         }
+        Debug.Log("인벤에 아이템 제거 + 추후 DB 연동");
         return true;
     }
     public bool Add(int itemcode, int count = 1)

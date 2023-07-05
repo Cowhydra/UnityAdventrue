@@ -8,7 +8,9 @@ public interface IDamage
     public void OnDamage(int damage);
 }
 
-public interface IAttack
+public interface ISkill
 {
-    public void MyAttack(Define.MonsterAttackType attacktype);
+    
+     void Excute();
+     int skillcode { get; }
 }

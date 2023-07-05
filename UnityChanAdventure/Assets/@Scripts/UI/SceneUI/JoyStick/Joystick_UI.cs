@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class Joystick_UI : UI_Scene,IListener
 {
+    //IDEA 버튼 연동 하는 식으로 할 예정
+    //new Input System을 활용하고 싶었으니 쉽지 않았음..
+    //결국 PC, 모바일만 할꺼면 환경에따라 다르게 해주면 될듯?..
+
     private GameObject _handler;
     private Vector2 _moveDir;
     private float _joystickRadius;
@@ -62,6 +66,8 @@ public class Joystick_UI : UI_Scene,IListener
 
         _joystickOriginalPos = GetObject((int)GameObjects.Move_Area).transform.position;
         PlayerMain_Cm = GameObject.Find("PlayerMain_Cm");
+
+        //각종 상점 오픈, 대화창 오픈 등  UI들 이벤트가 나올 떄 joyStick 이 화면을 가리는 것을 방지
         #region Event
         _handler.BindEvent((PointerEventData data) => OnDragEvent_JoyStick(data), Define.UIEvent.OnDrag);
         _handler.BindEvent((PointerEventData data) => EndDragEvent_JoyStick(), Define.UIEvent.OnEndDrag);
@@ -88,7 +94,7 @@ public class Joystick_UI : UI_Scene,IListener
     }
     private void DragEvent_Look(PointerEventData data)
     {
-        #region 카메라 거리유지
+        #region 카메라 거리유지 쓰려고 헀다가 다른 방식으로 선회
         //float dragDeltaX = data.position.x - dragStartPosition;
         //float rotationAmount = dragDeltaX * lokRotateSpeed;
 
@@ -99,6 +105,8 @@ public class Joystick_UI : UI_Scene,IListener
         //_CameraTarget.transform.localPosition = newPosition;
         #endregion
 
+        //현재 위 아래 이동은 제거하고, 양옆으로 이동만 구현 
+
         float dragDeltaX = data.position.x - dragStartPosition;
         float rotationAmount = dragDeltaX * lookRotateSpeed;
         Debug.Log("카메라 드래그 이벤트 진행중~");
@@ -107,6 +115,8 @@ public class Joystick_UI : UI_Scene,IListener
         _AroundTarget.transform.rotation = Quaternion.Euler(newRotation);
         
     }
+
+    //조이스틱 드래그가 끝나면 이동 이벤트 발생 시켜서 -> 움직임 없게 만듬 + joystick의 위치를 기존 위치로 돌려둠
     private void EndDragEvent_JoyStick()
     {
         _moveDir = Vector2.zero;
@@ -114,6 +124,7 @@ public class Joystick_UI : UI_Scene,IListener
         Managers.Event.MoveInputAction?.Invoke(_moveDir);
     }
 
+    //버튼에 이벤트 할당 
     private void InitButton()
     {
         GetButton((int)Buttons.Jump_Button).gameObject.BindEvent((PointerEventData data) =>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Jump));
@@ -129,9 +140,12 @@ public class Joystick_UI : UI_Scene,IListener
     private void OnDragEvent_JoyStick(PointerEventData data)
     {
      
+        //결국 조이스틱 드래그를 통해서 하는 것은 방향만 잡아주는 것 
         Vector2 dragPos = data.position;
         _moveDir = (dragPos - _joystickOriginalPos).normalized;
         Managers.Event.MoveInputAction?.Invoke(_moveDir);
+
+        //이 아래 부분 코드는 조이스틱 핸들을 움직이게 하는 것 
         float joystickDist = Vector2.Distance(dragPos, _joystickOriginalPos);
 
         Vector3 newPos;

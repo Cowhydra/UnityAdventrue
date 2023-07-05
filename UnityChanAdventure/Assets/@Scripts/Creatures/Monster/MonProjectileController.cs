@@ -11,6 +11,7 @@ public class MonProjectileController : MonoBehaviour
     GameObject _target;
     Vector3 moveDir;
     int damage = 10;
+    //몬스터의 프로젝타일이니 타켓 = 플레이어 
     private void Awake()
     {
         _target = GameObject.FindGameObjectWithTag("Player");

@@ -11,6 +11,8 @@ public class Shop_Item : UI_Scene
     private int price;
     private bool isinit;
 
+    //Start 보다는 확실한 실행 순서 제어를 위해서, 프로퍼티를 통해 MyItemCode 값이 변경되면 초기화 진행
+    //그래도 만약 MyItemCode가 없는 아이템이 나올경우 일반 초기화 진행을 위해 Init()도 사용 -> 중복 방지용으로 불값 isinit 활용
     public int MyItemCode
     {
         get { return _myitemcode; }
@@ -20,6 +22,7 @@ public class Shop_Item : UI_Scene
             AfterCodeSetInit();
         }
     }
+    #region BindUI
     enum Buttons
     {
         Purchase_Button
@@ -36,6 +39,7 @@ public class Shop_Item : UI_Scene
         PriceText,
 
     }
+    #endregion
     private void Start()
     {
         Init();
@@ -65,6 +69,8 @@ public class Shop_Item : UI_Scene
         GetText((int)Texts.PriceText).text = $"{price}";
         GetImage((int)Images.Shop_Item_Image).sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[_myitemcode].iconPath}");
     }
+
+    //아이템 구매는 UI에서 처리 
     private void PurchaseItem()
     {
         if (Managers.Game.Gold < price)

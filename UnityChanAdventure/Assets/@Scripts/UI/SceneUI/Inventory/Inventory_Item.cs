@@ -63,6 +63,7 @@ public class Inventory_Item : UI_Scene,IListener
     public void RefreshUI()
     {
 
+        //빈 아이템일 경우  각종 요소들 초기화 -> 아이템 이미지 변경 등 
         if (MyItemCode == 0)
         {
             GetImage((int)Images.Item_Icon).sprite = UnActiveImage;
@@ -72,17 +73,21 @@ public class Inventory_Item : UI_Scene,IListener
             return;
         }
         Debug.Log($"RereshUI :{MyItemCode}");
+        //아 아이템이 활성 된 상태라면 
         if (isActive)
         {
+            //만약  활성된 상태인데 -> 인벤에 없다 -> 다시 Refresh
             if (!Managers.Inven.Items.ContainsKey(MyItemCode)||Managers.Inven.Items[MyItemCode].Count == 0)
             {
                 isActive = false;
                 RefreshUI();
             }
+            //만약 활성된 상태 + 인벤에 있으면 Sprite 및 count 갱신
             GetImage((int)Images.Item_Icon).sprite = Managers.Resource.Load<Sprite>($"{Managers.Data.ItemDataDict[MyItemCode].iconPath}");
             GetText((int)Texts.Item_Count).text = $"{Managers.Inven.Items[MyItemCode].Count}";
 
         }
+        //갱신 하는데 비활성 상태이면 초기화
         else
         {
             GetImage((int)Images.Item_Icon).sprite = UnActiveImage;
@@ -92,6 +97,9 @@ public class Inventory_Item : UI_Scene,IListener
         
     }
 
+
+    //아이템을 선택하면 선택한 아이템에 색깔을 입혀서 차별화
+    //모든 Inventroy_item이 같이 쓰니까, 이벤트가 발생한 코드와 내 코드가 다르면 색을 없게 변경, 같으면 나 자신을 색이 있게 변경
     private void InventoryItemSelect(int senderitemcode)
     {
         if (!isActive||MyItemCode==0) return;
