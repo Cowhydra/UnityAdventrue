@@ -24,6 +24,7 @@ public class LoadingScene : BaseScene
     protected override void Init()
     {
         base.Init();
+        Time.timeScale = 1;
         BackGroundImagesChanges();
 
     }

@@ -70,13 +70,13 @@ public class DungeonUI : UI_Popup
                 GetText((int)Texts.InfoPannel_ContentsText).text = "물 던전은 위험한 곳\n 출현 몬스터 Lv.21~30";
                 break;
             case Buttons.GoLava_Button:
+                Debug.Log("미구현");
+                return;
                 ChoiceScene = Define.Scene.LavaScene;
                 GetText((int)Texts.InfoPannel_TitleText).text = "화산 던전";
                 GetText((int)Texts.InfoPannel_ContentsText).text = "화산 던전은 위험한 곳\n 출현 몬스터 Lv.11~20";
                 break;
             case Buttons.GoFight_Button:
-                Debug.Log("아직 미구현 ");
-                return;
                 ChoiceScene = Define.Scene.FightScene;
                 GetText((int)Texts.InfoPannel_TitleText).text = "대난투";
                 GetText((int)Texts.InfoPannel_ContentsText).text = "핵앤 슬래쉬 느낌을 즐겨보세요";

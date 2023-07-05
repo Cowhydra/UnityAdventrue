@@ -39,6 +39,7 @@ public class MyCharacter : Creature, IDamage, IListener
         set
         {
             _mana = Math.Clamp(value, 0, _maxmana);
+            Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
         }
     }
     private int _exp;

@@ -79,11 +79,10 @@ public class Monster : Creature, IDamage
         base.Die();
         //골드 및 경험 치 생성
         GameObject Gold = Managers.Resource.Instantiate("Gold");
-        Gold.GetComponent<Gold>().SetValue(_level);
-        Gold.transform.position = gameObject.transform.position;
+        Gold.GetComponent<Gold>().SetValue(_level,gameObject.transform);
         GameObject Exp = Managers.Resource.Instantiate("Exp");
-        Exp.GetComponent<Exp>().SetValue(_level);
-        Exp.transform.position = gameObject.transform.position;
+        Exp.GetComponent<Exp>().SetValue(_level,gameObject.transform);
+       
         //퀘스트 관련 몬스터 이벤트
         Managers.Event.MonsterDie?.Invoke(MyCode);
 
