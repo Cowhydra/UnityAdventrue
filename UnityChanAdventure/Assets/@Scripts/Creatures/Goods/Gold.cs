@@ -12,6 +12,7 @@ public class Gold : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Managers.Game.GoldChange(_value);
+            Managers.Resource.Destroy(gameObject);
         }
     }
     public void SetValue(int _level, Transform transform)

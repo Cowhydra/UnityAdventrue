@@ -10,6 +10,7 @@ public class DefeatEnemiesQuest : Quest
 
     public int NumberOfEnemiesToDestroy;
     private int _actualEnemiesDestroyed;
+    public int ActualEnemiesDestroyed { get { return _actualEnemiesDestroyed; } set { _actualEnemiesDestroyed = value; } }
     public DefeatEnemiesQuest(int uniqueId, string name, int levelRequirement, int experienceReward, int DiaReword, int itemReward,int enemyToTargetCode, int numberOfEnemiesToDestroy)
     {
         this.UniqueId = uniqueId;
@@ -26,7 +27,7 @@ public class DefeatEnemiesQuest : Quest
     {
         base.Enable();
 
-        this._actualEnemiesDestroyed = 0;
+     
     }
 
     protected override void QuestCompleted()

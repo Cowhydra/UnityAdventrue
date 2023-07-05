@@ -20,7 +20,6 @@ public class MonsterSpwanSystem : MonoBehaviour
         {
             RandSpawn(MonsterSpawnPoint[i]);
         }
-        Debug.Log("보스 생성은 해놓고 보스 컴포넌트 ( Behavior Tree) 제거 해놓아야 함");
     }
 
     private void SettingMonster()

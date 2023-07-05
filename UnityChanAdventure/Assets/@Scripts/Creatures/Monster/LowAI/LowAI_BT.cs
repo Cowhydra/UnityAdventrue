@@ -12,12 +12,6 @@ public class LowAI_BT : Behavior_Tree
     public static int attackRange ;
     public static int attackdamage;
 
-  
-    public void SetStats(int speed,int fovRange)
-    {
-        LowAI_BT.speed = speed;
-        LowAI_BT.fovRange = fovRange;
-    }
     [SerializeField]
     private GameObject MyProjectile;
     protected override void Start()

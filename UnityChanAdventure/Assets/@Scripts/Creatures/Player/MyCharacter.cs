@@ -132,7 +132,7 @@ public class MyCharacter : Creature, IDamage, IListener
     {
         while (ishitted)
         {
-            _animator.SetFloat("Damaged", damage - _level - Def / damage);
+            _animator.SetFloat("Hit", damage - _level - Def / damage);
             _animator.SetTrigger("Damaged");
             yield return new WaitForSeconds(ishittedcooltime);
             ishitted = false;

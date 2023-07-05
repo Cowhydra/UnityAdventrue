@@ -19,17 +19,11 @@ public class CheckEnemyInFovRange : Behavior_Node
 
     public override Define.Behavior_NodeState Evaluate()
     {
-
-        if (_transform.GetComponent<Monster>().isDie)
-        {
-            state = Define.Behavior_NodeState.FAILURE;
-            return state;
-        }
         object t = GetData("target");
         if (t == null)
         {
             Collider[] colliders = Physics.OverlapSphere(
-                _transform.position, LowAI_BT.fovRange, 1<<_enemyLayerMask);
+                _transform.position, LowAI_BT.fovRange*5, 1<<_enemyLayerMask);
 
             if (colliders.Length > 0)
             {
@@ -37,7 +31,7 @@ public class CheckEnemyInFovRange : Behavior_Node
                 float closestDistance = Mathf.Infinity;
 
 
-                //내가 AI를 돌리게 된다면 적을 추적할 때 가장 가까운 적부터 처치할 수 있도록 AI 수정
+                //가장 가까운 적 -> 적 (몬스터 입장에서는 비용이 들지 않음 )
                 foreach (Collider collider in colliders)
                 {
                     float distance = Vector3.Distance(_transform.position, collider.transform.position);

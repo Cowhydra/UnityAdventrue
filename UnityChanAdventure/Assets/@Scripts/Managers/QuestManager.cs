@@ -5,7 +5,7 @@ using static Define;
 public class QuestManager
 {
     private List<Quest> activeQuests = new List<Quest>();
-
+    public List<Quest> ActiveQuest { get { return activeQuests; } }
     public void StartQuest(Quest quest)
     {
         if (quest.State == QuestState.Pending&&!quest.isCleared)

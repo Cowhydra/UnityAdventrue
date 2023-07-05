@@ -40,6 +40,7 @@ public class GameUI : UI_Scene,IListener
         QuikEnrollButton,
         DecomposeButton,
         Dungeon_Button,
+        Quit_Button,
 
     }
 
@@ -64,11 +65,33 @@ public class GameUI : UI_Scene,IListener
         Managers.Event.ActiveQuest += ShowQusetUI;
        
         InitButtons();
+        GetButton((int)Buttons.Quit_Button).gameObject.SetActive(false);
 
-
+        switch (Managers.Scene.CurrentScene.SceneType)
+        {
+            case Define.Scene.LavaScene:
+                GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                break;
+            case Define.Scene.DesertScene:
+                GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                break;
+            case Define.Scene.WaterScene:
+                GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                break;
+            case Define.Scene.FightScene:
+                GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                break;
+        }
 
         InitGameObject();
         TextWithGoods();
+        if (Managers.Quest.ActiveQuest.Count > 0)
+        {
+          foreach(Quest quest in Managers.Quest.ActiveQuest)
+            {
+                ShowQusetUI(quest);
+            }
+        }
     }
     private void Start()
     {
@@ -116,7 +139,8 @@ public class GameUI : UI_Scene,IListener
             .BindEvent((PointerEventData data) => DeCompose());
         GetButton((int)Buttons.Dungeon_Button).gameObject
             .BindEvent((PointerEventData data) => ShowOnDungeon());
-
+        GetButton((int)Buttons.Quit_Button).gameObject
+            .BindEvent((PointerEventData data) => Managers.Scene.LoadScene(Define.Scene.TownScene));
     }
     private void ItemUse()
     {

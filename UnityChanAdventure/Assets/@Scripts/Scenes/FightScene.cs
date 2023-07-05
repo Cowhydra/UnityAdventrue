@@ -7,7 +7,7 @@ public class FightScene : BaseScene
     private void Start()
     {
         Managers.UI.ShowSceneUI<FightSceneUI>();
-
+        SceneType = Define.Scene.FightScene;
         GameObject.FindObjectOfType<MyCharacter>().transform.position = gameObject.transform.position;
 
     }

@@ -7163,7 +7163,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253917031}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 104, y: 1, z: -11}
+  m_LocalPosition: {x: 104, y: 0.54, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14231,6 +14231,7 @@ GameObject:
   - component: {fileID: 8464051084388303801}
   - component: {fileID: 6353318712662282596}
   - component: {fileID: 6652888186808546165}
+  - component: {fileID: 8770531903585350893}
   m_Layer: 8
   m_Name: 1010
   m_TagString: DesertBoss
@@ -14238,6 +14239,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8770531903585350893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8770531903585350892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 893c88007e757e74aa600cf7a8be304d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MyCode: 1010
 --- !u!1 &8951914256193913996
 GameObject:
   m_ObjectHideFlags: 0

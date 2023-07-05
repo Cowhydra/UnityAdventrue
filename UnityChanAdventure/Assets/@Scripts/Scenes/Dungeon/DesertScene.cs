@@ -11,19 +11,39 @@ public class DesertScene : BaseScene
     }
      public void Inits()
     {
+        SceneType = Define.Scene.DesertScene;
         GameObject.FindAnyObjectByType<DeserBoss_BT>().enabled = false;
-        Managers.UI.ShowSceneUI<GameUI>();
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
-
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.transform.position = GameObject.Find($"{gameObject.name}").transform.position;
-        Debug.Log($"{gameObject.name}");
+        Managers.UI.ShowSceneUI<GameUI>();
+        
+        //플레이어 버그 수정용....
+        StartCoroutine(nameof(SetPlayerPos));
+        Managers.Event.KeyInputAction -= AnyKeyInput;
+        Managers.Event.KeyInputAction += AnyKeyInput;
     }
 
+    private void OnDestroy()
+    {
+        Managers.Event.KeyInputAction -= AnyKeyInput;
+    }
     public override void Clear()
     {
         Managers.Clear();
     }
+    private IEnumerator SetPlayerPos()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        while (true)
+        {
+            player.transform.position = GameObject.Find($"{gameObject.name}").transform.position;
+            yield return null;
+            
+        }
+    }
 
-
+    private void AnyKeyInput(Define.KeyInput keyinput)
+    {
+        StopAllCoroutines();
+    }
+  
 }

@@ -75,9 +75,9 @@ public class Joystick_UI : UI_Scene,IListener
         Managers.Event.AddListener(Define.EVENT_TYPE.ShopOpen, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.DialogOpen, this);
         Managers.Event.AddListener(Define.EVENT_TYPE.DialogClose, this);
-
-
         #endregion
+
+
     }
 
     private float dragStartPosition;
@@ -101,10 +101,11 @@ public class Joystick_UI : UI_Scene,IListener
 
         float dragDeltaX = data.position.x - dragStartPosition;
         float rotationAmount = dragDeltaX * lookRotateSpeed;
-
+        Debug.Log("카메라 드래그 이벤트 진행중~");
         Vector3 currentRotation = _AroundTarget.transform.rotation.eulerAngles;
         Vector3 newRotation = new Vector3(currentRotation.x, currentRotation.y + rotationAmount, currentRotation.z);
         _AroundTarget.transform.rotation = Quaternion.Euler(newRotation);
+        
     }
     private void EndDragEvent_JoyStick()
     {
@@ -151,11 +152,17 @@ public class Joystick_UI : UI_Scene,IListener
         {
             case Define.EVENT_TYPE.InventoryOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
-               PlayerMain_Cm.SetActive(false);
+                if (Managers.Scene.CurrentScene.SceneType == Define.Scene.TownScene)
+                {
+                    PlayerMain_Cm.SetActive(false);
+                }
                 break;
             case Define.EVENT_TYPE.InventoryClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
-                PlayerMain_Cm.SetActive(true);
+                if (Managers.Scene.CurrentScene.SceneType == Define.Scene.TownScene)
+                {
+                    PlayerMain_Cm.SetActive(true);
+                }
                 break;
             case Define.EVENT_TYPE.ShopClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);

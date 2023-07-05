@@ -16,26 +16,34 @@ public class WaterScene : BaseScene
         Managers.UI.ShowSceneUI<GameUI>();
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         player = GameObject.FindGameObjectWithTag("Player");
-        StartCoroutine(nameof(playerStartPos_Fix));
-    }
 
+        //플레이어 위치 버그 수정용
+        StartCoroutine(nameof(SetPlayerPos));
+        Managers.Event.KeyInputAction -= AnyKeyInput;
+        Managers.Event.KeyInputAction += AnyKeyInput;
+    }
+    private void OnDestroy()
+    {
+        Managers.Event.KeyInputAction -= AnyKeyInput;
+    }
     public override void Clear()
     {
-
+        Managers.Clear();
     }
-    private IEnumerator playerStartPos_Fix()
+    private IEnumerator SetPlayerPos()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         while (true)
         {
-            player.transform.position = transform.position;
-            if ((player.transform.position - transform.position).sqrMagnitude < 0.1f)
-            {
-                yield break;
-            }
-
+            player.transform.position = GameObject.Find($"{gameObject.name}").transform.position;
             yield return null;
+
         }
-
-
     }
+
+    private void AnyKeyInput(Define.KeyInput keyinput)
+    {
+        StopAllCoroutines();
+    }
+  
 }

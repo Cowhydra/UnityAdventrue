@@ -45,7 +45,7 @@ public class Monster : Creature, IDamage
     {
         Hp -= Math.Max(1, damage - _level - _def);
         _animator.SetTrigger("Damage");
-        StartCoroutine(nameof(OnHitColor));
+     
     }
     private void OnDisable()
     {
@@ -70,8 +70,11 @@ public class Monster : Creature, IDamage
         isDie = false;
         _hp = _maxhp;
         _hpregen = _level * 2;
+        if (MyCode % 10 != 0) 
+        {
+            gameObject.GetOrAddComponent<LowAI_BT>().enabled = true;
+        }
 
-        gameObject.GetOrAddComponent<LowAI_BT>().enabled = true;
 
     }
     public override void Die()
@@ -95,24 +98,24 @@ public class Monster : Creature, IDamage
             dropitem.GetOrAddComponent<Itemoutside>().ItemCode = itemcode;
 
         }
-        gameObject.GetOrAddComponent<LowAI_BT>().enabled = false;
+        if (MyCode % 10 != 0)
+        {
+            gameObject.GetOrAddComponent<LowAI_BT>().enabled = false;
+        }
+        StopAllCoroutines();
         StartCoroutine(nameof(Monster_Die));
         
        
     }
     private IEnumerator Monster_Die()
     {
+
+        yield return new WaitForSeconds(1.0f);
         _animator.SetTrigger("Die");
-        yield return new WaitForSeconds(3.0f);
-      Managers.Resource.Destroy(gameObject);
+        yield return new WaitForSeconds(1.0f);
+        Managers.Resource.Destroy(gameObject);
     }
 
 
-    private IEnumerator OnHitColor()
-    {
-        meshRenderer.material.color = Color.red;
-        yield return new WaitForSeconds(0.1f);
-        meshRenderer.material.color = origihmeshcolor;
-    }
 }
 

@@ -37,9 +37,10 @@ public class Itemoutside : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == (int)Define.LayerMask.Player)
+        if (other.gameObject.CompareTag("Player"))
         {
             Managers.Inven.Add(ItemCode);
+            Managers.Resource.Destroy(gameObject);
         }
     }
 }

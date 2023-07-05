@@ -135,34 +135,28 @@ public class DialogSystem : UI_Popup
         {
             case Define.Npc_Type.None:
 				Debug.Log("버그");
-				isButtonClicked = true;
-				Managers.UI.ClosePopupUI();
+				CloseUI();
 				break;
             case Define.Npc_Type.QuestNpc:
 				Debug.Log("퀘스트창 보여주기");
-				isButtonClicked = true;
-				Managers.UI.ClosePopupUI();
+				CloseUI();
 				Managers.UI.ShowPopupUI<QuestUI>();
 				break;
             case Define.Npc_Type.ShopNpc:
-				isButtonClicked = true;
-				Managers.UI.ClosePopupUI();
+				CloseUI();
 				Managers.Event.PostNotification(Define.EVENT_TYPE.ShopOpen, this);
 				break;
             case Define.Npc_Type.EnhanceNpc:
 				Debug.Log("강화창 보여주기");
-				isButtonClicked = true;
-				Managers.UI.ClosePopupUI();
+				CloseUI();
 				break;
             case Define.Npc_Type.TuotorialNpc:
 				Debug.Log("보여줄게 없음");
-				isButtonClicked = true;
-				Managers.UI.ClosePopupUI();
+				CloseUI();
 				break;
             case Define.Npc_Type.Boss:
 				Debug.Log("보여줄게 없음");
-				isButtonClicked = true;
-				Managers.UI.ClosePopupUI();
+				CloseUI();
 				break;
         }
     }
@@ -171,7 +165,6 @@ public class DialogSystem : UI_Popup
         switch (TalkType)
         {
             case Define.Npc_Type.None:
-
                 break;
             case Define.Npc_Type.QuestNpc:
 				GetButton((int)Buttons.AcceptionButton).gameObject.SetActive(true);
@@ -273,7 +266,12 @@ public class DialogSystem : UI_Popup
         GetButton((int)Buttons.AcceptionButton).gameObject
 	       .BindEvent((PointerEventData data) => ShowNextUI());
 		GetButton((int)Buttons.CancelButton).gameObject
-			.BindEvent((PointerEventData data) => Managers.UI.ClosePopupUI());
+			.BindEvent((PointerEventData data) => CloseUI());
+    }
+	private void CloseUI()
+    {
+		Managers.Event.PostNotification(Define.EVENT_TYPE.DialogClose, this);
+		Managers.UI.ClosePopupUI();
     }
     private void Setup()
 	{
@@ -330,7 +328,7 @@ public class DialogSystem : UI_Popup
 
 				if (isButtonClicked)
                 {
-					Managers.Event.PostNotification(Define.EVENT_TYPE.DialogClose, this);
+					
 					return true;
 				}
 				return false;
@@ -341,7 +339,6 @@ public class DialogSystem : UI_Popup
 	}
     private void OnDestroy()
     {
-		Managers.Event.PostNotification(Define.EVENT_TYPE.DialogClose, this);
 		StopAllCoroutines();
 	}
     private void SetOffDialog()

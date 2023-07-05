@@ -12,7 +12,8 @@ public class FightScene_MonsterSpawn : MonoBehaviour
     {
         MonsterCodeList.Clear();
         SettingMonster();
-
+        Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        Managers.UI.ShowSceneUI<GameUI>();
     }
     private void SettingMonster()
     {
@@ -30,7 +31,7 @@ public class FightScene_MonsterSpawn : MonoBehaviour
         {
             int randValue = Random.Range(0, MonsterCodeList.Count);
             GameObject monster = Managers.Resource.Instantiate(Managers.Data.MonsterDataDict[MonsterCodeList[randValue]].prefabPath);
-            monster.GetComponent<LowAI_BT>().SetStats(5, 100);
+         
             monster.gameObject.transform.position = transform.position;
             monster.SetRandomPositionSphere(2, 3);
         }

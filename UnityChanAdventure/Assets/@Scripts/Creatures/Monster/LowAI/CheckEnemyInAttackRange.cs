@@ -20,12 +20,6 @@ public class CheckEnemyInAttackRange : Behavior_Node
     public override Define.Behavior_NodeState Evaluate()
     {
 
-        if (_transform.GetComponent<Monster>().isDie)
-        {
-            state = Define.Behavior_NodeState.FAILURE;
-            return state;
-        }
-
         object t = GetData("target");
         if (t == null)
         {
@@ -34,7 +28,7 @@ public class CheckEnemyInAttackRange : Behavior_Node
         }
 
         Transform target = (Transform)t;
-        if (Vector3.Distance(_transform.position, target.position) <= LowAI_BT.attackRange)
+        if (Vector3.Distance(_transform.position, target.position) <= LowAI_BT.attackRange*5)
         {
          
             _animator.SetBool("Attack", true);

@@ -26,11 +26,6 @@ public class TaskPatrol : Behavior_Node
     public override Define.Behavior_NodeState Evaluate()
     {
   
-        if (_transform.GetComponent<Monster>().isDie)
-        {
-            state = Define.Behavior_NodeState.FAILURE;
-            return state;
-        }
 
         if (_waiting)
         {
@@ -44,7 +39,7 @@ public class TaskPatrol : Behavior_Node
         }
         else
         {
-            if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.1f)
+            if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance < 0.5f)
             {
                 _waitCounter = 0f;
                 _waiting = true;
@@ -58,7 +53,7 @@ public class TaskPatrol : Behavior_Node
 
     private void GenerateRandomDestination()
     {
-        float radius = 6f; // 랜덤 위치 생성을 위한 반경 설정
+        float radius = 15f; // 랜덤 위치 생성을 위한 반경 설정
         Vector2 randomCircle = Random.insideUnitCircle * radius;
         _randomDestination = new Vector3(randomCircle.x, 0f, randomCircle.y) + _transform.position;
 

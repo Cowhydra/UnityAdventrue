@@ -13,6 +13,7 @@ public class Exp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<MyCharacter>().Exp += _value;
+            Managers.Resource.Destroy(gameObject);
         }
     }
     public void SetValue(int _level,Transform transform)

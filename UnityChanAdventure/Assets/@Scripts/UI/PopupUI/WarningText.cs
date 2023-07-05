@@ -42,7 +42,7 @@ public class WarningText : UI_Popup
     }
     IEnumerator Text_Destory_co()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         Managers.UI.ClosePopupUI();
     }
 

@@ -85,6 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4990fd1674250e74f90c7809dd33f423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &3083465021697271771
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +301,7 @@ GameObject:
   - component: {fileID: 2341675352156129012}
   m_Layer: 0
   m_Name: PlayerSub_Cm
-  m_TagString: AroundTarget
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

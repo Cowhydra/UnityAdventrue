@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class Quest_Content_Text : UI_Scene
 {
-    private int currentmoncount = -1;
     public override void Init()
     {
         base.Init();
@@ -54,14 +53,15 @@ public class Quest_Content_Text : UI_Scene
         {
             return;
         }
-        currentmoncount++;
+        DefeatEnemiesQuest myquest = Managers.Quest.ActiveQuest.Find(s => s.UniqueId == _questid) as DefeatEnemiesQuest;
+       
         GetComponent<TextMeshProUGUI>().text = $"{Managers.Data.MonsterDataDict[monstercode].name}을 잡아라!!\n" +
-            $"{currentmoncount}/{Managers.Data.QuestData[QuestID].Amount}";
-        if(currentmoncount== Managers.Data.QuestData[QuestID].Amount)
+            $"{ myquest.ActualEnemiesDestroyed}/{Managers.Data.QuestData[QuestID].Amount}";
+        if (myquest.ActualEnemiesDestroyed == Managers.Data.QuestData[QuestID].Amount)
         {
             GetComponent<TextMeshProUGUI>().text
                 = $"{Managers.Data.MonsterDataDict[monstercode].name}를 전부 잡았습니다.\n 클릭하여 보상을 획득해 주세요";
-            gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
+            gameObject.transform.GetChild(0).gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
         }
         
     }
@@ -83,7 +83,7 @@ public class Quest_Content_Text : UI_Scene
                 GetComponent<TextMeshProUGUI>().text
                  = $"{Managers.Inven.Items[itemcode].Count}를 모두 모았습니다.\n 클릭하여 보상을 획득해 주세요";
 
-                gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
+                gameObject.transform.GetChild(0).gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
             }
         }
     }
