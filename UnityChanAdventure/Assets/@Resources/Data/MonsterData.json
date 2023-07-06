@@ -68,7 +68,7 @@
       "attackType": "Melee",
       "speed": "4",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "2"
     },
     {
       "moncode": "1006",
@@ -110,7 +110,7 @@
       "attackType": "Melee",
       "speed": "6",
       "fovRange": "12",
-      "attackRange": "2"
+      "attackRange": "3"
     },
     {
       "moncode": "1009",
@@ -124,7 +124,7 @@
       "attackType": "Melee",
       "speed": "4",
       "fovRange": "8",
-      "attackRange": "6"
+      "attackRange": "2"
     },
     {
       "moncode": "1010",
@@ -136,9 +136,9 @@
       "level": "10",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Desert/1010",
       "attackType": "Melee",
-      "speed": "0",
-      "fovRange": "0",
-      "attackRange": "0"
+      "speed": "6",
+      "fovRange": "110",
+      "attackRange": "8"
     },
     {
       "moncode": "1011",
@@ -152,7 +152,7 @@
       "attackType": "RangeAttack",
       "speed": "2",
       "fovRange": "4",
-      "attackRange": "8"
+      "attackRange": "10"
     },
     {
       "moncode": "1012",
@@ -208,7 +208,7 @@
       "attackType": "Melee",
       "speed": "4",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "3"
     },
     {
       "moncode": "1016",
@@ -222,7 +222,7 @@
       "attackType": "Melee",
       "speed": "4",
       "fovRange": "5",
-      "attackRange": "8"
+      "attackRange": "2"
     },
     {
       "moncode": "1017",
@@ -236,7 +236,7 @@
       "attackType": "RangeAttack",
       "speed": "2",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "10"
     },
     {
       "moncode": "1018",
@@ -250,7 +250,7 @@
       "attackType": "Melee",
       "speed": "3",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "2"
     },
     {
       "moncode": "1019",
@@ -264,7 +264,7 @@
       "attackType": "Melee",
       "speed": "1",
       "fovRange": "5",
-      "attackRange": "6"
+      "attackRange": "3"
     },
     {
       "moncode": "1020",
@@ -334,7 +334,7 @@
       "attackType": "RangeAttack",
       "speed": "4",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "7"
     },
     {
       "moncode": "1025",
@@ -348,7 +348,7 @@
       "attackType": "Melee",
       "speed": "3",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "3"
     },
     {
       "moncode": "1026",
@@ -362,7 +362,7 @@
       "attackType": "RangeAttack",
       "speed": "2",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "9"
     },
     {
       "moncode": "1027",
@@ -404,7 +404,7 @@
       "attackType": "Melee",
       "speed": "8",
       "fovRange": "5",
-      "attackRange": "6"
+      "attackRange": "3"
     },
     {
       "moncode": "1030",
@@ -488,7 +488,7 @@
       "attackType": "Melee",
       "speed": "8",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "2"
     },
     {
       "moncode": "1036",
@@ -502,7 +502,7 @@
       "attackType": "Melee",
       "speed": "6",
       "fovRange": "5",
-      "attackRange": "8"
+      "attackRange": "3"
     },
     {
       "moncode": "1037",
@@ -544,7 +544,7 @@
       "attackType": "Melee",
       "speed": "4",
       "fovRange": "6",
-      "attackRange": "8"
+      "attackRange": "4"
     },
     {
       "moncode": "1040",

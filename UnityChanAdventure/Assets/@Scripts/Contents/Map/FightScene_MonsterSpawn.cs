@@ -14,6 +14,7 @@ public class FightScene_MonsterSpawn : MonoBehaviour
         SettingMonster();
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         Managers.UI.ShowSceneUI<GameUI>();
+        StartCoroutine(nameof(MonsterSpawnInit));
     }
     private void SettingMonster()
     {
@@ -66,6 +67,12 @@ public class FightScene_MonsterSpawn : MonoBehaviour
         }
 
 
+    }
+    IEnumerator MonsterSpawnInit()
+    {
+        StartCoroutine(nameof(MonsterSpawn));
+        yield return null;
+        ClearMonster();
     }
 
 

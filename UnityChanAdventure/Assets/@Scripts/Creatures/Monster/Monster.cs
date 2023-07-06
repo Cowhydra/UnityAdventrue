@@ -10,7 +10,30 @@ public class Monster : Creature, IDamage
     private Animator _animator;
     private SkinnedMeshRenderer meshRenderer;
     private Color origihmeshcolor;
-    public int AttackRange { get; set; }
+    private int _attackRange;
+    public int AttackRange
+    {
+        get
+        {
+            return _attackRange;
+        }
+        private set
+        {
+            _attackRange = value;
+        }
+    }
+    private int _movespeed { get; set; }
+    public int MoveSpeed
+    {
+        get
+        {
+            return _movespeed;
+        }
+       private set
+        {
+            _movespeed = value;
+        }
+    }
     public int Hp
     {
         get { return _hp; }
@@ -26,11 +49,23 @@ public class Monster : Creature, IDamage
             Debug.Log("Hp 관련 이벤트");
         }
     }
-    public float MyHpRatio()
+    public int Attack
     {
-        return _hp / _maxhp;
-    } 
-
+        get { return _attack; }
+        private set
+        {
+            _attack = value;
+        }
+    }
+    private int _fovRange;
+    public int FovRange
+    {
+        get { return _fovRange; }
+        private set
+        {
+            _fovRange = value;
+        }
+    }
     private void Awake()
     {
         MyCode = int.Parse(gameObject.name.Substring(0,4));
@@ -39,7 +74,6 @@ public class Monster : Creature, IDamage
         origihmeshcolor=meshRenderer.material.color;    
         Init();
         _animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>(Managers.Data.MonsterDataDict[MyCode].prefabPath+"_anim");
-
     }
     public void OnDamage(int damage)
     {
@@ -59,10 +93,9 @@ public class Monster : Creature, IDamage
         _attack = Managers.Data.MonsterDataDict[MyCode].attack;
         _level = Managers.Data.MonsterDataDict[MyCode].level;
         _attackType = Managers.Data.MonsterDataDict[MyCode].AttackType;
-        if (_attackType == Define.MonsterAttackType.RangeAttack)
-        {
-            AttackRange = UnityEngine.Random.Range(10, Mathf.Max(10 + _level, 22));
-        }
+        _movespeed = Managers.Data.MonsterDataDict[MyCode].speed;
+        _fovRange = Managers.Data.MonsterDataDict[MyCode].fovRange;
+        _attackRange = Managers.Data.MonsterDataDict[MyCode].attackRange;
     }
 
     private void OnEnable()
@@ -94,7 +127,7 @@ public class Monster : Creature, IDamage
             //아이템 생성
             int itemcode=Managers.Data.ItemCodes[UnityEngine.Random.Range(0, Managers.Data.ItemCodes.Count)];
             GameObject dropitem= Managers.Resource.Instantiate("Itemoutside");
-            dropitem.transform.position = gameObject.transform.position;
+            dropitem.transform.position = gameObject.transform.position+Vector3.up;
             dropitem.GetOrAddComponent<Itemoutside>().ItemCode = itemcode;
 
         }
@@ -115,7 +148,22 @@ public class Monster : Creature, IDamage
         yield return new WaitForSeconds(1.0f);
         Managers.Resource.Destroy(gameObject);
     }
-
+    public float MyHpRatio()
+    {
+        return _hp / _maxhp;
+    }
+    public void GoAttack(Transform transform)
+    {
+        if (_attackType == Define.MonsterAttackType.Melee)
+        {
+            transform.GetComponent<IDamage>().OnDamage(Attack);
+        }
+        else
+        {
+            GameObject Projectile = Managers.Resource.Instantiate($"{gameObject.name}_Projectile");
+            Projectile.GetOrAddComponent<MonProjectileController>().SetProjectile(gameObject.transform.position, 10);
+        }
+    }
 
 }
 

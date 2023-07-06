@@ -11,16 +11,13 @@ public class TaskAttack : Behavior_Node
     private Animator _animator;
     private Transform _lastTarget;
     private Creature _enemy;
-    private GameObject Projectile;
+    private Monster Monster;
     private Transform transform;
-    public TaskAttack(Transform transform,GameObject Projectile=null)
+    public TaskAttack(Transform transform, Monster Monster)
     {
         this.transform = transform;
-        _animator =transform.GetComponent<Animator>();   
-        if(Projectile!=null)
-        {
-           this.Projectile= Projectile;
-        }
+        _animator =transform.GetComponent<Animator>();
+        this.Monster = Monster;
     }
 
     public override Define.Behavior_NodeState Evaluate()
@@ -46,17 +43,7 @@ public class TaskAttack : Behavior_Node
             else
             {
                 transform.LookAt(target.position);
-                if (Projectile != null)
-                {
-                    GameObject Pro = Managers.Resource.Instantiate($"{transform.gameObject.name}_Projectile");
-                    //   GameObject Pro= Managers.Resource.PoolInstantiate(Projectile);
-                    Pro.GetOrAddComponent<MonProjectileController>().SetProjectile(transform.position, 10);
-                }
-                else
-                {
-
-                    _enemy.GetComponent<IDamage>().OnDamage(LowAI_BT.attackdamage);
-                }
+                Monster.GoAttack(target);
 
                 _attackCounter = 0f;
             }

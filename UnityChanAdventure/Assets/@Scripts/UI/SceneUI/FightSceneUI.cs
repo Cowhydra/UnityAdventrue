@@ -47,12 +47,13 @@ public class FightSceneUI : UI_Scene
         Bind<GameObject>(typeof(GameObjects));
         Bind<Button>(typeof(Buttons));
         InitText();
-        InitGameObject();
+
         GetButton((int)Buttons.Result_Quit_Button).gameObject
             .BindEvent((PointerEventData data) => Managers.Scene.LoadScene(Define.Scene.TownScene));
         GetObject((int)GameObjects.StartPannel).BindEvent
             ((PointerEventData data) => GoStart());
         Time.timeScale = 0;
+        InitGameObject();
     }
     private void InitText()
     {
@@ -94,13 +95,14 @@ public class FightSceneUI : UI_Scene
         while (_totaltime!=0)
         {
             _totaltime = Mathf.Clamp(_totaltime - Time.deltaTime, 0, 120.0f);
-            GetText((int)Texts.ResultTitle_Text).text = $"{_totaltime/60:00} : {_totaltime%60:00}";
+            GetText((int)Texts.TimeLine_Text).text = $"{_totaltime/60:00} : {_totaltime%60:00}";
             yield return null;
         }
         FindAnyObjectByType<FightScene_MonsterSpawn>().ClearMonster();
         Time.timeScale = 0.5f;
         GetObject((int)GameObjects.TimeLine).SetActive(false);
         GetObject((int)GameObjects.ResultPannel).SetActive(true);
+        GetComponent<Canvas>().sortingOrder = 9999;
         SetResult_Text();
 
     }
