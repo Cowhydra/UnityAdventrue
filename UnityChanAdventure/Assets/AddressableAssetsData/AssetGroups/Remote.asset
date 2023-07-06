@@ -35,72 +35,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - LoadingResource
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9deaa1287de0ba74f8d1d5e29fca1af5
-    m_Address: 1033_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cbf0f3a224f137d4d97dc2ebd3485414
-    m_Address: 1017_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 508a7c941636f3544b51da50f7b4196e
-    m_Address: 1026_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d06689d4c1aab79468954090aab18e0e
-    m_Address: 1006_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 170f3b19aab6e274c8e00516e268bd28
-    m_Address: 1021_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7541c7d09e159634fbc6d3a9806bda7d
-    m_Address: 1013_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bc8c9ccde23c8ce46ab976d8ada3c8f4
-    m_Address: 1001_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8d218a264afc944abe207f43a9a9751
-    m_Address: 1022_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2d225022cd1518f47bcbe2d3cc6102db
-    m_Address: 1031_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f68ee0858b942ee4abdab3909febeab0
-    m_Address: 1011_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 34773925f1facc84da48192dc742dbce
-    m_Address: 1024_Projectile.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - LoadingResource
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01959e243519bf4459cddd221c05d92a
     m_Address: RSkill_1010.prefab
     m_ReadOnly: 0
@@ -169,6 +103,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5290f9794be3ef4ca5e0341010ed609
     m_Address: Player.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LoadingResource
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dae1b2b434f1805478d7faf5ee5877cc
+    m_Address: MonsterDieEffect.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - LoadingResource

@@ -65,4 +65,5 @@ public class Managers : MonoBehaviour
         Event.ClearEventList();
 
     }
+
 }

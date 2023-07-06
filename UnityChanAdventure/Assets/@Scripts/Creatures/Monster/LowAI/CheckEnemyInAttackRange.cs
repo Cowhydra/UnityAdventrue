@@ -28,7 +28,7 @@ public class CheckEnemyInAttackRange : Behavior_Node
         }
 
         Transform target = (Transform)t;
-        if (Vector3.Distance(_transform.position, target.position) <= LowAI_BT.attackRange*5)
+        if (Vector3.Distance(_transform.position, target.position) <= LowAI_BT.attackRange*3)
         {
          
             _animator.SetBool("Attack", true);

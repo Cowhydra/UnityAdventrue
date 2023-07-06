@@ -20,12 +20,13 @@ public class MonProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveDir = (_target.transform.position - gameObject.transform.position).normalized;
         transform.Translate(moveDir * speed * Time.deltaTime);
     }
     public void SetProjectile(Vector3 mypos,int damage=10)
     {
 
-        gameObject.transform.position = mypos;
+        gameObject.transform.position = mypos+Vector3.up*0.58f;
         this.damage = damage;
         moveDir = (_target.transform.position+0.5f*Vector3.up - gameObject.transform.position).normalized;
         StartCoroutine(nameof(DestoryObject_co));

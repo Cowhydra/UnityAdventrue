@@ -13,13 +13,14 @@ public class PlayerAttackArea : MonoBehaviour
 
         if (other.gameObject.layer == (int)Define.LayerMask.Enemy)
         {
-            if(other.gameObject.transform.root.TryGetComponent(out IDamage damage))
+            IDamage idamage = other.gameObject.transform.root.GetComponentInChildren<IDamage>();
+            if (idamage == null)
             {
-                damage.OnDamage(baseAttackdamage);
+                Debug.Log("IDmage 구현X");
             }
             else
             {
-                Debug.Log("IDmage 구현X");
+                idamage.OnDamage(baseAttackdamage);
             }
         }
     }

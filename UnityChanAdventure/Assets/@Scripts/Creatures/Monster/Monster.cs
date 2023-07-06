@@ -74,6 +74,8 @@ public class Monster : Creature, IDamage
         origihmeshcolor=meshRenderer.material.color;    
         Init();
         _animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>(Managers.Data.MonsterDataDict[MyCode].prefabPath+"_anim");
+       
+        StartCoroutine(nameof(isPoolingProjectile));
     }
     public void OnDamage(int damage)
     {
@@ -118,7 +120,8 @@ public class Monster : Creature, IDamage
         Gold.GetComponent<Gold>().SetValue(_level,gameObject.transform);
         GameObject Exp = Managers.Resource.Instantiate("Exp");
         Exp.GetComponent<Exp>().SetValue(_level,gameObject.transform);
-       
+        GameObject dieefrect = Managers.Resource.Instantiate("MonsterDieEffect");
+        dieefrect.GetOrAddComponent<MonsterDieEffect>().SetPosition(transform);
         //퀘스트 관련 몬스터 이벤트
         Managers.Event.MonsterDie?.Invoke(MyCode);
 
@@ -160,10 +163,18 @@ public class Monster : Creature, IDamage
         }
         else
         {
-            GameObject Projectile = Managers.Resource.Instantiate($"{gameObject.name}_Projectile");
+            GameObject Projectile = Managers.Resource.Instantiate($"{Managers.Data.MonsterDataDict[MyCode].prefabPath}_Projectile");
             Projectile.GetOrAddComponent<MonProjectileController>().SetProjectile(gameObject.transform.position, 10);
         }
     }
-
+    //풀링 최적화 위함
+    private IEnumerator isPoolingProjectile()
+    {
+        if (_attackType == Define.MonsterAttackType.Melee) yield break;
+        GameObject Projectile = Managers.Resource.Instantiate($"{Managers.Data.MonsterDataDict[MyCode].prefabPath}_Projectile");
+        Projectile.GetOrAddComponent<MonProjectileController>().SetProjectile(gameObject.transform.position, 10);
+        yield return null;
+        Managers.Resource.Destroy(Projectile);
+    }
 }
 

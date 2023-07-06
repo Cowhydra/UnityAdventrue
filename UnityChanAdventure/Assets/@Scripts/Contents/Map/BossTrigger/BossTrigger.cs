@@ -22,9 +22,16 @@ public class BossTrigger : MonoBehaviour,IListener
     private IEnumerator BossCutScene_co()
     {
         Time.timeScale = 0.5f;
-        GameObject.FindGameObjectWithTag("AroundTarget").SetActive(false);
+        GameObject Main_cm = Camera.main.transform.gameObject;
+        if(Main_cm != null)
+        {
+            Main_cm.SetActive(false);
+        }
         yield return new WaitForSeconds(2.0f);
-        GameObject.FindGameObjectWithTag("AroundTarget").SetActive(true);
+       if(Main_cm != null)
+        {
+            Main_cm.SetActive(true);
+        }
         Time.timeScale = 1f;
         yield return new WaitForSeconds(0.5f);
         switch (Managers.Scene.CurrentScene.SceneType)
