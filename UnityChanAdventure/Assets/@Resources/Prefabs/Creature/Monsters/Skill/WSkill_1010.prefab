@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8013173902344697032}
   - component: {fileID: 6958995398111298123}
   - component: {fileID: 122361846995928716}
+  - component: {fileID: 3886019321329726830}
   m_Layer: 0
   m_Name: WSkill_1010
   m_TagString: Untagged
@@ -4683,6 +4684,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99964c26934c67f44875c73b834ad84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3886019321329726830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400385540704718316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f10c09ef6e87945b42a9a0e8b0e97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0
 --- !u!1 &6031537298003576241
 GameObject:
   m_ObjectHideFlags: 0

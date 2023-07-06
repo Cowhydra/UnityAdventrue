@@ -22,7 +22,7 @@ public class BossTrigger : MonoBehaviour,IListener
     private IEnumerator BossCutScene_co()
     {
         Time.timeScale = 0.5f;
-        GameObject Main_cm = Camera.main.transform.gameObject;
+        GameObject Main_cm = GameObject.Find("PlayerMain_Cm");
         if(Main_cm != null)
         {
             Main_cm.SetActive(false);

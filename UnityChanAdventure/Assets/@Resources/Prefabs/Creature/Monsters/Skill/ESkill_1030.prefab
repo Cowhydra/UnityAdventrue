@@ -4803,7 +4803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042165250026690353}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14311,6 +14311,7 @@ GameObject:
   - component: {fileID: 2674802474929496209}
   - component: {fileID: 3257670753179591591}
   - component: {fileID: 958718480922843643}
+  - component: {fileID: -3267644535694680623}
   m_Layer: 11
   m_Name: ESkill_1030
   m_TagString: Untagged
@@ -14332,7 +14333,7 @@ Transform:
   m_Children:
   - {fileID: 1443771596276097688}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1252699211844427384
 MeshFilter:
@@ -14341,7 +14342,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2822495532898791700}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2674802474929496209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14403,8 +14404,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8262756, y: 54.095615, z: 2.2804065}
-  m_Center: {x: 0, y: 26.547815, z: 0}
+  m_Size: {x: 3, y: 3, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &958718480922843643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14417,6 +14418,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99202e828c43744d9bfa1f4672769ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3267644535694680623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2822495532898791700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f10c09ef6e87945b42a9a0e8b0e97c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsUsing: 0
 --- !u!1 &7100590693812390695
 GameObject:
   m_ObjectHideFlags: 0
@@ -15705,7 +15719,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 3
       minGradient:

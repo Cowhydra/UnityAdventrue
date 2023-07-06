@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,15 +14,15 @@ public class TownScene : BaseScene
     protected override void Init()
     {
         base.Init();
-        SceneType = Define.Scene.TownScene;
+       
     }
 
     public void Inits()
     {
        Debug.Log("여기서 캐릭터가 들어오면 인벤토리 DB업데이트 해줘야함 Fetch!");
-      
-       Managers.UI.ShowSceneUI<ShopUI>();
-       Managers.UI.ShowSceneUI<GameUI>();
+        SceneType = Define.Scene.TownScene;
+        Managers.UI.ShowSceneUI<ShopUI>();
+        Managers.UI.ShowSceneUI<GameUI>();
         if (GameObject.Find("Player") == null)
         {
             Managers.Resource.Instantiate("Player");
@@ -42,6 +43,10 @@ public class TownScene : BaseScene
         StartCoroutine(nameof(SetPlayerPos));
         Managers.Event.KeyInputAction -= AnyKeyInput;
         Managers.Event.KeyInputAction += AnyKeyInput;
+
+        GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
+            .m_Lens.FieldOfView = (int)Define.CameraFov.Default;
+
     }
     private IEnumerator SetPlayerPos()
     {

@@ -250,7 +250,7 @@
       "attackType": "Melee",
       "speed": "3",
       "fovRange": "6",
-      "attackRange": "2"
+      "attackRange": "1"
     },
     {
       "moncode": "1019",
@@ -264,13 +264,13 @@
       "attackType": "Melee",
       "speed": "1",
       "fovRange": "5",
-      "attackRange": "3"
+      "attackRange": "2"
     },
     {
       "moncode": "1020",
       "environment": "Lava",
       "name": "Minotos",
-      "maxhp": "500",
+      "maxhp": "5000",
       "def": "60",
       "attack": "40",
       "level": "20",
@@ -415,7 +415,7 @@
       "attack": "50",
       "level": "30",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Water/1030",
-      "attackType": "All",
+      "attackType": "Melee",
       "speed": "0",
       "fovRange": "0",
       "attackRange": "0"
@@ -555,7 +555,7 @@
       "attack": "200",
       "level": "40",
       "prefabPath": "@Resources/Prefabs/Creature/Monsters/Forest/1040",
-      "attackType": "All",
+      "attackType": "Melee",
       "speed": "0",
       "fovRange": "0",
       "attackRange": "0"

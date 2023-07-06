@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class QSkill_1030 : MonoBehaviour
 {
     enum Direction
@@ -11,60 +11,49 @@ public class QSkill_1030 : MonoBehaviour
         Left,
         Right,
     }
+    private Rigidbody rigid;
     private Direction myDir = Direction.Up;
     private bool EffectOn = false;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out IDamage targetobject))
+        if (other.CompareTag("Player"))
         {
             if (!EffectOn)
             {
-                StartCoroutine(nameof(Attack_co), targetobject);
+                StartCoroutine(nameof(Attack_co), other.TryGetComponent(out IDamage damage));
             }
         }
     }
-    private void Update()
+    private void Awake()
     {
-        transform.localPosition = Vector3.zero;
-        transform.localScale = Vector3.one;
-
+        rigid=GetComponent<Rigidbody>();
+    }
+    private void AddForce()
+    {
+        int randValue = Random.Range(0, 4);
+        myDir = (Direction)randValue;
         switch (myDir)
         {
             case Direction.Up:
-                transform.Translate(5 * Vector3.forward * Time.deltaTime);
+                rigid.AddForce(30 * Vector3.forward);
                 break;
             case Direction.Down:
-                transform.Translate(5 * Vector3.back * Time.deltaTime);
+                rigid.AddForce(30 * Vector3.back);
                 break;
             case Direction.Left:
-                transform.Translate(5 * Vector3.left * Time.deltaTime);
+                rigid.AddForce(30 * Vector3.left);
                 break;
             case Direction.Right:
-                transform.Translate(5 * Vector3.right * Time.deltaTime);
+                rigid.AddForce(30 * Vector3.right);
                 break;
         }
     }
 
     private void OnEnable()
     {
-        int randNum = Random.Range(0, 10);
-        if (randNum % 4 == 0)
-        {
-            myDir = Direction.Up;
-        }
-        else if (randNum % 4 == 1)
-        {
-            myDir = Direction.Down;
-        }
-        else if (randNum % 4 == 2)
-        {
-            myDir = Direction.Left;
-        }
-        else if (randNum % 4 == 3)
-        {
-            myDir = Direction.Right;
-        }
+        gameObject.transform.position = GameObject.FindAnyObjectByType<Monster>().transform.position+Vector3.up*6;
         StartCoroutine(nameof(Attack_Time));
+        StartCoroutine(nameof(AddForceCo));
     }
     private void OnDisable()
     {
@@ -79,10 +68,17 @@ public class QSkill_1030 : MonoBehaviour
     }
     IEnumerator Attack_Time()
     {
-        yield return new WaitForSeconds(2);
-        Managers.Resource.Instantiate($"WSkill_{gameObject.transform.parent.name}", transform);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
         Managers.Resource.Destroy(gameObject);
+    }
+    private IEnumerator AddForceCo()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2.0f);
+            AddForce();
+        }
+
     }
 
 }

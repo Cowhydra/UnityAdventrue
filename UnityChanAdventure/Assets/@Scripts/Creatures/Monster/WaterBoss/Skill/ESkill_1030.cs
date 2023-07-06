@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class ESkill_1030 : MonoBehaviour
 {
+
+    IEnumerator LifeCycle_co()
+    {
+        yield return new WaitForSeconds(8.0f);
+        Managers.Resource.Destroy(gameObject);
+    }
     private void OnEnable()
     {
-        StartCoroutine(nameof(LifeCycle));
+        gameObject.transform.position = GameObject.FindObjectOfType<WaterBoss_BT>().gameObject.transform.position+Vector3.up*25;
+        gameObject.SetRandomPositionSphere(1, 30);
+        StartCoroutine(nameof(LifeCycle_co));
     }
-    private float currentScale=1;
     private void Update()
     {
-        currentScale += Time.deltaTime;
-        transform.localPosition = Vector3.zero;
-        transform.localScale = Vector3.one * currentScale;
+        transform.position = transform.position - 3.5f*Vector3.up*Time.deltaTime;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -21,14 +26,8 @@ public class ESkill_1030 : MonoBehaviour
         {
             targetojbect.OnDamage(100);
         }
+       
     }
-    private IEnumerator LifeCycle()
-    {
-        yield return new WaitForSeconds(15);
-        Managers.Resource.Destroy(gameObject);
-    }
-    private void OnDisable()
-    {
-        StopAllCoroutines();
-    }
+
+
 }

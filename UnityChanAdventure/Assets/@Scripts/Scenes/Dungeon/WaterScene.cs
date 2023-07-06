@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class WaterScene : BaseScene
     public void Inits()
     {
         FindAnyObjectByType<WaterBoss_BT>().enabled = false;
+         SceneType= Define.Scene.WaterScene;
         Managers.UI.ShowSceneUI<GameUI>();
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -21,6 +23,8 @@ public class WaterScene : BaseScene
         StartCoroutine(nameof(SetPlayerPos));
         Managers.Event.KeyInputAction -= AnyKeyInput;
         Managers.Event.KeyInputAction += AnyKeyInput;
+        GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
+       .m_Lens.FieldOfView = (int)Define.CameraFov.WaterScene;
     }
     private void OnDestroy()
     {

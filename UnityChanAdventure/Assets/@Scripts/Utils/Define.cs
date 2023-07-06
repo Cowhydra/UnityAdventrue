@@ -1,6 +1,11 @@
 ﻿public class Define
 {
+    public enum CameraFov
+    {
+        Default=30,
+        WaterScene=65,
 
+    }
    public enum CinemachinePriority
     {
 

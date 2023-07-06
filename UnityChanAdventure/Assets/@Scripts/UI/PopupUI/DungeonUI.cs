@@ -70,7 +70,7 @@ public class DungeonUI : UI_Popup
                 GetText((int)Texts.InfoPannel_ContentsText).text = "물 던전은 위험한 곳\n 출현 몬스터 Lv.21~30";
                 break;
             case Buttons.GoLava_Button:
-                Debug.Log("미구현");
+                Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("준비중 입니다.", Color.red);
                 return;
                 ChoiceScene = Define.Scene.LavaScene;
                 GetText((int)Texts.InfoPannel_TitleText).text = "화산 던전";

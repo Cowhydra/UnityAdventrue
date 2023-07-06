@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     float rotateSpeed = 5.0f;
     private void ApplyRotation()
     {
-        if (Camera.main.transform == null) return;
+        if (Camera.main == null) return;
         Vector3 forwardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
         Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isAttacking) return;
         #region PC 테스트용 임시코드
-        if (Camera.main.transform == null) return;
+        if (Camera.main == null) return;
         Vector3 forwardVec = new Vector3(Camera.main.transform.forward.x, 0f, Camera.main.transform.forward.z).normalized;
         Vector3 rightVec = new Vector3(Camera.main.transform.right.x, 0f, Camera.main.transform.right.z).normalized;
 

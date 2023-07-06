@@ -39,7 +39,8 @@ public class Monster : Creature, IDamage
         get { return _hp; }
         set
         {
-            _hp = value;
+             _hp = value;
+            Debug.Log(_hp);
             if (_hp < 0)
             {
                 Die();
@@ -73,13 +74,16 @@ public class Monster : Creature, IDamage
         meshRenderer = GetComponentInChildren<SkinnedMeshRenderer>();
         origihmeshcolor=meshRenderer.material.color;    
         Init();
+ 
         _animator.runtimeAnimatorController = Managers.Resource.Load<RuntimeAnimatorController>(Managers.Data.MonsterDataDict[MyCode].prefabPath+"_anim");
        
         StartCoroutine(nameof(isPoolingProjectile));
     }
     public void OnDamage(int damage)
     {
+        if (isDie) return;
         Hp -= Math.Max(1, damage - _level - _def);
+         gameObject.ShowDamageUI(damage - _level - _def);
         _animator.SetTrigger("Damage");
      
     }
@@ -89,7 +93,7 @@ public class Monster : Creature, IDamage
     }
     private void Init()
     {
-        _hp = Managers.Data.MonsterDataDict[MyCode].maxhp;
+        _maxhp = Managers.Data.MonsterDataDict[MyCode].maxhp;
         _def = Managers.Data.MonsterDataDict[MyCode].def;
         _magicdef = (int)UnityEngine.Random.Range(_def - 10, _def + 10);
         _attack = Managers.Data.MonsterDataDict[MyCode].attack;
@@ -111,6 +115,10 @@ public class Monster : Creature, IDamage
         }
 
 
+    }
+    private void Update()
+    {
+        Debug.Log(_hp);
     }
     public override void Die()
     {
@@ -153,7 +161,7 @@ public class Monster : Creature, IDamage
     }
     public float MyHpRatio()
     {
-        return _hp / _maxhp;
+        return _hp / _maxhp;    
     }
     public void GoAttack(Transform transform)
     {

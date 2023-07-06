@@ -44,7 +44,7 @@ public class PlayerStatus_Canvas : UI_Scene,IListener
         GetImage((int)Images.PlayerMp_Fill).fillAmount = (float)character.Mana / character.MaxMana;
         GetText((int)Texts.PlayerHp_Text).text = $"{character.Hp}/{character.MaxHp}";
         GetText((int)Texts.PlayerMp_Text).text = $"{character.Mana}/{character.MaxMana}";
-        GetImage((int)Images.PlayerExp_Fill).fillAmount = character.Exp / character.RequireExp;
+        GetImage((int)Images.PlayerExp_Fill).fillAmount = (float)character.Exp / character.RequireExp;
         GetText((int)Texts.PlayerInfo_Text).text = $"Lv.{character.Level}";
     }
     private void Start()

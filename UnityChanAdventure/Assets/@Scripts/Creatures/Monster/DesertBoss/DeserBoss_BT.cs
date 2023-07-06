@@ -23,11 +23,11 @@ public class DeserBoss_BT : Behavior_Tree
 
     protected override void Start()
     {
-        base.Start();
+       
         shortattackRange = _shortattackRange;
         longAttackRange=_longAttackRange;
 
-
+        base.Start();
     }
 
     protected override Behavior_Node SetupTree()

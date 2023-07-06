@@ -26,9 +26,6 @@ public class WaterBoss_BT : Behavior_Tree
     protected override void Start()
     {
         base.Start();
-
-
-
     }
 
     protected override Behavior_Node SetupTree()
@@ -39,25 +36,25 @@ public class WaterBoss_BT : Behavior_Tree
             new Behavior_Sequence(new List<Behavior_Node>
             {
                new CheckMyHp(transform,Define.BossHp.Low),
-             
+               new LowHpAttack(transform)
             }),
 
             new Behavior_Sequence(new List<Behavior_Node>
             {
                new CheckMyHp(transform,Define.BossHp.Middle),
-
+               new MiddleHpAttack(transform)
             }),
             new Behavior_Sequence(new List<Behavior_Node>
             {
                new CheckMyHp(transform,Define.BossHp.High),
-
-
+              // new HighHpAttack(transform)
+               new LowHpAttack(transform)
             }),
 
              new FindTarget(transform),
 
 
-        });
+        }); ;
 
         return root;
     }

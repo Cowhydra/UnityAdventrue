@@ -23,6 +23,10 @@ public class PlayerAttackArea : MonoBehaviour
                 idamage.OnDamage(baseAttackdamage);
             }
         }
+        else if (other.gameObject.layer == (int)Define.LayerMask.DestoryableEnv)
+        {
+            Managers.Resource.Destroy(gameObject);
+        }
     }
     private void OnEnable()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestMap : MonoBehaviour
+public class TestMap : BaseScene
 {
     void Start()
     {
@@ -18,9 +18,14 @@ public class TestMap : MonoBehaviour
                 Managers.Data.Init();
                 Managers.EQUIP.Init();
                 Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
-
+                Managers.Resource.Instantiate($"{Managers.Data.MonsterDataDict[1030].prefabPath}");
             }
 
         });
+    }
+
+    public override void Clear()
+    {
+       
     }
 }
