@@ -55,6 +55,7 @@ public class MyCharacter : Creature, IDamage, IListener
                 _exp -= RequireExp;
 
                 Debug.Log("캐릭터 경험치를 획득하게 되면 DB를 갱신해야 합니다.");
+                Managers.Resource.Instantiate("PlayerLevelUp");
             }
 
         }

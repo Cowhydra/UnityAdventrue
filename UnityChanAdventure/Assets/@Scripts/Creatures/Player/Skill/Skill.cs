@@ -8,7 +8,7 @@ public abstract class Skill
     // QWER에 각각 번호를 매핑해두고 , 번호를 누르면 ExcuteSKill할 예정
     //skillId 관련되어 Data를 정리해야 하지만.. 계속해왔던거라 이번엔 쉬겠습니다.
 
-    public virtual void ExcuteSkill()
+    public virtual void ExcuteSkill(Transform Owner)
     {
         if (SkillCode == 0) return;
         Skill skill = null;

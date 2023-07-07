@@ -41,6 +41,7 @@ public class GameUI : UI_Scene,IListener
         DecomposeButton,
         Dungeon_Button,
         Quit_Button,
+        SkillBook_Button,
 
     }
 
@@ -129,6 +130,8 @@ public class GameUI : UI_Scene,IListener
     {
         GetButton((int)Buttons.Inventory_Button).gameObject
             .BindEvent((PointerEventData data) => ShowOnInven());
+        GetButton((int)Buttons.SkillBook_Button).gameObject
+        .BindEvent((PointerEventData data) =>Managers.UI.ShowSceneUI<SkillBook_UI>());
         GetButton((int)Buttons.EquipButton).gameObject
             .BindEvent((PointerEventData data) => EquipTry());
         GetButton((int)Buttons.UseButton).gameObject

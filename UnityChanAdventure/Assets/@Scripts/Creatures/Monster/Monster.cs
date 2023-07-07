@@ -11,6 +11,11 @@ public class Monster : Creature, IDamage
     private SkinnedMeshRenderer meshRenderer;
     private Color origihmeshcolor;
     private int _attackRange;
+    public int MaxHp
+    {
+        get { return _maxhp; }
+        set { _maxhp = value; }
+    }
     public int AttackRange
     {
         get
@@ -115,10 +120,6 @@ public class Monster : Creature, IDamage
         }
 
 
-    }
-    private void Update()
-    {
-        Debug.Log(_hp);
     }
     public override void Die()
     {

@@ -7,16 +7,17 @@ public class Storm : Skill
     protected override int SkillCode => 300001;
     [SerializeField]
     private int count = 6;
-    
+
     //3이라고 했지만 추후 데이터를 이용해서 멀티 개수 생성이면 몇개 생성할지 설정 가능 
-    public override void ExcuteSkill()
+    public override void ExcuteSkill(Transform Owner)
     {
-        base.ExcuteSkill();
+        base.ExcuteSkill(Owner);
+
         for (int i = 0; i < count; i++)
         {
             GameObject go = Managers.Resource.Instantiate($"{Managers.Data.SkillDataDict[SkillCode].prefabpath}");
             Storm_Component strom= go.GetOrAddComponent<Storm_Component>();
-
+            strom.Owner = Owner;
             float angle = 360 / count;
 
             float x = Mathf.Cos(angle*i * Mathf.PI / 180.0f);

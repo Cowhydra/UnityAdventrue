@@ -38,6 +38,7 @@
         JoyStick=1,
         ShopUI=10,
         InvenItem=20,
+        SKillBook=25,
         QuestInfo=500,
         DialogSystem=100,
 

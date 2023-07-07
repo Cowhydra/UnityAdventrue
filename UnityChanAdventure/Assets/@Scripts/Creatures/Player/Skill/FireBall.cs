@@ -9,13 +9,13 @@ public class FireBall : Skill
     protected override int SkillCode => 300002;
 
     //3이라고 했지만 추후 데이터를 이용해서 멀티 개수 생성이면 몇개 생성할지 설정 가능 
-    public override void ExcuteSkill()
+    public override void ExcuteSkill(Transform Owner)
     {
-        base.ExcuteSkill();
-        for (int i = 0; i < 10; i++)
+        base.ExcuteSkill(Owner);
+        for (int i = 0; i < 5; i++)
         {  
           GameObject go =Managers.Resource.Instantiate($"{Managers.Data.SkillDataDict[SkillCode].prefabpath}");
-            go.GetOrAddComponent<FireBall_Component>();
+            go.GetOrAddComponent<FireBall_Component>().Owner=Owner;
             
         }
     }

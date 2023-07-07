@@ -281,7 +281,8 @@ namespace Data
         public int skillDamage;
         public string skillInfo;
         public string prefabpath;
-        public string iconpath; 
+        public string iconpath;
+        public int cooltime;
 
     }
     [Serializable]

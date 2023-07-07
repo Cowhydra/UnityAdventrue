@@ -55,7 +55,7 @@ public class SkillButton : MonoBehaviour
         if(skilltype== ButtonSKillType)
         {
             if (ButtonSkillcode == 0) return;
-            Managers.SKill.ExcuteSKill(_btnskillcode);
+            Managers.SKill.ExcuteSKill(_btnskillcode,GameObject.FindAnyObjectByType<PlayerController>().transform);
         }
         else
         {
