@@ -280,15 +280,18 @@ namespace Data
         public string skillName;
         public int skillDamage;
         public string skillInfo;
+        public string prefabpath;
+        public string iconpath; 
+
     }
     [Serializable]
     public class SKillDataLoader : ILoader<int, SkillData>
     {
-        public List<SkillData> Skills = new List<SkillData>();
+        public List<SkillData> SkillData = new List<SkillData>();
         public Dictionary<int, SkillData> MakeDict()
         {
             Dictionary<int, SkillData> dict = new Dictionary<int, SkillData>();
-            foreach (SkillData skill in Skills)
+            foreach (SkillData skill in SkillData)
             {
                 dict.Add(skill.skillcode, skill);
             }

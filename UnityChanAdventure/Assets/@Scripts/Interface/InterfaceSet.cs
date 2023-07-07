@@ -12,5 +12,4 @@ public interface ISkill
 {
     
      void Excute();
-     int skillcode { get; }
 }

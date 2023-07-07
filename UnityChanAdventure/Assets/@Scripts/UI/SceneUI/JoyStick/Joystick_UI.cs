@@ -131,7 +131,7 @@ public class Joystick_UI : UI_Scene,IListener
         GetButton((int)Buttons.Sprint_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Sprint));
         GetButton((int)Buttons.Attack_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Attack));
         GetButton((int)Buttons.Auto_Button).gameObject.BindEvent((PointerEventData data) =>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Auto));
-        GetButton((int)Buttons.SkillQ_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.QSKill));
+        GetButton((int)Buttons.SkillQ_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.QSkill));
         GetButton((int)Buttons.SkillW_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.WSkill));
         GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.ESkill));
         GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => Managers.Event.SkillInputAction?.Invoke(Define.SkillType.RSkill));

@@ -15,6 +15,8 @@ public class Inventory_EQUIP_Item : MonoBehaviour,IListener
     private int mycode;
     private void Start()
     {
+      
+        SetMyEquipType();
         Managers.Event.AddListener(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
     }
 
@@ -27,7 +29,33 @@ public class Inventory_EQUIP_Item : MonoBehaviour,IListener
             EquipRefrshUI(Managers.Data.ItemDataDict[mycode].itemType);
         }
     }
-
+    private void SetMyEquipType()
+    {
+        if (gameObject.name.Contains("Weapon"))
+        {
+            MyEquipType = Define.ItemType.Weapon;
+        }
+        else if (gameObject.name.Contains("Boot"))
+        {
+            MyEquipType = Define.ItemType.Boot;
+        }
+        else if (gameObject.name.Contains("Cloth"))
+        {
+            MyEquipType = Define.ItemType.Cloth;
+        }
+        else if (gameObject.name.Contains("Ring"))
+        {
+            MyEquipType = Define.ItemType.Ring;
+        }
+        else if (gameObject.name.Contains("Earring"))
+        {
+            MyEquipType = Define.ItemType.Earring;
+        }
+        else if (gameObject.name.Contains("Hat"))
+        {
+            MyEquipType = Define.ItemType.Hat;
+        }
+    }
     private void EquipRefrshUI(Define.ItemType EventOfEquipType)
     {
         if(MyEquipType != EventOfEquipType)

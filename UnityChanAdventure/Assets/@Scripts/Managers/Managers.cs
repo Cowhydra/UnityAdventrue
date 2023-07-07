@@ -17,6 +17,7 @@ public class Managers : MonoBehaviour
     Inventory _inven = new Inventory();
     Equipment _equip = new Equipment();
     QuestManager _quest=new QuestManager();
+    SkillManager _skill=new SkillManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
@@ -30,7 +31,7 @@ public class Managers : MonoBehaviour
     public static Inventory Inven { get { return Instance._inven; } }
     public static Equipment EQUIP { get { return Instance._equip; } }
     public static QuestManager Quest { get { return Instance._quest; } }
-
+    public static SkillManager SKill { get { return Instance._skill; } }
     void Start()
     {
         Init();

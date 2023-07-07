@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     private CharacterController _characterController;
     private Vector3 _direction;
 
@@ -28,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private float _velocity;
 
     [SerializeField] private float jumpPower;
-    private bool isAttacking;
+    public bool isAttacking;
 
     private Animator _animator;
  

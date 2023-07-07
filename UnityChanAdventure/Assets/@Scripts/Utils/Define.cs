@@ -157,7 +157,7 @@
     public enum SkillType
     {
         None,
-        QSKill,
+        QSkill,
         WSkill,
         ESkill,
         RSkill,

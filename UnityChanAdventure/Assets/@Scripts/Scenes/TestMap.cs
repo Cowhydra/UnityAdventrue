@@ -18,7 +18,7 @@ public class TestMap : BaseScene
                 Managers.Data.Init();
                 Managers.EQUIP.Init();
                 Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
-                Managers.Resource.Instantiate($"{Managers.Data.MonsterDataDict[1030].prefabPath}");
+               // Managers.Resource.Instantiate($"{Managers.Data.MonsterDataDict[1030].prefabPath}");
             }
 
         });
