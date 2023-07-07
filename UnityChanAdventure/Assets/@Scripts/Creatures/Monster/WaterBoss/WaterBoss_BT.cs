@@ -47,8 +47,8 @@ public class WaterBoss_BT : Behavior_Tree
             new Behavior_Sequence(new List<Behavior_Node>
             {
                new CheckMyHp(transform,Define.BossHp.High),
-              // new HighHpAttack(transform)
-               new LowHpAttack(transform)
+                new HighHpAttack(transform)
+              
             }),
 
              new FindTarget(transform),

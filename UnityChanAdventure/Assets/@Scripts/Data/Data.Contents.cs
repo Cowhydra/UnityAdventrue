@@ -274,7 +274,7 @@ namespace Data
 
     #region Skills
     [Serializable]
-    public class Skill
+    public class SkillData
     {
         public int skillcode;
         public string skillName;
@@ -282,13 +282,13 @@ namespace Data
         public string skillInfo;
     }
     [Serializable]
-    public class SKillDataLoader : ILoader<int, Skill>
+    public class SKillDataLoader : ILoader<int, SkillData>
     {
-        public List<Skill> Skills = new List<Skill>();
-        public Dictionary<int, Skill> MakeDict()
+        public List<SkillData> Skills = new List<SkillData>();
+        public Dictionary<int, SkillData> MakeDict()
         {
-            Dictionary<int, Skill> dict = new Dictionary<int, Skill>();
-            foreach (Skill skill in Skills)
+            Dictionary<int, SkillData> dict = new Dictionary<int, SkillData>();
+            foreach (SkillData skill in Skills)
             {
                 dict.Add(skill.skillcode, skill);
             }

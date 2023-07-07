@@ -12,7 +12,8 @@ public class RSkill_1030 : MonoBehaviour
     {
         Alert = gameObject.transform.GetChild(0);
         RealElectric = gameObject.transform.GetChild(1);
-        gameObject.transform.position= GameObject.FindGameObjectWithTag("Player").SetRandomPositionSphere(1, 15);
+        gameObject.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        gameObject.SetRandomPositionSphere(1, 15);
     }
 
     private void OnEnable()

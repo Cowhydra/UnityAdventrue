@@ -25,14 +25,15 @@ public class DataManager
     public List<int> ItemCodes { get; private set; } = new List<int>();
     
     
-    //public Dictionary<int, Data.Skill> SkillDataDict { get; private set; } = new Dictionary<int, Data.Skill>();
+    public Dictionary<int, Data.SkillData> SkillDataDict { get; private set; } = new Dictionary<int, Data.SkillData>();
     public void Init()
     {
         ItemDataDict = LoadJson<Data.ItemLoader, int, Data.ItemData>("ItemData").MakeDict();
         CharacterDataDict = LoadJson<Data.CharacterLoader, int, Data.CharacterData>("CharacterData").MakeDict();
         MonsterDataDict = LoadJson<Data.MonsterDataLoader, int, Data.MonsterData>("MonsterData").MakeDict();
         QuestData = LoadJson<Data.QuestDataLoader, int, Data.QuestData>("QuestData").MakeDict();
-        foreach(var code in ItemDataDict.Keys)
+        SkillDataDict = LoadJson<Data.SKillDataLoader, int, Data.SkillData>("SkillData").MakeDict();
+        foreach (var code in ItemDataDict.Keys)
         {
             ItemCodes.Add(code);
         }

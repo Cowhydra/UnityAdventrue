@@ -5,7 +5,7 @@ using BehaviorTree;
 public class LowHpAttack : Behavior_Node
 {
     //지금은 하드 코딩 되어 있지만 .. 만약 추후에  좀 더 체계적으로 한다면 DataManager에서 가져와야함 동일하게
-    private float _attackTime = 3f;
+    private float _attackTime = 4f;
     private float _attackCounter = 0f;
     private float _attackCounter2 = 0f;
     private Animator _animator;
@@ -42,11 +42,9 @@ public class LowHpAttack : Behavior_Node
             }
             else
             {
-
-                transform.LookAt(target.position);
-                for (int i = 0; i < 5; i++)
+                for (int i = 0; i < 8; i++)
                 {
-                    GameObject RSkill = Managers.Resource.Instantiate($"RSKill_{transform.gameObject.name}", transform);
+                    GameObject RSkill = Managers.Resource.Instantiate($"RSKill_{transform.gameObject.name}");
                     RSkill.GetOrAddComponent<RSkill_1030>();
  
                 }
@@ -66,15 +64,14 @@ public class LowHpAttack : Behavior_Node
             else
             {
 
-                transform.LookAt(target.position);
-                for (int i = 0; i < 15; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    GameObject TSKill = Managers.Resource.Instantiate($"TSKill_{transform.gameObject.name}", transform);
+                    GameObject TSKill = Managers.Resource.Instantiate($"TSkill_{transform.gameObject.name}");
                     TSKill.GetOrAddComponent<TSkill_1030>();
                 }
 
             }
-            _attackCounter = 0f;
+            _attackCounter2 = 0f;
         }
         state = Define.Behavior_NodeState.RUNNING;
         return state;
