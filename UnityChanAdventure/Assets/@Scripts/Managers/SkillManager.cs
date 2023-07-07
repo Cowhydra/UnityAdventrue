@@ -41,9 +41,9 @@ public class SKillFactory
         switch (skillid)
         {
             case 300001:
-                return new FireBall();
-            case 300002:
                 return new Storm();
+            case 300002:
+                return new FireBall();
             case 300003:
                 return new Meteo();
             case 300004:

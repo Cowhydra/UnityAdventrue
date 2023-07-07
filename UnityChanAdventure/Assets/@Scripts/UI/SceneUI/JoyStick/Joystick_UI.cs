@@ -135,8 +135,33 @@ public class Joystick_UI : UI_Scene,IListener
         GetButton((int)Buttons.SkillW_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.WSkill));
         GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.ESkill));
         GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => Managers.Event.SkillInputAction?.Invoke(Define.SkillType.RSkill));
-    }
 
+
+        GetButton((int)Buttons.SkillQ_Button).gameObject.BindEvent((PointerEventData data) => OnDropEvent_SKill(data, Define.SkillType.QSkill), Define.UIEvent.OnDrop);
+        GetButton((int)Buttons.SkillW_Button).gameObject.BindEvent((PointerEventData data) =>OnDropEvent_SKill(data, Define.SkillType.WSkill), Define.UIEvent.OnDrop);
+        GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data) =>OnDropEvent_SKill(data, Define.SkillType.ESkill), Define.UIEvent.OnDrop);
+        GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => OnDropEvent_SKill(data, Define.SkillType.RSkill), Define.UIEvent.OnDrop);
+    }
+    private void OnDropEvent_SKill(PointerEventData data,Define.SkillType skilltype)
+    {
+        if (data.pointerDrag == null) return;
+        switch (skilltype)
+        {
+            case Define.SkillType.QSkill:
+                GetButton((int)Buttons.SkillQ_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                break;
+            case Define.SkillType.WSkill:
+                GetButton((int)Buttons.SkillW_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                break;
+            case Define.SkillType.ESkill:
+                GetButton((int)Buttons.SkillE_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                break;
+            case Define.SkillType.RSkill:
+                GetButton((int)Buttons.SkillR_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                break;
+        }
+
+    }
     private void OnDragEvent_JoyStick(PointerEventData data)
     {
      

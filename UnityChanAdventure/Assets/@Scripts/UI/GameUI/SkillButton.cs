@@ -91,10 +91,10 @@ public class SkillButton : MonoBehaviour
             }
         }
         SkillButton[] skillButtons = GameObject.FindObjectsOfType<SkillButton>();
-        SkillButton targetbtn = skillButtons.FirstOrDefault(s => s._btnskillcode == this._btnskillcode && s.ButtonSKillType != this.ButtonSKillType);
+        SkillButton targetbtn = skillButtons.FirstOrDefault(s => s.ButtonSkillcode == this._btnskillcode && s.ButtonSKillType != this.ButtonSKillType&&s.ButtonSkillcode!=0);
         if(targetbtn != null)
         {
-            targetbtn._btnskillcode = 0;
+            targetbtn.ButtonSkillcode = 0;
         }
     }
 
