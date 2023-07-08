@@ -14,6 +14,7 @@ public class DesertScene : BaseScene
         SceneType = Define.Scene.DesertScene;
         GameObject.FindAnyObjectByType<DeserBoss_BT>().enabled = false;
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        Managers.UI.ShowSceneUI<Joystick_UI>();
         Managers.UI.ShowSceneUI<GameUI>();
         
         //플레이어 버그 수정용....

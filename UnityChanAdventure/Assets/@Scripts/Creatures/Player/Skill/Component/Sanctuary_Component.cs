@@ -61,7 +61,7 @@ public class Sanctuary_Component : MonoBehaviour
     {
         if (isinit)
         {
-            gameObject.transform.position = Owner.transform.position;
+            gameObject.transform.position = Owner.transform.position+0.5f*Vector3.up;
         }
 
     }

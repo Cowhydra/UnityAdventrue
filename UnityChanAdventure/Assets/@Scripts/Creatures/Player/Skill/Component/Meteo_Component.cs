@@ -18,6 +18,11 @@ public class Meteo_Component : MonoBehaviour
     private float movespeed = 5.0f;
     GameObject Target;
     private int EnemyLayer;
+    private IEnumerator LifeCycle_co()
+    {
+        yield return new WaitForSeconds(10.0f);
+        Managers.Resource.Destroy(gameObject);
+    }
     // Start is called before the first frame update
     void StartMeteo()
     {
@@ -59,7 +64,7 @@ public class Meteo_Component : MonoBehaviour
         }
         gameObject.transform.position = Target.transform.position + Vector3.up * 18;
 
-
+        StartCoroutine(nameof(LifeCycle_co));
     }
     private void Update()
     {

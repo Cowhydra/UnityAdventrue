@@ -7,7 +7,8 @@
       "skillInfo": "강력한 회오리 바람을 3개 발사한다.",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300001",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300001",
-      "cooltime" : 6
+      "cooltime": 6,
+      "animname": "SkillStome"
     },
     {
       "skillcode": 300002,
@@ -16,7 +17,8 @@
       "skillInfo": "내 주변을 떠다니며, 적에게 명중할 경우 피해를 입힌다.",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300002",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300002",
-      "cooltime": 8
+      "cooltime": 8,
+      "animname": "SkillFireBall"
     },
     {
       "skillcode": 300003,
@@ -25,7 +27,8 @@
       "skillInfo": "강력한 운석을 가장 가까운 적 위에 떨어뜨린다.",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300003",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300003",
-      "cooltime": 10
+      "cooltime": 10,
+      "animname": "SkillMeteo"
     },
     {
       "skillcode": 300004,
@@ -34,7 +37,8 @@
       "skillInfo": "내 체력의 50%를 즉시 회복한다.",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300004",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300004",
-      "cooltime": 6
+      "cooltime": 6,
+      "animname": "SkillHeal"
     },
     {
       "skillcode": 300005,
@@ -43,7 +47,8 @@
       "skillInfo": "내 방어력을 일시적으로 상승 및 초당 2% 체력을 회복하는 지역을 만든다.",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300005",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300005",
-      "cooltime": 15
+      "cooltime": 15,
+      "animname": "SkillSanctuary"
     },
     {
       "skillcode": 300006,
@@ -52,7 +57,8 @@
       "skillInfo": "얼음이 가득한 지역을 만들어 적을 공격한다",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300006",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300006",
-      "cooltime": 25
+      "cooltime": 25,
+      "animname": "SkillIceBlast"
     },
     {
       "skillcode": 300007,
@@ -61,7 +67,8 @@
       "skillInfo": "강력한 전기 공격을 실행한다.",
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300007",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300007",
-      "cooltime": 20
+      "cooltime": 20,
+      "animname": "SkillEletric"
     }
   ]
 }

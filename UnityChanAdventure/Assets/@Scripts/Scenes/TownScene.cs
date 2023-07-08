@@ -23,12 +23,14 @@ public class TownScene : BaseScene
         SceneType = Define.Scene.TownScene;
         Managers.UI.ShowSceneUI<ShopUI>();
         Managers.UI.ShowSceneUI<GameUI>();
+       
         if (GameObject.Find("Player") == null)
         {
             Managers.Resource.Instantiate("Player");
         }
 
        Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        Managers.UI.ShowSceneUI<Joystick_UI>();
         if (Managers.Game.Gold > 0)
         {
         }

@@ -9,6 +9,8 @@ public class FightScene : BaseScene
     {
         Managers.UI.ShowSceneUI<FightSceneUI>();
         SceneType = Define.Scene.FightScene;
+        Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        Managers.UI.ShowSceneUI<Joystick_UI>();
 
         StartCoroutine(nameof(SetPlayerPos));
         Managers.Event.KeyInputAction -= AnyKeyInput;

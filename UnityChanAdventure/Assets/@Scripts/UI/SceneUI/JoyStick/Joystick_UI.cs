@@ -24,6 +24,7 @@ public class Joystick_UI : UI_Scene,IListener
     [SerializeField]
     private GameObject _AroundTarget;
     [SerializeField]  private float lookRotateSpeed = 0.1f;
+    #region UI Bind
     enum GameObjects
     {
         Move_Handle,
@@ -43,6 +44,7 @@ public class Joystick_UI : UI_Scene,IListener
         SkillR_Button,
 
     }
+    #endregion
     private void Start()
     {
         Init();
@@ -131,10 +133,10 @@ public class Joystick_UI : UI_Scene,IListener
         GetButton((int)Buttons.Sprint_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Sprint));
         GetButton((int)Buttons.Attack_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Attack));
         GetButton((int)Buttons.Auto_Button).gameObject.BindEvent((PointerEventData data) =>Managers.Event.KeyInputAction?.Invoke(Define.KeyInput.Auto));
-        GetButton((int)Buttons.SkillQ_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.QSkill));
-        GetButton((int)Buttons.SkillW_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.WSkill));
-        GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data)=>Managers.Event.SkillInputAction?.Invoke(Define.SkillType.ESkill));
-        GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => Managers.Event.SkillInputAction?.Invoke(Define.SkillType.RSkill));
+        GetButton((int)Buttons.SkillQ_Button).gameObject.BindEvent((PointerEventData data)=>OnSKillEvent(Define.SkillType.QSkill));
+        GetButton((int)Buttons.SkillW_Button).gameObject.BindEvent((PointerEventData data)=>OnSKillEvent(Define.SkillType.WSkill));
+        GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data)=> OnSKillEvent(Define.SkillType.ESkill));
+        GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => OnSKillEvent(Define.SkillType.RSkill));
 
 
         GetButton((int)Buttons.SkillQ_Button).gameObject.BindEvent((PointerEventData data) => OnDropEvent_SKill(data, Define.SkillType.QSkill), Define.UIEvent.OnDrop);
@@ -142,23 +144,48 @@ public class Joystick_UI : UI_Scene,IListener
         GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data) =>OnDropEvent_SKill(data, Define.SkillType.ESkill), Define.UIEvent.OnDrop);
         GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => OnDropEvent_SKill(data, Define.SkillType.RSkill), Define.UIEvent.OnDrop);
     }
-    private void OnDropEvent_SKill(PointerEventData data,Define.SkillType skilltype)
+    private void OnSKillEvent(Define.SkillType skilltype)
     {
-        if (data.pointerDrag == null) return;
         switch (skilltype)
         {
             case Define.SkillType.QSkill:
-                GetButton((int)Buttons.SkillQ_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+
+                Managers.Event.SkillInputAction?.Invoke(Define.SkillType.QSkill);
                 break;
             case Define.SkillType.WSkill:
-                GetButton((int)Buttons.SkillW_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                Managers.Event.SkillInputAction?.Invoke(Define.SkillType.WSkill);
                 break;
             case Define.SkillType.ESkill:
-                GetButton((int)Buttons.SkillE_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                Managers.Event.SkillInputAction?.Invoke(Define.SkillType.ESkill);
                 break;
             case Define.SkillType.RSkill:
-                GetButton((int)Buttons.SkillR_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = data.pointerDrag.GetComponent<SkillBook_Skill>().SKillCode;
+                Managers.Event.SkillInputAction?.Invoke(Define.SkillType.RSkill);
                 break;
+        }
+    }
+
+
+    private void OnDropEvent_SKill(PointerEventData data,Define.SkillType skilltype)
+    {
+        if (data.pointerDrag == null) return;
+        if(data.pointerDrag.TryGetComponent(out SkillBook_Skill skill))
+        {
+            switch (skilltype)
+            {
+                case Define.SkillType.QSkill:
+                    GetButton((int)Buttons.SkillQ_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = skill.SKillCode;
+                    break;                                                                                         
+                case Define.SkillType.WSkill:                                                                      
+                    GetButton((int)Buttons.SkillW_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = skill.SKillCode;
+                    break;                                                                                         
+                case Define.SkillType.ESkill:                                                                      
+                    GetButton((int)Buttons.SkillE_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = skill.SKillCode;
+                    break;                                                                                        
+                case Define.SkillType.RSkill:                                                                     
+                    GetButton((int)Buttons.SkillR_Button).gameObject.GetComponent<SkillButton>().ButtonSkillcode = skill.SKillCode;
+                    break;
+            }
+
         }
 
     }

@@ -30,8 +30,8 @@ public class PlayerController : MonoBehaviour
     public bool isAttacking;
 
     private Animator _animator;
- 
-  
+
+    private int _currentSkill;
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
@@ -48,6 +48,8 @@ public class PlayerController : MonoBehaviour
         Managers.Event.MoveInputAction += SetMoveDir;
         Managers.Event.KeyInputAction -= KeyInputExcute;
         Managers.Event.KeyInputAction += KeyInputExcute;
+        Managers.Event.SkillAction -= OnSkill;
+        Managers.Event.SkillAction += OnSkill;
         #endregion
         DontDestroyOnLoad(gameObject.transform.parent);
 
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
     {
         Managers.Event.KeyInputAction -= KeyInputExcute;
         Managers.Event.MoveInputAction -= SetMoveDir;
+        Managers.Event.SkillAction -= OnSkill;
     }
 
     private void Update()
@@ -186,6 +189,27 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
 
     }
+    private void OnSkillAnimationEvent()
+    {
+        if (_currentSkill == 0) return;
+        Managers.SKill.ExcuteSKill(_currentSkill, gameObject.transform);
+        isAttacking = false;
+        _animator.SetBool($"{Managers.Data.SkillDataDict[_currentSkill].animname}", false);
+    }
+    //프로젝트가 작아서 switch 문 쓰지만..추후에는 애니메이션 코드들도 전부 Data로 저장해둬야 할듯
+    private void OnSkill(int skillcode)
+    {
+        if (isAttacking) return;
+        if(skillcode== 0) return;
+        isAttacking = true;
+        _currentSkill = skillcode;
+        _animator.SetTrigger("Skill");
+        GameObject SkillReadyEffect = Managers.Resource.Instantiate("PlayerSkillUse");
+        SkillReadyEffect.transform.position = gameObject.transform.position;
+        _animator.SetBool($"{ Managers.Data.SkillDataDict[skillcode].animname}", true); 
+    }
+
+
 
     private bool IsGrounded() => _characterController.isGrounded;
 }

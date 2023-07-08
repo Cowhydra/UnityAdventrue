@@ -17,6 +17,7 @@ public class WaterScene : BaseScene
          SceneType= Define.Scene.WaterScene;
         Managers.UI.ShowSceneUI<GameUI>();
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        Managers.UI.ShowSceneUI<Joystick_UI>();
         player = GameObject.FindGameObjectWithTag("Player");
 
         //플레이어 위치 버그 수정용

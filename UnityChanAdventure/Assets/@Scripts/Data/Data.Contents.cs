@@ -283,7 +283,7 @@ namespace Data
         public string prefabpath;
         public string iconpath;
         public int cooltime;
-
+        public string animname;
     }
     [Serializable]
     public class SKillDataLoader : ILoader<int, SkillData>
