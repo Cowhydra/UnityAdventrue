@@ -1,0 +1,58 @@
+﻿{
+  "Character": [
+    {
+      "charcode": "100",
+      "jobType": "Wizard",
+      "maxhp": "100",
+      "maxmana": "200",
+      "magicdef": "15",
+      "def": "5",
+      "magicattack": "26",
+      "attack": "29",
+      "attackspeed": "3",
+      "level": "1",
+      "iconPath": "@Resources/Sprites/Creature/Characters/icon100",
+      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab100",
+      "exp": "0",
+      "dateTime": "",
+      "isActive": "False",
+        "name": ""
+    },
+    {
+      "charcode": "101",
+      "jobType": "Warrior",
+      "maxhp": "200",
+      "maxmana": "100",
+      "magicdef": "5",
+      "def": "15",
+      "magicattack": "5",
+      "attack": "30",
+      "attackspeed": "4",
+      "level": "1",
+      "iconPath": "@Resources/Sprites/Creature/Characters/icon101",
+      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab101",
+      "exp": "0",
+      "dateTime": "",
+      "isActive": "False",
+      "name": ""
+    },
+    {
+      "charcode": "102",
+      "jobType": "Archer",
+      "maxhp": "150",
+      "maxmana": "150",
+      "magicdef": "10",
+      "def": "10",
+      "magicattack": "17",
+      "attack": "17",
+      "attackspeed": "4",
+      "level": "1",
+      "iconPath": "@Resources/Sprites/Creature/Characters/icon102",
+      "prefabPath": "@Resources/Prefabs/Creature/Characters/prefab102",
+      "exp": "0",
+      "dateTime": "",
+      "isActive": "False",
+      "name": ""
+    }
+  ]
+}

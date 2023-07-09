@@ -1,0 +1,39 @@
+# Blender MTL File: 'None'
+# Material Count: 3
+
+newmtl MintBody
+Ns 31.372549
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Mike\Desktop\MapleTools\MapleStory2 Mint\MintBody.png
+map_Bump mintbodyn.png
+map_Ks mintbodyd.png
+
+newmtl mintface
+Ns 31.372549
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Mike\Desktop\MapleTools\MapleStory2 Mint\mintface.png
+
+newmtl minthair
+Ns 31.372549
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd C:\Users\Mike\Desktop\MapleTools\MapleStory2 Mint\minthair.png
+map_Bump minthairn.png
+map_Ks minthaird.png

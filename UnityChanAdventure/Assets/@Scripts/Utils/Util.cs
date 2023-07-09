@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Util
 {
@@ -48,13 +49,34 @@ public class Util
 
         return null;
     }
-
-
     public static bool Probability(int prob)
     {
         return prob > Random.Range(1, 101)?true:false;
     }
+    public static Transform GetNbhdMonster(Vector3 pos, LayerMask targetLayer, float scanRange)
+    {
+        Transform result = null;
+        float dist = Mathf.Infinity;
 
-    
+        Collider[] _targets = Physics.OverlapSphere(pos, scanRange,targetLayer);
+
+        foreach (Collider target in _targets)
+        {
+            Vector3 targetPos = target.transform.position;
+            float curDiff = Vector3.Distance(pos, targetPos);
+            if (curDiff < dist)
+            {
+                dist = curDiff;
+                result = target.transform;
+            }
+        }
+        return result;
+    }
+    public static IEnumerator LifeCycle_co(GameObject go,float time)
+    {
+        yield return new WaitForSeconds(time);
+        Managers.Resource.Destroy(go);
+    }
+
 
 }

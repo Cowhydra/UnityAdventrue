@@ -18,7 +18,7 @@ namespace Data
         public int price;
         public string itemgrade;
         public ItemGrade itemGrade;
-
+        public int enhancement;
     }
     [Serializable]
     public class WeaponData : ItemData
@@ -76,7 +76,7 @@ namespace Data
         public List<BootData> Boot = new List<BootData>();
         public List<HatData> Hat = new List<HatData>();
         public List<ClothData> Cloth = new List<ClothData>();
-        public List<EarringData> Earing = new List<EarringData>();
+        public List<EarringData> Earring = new List<EarringData>();
         public List<RingData> Ring = new List<RingData>();
         public List<ConsumeData> Consume = new List<ConsumeData>();
         public List<IngredientData> Ingredient = new List<IngredientData>();
@@ -111,7 +111,7 @@ namespace Data
 
                 dict.Add(item.itemcode, item);
             }
-            foreach (ItemData item in Earing)
+            foreach (ItemData item in Earring)
             {
                 item.itemType = ItemType.Earring;
                 item.itemGrade = (ItemGrade)Enum.Parse(typeof(ItemGrade), item.itemgrade);
@@ -148,8 +148,6 @@ namespace Data
     {
         public string name;
         public int charcode;
-
-        public string jobType;
         public int maxhp;
         public int maxmana;
         public int magicdef;
@@ -160,7 +158,9 @@ namespace Data
         public int level;
         public string iconPath;
         public string prefabPath;
-
+        public int exp;
+        public string dateTime;
+        public bool isActive;
 
     }
     [Serializable]
@@ -191,8 +191,12 @@ namespace Data
         public int attack;
         public int level;
         public string prefabPath;
-
+        public string attackType;
+        public int fovRange;
+        public int attackRange;
+        public int speed;
         public MonsterEnvType EnvType;
+        public MonsterAttackType AttackType;
     }
     [Serializable]
     public class MonsterDataLoader : ILoader<int, MonsterData>
@@ -205,6 +209,7 @@ namespace Data
             foreach (MonsterData mon in Monster)
             {
                 mon.EnvType = (MonsterEnvType)Enum.Parse(typeof(MonsterEnvType), mon.environment);
+                mon.AttackType = (MonsterAttackType)Enum.Parse(typeof(MonsterAttackType), mon.attackType);
                 dict.Add(mon.moncode, mon);
               
             }
@@ -212,26 +217,83 @@ namespace Data
             return dict;
         }
     }
+    #endregion
+
+    #region Quest
+
+
+    [Serializable]
+    public class QuestData
+    {
+        public string Name;
+        public int UniqueId;
+        public int LevelRequirement;
+        public int ExperienceReward;
+        public int DiaReward;
+        public int itemReward;
+        public bool isCleared;
+
+        public int enemyToTargetCode;
+        public int objectItemCode;
+        public int Amount;
+
+
+        public string script1;
+        public string script2;
+        public string script3;
+
+        public string state;
+        public QuestState State;
+
+        public string questtype;
+        public QuestType QuestType;
+
+    }
+    [Serializable]
+    public class QuestDataLoader : ILoader<int, QuestData>
+    {
+        public List<QuestData> Quest = new List<QuestData>();
+
+        public Dictionary<int, QuestData> MakeDict()
+        {
+            Dictionary<int, QuestData> dict = new Dictionary<int, QuestData>();
+            foreach (QuestData quest in Quest)
+            {
+                quest.State = (QuestState)Enum.Parse(typeof(QuestState), quest.state);
+                quest.QuestType = (QuestType)Enum.Parse(typeof(QuestType), quest.questtype);
+
+                dict.Add(quest.UniqueId, quest);
+
+            }
+            return dict;
+        }
+    }
+
 
     #endregion
 
     #region Skills
     [Serializable]
-    public class Skill
+    public class SkillData
     {
         public int skillcode;
         public string skillName;
         public int skillDamage;
         public string skillInfo;
+        public string prefabpath;
+        public string iconpath;
+        public int cooltime;
+        public string animname;
+        public int cost;
     }
     [Serializable]
-    public class SKillDataLoader : ILoader<int, Skill>
+    public class SKillDataLoader : ILoader<int, SkillData>
     {
-        public List<Skill> Skills = new List<Skill>();
-        public Dictionary<int, Skill> MakeDict()
+        public List<SkillData> SkillData = new List<SkillData>();
+        public Dictionary<int, SkillData> MakeDict()
         {
-            Dictionary<int, Skill> dict = new Dictionary<int, Skill>();
-            foreach (Skill skill in Skills)
+            Dictionary<int, SkillData> dict = new Dictionary<int, SkillData>();
+            foreach (SkillData skill in SkillData)
             {
                 dict.Add(skill.skillcode, skill);
             }

@@ -6,15 +6,15 @@ public class Item
 {
     public ItemData Info { get; } = new ItemData();
 
-    public int ItemCode { get { return Info.itemcode; } }
-    public string ItemName { get { return Info.name; } }
+    public int ItemCode { get { return Info.itemcode; } set { Info.itemcode = value; } }
+    public string ItemName { get { return Info.name; }}
     public ItemType ItemType { get; private set; }
-    public string ItemIconPath { get { return Info.iconPath; } }
-    public string ItemTooltip { get { return Info.itemtooltip; } }
+    public string ItemIconPath { get { return Info.iconPath; }}
+    public string ItemTooltip { get { return Info.itemtooltip; } set { Info.itemtooltip = value; } }
     public int Count { get { return Info.count; }set { Info.count=value; }}
-    public int Price { get { return Info.price; }}
+    public int Price { get { return Info.price; }set{Info.price = value;} }
     public ItemGrade ItemGrade { get; private set; }
-
+    public int Enhancement { get; set; }
     public Item(ItemType itemType)
     {
         ItemType = itemType;
@@ -57,11 +57,12 @@ public class Item
                 item = new Ingredient(itemInfo.itemcode);
                 break;
         }
-        if (item == null)
+        if (item != null)
         {
-            throw new System.Exception("아이템 설정 오류");
-        }
+            item.ItemCode = itemInfo.itemcode;
+            item.ItemTooltip = itemInfo.itemtooltip;
 
+        }
         return item;
     }
 

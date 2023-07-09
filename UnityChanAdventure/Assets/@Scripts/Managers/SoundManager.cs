@@ -130,7 +130,7 @@ public class SoundManager
     {
         _audioSources[(int)Define.Sound.Bgm].UnPause();
     }
-    public void StopEffect()
+    public void Stop_Effect()
     {
         _audioSources[(int)Define.Sound.Effect].Stop();
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using JetBrains.Annotations;
+using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 
@@ -20,21 +21,24 @@ public class Equipment
 
         //장비 장착
       
-        if (EQUIP.ContainsKey(equipitem.ItemType))
+        if (EQUIP.ContainsKey(equipitem.ItemType)||(equipitem.ItemType==Define.ItemType.Consume)||(equipitem.ItemType==Define.ItemType.Ingredient))
         {
-            //경고 UI
-            Debug.Log("이미 해당 부위에 장착한 장비가 존재");
-            Debug.Log("경고 UI!");
             return false;
         }
         else
         {
             EQUIP.Add(equipitem.ItemType, equipitem);
             Debug.Log("장비 장착 관련 구조 생각해보자 이벤트가 가장 무난할듯?");
+            Debug.Log("장비 장착하면  UI 변경 예정");
             //장비를 장착하고, 아이템 인벤토리에서 해당 아이템을 제거해준 후, Refresh()를 통해 UI를 갱신합니다.
             Refresh();
-            return true;
+           return true;
         }
+    }
+    public void UnEquip(ItemType itemtype)
+    {
+        EQUIP.Remove(itemtype);
+        
     }
 
 
@@ -100,8 +104,24 @@ public class Equipment
         EQUIP_MagicDef = 0;
     }
 
-
-
+    public void Init()
+    {
+     
+        foreach(Define.ItemType itemtype in Managers.Data.EquipData.Keys)
+        {
+            if (Managers.Data.EquipData[itemtype] != 0)
+            {
+                if (!EQUIP.ContainsKey(itemtype))
+                {
+                    EQUIP.Add(itemtype, Item.MakeItem(Managers.Data.ItemDataDict[Managers.Data.EquipData[itemtype]]));
+                }
+            }
+        }
+    }
+    public void Clear()
+    {
+        EQUIP.Clear();
+    }
 
 
 }

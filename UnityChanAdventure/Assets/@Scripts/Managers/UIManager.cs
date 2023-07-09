@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UIManager
 {
-    int _order = 10;
+    int _order = 100;
 
     Stack<UI_Popup> _popupStack = new Stack<UI_Popup>();
 
@@ -43,7 +43,7 @@ public class UIManager
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
-        GameObject go = Managers.Resource.Instantiate($"UI/WorldUI/{name}");
+        GameObject go = Managers.Resource.Instantiate($"@Resources/Prefabs/UI/WorldUI/{name}");
         if (parent != null)
             go.transform.SetParent(parent);
 
@@ -55,7 +55,7 @@ public class UIManager
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
-        GameObject go = Managers.Resource.Instantiate($"UI/Scene/{name}");
+        GameObject go = Managers.Resource.Instantiate($"@Resources/Prefabs/UI/SceneUI/{name}");
         T sceneUI = Util.GetOrAddComponent<T>(go);
         _sceneUI = sceneUI;
 
@@ -69,7 +69,7 @@ public class UIManager
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
 
-        GameObject go = Managers.Resource.Instantiate($"UI/Popup/{name}");
+        GameObject go = Managers.Resource.Instantiate($"@Resources/Prefabs/UI/PopupUI/{name}");
         T popup = Util.GetOrAddComponent<T>(go);
         _popupStack.Push(popup);
 

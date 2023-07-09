@@ -9,16 +9,23 @@ public class EventManager
     private Dictionary<EVENT_TYPE, List<IListener>> Listeners = new Dictionary<EVENT_TYPE, List<IListener>>();
 
     //Sender와 관련이 없는 이벤트들
+
+    //KeyEvent
+    public Action<Vector2> MoveInputAction;
+    public Action<Define.SkillType> SkillInputAction;
+    public Action<Define.KeyInput> KeyInputAction;
+
+    public Action<Define.Login_Event_Type> LoginProgess;
+    public Action<int> CreateOrDeleteCharacter;
+
+    public Action<int> MonsterDie;
     public Action<int> AddItem;
-    public Action<int> DifficultyChange;
-    public Action<int> GoldChange;
-    public Action<int> EquipItemChange;
-
-    public Action BossProgress;
-
-    public Action ExcuteActiveItem;
-
-    public Action GameStateChange;
+    public Action<int> RemoveItem;
+    public Action<int> SkillAction;
+ 
+    public Action<Quest> CompletedQuest;
+    public Action<Quest> ActiveQuest;
+    
 
     // 이벤트 리스너를 추가하는 메서드
     public void AddListener(EVENT_TYPE Event_Type, IListener Listener)
@@ -89,5 +96,7 @@ public class EventManager
     public void ClearEventList()
     {
         Listeners.Clear();
+
     }
+    
 }

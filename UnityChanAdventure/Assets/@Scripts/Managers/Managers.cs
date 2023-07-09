@@ -12,6 +12,12 @@ public class Managers : MonoBehaviour
     SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
     EventManager _event= new EventManager();
+    DBManager _db= new DBManager();
+    GameManager _game = new GameManager();
+    Inventory _inven = new Inventory();
+    Equipment _equip = new Equipment();
+    QuestManager _quest=new QuestManager();
+    SkillManager _skill=new SkillManager();
 
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
@@ -20,7 +26,12 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance._sound; } }
     public static UIManager UI { get { return Instance._ui; } }
     public static EventManager Event { get { return Instance._event; } }
-
+    public static DBManager DB { get { return Instance._db; } }
+    public static GameManager Game { get { return Instance._game; } }
+    public static Inventory Inven { get { return Instance._inven; } }
+    public static Equipment EQUIP { get { return Instance._equip; } }
+    public static QuestManager Quest { get { return Instance._quest; } }
+    public static SkillManager SKill { get { return Instance._skill; } }
     void Start()
     {
         Init();
@@ -40,10 +51,9 @@ public class Managers : MonoBehaviour
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
             //초기화가 필요한 멤버들의 초기화를 진행해 줍니다.
-            s_instance._data.Init();
+           // s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
-            s_instance._data.Init();
         }
     }
 
@@ -53,6 +63,8 @@ public class Managers : MonoBehaviour
         Scene.Clear();
         UI.Clear();
         Pool.Clear();
+        Event.ClearEventList();
 
     }
+
 }
