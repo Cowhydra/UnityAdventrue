@@ -19,6 +19,8 @@ public class BossTrigger : MonoBehaviour,IListener
             dialog.TalkType = Define.Npc_Type.Boss;
         }
     }
+
+    // 특정 지점에 들어갔을 떄 토킹 시작 + 토킹이 끝나면 연출 되돌리기 
     private IEnumerator BossCutScene_co()
     {
         Time.timeScale = 0.5f;

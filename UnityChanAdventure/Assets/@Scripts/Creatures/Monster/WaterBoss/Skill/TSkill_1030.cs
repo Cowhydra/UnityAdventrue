@@ -8,7 +8,8 @@ public class TSkill_1030 : MonoBehaviour
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
-        gameObject.SetRandomPositionSphere(3, 5);
+        gameObject.transform.position = GameObject.FindGameObjectWithTag("Player").transform.position;
+        gameObject.SetRandomPositionSphere(15, 25);
     }
     enum Direction
     {

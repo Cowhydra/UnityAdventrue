@@ -62,7 +62,16 @@ public class Meteo_Component : MonoBehaviour
         {
             Target = GameObject.FindObjectOfType<PlayerController>().gameObject;
         }
-        gameObject.transform.position = Target.transform.position + Vector3.up * 18;
+
+        if(Target!= null)
+        {
+            gameObject.transform.position = Target.transform.position + Vector3.up * 18;
+        }
+        else
+        {
+            gameObject.transform.position = Owner.transform.position + Vector3.up * 18;
+        }
+     
 
         StartCoroutine(nameof(LifeCycle_co));
     }
@@ -78,7 +87,7 @@ public class Meteo_Component : MonoBehaviour
         {
             if (other.gameObject.layer == (int)Define.LayerMask.Enemy)
             {
-                if (other.TryGetComponent(out IDamage idamage))
+                if (other.transform.root.TryGetComponent(out IDamage idamage))
                 {
                     idamage.OnDamage(300);
                 }
@@ -89,7 +98,7 @@ public class Meteo_Component : MonoBehaviour
         {
             if (other.gameObject.layer == (int)Define.LayerMask.Player)
             {
-                if (other.TryGetComponent(out IDamage idamage2))
+                if (other.transform.root.TryGetComponent(out IDamage idamage2))
                 {
                     idamage2.OnDamage(300);
                 }

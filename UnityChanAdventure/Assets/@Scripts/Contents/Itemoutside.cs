@@ -19,7 +19,8 @@ public class Itemoutside : MonoBehaviour
     [SerializeField]
     private Material targetMaterial;
 
-
+    //수 많은 아이템 모델을 구할 수 없어서
+    // 2중 박스로 구성되게 하여 , 내부 박스에 아이템 스프라이트 투영
     private void SetNewBaseMap()
     {
         if (targetMaterial == null)
@@ -35,6 +36,7 @@ public class Itemoutside : MonoBehaviour
             Debug.LogError("New BaseMap texture is not assigned.");
         }
     }
+    //아이템 획득 처리 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

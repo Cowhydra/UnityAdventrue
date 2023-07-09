@@ -6,6 +6,7 @@ using UnityEngine;
 public class WaterScene : BaseScene
 {
     GameObject player;
+    TitleEffectUI OpeningEffect;
     void Start()
     {
         Inits();
@@ -19,18 +20,16 @@ public class WaterScene : BaseScene
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         Managers.UI.ShowSceneUI<Joystick_UI>();
         player = GameObject.FindGameObjectWithTag("Player");
+        OpeningEffect = Managers.UI.ShowSceneUI<TitleEffectUI>();
+        OpeningEffect.Title = "수중 신전";
 
         //플레이어 위치 버그 수정용
         StartCoroutine(nameof(SetPlayerPos));
-        Managers.Event.KeyInputAction -= AnyKeyInput;
-        Managers.Event.KeyInputAction += AnyKeyInput;
+
         GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
        .m_Lens.FieldOfView = (int)Define.CameraFov.WaterScene;
     }
-    private void OnDestroy()
-    {
-        Managers.Event.KeyInputAction -= AnyKeyInput;
-    }
+
     public override void Clear()
     {
         Managers.Clear();
@@ -38,17 +37,15 @@ public class WaterScene : BaseScene
     private IEnumerator SetPlayerPos()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        while (true)
+        while (OpeningEffect != null)
         {
+            if (player == null) yield break;
+
             player.transform.position = GameObject.Find($"{gameObject.name}").transform.position;
             yield return null;
 
         }
     }
 
-    private void AnyKeyInput(Define.KeyInput keyinput)
-    {
-        StopAllCoroutines();
-    }
   
 }

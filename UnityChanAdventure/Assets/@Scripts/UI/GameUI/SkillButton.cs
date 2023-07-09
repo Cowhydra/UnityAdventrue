@@ -13,6 +13,7 @@ public class SkillButton : MonoBehaviour
     private int _btnskillcode;
     //이벤트를 쓰지 않고 ㄱㄱ
     [SerializeField] private Define.SkillType _btnSKillType;
+    MyCharacter _myCharacter;
     public Define.SkillType ButtonSKillType
     {
         get {  return _btnSKillType; }
@@ -49,6 +50,12 @@ public class SkillButton : MonoBehaviour
         SetButtonSKilType();
         Managers.Event.SkillInputAction -= ExcuteSKill;
         Managers.Event.SkillInputAction += ExcuteSKill;
+        SetInitSKill();
+        _myCharacter = FindObjectOfType<MyCharacter>();
+    }
+    private void SetInitSKill()
+    {
+        ButtonSkillcode = Managers.Data.SkillSet[ButtonSKillType];
     }
     private void SetButtonSKilType()
     {
@@ -73,13 +80,15 @@ public class SkillButton : MonoBehaviour
             Debug.Log("Bug");
         }
     }
-    private void ExcuteSKill(Define.SkillType skilltype)
+    public void ExcuteSKill(Define.SkillType skilltype)
     {
+        
         if(skilltype== ButtonSKillType)
         {
             if (ButtonSkillcode == 0) return;
-            if(_SkillCoolTime - _CurrentTime <= 0)
+            if(_SkillCoolTime - _CurrentTime <= 0&& _myCharacter.Mana > Managers.Data.SkillDataDict[ButtonSkillcode].cost)
             {
+                _myCharacter.Mana -= Managers.Data.SkillDataDict[ButtonSkillcode].cost;
                 Managers.Event.SkillAction?.Invoke(ButtonSkillcode);
                 _CurrentTime = 0;
             }
@@ -130,6 +139,7 @@ public class SkillButton : MonoBehaviour
                   = Managers.Resource.Load<Sprite>($"{Managers.Data.SkillDataDict[_btnskillcode].iconpath}");
                 _SkillCoolTime = Managers.Data.SkillDataDict[_btnskillcode].cooltime;
                 _CurrentTime = _SkillCoolTime;
+                Managers.Data.SkillSet[ButtonSKillType] = _btnskillcode;
             }
             else
             {
@@ -141,6 +151,7 @@ public class SkillButton : MonoBehaviour
         if(targetbtn != null)
         {
             targetbtn.ButtonSkillcode = 0;
+            Managers.Data.SkillSet[targetbtn.ButtonSKillType] = 0;
         }
     }
 

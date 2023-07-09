@@ -72,15 +72,19 @@ public class GameUI : UI_Scene,IListener
         {
             case Define.Scene.LavaScene:
                 GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                GetButton((int)Buttons.SkillBook_Button).gameObject.SetActive(false);
                 break;
             case Define.Scene.DesertScene:
                 GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                GetButton((int)Buttons.SkillBook_Button).gameObject.SetActive(false);
                 break;
             case Define.Scene.WaterScene:
                 GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                GetButton((int)Buttons.SkillBook_Button).gameObject.SetActive(false);
                 break;
             case Define.Scene.FightScene:
                 GetButton((int)Buttons.Quit_Button).gameObject.SetActive(true);
+                GetButton((int)Buttons.SkillBook_Button).gameObject.SetActive(false);
                 break;
         }
 

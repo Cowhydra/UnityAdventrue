@@ -21,7 +21,7 @@ public class Equipment
 
         //장비 장착
       
-        if (EQUIP.ContainsKey(equipitem.ItemType))
+        if (EQUIP.ContainsKey(equipitem.ItemType)||(equipitem.ItemType==Define.ItemType.Consume)||(equipitem.ItemType==Define.ItemType.Ingredient))
         {
             return false;
         }

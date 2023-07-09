@@ -52,7 +52,7 @@ public class MyCharacter : Creature, IDamage, IListener
             if (_exp > RequireExp)
             {
                 Level++;
-                _exp -= RequireExp;
+                Exp -= RequireExp;
 
                 Debug.Log("캐릭터 경험치를 획득하게 되면 DB를 갱신해야 합니다.");
                 Managers.Resource.Instantiate("PlayerLevelUp");
@@ -124,7 +124,7 @@ public class MyCharacter : Creature, IDamage, IListener
         if (!ishitted)
         {
             Debug.Log($"damage  : {damage - _level - Def}");
-            Hp -= Math.Max(0, damage - _level - Def);
+            Hp -= Math.Max(10, damage - _level - Def);
             ishitted = true;
             StartCoroutine(nameof(HitAnimation_co), damage);
         }

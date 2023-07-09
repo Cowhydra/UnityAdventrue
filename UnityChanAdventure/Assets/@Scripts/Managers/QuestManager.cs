@@ -21,9 +21,9 @@ public class QuestManager
         if (quest.State == QuestState.Active)
         {
             quest.Disable();
-            activeQuests.Remove(quest);
             Managers.Event.CompletedQuest?.Invoke(quest);
             Managers.Data.QuestData[quest.UniqueId].isCleared = true;
+            activeQuests.Remove(quest);
         }
         UnityEngine.Debug.Log("퀘스트 클리어 처리 DB");
     }

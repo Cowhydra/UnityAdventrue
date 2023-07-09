@@ -16,6 +16,7 @@ public class Joystick_UI : UI_Scene,IListener
     private Vector2 _joystickOriginalPos;
     private Vector2 _joystickTouchPos;
 
+    private float dragStartPosition;
 
     private GameObject PlayerMain_Cm;
     private PlayerController _playerController;
@@ -88,7 +89,6 @@ public class Joystick_UI : UI_Scene,IListener
 
     }
 
-    private float dragStartPosition;
     
     public void StartDrag(PointerEventData data)
     {

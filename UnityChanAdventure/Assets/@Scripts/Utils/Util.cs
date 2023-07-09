@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Util
 {
@@ -71,7 +72,11 @@ public class Util
         }
         return result;
     }
-
+    public static IEnumerator LifeCycle_co(GameObject go,float time)
+    {
+        yield return new WaitForSeconds(time);
+        Managers.Resource.Destroy(go);
+    }
 
 
 }

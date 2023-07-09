@@ -87,8 +87,8 @@ public class Monster : Creature, IDamage
     public void OnDamage(int damage)
     {
         if (isDie) return;
-        Hp -= Math.Max(1, damage - _level - _def);
-         gameObject.ShowDamageUI(damage - _level - _def);
+        Hp -= Math.Max(10, damage - _level - _def);
+         gameObject.ShowDamageUI(Math.Max(10, damage - _level - _def));
         _animator.SetTrigger("Damage");
      
     }

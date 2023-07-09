@@ -43,6 +43,7 @@ public class TaskAttack : Behavior_Node
             else
             {
                 transform.LookAt(target.position);
+                //몬스터 타입에 따라 공격을 다르게 하기 위해 Attack을 몬스터에 위임
                 Monster.GoAttack(target);
 
                 _attackCounter = 0f;

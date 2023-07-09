@@ -49,7 +49,7 @@ public class IceBlast_Component : MonoBehaviour
         {
             if (other.gameObject.layer == (int)Define.LayerMask.Enemy)
             {
-                if(other.TryGetComponent(out IDamage idamage))
+                if (other.transform.root.TryGetComponent(out IDamage idamage))
                 {
                     idamage.OnDamage(100);
                 }
@@ -60,7 +60,7 @@ public class IceBlast_Component : MonoBehaviour
         {
             if (other.gameObject.layer == (int)Define.LayerMask.Player)
             {
-                if (other.TryGetComponent(out IDamage idamage2))
+                if (other.transform.root.TryGetComponent(out IDamage idamage2))
                 {
                     idamage2.OnDamage(100);
                 }

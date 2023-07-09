@@ -284,6 +284,7 @@ namespace Data
         public string iconpath;
         public int cooltime;
         public string animname;
+        public int cost;
     }
     [Serializable]
     public class SKillDataLoader : ILoader<int, SkillData>

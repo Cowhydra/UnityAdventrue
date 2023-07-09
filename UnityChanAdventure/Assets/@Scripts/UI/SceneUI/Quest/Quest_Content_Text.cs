@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Quest_Content_Text : UI_Scene
 {
@@ -84,6 +85,8 @@ public class Quest_Content_Text : UI_Scene
                  = $"{Managers.Inven.Items[itemcode].Count}를 모두 모았습니다.\n 클릭하여 보상을 획득해 주세요";
 
                 gameObject.transform.GetChild(0).gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
+                gameObject.transform.GetChild(0).gameObject.GetComponent<Canvas>().sortingOrder = 100;
+                gameObject.transform.GetChild(0).gameObject.GetOrAddComponent<GraphicRaycaster>();
             }
         }
     }

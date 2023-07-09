@@ -8,7 +8,6 @@ public class CheckEnemyInAttackRange : Behavior_Node
 {
     private Transform _transform;
     private Animator _animator;
-    private int attackRange;
 
     public CheckEnemyInAttackRange(Transform transform)
     {

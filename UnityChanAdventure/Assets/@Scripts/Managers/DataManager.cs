@@ -21,6 +21,14 @@ public class DataManager
         {Define.ItemType.Ring,0 },
 
     };
+    public Dictionary<Define.SkillType, int> SkillSet = new Dictionary<Define.SkillType, int>
+    {
+        { Define.SkillType.QSkill,0 },
+        { Define.SkillType.WSkill,0},
+        { Define.SkillType.ESkill,0},
+         { Define.SkillType.RSkill,0},
+
+    };
     public Dictionary<int, Data.QuestData> QuestData { get; private set; } = new Dictionary<int, Data.QuestData>();
     public List<int> ItemCodes { get; private set; } = new List<int>();
     

@@ -52,7 +52,11 @@ public class Sanctuary_Component : MonoBehaviour
         yield return new WaitForSeconds(12.0f);
         Managers.Resource.Destroy(gameObject);
     }
- 
+    private void OnEnable()
+    {
+        StartCoroutine(nameof(LifeCycle_co));
+    }
+
     private void OnDisable()
     {
         StopAllCoroutines();

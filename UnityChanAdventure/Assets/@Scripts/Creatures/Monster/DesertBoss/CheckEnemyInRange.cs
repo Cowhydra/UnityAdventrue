@@ -18,12 +18,6 @@ public class CheckEnemyInRange : Behavior_Node
     public override Define.Behavior_NodeState Evaluate()
     {
       
-        Debug.Log("추후 여기에 몬스터 죽었는지 확인해야함");
-        //if (_transform.GetComponent<Monster>().isDie)
-        //{
-        //    state = Define.Behavior_NodeState.FAILURE;
-        //    return state;
-        //}
 
         object t = GetData("target");
         if (t == null)

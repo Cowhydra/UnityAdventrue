@@ -30,7 +30,7 @@ public class FireBall_Component : MonoBehaviour
         float angle = 10;
         float radius = 350;   
         movedir = Vector3.zero;
-        movespeed = Random.Range(5, 15);
+        movespeed = Random.Range(10, 25);
         angle *= Random.Range(1, 37);
 
         transform.position = Owner.transform.position + new Vector3(radius * Mathf.Cos(angle) * Mathf.PI / 180.0f, 0, radius * Mathf.Sin(angle) * Mathf.PI / 180.0f);
@@ -42,7 +42,7 @@ public class FireBall_Component : MonoBehaviour
         {
             if (other.gameObject.layer == (int)Define.LayerMask.Enemy)
             {
-                if (other.TryGetComponent(out IDamage idamage))
+                if (other.transform.root.TryGetComponent(out IDamage idamage))
                 {
                     idamage.OnDamage(100);
                 }
@@ -53,7 +53,7 @@ public class FireBall_Component : MonoBehaviour
         {
             if (other.gameObject.layer == (int)Define.LayerMask.Player)
             {
-                if (other.TryGetComponent(out IDamage idamage2))
+                if (other.transform.root.TryGetComponent(out IDamage idamage2))
                 {
                     idamage2.OnDamage(100);
                 }

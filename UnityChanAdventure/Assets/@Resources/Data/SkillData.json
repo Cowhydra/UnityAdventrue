@@ -8,7 +8,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300001",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300001",
       "cooltime": 6,
-      "animname": "SkillStome"
+      "animname": "SkillStome",
+      "cost": 5
     },
     {
       "skillcode": 300002,
@@ -18,7 +19,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300002",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300002",
       "cooltime": 8,
-      "animname": "SkillFireBall"
+      "animname": "SkillFireBall",
+      "cost": 10
     },
     {
       "skillcode": 300003,
@@ -28,7 +30,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300003",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300003",
       "cooltime": 10,
-      "animname": "SkillMeteo"
+      "animname": "SkillMeteo",
+      "cost": 15
     },
     {
       "skillcode": 300004,
@@ -38,7 +41,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300004",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300004",
       "cooltime": 6,
-      "animname": "SkillHeal"
+      "animname": "SkillHeal",
+      "cost": 5
     },
     {
       "skillcode": 300005,
@@ -48,7 +52,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300005",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300005",
       "cooltime": 15,
-      "animname": "SkillSanctuary"
+      "animname": "SkillSanctuary",
+      "cost": 10
     },
     {
       "skillcode": 300006,
@@ -58,7 +63,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300006",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300006",
       "cooltime": 25,
-      "animname": "SkillIceBlast"
+      "animname": "SkillIceBlast",
+      "cost": 25
     },
     {
       "skillcode": 300007,
@@ -68,7 +74,8 @@
       "iconpath": "@Resources/Sprites/Creature/Characters/Skill/300007",
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300007",
       "cooltime": 20,
-      "animname": "SkillEletric"
+      "animname": "SkillEletric",
+      "cost": 30
     }
   ]
 }

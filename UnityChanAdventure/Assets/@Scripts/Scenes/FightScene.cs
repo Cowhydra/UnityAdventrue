@@ -5,23 +5,24 @@ using UnityEngine;
 public class FightScene : BaseScene
 {
     GameObject player;
+    TitleEffectUI OpeningEffect;
     private void Start()
     {
         Managers.UI.ShowSceneUI<FightSceneUI>();
         SceneType = Define.Scene.FightScene;
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         Managers.UI.ShowSceneUI<Joystick_UI>();
+        OpeningEffect = Managers.UI.ShowSceneUI<TitleEffectUI>();
+        OpeningEffect.Title = "대난투 경기장";
 
-        StartCoroutine(nameof(SetPlayerPos));
-        Managers.Event.KeyInputAction -= AnyKeyInput;
-        Managers.Event.KeyInputAction += AnyKeyInput;
+         StartCoroutine(nameof(SetPlayerPos));
 
     }
 
     private IEnumerator SetPlayerPos()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        while (true)
+        while (OpeningEffect != null)
         {
             if (player == null) yield break;
 
@@ -34,13 +35,5 @@ public class FightScene : BaseScene
     public override void Clear()
     {
 
-    }
-    private void OnDestroy()
-    {
-        Managers.Event.KeyInputAction -= AnyKeyInput;
-    }
-    private void AnyKeyInput(Define.KeyInput keyinput)
-    {
-        StopCoroutine(nameof(SetPlayerPos));
     }
 }

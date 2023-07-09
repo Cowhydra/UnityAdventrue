@@ -11,7 +11,7 @@ public class WSkill_1010 : MonoBehaviour
     }
     private void Update()
     {
-        transform.localPosition = Vector3.zero;
+        transform.localPosition = Vector3.forward;
     }
     private void OnTriggerEnter(Collider other)
     {

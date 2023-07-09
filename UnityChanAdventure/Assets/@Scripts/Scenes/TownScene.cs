@@ -6,6 +6,7 @@ using UnityEngine;
 public class TownScene : BaseScene
 {
     GameObject player;
+    TitleEffectUI OpeningEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +24,15 @@ public class TownScene : BaseScene
         SceneType = Define.Scene.TownScene;
         Managers.UI.ShowSceneUI<ShopUI>();
         Managers.UI.ShowSceneUI<GameUI>();
-       
+
+        OpeningEffect = Managers.UI.ShowSceneUI<TitleEffectUI>();
+        OpeningEffect.Title=  "평범한 마을";
         if (GameObject.Find("Player") == null)
         {
             Managers.Resource.Instantiate("Player");
         }
 
-       Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
+        Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         Managers.UI.ShowSceneUI<Joystick_UI>();
         if (Managers.Game.Gold > 0)
         {
@@ -41,11 +44,11 @@ public class TownScene : BaseScene
            // Managers.Game.GoldChange(30000);
         }
 
-        //플레이어 위치 버그 수정용
-        StartCoroutine(nameof(SetPlayerPos));
-        Managers.Event.KeyInputAction -= AnyKeyInput;
-        Managers.Event.KeyInputAction += AnyKeyInput;
 
+
+
+
+        StartCoroutine(nameof(SetPlayerPos));
         GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
             .m_Lens.FieldOfView = (int)Define.CameraFov.Default;
 
@@ -53,7 +56,7 @@ public class TownScene : BaseScene
     private IEnumerator SetPlayerPos()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        while (true)
+        while (OpeningEffect!=null)
         {
             if (player == null) yield break;
 
@@ -61,14 +64,6 @@ public class TownScene : BaseScene
             yield return null;
 
         }
-    }
-    private void OnDestroy()
-    {
-        Managers.Event.KeyInputAction -= AnyKeyInput;
-    }
-    private void AnyKeyInput(Define.KeyInput keyinput)
-    {
-        StopCoroutine(nameof(SetPlayerPos));
     }
 
     public override void Clear()

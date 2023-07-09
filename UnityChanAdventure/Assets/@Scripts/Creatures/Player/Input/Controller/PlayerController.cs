@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator _town_anim;
     [SerializeField] private Animator _battleanim_Magic;
     [SerializeField] private PlayerAttackArea attackarea;
+    private NavMeshAgent _navMeshAgent;
 
     [SerializeField] private float speed;
     private bool _isSprint;
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private float jumpPower;
     public bool isAttacking;
-
+    private bool IsAuto;
     private Animator _animator;
 
     private int _currentSkill;
@@ -37,7 +38,9 @@ public class PlayerController : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _animator=GetComponent<Animator>();
         attackarea=GetComponentInChildren<PlayerAttackArea>();
-        _mycharacter=GetComponent<MyCharacter>(); 
+        _mycharacter=GetComponent<MyCharacter>();
+        _navMeshAgent=GetComponent<NavMeshAgent>();
+        _navMeshAgent.enabled = false;
     }
    
     private void Start()
@@ -62,12 +65,17 @@ public class PlayerController : MonoBehaviour
         Managers.Event.SkillAction -= OnSkill;
     }
 
+    #region 기본동작 ( 이동, 중력, 회전)
     private void Update()
     {
-        ApplyGravity();
-      
-        ApplyMovement();
-        ApplyRotation();
+        if (_characterController.enabled)
+        {
+            ApplyGravity();
+
+            ApplyMovement();
+            ApplyRotation();
+        }
+
     }
 
     private void ApplyGravity()
@@ -130,6 +138,7 @@ public class PlayerController : MonoBehaviour
         _characterController.Move(moveVec * speed * Time.deltaTime);
         #endregion
     }
+    #endregion
 
     private void SetMoveDir(Vector2 movedir)
     {
@@ -173,22 +182,73 @@ public class PlayerController : MonoBehaviour
                 OnBaseAttack();
                 break;
             case Define.KeyInput.Auto:
+                Auo_Fight();
                 break;
         }
     }
+    private void Auo_Fight()
+    {
+        if (IsAuto)
+        {
+            AutoOff();
+        }
+        else
+        {
+            AutoOn();
+        }
+    }
+
+    private void AutoOn()
+    {
+        IsAuto = true;
+        GetComponent<CharacterController>().enabled = false;
+        _navMeshAgent.enabled = true;
+        gameObject.GetOrAddComponent<AutoFight_BT>().enabled = true;
+    }
+    private void AutoOff()
+    {
+        IsAuto = false;
+        GetComponent<CharacterController>().enabled = true;
+        _navMeshAgent.enabled = false;
+        gameObject.GetOrAddComponent<AutoFight_BT>().enabled = false;
+    }
+
+
+    #region About Animation Event
+    //공격 애니메이션 
     private void OnBaseAttack()
     {
         if (!IsGrounded()) return;
         _animator.SetTrigger("OnBaseAttack");
         isAttacking = true;
+
     }
     public void OnAttackAnimationEvent(int damage)
     {
+        if (attackarea == null)
+        {
+            attackarea = GetComponentInChildren<PlayerAttackArea>();
+        }
         attackarea.gameObject.SetActive(true);
         attackarea.SetDamage(damage*_mycharacter.Level+_mycharacter.Attack);
         isAttacking = false;
 
     }
+
+    //onSkill 로 스킬 코드에 대한 이벤트를 받으면 -> 애니메이션 SetBool을 이용해
+    //애니메이션 으로 이동해 애니메이션 이벤트를 발동하도록 설정
+    private void OnSkill(int skillcode)
+    {
+        if (isAttacking) return;
+        if (skillcode == 0) return;
+        isAttacking = true;
+        _currentSkill = skillcode;
+        _animator.SetTrigger("Skill");
+        GameObject SkillReadyEffect = Managers.Resource.Instantiate("PlayerSkillUse");
+        SkillReadyEffect.transform.position = gameObject.transform.position;
+        _animator.SetBool($"{Managers.Data.SkillDataDict[skillcode].animname}", true);
+    }
+
     private void OnSkillAnimationEvent()
     {
         if (_currentSkill == 0) return;
@@ -196,18 +256,9 @@ public class PlayerController : MonoBehaviour
         isAttacking = false;
         _animator.SetBool($"{Managers.Data.SkillDataDict[_currentSkill].animname}", false);
     }
-    //프로젝트가 작아서 switch 문 쓰지만..추후에는 애니메이션 코드들도 전부 Data로 저장해둬야 할듯
-    private void OnSkill(int skillcode)
-    {
-        if (isAttacking) return;
-        if(skillcode== 0) return;
-        isAttacking = true;
-        _currentSkill = skillcode;
-        _animator.SetTrigger("Skill");
-        GameObject SkillReadyEffect = Managers.Resource.Instantiate("PlayerSkillUse");
-        SkillReadyEffect.transform.position = gameObject.transform.position;
-        _animator.SetBool($"{ Managers.Data.SkillDataDict[skillcode].animname}", true); 
-    }
+
+    #endregion
+
 
 
 
