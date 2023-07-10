@@ -18,6 +18,7 @@ public abstract class Skill
             Debug.Log("이상한 버그? 없는 스킬 번호 ");
             return;
         }
+        Managers.Sound.Play($"{SkillCode}");
     }
     protected abstract int SkillCode { get; }
 

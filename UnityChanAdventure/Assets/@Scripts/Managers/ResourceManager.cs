@@ -105,7 +105,16 @@ public class ResourceManager
             }
             
         }
+        else if (typeof(T) == typeof(AudioClip))
+        {
+            if (_resources.TryGetValue($"{key}.wav", out Object resource))
+            {
 
+                return resource as T;
+
+            }
+
+        }
         return null;
     }
 

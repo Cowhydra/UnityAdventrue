@@ -229,6 +229,21 @@ public class PlayerController : MonoBehaviour
         }
         attackarea.gameObject.SetActive(true);
         attackarea.SetDamage(damage*_mycharacter.Level+_mycharacter.Attack);
+        switch (damage)
+        {
+            case 10:
+                Managers.Sound.Play("Attack1");
+                break;
+            case 20:
+                Managers.Sound.Play("Attack2");
+                break;
+            case 30:
+                Managers.Sound.Play("Attack3");
+                break;
+            case 40:
+                Managers.Sound.Play("Attack4");
+                break;
+        }
         isAttacking = false;
 
     }

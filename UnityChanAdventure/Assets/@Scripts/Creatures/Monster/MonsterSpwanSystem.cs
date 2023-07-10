@@ -61,7 +61,7 @@ public class MonsterSpwanSystem : MonoBehaviour
     }
     private void RandSpawn(Transform transform)
     {
-       for(int i = 0; i < 5; i++)
+       for(int i = 0; i < 4; i++)
         {
            int randValue = Random.Range(0, MonsterCodeList.Count);
             GameObject monster = Managers.Resource.Instantiate(Managers.Data.MonsterDataDict[MonsterCodeList[randValue]].prefabPath);

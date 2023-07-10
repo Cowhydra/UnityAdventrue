@@ -127,6 +127,7 @@ public class Monster : Creature, IDamage
         //골드 및 경험 치 생성
         GameObject Gold = Managers.Resource.Instantiate("Gold");
         Gold.GetComponent<Gold>().SetValue(_level,gameObject.transform);
+       
         GameObject Exp = Managers.Resource.Instantiate("Exp");
         Exp.GetComponent<Exp>().SetValue(_level,gameObject.transform);
         GameObject dieefrect = Managers.Resource.Instantiate("MonsterDieEffect");
