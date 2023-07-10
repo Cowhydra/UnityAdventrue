@@ -10,17 +10,23 @@ public class TaskGotoTarget : Behavior_Node
     private NavMeshAgent _navMeshAgent;
     private Animator _animator;
     private Vector3 _movedir;
+    private PlayerController playerController;
     public TaskGotoTarget(Transform transform)
     {
         _transform = transform;
         _navMeshAgent = transform.GetComponent<NavMeshAgent>();
         _animator = transform.GetComponent<Animator>();
+       
     }
 
     public override Define.Behavior_NodeState Evaluate()
     {
         Transform target = (Transform)GetData("target");
 
+        if(target == null)
+        {
+            return Define.Behavior_NodeState.FAILURE;
+        }
         _navMeshAgent.SetDestination(target.position);
         _movedir = target.position - _transform.position;
         if (!_navMeshAgent.pathPending && _navMeshAgent.remainingDistance > _navMeshAgent.stoppingDistance)

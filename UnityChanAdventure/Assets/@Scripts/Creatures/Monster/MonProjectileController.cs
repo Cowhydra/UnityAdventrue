@@ -25,10 +25,10 @@ public class MonProjectileController : MonoBehaviour
     public void SetProjectile(Vector3 mypos,int damage=10)
     {
 
-        gameObject.transform.position = mypos+Vector3.up*0.58f;
+        gameObject.transform.position = mypos+Vector3.up*0.2f;
         this.damage = damage;
-        moveDir = (_target.transform.position+0.5f*Vector3.up - gameObject.transform.position).normalized;
-        StartCoroutine(nameof(DestoryObject_co));
+        moveDir = (_target.transform.position+0.25f*Vector3.up - gameObject.transform.position).normalized;
+        Util.LifeCycle_co(gameObject, 3.5f);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -42,10 +42,5 @@ public class MonProjectileController : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
-    }
-    private IEnumerator DestoryObject_co()
-    {
-        yield return new WaitForSeconds(3.0f);
-        Managers.Resource.Destroy(gameObject);
     }
 }

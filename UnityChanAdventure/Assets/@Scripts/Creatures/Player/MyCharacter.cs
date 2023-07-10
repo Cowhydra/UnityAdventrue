@@ -57,7 +57,7 @@ public class MyCharacter : Creature, IDamage, IListener
                 Debug.Log("캐릭터 경험치를 획득하게 되면 DB를 갱신해야 합니다.");
                 Managers.Resource.Instantiate("PlayerLevelUp");
             }
-
+         //   Managers.DB.UpdateCharacter_Type(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, _exp, Define.Update_DB_Character.exp);
         }
     }
     public int Hp

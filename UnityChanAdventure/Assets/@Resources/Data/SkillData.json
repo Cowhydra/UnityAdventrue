@@ -9,7 +9,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300001",
       "cooltime": 6,
       "animname": "SkillStome",
-      "cost": 5
+      "cost": 25
     },
     {
       "skillcode": 300002,
@@ -20,7 +20,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300002",
       "cooltime": 8,
       "animname": "SkillFireBall",
-      "cost": 10
+      "cost": 30
     },
     {
       "skillcode": 300003,
@@ -31,7 +31,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300003",
       "cooltime": 10,
       "animname": "SkillMeteo",
-      "cost": 15
+      "cost": 40
     },
     {
       "skillcode": 300004,
@@ -42,7 +42,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300004",
       "cooltime": 6,
       "animname": "SkillHeal",
-      "cost": 5
+      "cost": 50
     },
     {
       "skillcode": 300005,
@@ -53,7 +53,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300005",
       "cooltime": 15,
       "animname": "SkillSanctuary",
-      "cost": 10
+      "cost": 70
     },
     {
       "skillcode": 300006,
@@ -64,7 +64,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300006",
       "cooltime": 25,
       "animname": "SkillIceBlast",
-      "cost": 25
+      "cost": 100
     },
     {
       "skillcode": 300007,
@@ -75,7 +75,7 @@
       "prefabpath": "@Resources/Prefabs/Creature/Characters/Skill/300007",
       "cooltime": 20,
       "animname": "SkillEletric",
-      "cost": 30
+      "cost": 200
     }
   ]
 }

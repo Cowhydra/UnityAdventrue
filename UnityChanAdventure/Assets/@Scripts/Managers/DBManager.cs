@@ -575,7 +575,7 @@ public class DBManager
 
     //캐릭터 업데이트는 언제 해줄까? DB 경험치 획득할 떄 마다 하면 내 FireBase 죽을듯
 
-    public void UpdateCharacterLevel(string accountNumber, int charactercode, int acquireCount,Define.Update_DB_Character updateType)
+    public void UpdateCharacter_Type(string accountNumber, int charactercode, int acquireCount,Define.Update_DB_Character updateType)
     {
         DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString());
 
@@ -585,8 +585,8 @@ public class DBManager
             {
                 //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
                 int current = int.Parse(transaction.Child($"{updateType}").Value.ToString());
-                transaction.Child($"{updateType}").Value = $"{current + acquireCount}";
-                Debug.Log($"{updateType} 변경 :: 변경전 = {current} 변경 후 = {current + acquireCount}");
+                transaction.Child($"{updateType}").Value = $"{acquireCount}";
+                Debug.Log($"{updateType} 변경 :: 변경전 = {current} 변경 후 = {acquireCount}");
                 return TransactionResult.Success(transaction);
             }
             return TransactionResult.Abort();
@@ -636,7 +636,7 @@ public class DBManager
         {
             if (transaction.Value != null)
             {
-                //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
+               
   
                 transaction.Child($"isActive").Value = $"{isAcquire}";
                 return TransactionResult.Success(transaction);
@@ -682,6 +682,33 @@ public class DBManager
         });
     }
 
+    public void UpdateCharacter_Goods(string accountNumber, int charactercode, int acquireCount, Define.Update_DB_Goods updateType)
+    {
+        DatabaseReference GoodsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString()).Child("Goods");
+
+        GoodsRef.RunTransaction(transaction =>
+        {
+            if (transaction.Value != null)
+            {
+                //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
+                int current = int.Parse(transaction.Child($"{updateType}").Value.ToString());
+                transaction.Child($"{updateType}").Value = $"{current+acquireCount}";
+                Debug.Log($"{updateType} 변경 :: 변경전 = {current} 변경 후 = {current+acquireCount}");
+                return TransactionResult.Success(transaction);
+            }
+            return TransactionResult.Abort();
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error updating GOods: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Goods updated successfully.");
+            }
+        });
+    }
 
 
 

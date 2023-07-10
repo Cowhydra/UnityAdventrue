@@ -25,6 +25,8 @@ public class GameManager
         _gold += Amount;
         Managers.Event.PostNotification(Define.EVENT_TYPE.GoodsChange, null);
         Debug.Log(" 골드 DB처리");
+
+       // Managers.DB.UpdateCharacter_Goods(AccountNumber, currentCharNumber, Amount, Define.Update_DB_Goods.Gold);
     }
     public void BlueDiamondChange(int Amount)
     {
@@ -37,6 +39,8 @@ public class GameManager
         Managers.Event.PostNotification(Define.EVENT_TYPE.GoodsChange, null);
 
         Debug.Log(" 파란보석 DB처리");
+       // Managers.DB.UpdateCharacter_Goods(AccountNumber, currentCharNumber, Amount, Define.Update_DB_Goods.BlueDiamond);
+
     }
     public void RedDiamondChange(int Amount)
     {
@@ -49,6 +53,8 @@ public class GameManager
         Managers.Event.PostNotification(Define.EVENT_TYPE.GoodsChange, null);
 
         Debug.Log(" 붉은보석 DB처리");
+     //   Managers.DB.UpdateCharacter_Goods(AccountNumber, currentCharNumber, Amount, Define.Update_DB_Goods.RedDiamond);
+
     }
     #endregion
 

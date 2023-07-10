@@ -6,13 +6,11 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+    //조이스틱에서 인풋을 받으면, 플레이어 컨트롤러(캐릭터 움직임 제어 등 )에서 해당 움직임들을 처리하게 설계 ( 이벤트 받기  )
     private CharacterController _characterController;
     private Vector3 _direction;
 
     private MyCharacter _mycharacter;
-    [SerializeField] private Animator _battleanim_TowHand;
-    [SerializeField] private Animator _town_anim;
-    [SerializeField] private Animator _battleanim_Magic;
     [SerializeField] private PlayerAttackArea attackarea;
     private NavMeshAgent _navMeshAgent;
 
@@ -161,7 +159,7 @@ public class PlayerController : MonoBehaviour
         {
             _isSprint = true;
             speed += 3;
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(5);
             speed -= 3;
             _isSprint = false;
         }
@@ -205,7 +203,7 @@ public class PlayerController : MonoBehaviour
         _navMeshAgent.enabled = true;
         gameObject.GetOrAddComponent<AutoFight_BT>().enabled = true;
     }
-    private void AutoOff()
+    public void AutoOff()
     {
         IsAuto = false;
         GetComponent<CharacterController>().enabled = true;

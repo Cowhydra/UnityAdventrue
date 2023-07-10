@@ -249,14 +249,20 @@
         exp,
 
     }
+    public enum Update_DB_Goods
+    {
+        BlueDiamond,
+        Gold,
+        RedDiamond,
+    }
     public enum Update_DB_EQUIPType
     {
-        Boot,
-        Cloth,
         Weapon,
+        Hat,
+        Cloth,
+        Boot,
         Earring,
         Ring,
-        Hat,
 
     }
     #endregion

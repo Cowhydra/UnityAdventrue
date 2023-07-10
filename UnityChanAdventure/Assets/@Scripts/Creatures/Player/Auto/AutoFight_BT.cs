@@ -9,8 +9,7 @@ public class AutoFight_BT : Behavior_Tree
     public static int fovRange;
     public static int attackRange;
     public static int attackdamage;
-    private PlayerController _myCharacter;
-
+    private PlayerController playerController;
 
 
     //오토 만들 떄 해야 할일  캐릭터 컨트롤러 껏다 켜기 + 애니메이션, 기본 이동 설계를 .. 캐릭터 컨트롤러로 해놔서
@@ -18,10 +17,10 @@ public class AutoFight_BT : Behavior_Tree
     protected override void Start()
     {
 
-        _myCharacter = GetComponent<PlayerController>();
+        playerController = GetComponent<PlayerController>();
         speed = 20;
-        fovRange = 10;
-        attackRange = 2;
+        fovRange = 40;
+        attackRange = 3;
         attackdamage = 25;
         base.Start();
     }
@@ -33,7 +32,7 @@ public class AutoFight_BT : Behavior_Tree
             new Behavior_Sequence(new List<Behavior_Node>
             {
                 new CheckEnemyInAttackRange_Player(transform),
-                new TaskAttack_Player(transform,_myCharacter)
+                new TaskAttack_Player(transform,playerController)
             
             }),
              new Behavior_Sequence(new List<Behavior_Node>

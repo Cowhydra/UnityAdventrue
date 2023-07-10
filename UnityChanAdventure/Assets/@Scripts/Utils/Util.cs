@@ -70,6 +70,7 @@ public class Util
                 result = target.transform;
             }
         }
+
         return result;
     }
     public static IEnumerator LifeCycle_co(GameObject go,float time)
