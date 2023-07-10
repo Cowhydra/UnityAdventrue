@@ -57,12 +57,11 @@ public class TownScene : BaseScene
 
 
 
-
-
         StartCoroutine(nameof(SetPlayerPos));
         GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
             .m_Lens.FieldOfView = (int)Define.CameraFov.Default;
-        Managers.EQUIP.Init();
+    
+
 
     }
     private IEnumerator SetPlayerPos()

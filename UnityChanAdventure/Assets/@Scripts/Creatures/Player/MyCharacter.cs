@@ -89,14 +89,6 @@ public class MyCharacter : Creature, IDamage, IListener
 
     private void InitCharacter()
     {
-        if (!Managers.Data.CharacterDataDict.ContainsKey(myCharacterCode))
-        {
-            _maxhp = 1000;
-            _maxmana = 100;
-            _attack = 50;
-            return;
-        }
-
         _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp + (Level + 1) * 5;
         _maxmana = Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp + (Level + 1) * 5;
         _hp = _maxhp;
@@ -151,11 +143,11 @@ public class MyCharacter : Creature, IDamage, IListener
     {
         //멀티 고려시, 캐릭터 코드 혹은, 계정 넘버 가지고 있어야할듯?
         myCharacterCode = Managers.Game.currentCharNumber;
-        InitCharacter();
+       
         _animator=GetComponent<Animator>();
         StartCoroutine(nameof(Regenerat_co));
         Managers.Event.AddListener(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
-
+        InitCharacter();
     }
     protected IEnumerator Regenerat_co()
     {

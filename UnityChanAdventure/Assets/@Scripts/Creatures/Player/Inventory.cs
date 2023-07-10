@@ -12,6 +12,7 @@ public class Inventory
 
     public void init()
     {
+        Items.Clear();
         //데이터를 불러와 개수가 1개 이상인 아이템들만 인벤에 넣어줍니다.
         foreach (Data.ItemData itemdata in Managers.Data.ItemDataDict.Values)
         {
