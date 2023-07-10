@@ -50,8 +50,7 @@ public class TaskAttack_Player : Behavior_Node
         }
         if (_SkillattackCounter >= _attackTime&&!playerController.isAttacking)
         {
-
-            if (_enemy.isDie)
+            if (_enemy==null||_enemy.isDie)
             {
                 ClearData("target");
             }
@@ -67,7 +66,7 @@ public class TaskAttack_Player : Behavior_Node
         if(_attackCounter>= _attackTime&&!playerController.isAttacking)
         {
 
-            if (_enemy.isDie)
+            if (_enemy == null||_enemy.isDie)
             {
                 ClearData("target");
             }

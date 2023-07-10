@@ -25,6 +25,8 @@ public class QuestManager
             Managers.Data.QuestData[quest.UniqueId].isCleared = true;
             activeQuests.Remove(quest);
             quest.Disable();
+            //[DB:Update]
+            Managers.DB.UpdateQuestClear(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, quest.UniqueId, 1);
         }
         UnityEngine.Debug.Log("퀘스트 클리어 처리 DB");
     }

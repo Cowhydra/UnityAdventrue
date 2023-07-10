@@ -29,6 +29,8 @@ public class MyCharacter : Creature, IDamage, IListener
             Managers.Data.CharacterDataDict[Managers.Game.currentCharNumber].level = _level;
             Debug.Log("캐릭터 레벨업 하면 DB 갱신 ");
             InitCharacter();
+            //[DB]:Update
+            Managers.DB.UpdateCharacter_Type(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, _level, Define.Update_DB_Character.level);
         }
     }
     public Define.MonsterAttackType EnemyAttackType = Define.MonsterAttackType.Melee;
@@ -57,7 +59,8 @@ public class MyCharacter : Creature, IDamage, IListener
                 Debug.Log("캐릭터 경험치를 획득하게 되면 DB를 갱신해야 합니다.");
                 Managers.Resource.Instantiate("PlayerLevelUp");
             }
-         //   Managers.DB.UpdateCharacter_Type(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, _exp, Define.Update_DB_Character.exp);
+            //[DB]:Update
+            Managers.DB.UpdateCharacter_Type(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, _exp, Define.Update_DB_Character.exp);
         }
     }
     public int Hp

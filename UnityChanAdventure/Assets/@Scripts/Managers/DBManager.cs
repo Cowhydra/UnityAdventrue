@@ -379,13 +379,13 @@ public class DBManager
                     switch (goodsName)
                     {
                         case "BlueDiamond":
-                            Managers.Game.BlueDiamondChange(count);
+                            Managers.Game.initGoods(count, Define.Update_DB_Goods.BlueDiamond);
                             break;
                         case "RedDiamond":
-                            Managers.Game.RedDiamondChange(count);
+                            Managers.Game.initGoods(count, Define.Update_DB_Goods.RedDiamond);
                             break;
                         case "Gold":
-                            Managers.Game.GoldChange(count);
+                            Managers.Game.initGoods(count, Define.Update_DB_Goods.Gold);
                             break;
                     }
 
@@ -429,7 +429,6 @@ public class DBManager
 
             }
         });
-        Managers.EQUIP.Init();
     }
     public void FetchEquipData(string accountNumber,int charcode)
     {
@@ -539,7 +538,7 @@ public class DBManager
     public void UpdateItem(string accountNumber, int charcode,int itemCode, int acquireCount, Define.Update_DB_Item updateType =Define.Update_DB_Item.count)
     {
         DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Items").Child(itemCode.ToString());
-
+        //reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Items");
         itemRef.RunTransaction(transaction =>
         {
             if (transaction.Value != null)
@@ -654,7 +653,7 @@ public class DBManager
             }
         });
     }
-    public void UpdateQuestClear(string accountNumber, int charactercode, int questid,int iscleard)
+    public void UpdateQuestClear(string accountNumber, int charactercode, int questid,int iscleard=1)
     {
         DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString()).Child("Quests").Child(questid.ToString());
      

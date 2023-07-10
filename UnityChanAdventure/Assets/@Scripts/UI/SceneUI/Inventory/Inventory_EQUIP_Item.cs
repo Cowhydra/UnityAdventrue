@@ -15,9 +15,10 @@ public class Inventory_EQUIP_Item : MonoBehaviour,IListener
     private int mycode;
     private void Start()
     {
-      
+        mycode = Managers.Data.EquipData[MyEquipType];
         SetMyEquipType();
         Managers.Event.AddListener(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
+        RefreshUI();
     }
 
 

@@ -50,9 +50,9 @@ public class Inventory
             }
             Managers.Event.RemoveItem?.Invoke(itemcode);
         }
+        //[DB:Update]
+         Managers.DB.UpdateItem(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, itemcode, -count);
 
-       // Managers.DB.UpdateItem(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, itemcode, -count);
-       
         Debug.Log("인벤에 아이템 제거 + 추후 DB 연동");
         return true;
     }
@@ -70,9 +70,9 @@ public class Inventory
         }
         Debug.Log("인벤에 아이템 추가 + 추후 DB 연동");
         Managers.Event.AddItem?.Invoke(itemcode);
+        //[DB:Update]
+        Managers.DB.UpdateItem(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, itemcode,count);
 
-        //Managers.DB.UpdateItem(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, itemcode,count);
-        
         return true;
     }
     public void Add(Item item, int count = 1)

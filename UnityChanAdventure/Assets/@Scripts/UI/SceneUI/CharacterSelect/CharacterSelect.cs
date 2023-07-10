@@ -86,7 +86,7 @@ public class CharacterSelect : UI_Scene,IListener
         if (Managers.Data.CharacterDataDict[SelectCharcter].isActive)
         {
             Managers.Game.currentCharNumber = SelectCharcter;
-            Debug.Log("TownScene로 이동 구현");
+            Managers.Scene.LoadScene(Define.Scene.TownScene);
         }
     }
     private void ShowSettingMenu()

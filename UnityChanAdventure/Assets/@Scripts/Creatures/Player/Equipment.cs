@@ -32,15 +32,18 @@ public class Equipment
             Debug.Log("장비 장착하면  UI 변경 예정");
             //장비를 장착하고, 아이템 인벤토리에서 해당 아이템을 제거해준 후, Refresh()를 통해 UI를 갱신합니다.
             Refresh();
-
-           // Managers.DB.UpdateEquip(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, equipitem.ItemCode,  (Update_DB_EQUIPType)((int)equipitem.ItemType));
+            Managers.Data.EquipData[equipitem.ItemType] = equipitem.ItemCode;
+            //[DB:Update]
+            Managers.DB.UpdateEquip(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, equipitem.ItemCode,  (Update_DB_EQUIPType)((int)equipitem.ItemType));
             return true;
         }
     }
     public void UnEquip(ItemType itemtype)
     {
         EQUIP.Remove(itemtype);
-        //Managers.DB.UpdateEquip(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, 0,  (Update_DB_EQUIPType)((int)itemtype));
+        Managers.Data.EquipData[itemtype] = 0;
+        //[DB:Update]
+        Managers.DB.UpdateEquip(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, 0,  (Update_DB_EQUIPType)((int)itemtype));
     }
 
 
