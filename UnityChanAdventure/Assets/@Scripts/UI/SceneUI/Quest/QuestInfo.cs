@@ -34,7 +34,7 @@ public class QuestInfo : UI_Scene
         base.Init();
         Managers.Event.ActiveQuest -= WhenActiveQUest;
         Managers.Event.ActiveQuest += WhenActiveQUest;
-        GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.QuestInfo;
+        GetComponent<Canvas>().overrideSorting = false;
         gameObject.GetOrAddComponent<GraphicRaycaster>();
         Bind<TextMeshProUGUI>(typeof(Texts));
         GetText((int)Texts.QuestLevelInfo_Text).text = $"제한 레벨 : Lv.{Managers.Data.QuestData[QuestID].LevelRequirement}";

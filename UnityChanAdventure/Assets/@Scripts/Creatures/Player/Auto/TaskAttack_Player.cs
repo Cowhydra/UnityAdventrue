@@ -12,7 +12,7 @@ public class TaskAttack_Player : Behavior_Node
    //공격 타이머 설정
     private float _attackTime = 5f;
     private float _attackCounter = 0f;
-    private float _SkillattackCounter = 2.5f;
+    private float _SkillattackCounter = 5f;
     private NavMeshAgent _navMeshAgent;
 
     //각 요소들 
@@ -21,7 +21,6 @@ public class TaskAttack_Player : Behavior_Node
     private Creature _enemy;
     private PlayerController playerController;
     private Transform transform;
-    private bool isSkillAttacking;
     List<SkillButton> skillButtons= new List<SkillButton>();
     public TaskAttack_Player(Transform transform, PlayerController myCharacter)
     {
@@ -45,6 +44,10 @@ public class TaskAttack_Player : Behavior_Node
 
         _SkillattackCounter += Time.deltaTime;
         _attackCounter+= Time.deltaTime;
+        if (target == null)
+        {
+            return Define.Behavior_NodeState.FAILURE;
+        }
         if (_SkillattackCounter >= _attackTime&&!playerController.isAttacking)
         {
 

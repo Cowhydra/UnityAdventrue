@@ -39,7 +39,7 @@
         ShopUI=10,
         InvenItem=20,
         SKillBook=25,
-        QuestInfo=500,
+        QuestInfo=99,
         DialogSystem=100,
 
     }

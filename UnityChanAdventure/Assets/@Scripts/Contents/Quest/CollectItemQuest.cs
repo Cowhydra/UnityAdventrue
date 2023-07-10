@@ -43,6 +43,8 @@ public class CollectItemQuest : Quest
         {
             Managers.Inven.Add(itemReward);
         }
+        Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("Äù½ºÆ® ¿Ï·á.", Color.green);
+        Managers.Sound.Play($"QuestClear");
         Managers.Event.AddItem -= TryComplete;
     }
 

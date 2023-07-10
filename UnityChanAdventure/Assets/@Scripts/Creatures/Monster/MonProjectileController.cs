@@ -18,6 +18,10 @@ public class MonProjectileController : MonoBehaviour
 
     }
     // Update is called once per frame
+    private void OnEnable()
+    {
+        Util.LifeCycle_co(gameObject, 4.0f);
+    }
     void Update()
     {
         transform.Translate(moveDir * speed * Time.deltaTime);
@@ -25,10 +29,9 @@ public class MonProjectileController : MonoBehaviour
     public void SetProjectile(Vector3 mypos,int damage=10)
     {
 
-        gameObject.transform.position = mypos+Vector3.up*0.2f;
+        gameObject.transform.position = mypos+Vector3.up*0.1f;
         this.damage = damage;
-        moveDir = (_target.transform.position+0.25f*Vector3.up - gameObject.transform.position).normalized;
-        Util.LifeCycle_co(gameObject, 3.5f);
+        moveDir = (_target.transform.position+0.15f*Vector3.up - gameObject.transform.position).normalized;
     }
     private void OnTriggerEnter(Collider other)
     {

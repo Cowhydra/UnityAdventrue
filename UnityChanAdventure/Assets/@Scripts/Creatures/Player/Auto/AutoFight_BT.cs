@@ -38,7 +38,7 @@ public class AutoFight_BT : Behavior_Tree
              new Behavior_Sequence(new List<Behavior_Node>
             {
                 new CheckEnemyInFovRange_Player(transform),
-                new TaskGotoTarget(transform)
+                new TaskGotoTarget(transform,playerController)
               
             }),
 

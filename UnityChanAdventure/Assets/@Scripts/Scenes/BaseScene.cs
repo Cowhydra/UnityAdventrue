@@ -17,6 +17,7 @@ public abstract class BaseScene : MonoBehaviour
             Managers.Resource.Instantiate("UI/EventSystem").name = "@EventSystem";
 
         Managers.Sound.Play($"{gameObject.name}", Define.Sound.Bgm);
+        Managers.Game.GoldChange(2000);
     }
 
     public abstract void Clear();

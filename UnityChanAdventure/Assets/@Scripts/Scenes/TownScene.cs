@@ -11,6 +11,7 @@ public class TownScene : BaseScene
     void Start()
     {
         Inits();
+
     }
     protected override void Init()
     {

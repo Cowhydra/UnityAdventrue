@@ -4,14 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-
+using System.Linq;
 public class Quest_Content_Text : UI_Scene
 {
     public override void Init()
     {
         base.Init();
         AddEvent();
-        GetComponent<TextMeshProUGUI>().text = "";
+        GetComponentInChildren<TextMeshProUGUI>().text = "";
+
+       // gameObject.GetOrAddComponent<GraphicRaycaster>();
+        //gameObject.GetComponent<Canvas>().overrideSorting = true;
+        gameObject.GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.QuestInfo;
+    
         UIInit();
 
     }
@@ -55,38 +60,38 @@ public class Quest_Content_Text : UI_Scene
             return;
         }
         DefeatEnemiesQuest myquest = Managers.Quest.ActiveQuest.Find(s => s.UniqueId == _questid) as DefeatEnemiesQuest;
-       
-        GetComponent<TextMeshProUGUI>().text = $"{Managers.Data.MonsterDataDict[monstercode].name}을 잡아라!!\n" +
+
+        GetComponentInChildren<TextMeshProUGUI>().text = $"{Managers.Data.MonsterDataDict[monstercode].name}을 잡아라!!\n" +
             $"{ myquest.ActualEnemiesDestroyed}/{Managers.Data.QuestData[QuestID].Amount}";
         if (myquest.ActualEnemiesDestroyed == Managers.Data.QuestData[QuestID].Amount)
         {
-            GetComponent<TextMeshProUGUI>().text
+            GetComponentInChildren<TextMeshProUGUI>().text
                 = $"{Managers.Data.MonsterDataDict[monstercode].name}를 전부 잡았습니다.\n 클릭하여 보상을 획득해 주세요";
-            gameObject.transform.GetChild(0).gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
+            gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
+    
         }
+
         
     }
     private void RefreshUI_CollectItem(int itemcode)
     {
         if (!Managers.Inven.Items.ContainsKey(itemcode))
         {
-            GetComponent<TextMeshProUGUI>().text = $"{Managers.Data.ItemDataDict[itemcode].name}을 모아라!!\n" +
+            GetComponentInChildren<TextMeshProUGUI>().text = $"{Managers.Data.ItemDataDict[itemcode].name}을 모아라!!\n" +
                $"{0}/{Managers.Data.QuestData[QuestID].Amount}";
 
         }
         else
         {
-            GetComponent<TextMeshProUGUI>().text = $"{Managers.Data.ItemDataDict[itemcode].name}을 모아라!!\n" +
+            GetComponentInChildren<TextMeshProUGUI>().text = $"{Managers.Data.ItemDataDict[itemcode].name}을 모아라!!\n" +
     $"{Managers.Inven.Items[itemcode].Count}/{Managers.Data.QuestData[QuestID].Amount}";
 
             if(Managers.Inven.Items[itemcode].Count== Managers.Data.QuestData[QuestID].Amount)
             {
-                GetComponent<TextMeshProUGUI>().text
+                GetComponentInChildren<TextMeshProUGUI>().text
                  = $"{Managers.Inven.Items[itemcode].Count}를 모두 모았습니다.\n 클릭하여 보상을 획득해 주세요";
 
-                gameObject.transform.GetChild(0).gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
-                gameObject.transform.GetChild(0).gameObject.GetComponent<Canvas>().sortingOrder = 100;
-                gameObject.transform.GetChild(0).gameObject.GetOrAddComponent<GraphicRaycaster>();
+               gameObject.BindEvent((PointerEventData data) => Managers.Quest.CompleteQuest(QuestID));
             }
         }
     }
@@ -98,7 +103,7 @@ public class Quest_Content_Text : UI_Scene
         }
         else
         {
-            GetComponent<TextMeshProUGUI>().text = $"{Managers.Data.MonsterDataDict[Managers.Data.QuestData[QuestID].enemyToTargetCode].name}을 잡아라!!\n" +
+            GetComponentInChildren<TextMeshProUGUI>().text = $"{Managers.Data.MonsterDataDict[Managers.Data.QuestData[QuestID].enemyToTargetCode].name}을 잡아라!!\n" +
                       $"{0}/{Managers.Data.QuestData[QuestID].Amount}";
 
         }
@@ -111,7 +116,13 @@ public class Quest_Content_Text : UI_Scene
         }
         else
         {
-            Managers.Resource.Destroy(gameObject);
+            Quest_Content_Text questUI = FindObjectsOfType<Quest_Content_Text>().Where(s => s.QuestID == quest.UniqueId).FirstOrDefault();
+            if(questUI!= null)
+            {
+                Managers.Resource.Destroy(questUI.gameObject);
+            }
+
+           
         }
     }
    
