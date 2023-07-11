@@ -100,8 +100,13 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-        //Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+#if UNITY_EDITOR
+    Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+#elif UNITY_ANDROID
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+#endif
+
+
         Vector3 rotateVec = forwardVec * moveInput.z + rightVec * moveInput.x;
 
         if (moveInput != Vector3.zero)
@@ -121,22 +126,25 @@ public class PlayerController : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        float offset = _isSprint ? 1f : 0.5f;
 
+#if UNITY_EDITOR
         Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-        //Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
-
+        _animator.SetFloat("PosX", horizontal * offset);
+        _animator.SetFloat("PosZ", vertical * offset);
+#elif UNITY_ANDROID
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+        //_animator.SetFloat("PosX", _direction.x * offset);
+        //_animator.SetFloat("PosZ", _direction.z * offset);
+#endif
         if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
 
         Vector3 moveVec = forwardVec * moveInput.z + rightVec * moveInput.x+_direction.y*Vector3.up;
 
-        float offset = _isSprint ? 1f : 0.5f;
-        _animator.SetFloat("PosX", horizontal * offset);
-        _animator.SetFloat("PosZ", vertical * offset);
-
         _characterController.Move(moveVec * speed * Time.deltaTime);
-        #endregion
+#endregion
     }
-    #endregion
+#endregion
 
     private void SetMoveDir(Vector2 movedir)
     {
@@ -212,7 +220,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    #region About Animation Event
+#region About Animation Event
     //공격 애니메이션 
     private void OnBaseAttack()
     {
@@ -270,7 +278,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool($"{Managers.Data.SkillDataDict[_currentSkill].animname}", false);
     }
 
-    #endregion
+#endregion
 
 
 

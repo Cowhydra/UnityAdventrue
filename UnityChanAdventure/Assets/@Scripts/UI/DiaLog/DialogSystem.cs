@@ -239,7 +239,7 @@ public class DialogSystem : UI_Popup
 				dialogs.Clear();
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "심상치 않은 분위기가 느껴져!!");
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "잠깐 저기 뭐가 있는 것 같아!!");
-				SetDiaLog(1, $"{Managers.Game.CharacterName}", "크아아아아앙!!");
+				SetDiaLog(1, $"BOSS", "크아아아아앙!!");
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "적이 공격해온다!! ");
 	
 				switch ((Define.Scene)Enum.Parse(typeof(Define.Scene), Managers.Scene.CurrentScene.gameObject.name))

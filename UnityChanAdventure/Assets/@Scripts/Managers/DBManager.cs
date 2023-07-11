@@ -835,7 +835,7 @@ public class DBManager
         {
             if (task.IsFaulted)
             {
-                Debug.LogError("Error updating item: " + task.Exception);
+                Debug.LogError("Error updating QuestClear: " + task.Exception);
             }
             else if (task.IsCompleted)
             {

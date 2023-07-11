@@ -50,7 +50,7 @@ public class MyCharacter : Creature, IDamage, IListener
         get { return _exp; }
         set
         {
-            _exp = value;
+            _exp = Mathf.Clamp(value, 0,500000000);
             if (_exp > RequireExp)
             {
                 Level++;
@@ -89,6 +89,8 @@ public class MyCharacter : Creature, IDamage, IListener
 
     private void InitCharacter()
     {
+        _level = Managers.Data.CharacterDataDict[myCharacterCode].level;
+
         _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp + (Level + 1) * 5;
         _maxmana = Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp + (Level + 1) * 5;
         _hp = _maxhp;
@@ -98,7 +100,7 @@ public class MyCharacter : Creature, IDamage, IListener
         _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level + 1) * 5;
         _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level +1) * 5;
         _attackspeed = Managers.Data.CharacterDataDict[myCharacterCode].attackspeed;
-        _level = Managers.Data.CharacterDataDict[myCharacterCode].level;
+       
         Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
     }
     private void CharacterEQUIPStatsChange()

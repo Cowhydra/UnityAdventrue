@@ -228,6 +228,7 @@ public class Joystick_UI : UI_Scene,IListener
                 {
                     PlayerMain_Cm.SetActive(false);
                 }
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
                 break;
             case Define.EVENT_TYPE.InventoryClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
@@ -235,22 +236,32 @@ public class Joystick_UI : UI_Scene,IListener
                 {
                     PlayerMain_Cm.SetActive(true);
                 }
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.ShopClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
                 PlayerMain_Cm.SetActive(true);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.ShopOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
                 PlayerMain_Cm.SetActive(false);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.DialogOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
                 PlayerMain_Cm.SetActive(false);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.DialogClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
                 PlayerMain_Cm.SetActive(true);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
 
         }
