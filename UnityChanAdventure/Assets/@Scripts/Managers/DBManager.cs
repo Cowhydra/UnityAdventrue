@@ -629,7 +629,7 @@ public class DBManager
             {
                 // 아이템 데이터 추출
                 string equiptype = itemSnapshot.Key;
-                int itemcode = int.Parse(itemSnapshot.Child(equiptype).Value.ToString());
+                int itemcode = int.Parse(itemSnapshot.Value.ToString());
                 Managers.Data.EquipData[(Define.ItemType)Enum.Parse(typeof(Define.ItemType), equiptype)] = itemcode;
             }
         }
@@ -690,8 +690,6 @@ public class DBManager
 
             Debug.Log("추후 여기 위쪽에 데이터 동기화 과정 넣어야 합니다.");
             Debug.Log("그냥 불러온 데이터를 itemcode에 맞게 내 Data나 inventory에 넣어주면 됨");
-
-            Managers.Inven.init();
         }
         catch (Exception e)
         {

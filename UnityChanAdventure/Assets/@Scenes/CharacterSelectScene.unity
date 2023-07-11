@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4800,7 +4800,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4528213252843950}
-  - component: {fileID: 114298827280980282}
   m_Layer: 0
   m_Name: toko_hair07_R
   m_TagString: Untagged
@@ -4962,7 +4961,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4359831412280782}
-  - component: {fileID: 114346385149449046}
   m_Layer: 0
   m_Name: toko_hair04
   m_TagString: Untagged
@@ -5251,7 +5249,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4334734773005764}
-  - component: {fileID: 114872439888151080}
   m_Layer: 0
   m_Name: toko_hair02
   m_TagString: Untagged
@@ -5364,7 +5361,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4770842824851292}
-  - component: {fileID: 114783160458563298}
   m_Layer: 0
   m_Name: toko_hair06_L
   m_TagString: Untagged
@@ -5477,7 +5473,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4867435618703240}
-  - component: {fileID: 114027291910981200}
   m_Layer: 0
   m_Name: toko_ribbon02
   m_TagString: Untagged
@@ -5640,7 +5635,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4095392575718080}
-  - component: {fileID: 114044711523435340}
   m_Layer: 0
   m_Name: toko_ribbon00
   m_TagString: Untagged
@@ -5770,7 +5764,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4022910525720534}
-  - component: {fileID: 114196891674657372}
   m_Layer: 0
   m_Name: toko_hair07_L
   m_TagString: Untagged
@@ -6060,7 +6053,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4688511625793782}
-  - component: {fileID: 114378554743402838}
   m_Layer: 0
   m_Name: toko_hair00
   m_TagString: Untagged
@@ -6093,7 +6085,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4717618925923562}
-  - component: {fileID: 114027051947529220}
   m_Layer: 0
   m_Name: toko_hair10
   m_TagString: Untagged
@@ -6223,7 +6214,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4700114004019862}
-  - component: {fileID: 114614711689676472}
   m_Layer: 0
   m_Name: toko_hair09
   m_TagString: Untagged
@@ -6529,7 +6519,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4713466024663374}
-  - component: {fileID: 114768049168224192}
   m_Layer: 0
   m_Name: toko_hair06_R
   m_TagString: Untagged
@@ -8509,90 +8498,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &114027051947529220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1796893531729132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114027291910981200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1492041524217014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114044711523435340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574354017172642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114196891674657372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649052606246914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114298827280980282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1052024464120326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114346385149449046
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1157568443264350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114378554743402838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793337380001242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114483912675147448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8605,42 +8510,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114614711689676472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845862566363106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114768049168224192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1945348758147964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114783160458563298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393671327659004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114867857733247782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8648,18 +8517,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815472806649030}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114872439888151080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1356367179222028}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 0}
