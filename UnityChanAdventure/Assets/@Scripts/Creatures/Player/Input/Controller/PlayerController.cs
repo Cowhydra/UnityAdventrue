@@ -100,10 +100,11 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-#if UNITY_EDITOR
-    Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-#elif UNITY_ANDROID
+#if UNITY_ANDROID
         Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+#else
+       
+         Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
 #endif
 
 
@@ -128,12 +129,13 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         float offset = _isSprint ? 1f : 0.5f;
 
-#if UNITY_EDITOR
-        Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+#if UNITY_ANDROID
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+
+#else 
+         Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
         _animator.SetFloat("PosX", horizontal * offset);
         _animator.SetFloat("PosZ", vertical * offset);
-#elif UNITY_ANDROID
-        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
         //_animator.SetFloat("PosX", _direction.x * offset);
         //_animator.SetFloat("PosZ", _direction.z * offset);
 #endif

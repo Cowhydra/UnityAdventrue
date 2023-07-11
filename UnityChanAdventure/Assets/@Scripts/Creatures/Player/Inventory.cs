@@ -85,7 +85,15 @@ public class Inventory
         }
         else
         {
-            item.Count += count;
+            if (item.Count == 0)
+            {
+                item.Count += count;
+            }
+            else
+            {
+
+            }
+
             Items.Add(item.ItemCode, item);
 
         }

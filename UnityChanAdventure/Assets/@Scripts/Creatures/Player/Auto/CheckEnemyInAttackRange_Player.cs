@@ -32,7 +32,7 @@ public class CheckEnemyInAttackRange_Player : Behavior_Node
             state = Define.Behavior_NodeState.FAILURE;
             return state;
         }
-        if (Vector3.Distance(_transform.position, target.position) <= AutoFight_BT.attackRange*2+1)
+        if (Vector3.Distance(_transform.position, target.position) <= AutoFight_BT.attackRange*1+2)
         {
 
             state = Define.Behavior_NodeState.SUCCESS;

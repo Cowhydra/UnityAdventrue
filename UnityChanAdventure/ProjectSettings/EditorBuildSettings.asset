@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/@Scenes/TownScene.unity
     guid: 90e7494fb450bdc4db077b4a2653da4c
-  - enabled: 0
-    path: Assets/@Scenes/TestScene.unity
-    guid: e09c1154a84e8e2499fea23e20f51b56
   - enabled: 1
     path: Assets/@Scenes/Dungeon/DesertScene.unity
     guid: 27564a61931496c4eab6e23996ae69e1
