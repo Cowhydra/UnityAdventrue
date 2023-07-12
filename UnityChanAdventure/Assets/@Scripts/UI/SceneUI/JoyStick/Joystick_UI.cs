@@ -144,6 +144,9 @@ public class Joystick_UI : UI_Scene,IListener
         GetButton((int)Buttons.SkillE_Button).gameObject.BindEvent((PointerEventData data) =>OnDropEvent_SKill(data, Define.SkillType.ESkill), Define.UIEvent.OnDrop);
         GetButton((int)Buttons.SkillR_Button).gameObject.BindEvent((PointerEventData data) => OnDropEvent_SKill(data, Define.SkillType.RSkill), Define.UIEvent.OnDrop);
     }
+    //스킬 버튼을 누르면 이벤트를 발송하고
+    //받은 이벤트에서 ( 발동조건 만족하는지 확인 후 발동 가능한 상태이면 Animation 이벤트가 발동되도록 
+    // 추가 이벤트 발동하도록 설정 
     private void OnSKillEvent(Define.SkillType skilltype)
     {
         switch (skilltype)
@@ -165,6 +168,7 @@ public class Joystick_UI : UI_Scene,IListener
     }
 
 
+    //스킬북에서 스킬을 버튼에 끌어다 놓으면 스킬 변경 
     private void OnDropEvent_SKill(PointerEventData data,Define.SkillType skilltype)
     {
         if (data.pointerDrag == null) return;
@@ -212,6 +216,8 @@ public class Joystick_UI : UI_Scene,IListener
         _handler.transform.position = newPos;
     }
 
+    //발동 되는 이벤트에 따라 처리 (SceneMachine 카메라 처리 + 다이아로그, 상점 오픈 등 필요 이벤트 시
+    //조이스틱 UI의 비활성 필요
     public void OnEvent(Define.EVENT_TYPE Event_Type, Component Sender, object Param = null)
     {
         switch (Event_Type)
@@ -222,6 +228,7 @@ public class Joystick_UI : UI_Scene,IListener
                 {
                     PlayerMain_Cm.SetActive(false);
                 }
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
                 break;
             case Define.EVENT_TYPE.InventoryClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
@@ -229,22 +236,32 @@ public class Joystick_UI : UI_Scene,IListener
                 {
                     PlayerMain_Cm.SetActive(true);
                 }
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.ShopClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
                 PlayerMain_Cm.SetActive(true);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.ShopOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
                 PlayerMain_Cm.SetActive(false);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.DialogOpen:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(false);
                 PlayerMain_Cm.SetActive(false);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
             case Define.EVENT_TYPE.DialogClose:
                 GetObject((int)GameObjects.PlayerInput_Area).SetActive(true);
                 PlayerMain_Cm.SetActive(true);
+                Managers.Event.MoveInputAction?.Invoke(Vector2.zero);
+
                 break;
 
         }

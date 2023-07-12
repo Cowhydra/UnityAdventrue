@@ -4,6 +4,8 @@ using UnityEngine;
 using Firebase;
 using System;
 using Firebase.Database;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 public class DBManager
 {
@@ -138,18 +140,35 @@ public class DBManager
         CreateEquips(accountNumber, charcode);
         CreateQuest(accountNumber, charcode);   
     }
-
-    public void DataFetch(string accountNumber)
+    
+    public async void DataFetch(string accountNumber)
     {
         
         Debug.Log("장착중인 장비도 여기서 갱신해줘야함");
         foreach (var charkey in Managers.Data.CharacterDataDict.Keys)
         {
-            FetchCharacterData(accountNumber, charkey);
-            FetchAllGoodsData(accountNumber, charkey);
-            FetchAllItemData(accountNumber, charkey);
-            FetchEquipData(accountNumber, charkey);
+           await FetchCharacterData(accountNumber, charkey);
         }
+    }
+    public async Task FetchSpecificCharacter(string accountNumber,int charkey)
+    {
+        Task[] tasks = new Task[]
+        {
+           FetchCharacterData(accountNumber, charkey),
+           FetchAllGoodsData(accountNumber, charkey),
+           FetchAllItemData(accountNumber, charkey),
+           FetchEquipData(accountNumber, charkey),
+           FetchQuestData(accountNumber, charkey)
+        };
+
+        // 모든 작업이 완료될 때까지 대기합니다.
+        await Task.WhenAll(tasks);
+
+        // 여기에 모든 작업이 완료된 후 실행할 코드를 작성합니다.
+        // 예를 들어, 씬 전환 등의 작업을 수행할 수 있습니다.
+        Managers.EQUIP.Init();
+        Managers.Inven.init();
+        Managers.Scene.LoadScene(Define.Scene.TownScene);
     }
     #region 신규 캐릭터 처리
     private void CreateCharacter(string accountNumber, int charcode,string charname)
@@ -315,7 +334,7 @@ public class DBManager
 
     #endregion
 
-    #region 데이터 정보 불러오기
+    #region 데이터 정보 불러오기 구식버전
     public void CheckAccountID(string accountNumber,string password)
     {
 
@@ -354,187 +373,328 @@ public class DBManager
     //골드도 데이터를 가져옴 근데 매번 아이템을 구매하고 나서 해당 데이터를 DB에 넣어줄 것인지는 고민해봐야함
     //골드 구매할 떄도 DataBase의 골드를 확인 후 구매처리를 할 것인지 고민해야함
     //원래라면 해야 겠지만.. - 나는 서버가 없음 - 
-    public void FetchAllGoodsData(string accountNumber,int charcode)
-    {
+    //public void FetchAllGoodsData(string accountNumber,int charcode)
+    //{
 
+    //    DatabaseReference GoodsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Goods");
+
+    //    GoodsRef.GetValueAsync().ContinueWith(task =>
+    //    {
+    //        if (task.IsFaulted)
+    //        {
+    //            Debug.LogError("Error retrieving item data: " + task.Exception);
+    //            return;
+    //        }
+
+    //        if (task.IsCompleted)
+    //        {
+    //            DataSnapshot snapshot = task.Result;
+
+    //            foreach (DataSnapshot itemSnapshot in snapshot.Children)
+    //            {
+    //                // Goods
+    //                string goodsName = itemSnapshot.Key;
+    //                int count = int.Parse(itemSnapshot.Value.ToString());
+    //                switch (goodsName)
+    //                {
+    //                    case "BlueDiamond":
+    //                        Managers.Game.initGoods(count, Define.Update_DB_Goods.BlueDiamond);
+    //                        break;
+    //                    case "RedDiamond":
+    //                        Managers.Game.initGoods(count, Define.Update_DB_Goods.RedDiamond);
+    //                        break;
+    //                    case "Gold":
+    //                        Managers.Game.initGoods(count, Define.Update_DB_Goods.Gold);
+    //                        break;
+    //                }
+
+    //            }
+
+    //        }
+    //    });
+    //}
+    //public void FetchQuestData(string accountNumber, int charcode)
+    //{
+
+    //    DatabaseReference questRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Quests");
+
+    //    questRef.GetValueAsync().ContinueWith(task =>
+    //    {
+    //        if (task.IsFaulted)
+    //        {
+    //            Debug.LogError("Error retrieving account data: " + task.Exception);
+    //            return;
+    //        }
+
+    //        if (task.IsCompleted)
+    //        {
+    //            DataSnapshot snapshot = task.Result;
+
+    //            foreach (DataSnapshot questsnapshot in snapshot.Children)
+    //            {
+    //                // 아이템 데이터 추출
+    //                int questkey = int.Parse(questsnapshot.Key);
+    //                int isclear = int.Parse(questsnapshot.Child("isCleared").Value.ToString());
+
+    //                if (isclear == 0)
+    //                {
+    //                    Managers.Data.QuestData[questkey].isCleared = false;
+    //                }
+    //                else
+    //                {
+    //                    Managers.Data.QuestData[questkey].isCleared = true;
+    //                }
+    //            }
+
+    //        }
+    //    });
+    //}
+
+    //public void FetchEquipData(string accountNumber, int charcode)
+    //{
+
+    //    DatabaseReference equipRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("EQUIPS");
+
+    //    equipRef.GetValueAsync().ContinueWith(task =>
+    //    {
+    //        if (task.IsFaulted)
+    //        {
+    //            Debug.LogError("Error retrieving account data: " + task.Exception);
+    //            return;
+    //        }
+
+    //        if (task.IsCompleted)
+    //        {
+    //            DataSnapshot snapshot = task.Result;
+
+    //            foreach (DataSnapshot itemSnapshot in snapshot.Children)
+    //            {
+    //                // 아이템 데이터 추출
+    //                string equiptype = itemSnapshot.Key;
+    //                int itemcode = int.Parse(itemSnapshot.Child("equiptype").Value.ToString());
+    //                Managers.Data.EquipData[(Define.ItemType)Enum.Parse(typeof(Define.ItemType), equiptype)] = itemcode;
+    //            }
+
+    //        }
+    //    });
+    //}
+    //public void FetchCharacterData(string accountNumber, int charcode)
+    //{
+    //    DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
+    //    characterRef.GetValueAsync().ContinueWith(task =>
+    //    {
+    //        if (task.IsFaulted)
+    //        {
+    //            Debug.LogError("Error retrieving character data: " + task.Exception);
+    //            return;
+    //        }
+
+    //        if (task.IsCompleted)
+    //        {
+    //            DataSnapshot snapshot = task.Result;
+
+    //           if (snapshot.Exists)
+    //            {
+
+    //                    int code = int.Parse(snapshot.Key);
+    //                    Managers.Data.CharacterDataDict[code].level= int.Parse(snapshot.Child("level").Value.ToString());
+    //                    Managers.Data.CharacterDataDict[code].dateTime = snapshot.Child("DateTime").Value.ToString();
+    //                    Managers.Data.CharacterDataDict[code].exp = int.Parse(snapshot.Child("exp").Value.ToString());
+    //                    Managers.Data.CharacterDataDict[code].isActive = true;
+    //                    Managers.Data.CharacterDataDict[code].name = snapshot.Child("name").Value.ToString();
+    //                    Managers.Game.CharacterName = snapshot.Child("name").Value.ToString();
+
+    //            }
+    //            else
+    //            {
+    //                // 데이터가 존재하지 않는 경우
+    //                Debug.Log("Character data does not exist.");
+    //            }
+    //        }
+    //    });
+    //}
+    //public void FetchAllItemData(string accountNumber,int charcode)
+    //{
+    //    DatabaseReference ItemsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Items");
+
+    //    ItemsRef.GetValueAsync().ContinueWith(task =>
+    //    {
+    //        if (task.IsFaulted)
+    //        {
+    //            Debug.LogError("Error retrieving item data: " + task.Exception);
+    //            return;
+    //        }
+
+    //        if (task.IsCompleted)
+    //        {
+    //            DataSnapshot snapshot = task.Result;
+
+    //            foreach (DataSnapshot itemSnapshot in snapshot.Children)
+    //            {
+    //                // 아이템 데이터 추출
+    //                int itemCode = int.Parse(itemSnapshot.Key);
+    //                int count = int.Parse(itemSnapshot.Child("count").Value.ToString());
+    //                int enhancement = int.Parse(itemSnapshot.Child("Enhancement").Value.ToString());
+    //                Managers.Data.ItemDataDict[itemCode].count = count;
+    //                Managers.Data.ItemDataDict[itemCode].enhancement = enhancement;
+    //                // 추출한 데이터 활용
+    //                Debug.Log("Item: itemCode = " + itemCode + ", count = " + count);
+    //            }
+    //            Debug.Log("추후 여기 위쪽에 데이터 동기화 과정 넣어야 합니다.");
+    //            Debug.Log("그냥 불러온 데이터를 itemcode에 맞게 내 Data나 inventory에 넣어주면 됨");
+    //        }
+    //        task.Wait();
+    //        Debug.Log("task.Wait 실험");
+    //        Managers.Inven.init();
+    //    });
+
+
+    //}
+    #endregion
+
+    #region 데이터 정보 불러오기 신식버전 (Task)
+    public async Task FetchAllGoodsData(string accountNumber, int charcode)
+    {
         DatabaseReference GoodsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Goods");
 
-        GoodsRef.GetValueAsync().ContinueWith(task =>
+        try
         {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Error retrieving item data: " + task.Exception);
-                return;
-            }
+            DataSnapshot snapshot = await GoodsRef.GetValueAsync();
 
-            if (task.IsCompleted)
+            foreach (DataSnapshot itemSnapshot in snapshot.Children)
             {
-                DataSnapshot snapshot = task.Result;
-
-                foreach (DataSnapshot itemSnapshot in snapshot.Children)
+                // Goods
+                string goodsName = itemSnapshot.Key;
+                int count = int.Parse(itemSnapshot.Value.ToString());
+                switch (goodsName)
                 {
-                    // Goods
-                    string goodsName = itemSnapshot.Key;
-                    int count = int.Parse(itemSnapshot.Value.ToString());
-                    switch (goodsName)
-                    {
-                        case "BlueDiamond":
-                            Managers.Game.BlueDiamondChange(count);
-                            break;
-                        case "RedDiamond":
-                            Managers.Game.RedDiamondChange(count);
-                            break;
-                        case "Gold":
-                            Managers.Game.GoldChange(count);
-                            break;
-                    }
-
+                    case "BlueDiamond":
+                        Managers.Game.initGoods(count, Define.Update_DB_Goods.BlueDiamond);
+                        break;
+                    case "RedDiamond":
+                        Managers.Game.initGoods(count, Define.Update_DB_Goods.RedDiamond);
+                        break;
+                    case "Gold":
+                        Managers.Game.initGoods(count, Define.Update_DB_Goods.Gold);
+                        break;
                 }
-
             }
-        });
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error retrieving goods data: " + e);
+        }
     }
-    public void FetchQuestData(string accountNumber, int charcode)
-    {
 
+    public async Task FetchQuestData(string accountNumber, int charcode)
+    {
         DatabaseReference questRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Quests");
 
-        questRef.GetValueAsync().ContinueWith(task =>
+        try
         {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Error retrieving account data: " + task.Exception);
-                return;
-            }
+            DataSnapshot snapshot = await questRef.GetValueAsync();
 
-            if (task.IsCompleted)
+            foreach (DataSnapshot questsnapshot in snapshot.Children)
             {
-                DataSnapshot snapshot = task.Result;
+                // 아이템 데이터 추출
+                int questkey = int.Parse(questsnapshot.Key);
+                int isclear = int.Parse(questsnapshot.Child("isCleared").Value.ToString());
 
-                foreach (DataSnapshot questsnapshot in snapshot.Children)
+                if (isclear == 0)
                 {
-                    // 아이템 데이터 추출
-                    int questkey = int.Parse(questsnapshot.Key);
-                    int isclear = int.Parse(questsnapshot.Child("isCleared").Value.ToString());
-
-                    if (isclear == 0)
-                    {
-                        Managers.Data.QuestData[questkey].isCleared = false;
-                    }
-                    else
-                    {
-                        Managers.Data.QuestData[questkey].isCleared = true;
-                    }
-                }
-
-            }
-        });
-        Managers.EQUIP.Init();
-    }
-    public void FetchEquipData(string accountNumber,int charcode)
-    {
-
-        DatabaseReference equipRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("EQUIPS");
-
-        equipRef.GetValueAsync().ContinueWith(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Error retrieving account data: " + task.Exception);
-                return;
-            }
-
-            if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-
-                foreach (DataSnapshot itemSnapshot in snapshot.Children)
-                {
-                    // 아이템 데이터 추출
-                    string equiptype = itemSnapshot.Key;
-                    int itemcode = int.Parse(itemSnapshot.Child("equiptype").Value.ToString());
-                    Managers.Data.EquipData[(Define.ItemType)Enum.Parse(typeof(Define.ItemType), equiptype)]= itemcode;
-                }
-
-            }
-        });
-        Managers.EQUIP.Init();
-    }
-    public void FetchCharacterData(string accountNumber, int charcode)
-    {
-        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
-        characterRef.GetValueAsync().ContinueWith(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.LogError("Error retrieving character data: " + task.Exception);
-                return;
-            }
-
-            if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-                
-               if (snapshot.Exists)
-                {
-
-                        int code = int.Parse(snapshot.Key);
-                        Managers.Data.CharacterDataDict[code].level= int.Parse(snapshot.Child("level").Value.ToString());
-                        Managers.Data.CharacterDataDict[code].dateTime = snapshot.Child("DateTime").Value.ToString();
-                        Managers.Data.CharacterDataDict[code].exp = int.Parse(snapshot.Child("exp").Value.ToString());
-                        Managers.Data.CharacterDataDict[code].isActive = true;
-                        Debug.Log("디버그 숨겨놓기~");
-                        Managers.Data.CharacterDataDict[code].name = snapshot.Child("name").Value.ToString();
-                        Managers.Game.CharacterName = snapshot.Child("name").Value.ToString();
-
+                    Managers.Data.QuestData[questkey].isCleared = false;
                 }
                 else
                 {
-                    // 데이터가 존재하지 않는 경우
-                    Debug.Log("Character data does not exist.");
+                    Managers.Data.QuestData[questkey].isCleared = true;
                 }
             }
-        });
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error retrieving quest data: " + e);
+        }
     }
-    public void FetchAllItemData(string accountNumber,int charcode)
+
+    public async Task FetchEquipData(string accountNumber, int charcode)
+    {
+        DatabaseReference equipRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("EQUIPS");
+
+        try
+        {
+            DataSnapshot snapshot = await equipRef.GetValueAsync();
+
+            foreach (DataSnapshot itemSnapshot in snapshot.Children)
+            {
+                // 아이템 데이터 추출
+                string equiptype = itemSnapshot.Key;
+                int itemcode = int.Parse(itemSnapshot.Value.ToString());
+                Managers.Data.EquipData[(Define.ItemType)Enum.Parse(typeof(Define.ItemType), equiptype)] = itemcode;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error retrieving equip data: " + e);
+        }
+    }
+    public async Task FetchCharacterData(string accountNumber, int charcode)
+    {
+        DatabaseReference characterRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString());
+        try
+        {
+            DataSnapshot snapshot = await characterRef.GetValueAsync();
+
+            if (snapshot.Exists)
+            {
+                int code = int.Parse(snapshot.Key);
+                Managers.Data.CharacterDataDict[code].level = int.Parse(snapshot.Child("level").Value.ToString());
+                Managers.Data.CharacterDataDict[code].dateTime = snapshot.Child("DateTime").Value.ToString();
+                Managers.Data.CharacterDataDict[code].exp = int.Parse(snapshot.Child("exp").Value.ToString());
+                Managers.Data.CharacterDataDict[code].isActive = true;
+                Managers.Data.CharacterDataDict[code].name = snapshot.Child("name").Value.ToString();
+                Managers.Game.CharacterName = snapshot.Child("name").Value.ToString();
+            }
+            else
+            {
+                // 데이터가 존재하지 않는 경우
+                Debug.Log("Character data does not exist.");
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error retrieving character data: " + e);
+        }
+    }
+
+    public async Task FetchAllItemData(string accountNumber, int charcode)
     {
         DatabaseReference ItemsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charcode.ToString()).Child("Items");
 
-        ItemsRef.GetValueAsync().ContinueWith(task =>
+        try
         {
-            if (task.IsFaulted)
+            DataSnapshot snapshot = await ItemsRef.GetValueAsync();
+
+            foreach (DataSnapshot itemSnapshot in snapshot.Children)
             {
-                Debug.LogError("Error retrieving item data: " + task.Exception);
-                return;
+                // 아이템 데이터 추출
+                int itemCode = int.Parse(itemSnapshot.Key);
+                int count = int.Parse(itemSnapshot.Child("count").Value.ToString());
+                int enhancement = int.Parse(itemSnapshot.Child("Enhancement").Value.ToString());
+                Managers.Data.ItemDataDict[itemCode].count = count;
+                Managers.Data.ItemDataDict[itemCode].enhancement = enhancement;
+                // 추출한 데이터 활용
+                Debug.Log("Item: itemCode = " + itemCode + ", count = " + count);
             }
 
-            if (task.IsCompleted)
-            {
-                DataSnapshot snapshot = task.Result;
-
-                foreach (DataSnapshot itemSnapshot in snapshot.Children)
-                {
-                    // 아이템 데이터 추출
-                    int itemCode = int.Parse(itemSnapshot.Key);
-                    int count = int.Parse(itemSnapshot.Child("count").Value.ToString());
-                    int enhancement = int.Parse(itemSnapshot.Child("Enhancement").Value.ToString());
-                    Managers.Data.ItemDataDict[itemCode].count = count;
-                    Managers.Data.ItemDataDict[itemCode].enhancement = enhancement;
-                    // 추출한 데이터 활용
-                    Debug.Log("Item: itemCode = " + itemCode + ", count = " + count);
-                }
-                Debug.Log("추후 여기 위쪽에 데이터 동기화 과정 넣어야 합니다.");
-                Debug.Log("그냥 불러온 데이터를 itemcode에 맞게 내 Data나 inventory에 넣어주면 됨");
-            }
-            task.Wait();
-            Debug.Log("task.Wait 실험");
-            Managers.Inven.init();
-        });
-
-     
+            Debug.Log("추후 여기 위쪽에 데이터 동기화 과정 넣어야 합니다.");
+            Debug.Log("그냥 불러온 데이터를 itemcode에 맞게 내 Data나 inventory에 넣어주면 됨");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Error retrieving item data: " + e);
+        }
     }
     #endregion
-
     #region 데이터 갱신
     public void UpdateItem(string accountNumber, int charcode,int itemCode, int acquireCount, Define.Update_DB_Item updateType =Define.Update_DB_Item.count)
     {
@@ -575,7 +735,7 @@ public class DBManager
 
     //캐릭터 업데이트는 언제 해줄까? DB 경험치 획득할 떄 마다 하면 내 FireBase 죽을듯
 
-    public void UpdateCharacterLevel(string accountNumber, int charactercode, int acquireCount,Define.Update_DB_Character updateType)
+    public void UpdateCharacter_Type(string accountNumber, int charactercode, int acquireCount,Define.Update_DB_Character updateType)
     {
         DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString());
 
@@ -585,8 +745,8 @@ public class DBManager
             {
                 //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
                 int current = int.Parse(transaction.Child($"{updateType}").Value.ToString());
-                transaction.Child($"{updateType}").Value = $"{current + acquireCount}";
-                Debug.Log($"{updateType} 변경 :: 변경전 = {current} 변경 후 = {current + acquireCount}");
+                transaction.Child($"{updateType}").Value = $"{acquireCount}";
+                Debug.Log($"{updateType} 변경 :: 변경전 = {current} 변경 후 = {acquireCount}");
                 return TransactionResult.Success(transaction);
             }
             return TransactionResult.Abort();
@@ -636,7 +796,7 @@ public class DBManager
         {
             if (transaction.Value != null)
             {
-                //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
+               
   
                 transaction.Child($"isActive").Value = $"{isAcquire}";
                 return TransactionResult.Success(transaction);
@@ -654,7 +814,7 @@ public class DBManager
             }
         });
     }
-    public void UpdateQuestClear(string accountNumber, int charactercode, int questid,int iscleard)
+    public void UpdateQuestClear(string accountNumber, int charactercode, int questid,int iscleard=1)
     {
         DatabaseReference itemRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString()).Child("Quests").Child(questid.ToString());
      
@@ -673,7 +833,7 @@ public class DBManager
         {
             if (task.IsFaulted)
             {
-                Debug.LogError("Error updating item: " + task.Exception);
+                Debug.LogError("Error updating QuestClear: " + task.Exception);
             }
             else if (task.IsCompleted)
             {
@@ -682,6 +842,33 @@ public class DBManager
         });
     }
 
+    public void UpdateCharacter_Goods(string accountNumber, int charactercode, int acquireCount, Define.Update_DB_Goods updateType)
+    {
+        DatabaseReference GoodsRef = reference.Child("Account").Child("AccountNumber").Child(accountNumber).Child("Characters").Child(charactercode.ToString()).Child("Goods");
+
+        GoodsRef.RunTransaction(transaction =>
+        {
+            if (transaction.Value != null)
+            {
+                //레벨과 경험치 모두 같이 -> 획득한 값을 더해주기 때문에, 그냥 같이 처리 합니다.
+                int current = int.Parse(transaction.Child($"{updateType}").Value.ToString());
+                transaction.Child($"{updateType}").Value = $"{current+acquireCount}";
+                Debug.Log($"{updateType} 변경 :: 변경전 = {current} 변경 후 = {current+acquireCount}");
+                return TransactionResult.Success(transaction);
+            }
+            return TransactionResult.Abort();
+        }).ContinueWith(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.LogError("Error updating GOods: " + task.Exception);
+            }
+            else if (task.IsCompleted)
+            {
+                Debug.Log("Goods updated successfully.");
+            }
+        });
+    }
 
 
 

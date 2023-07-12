@@ -232,12 +232,14 @@ public class DialogSystem : UI_Popup
 				SetDiaLog(1, "???", ".................................;;");
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "네..");
 				SetDiaLog(1, "???", "우선 마을을 찾아 주민들을 도와주세요");
+				SetDiaLog(1, "???", "그리고 정착 자금으로 3000골드를 지급해드립니다.");
+				Managers.Game.GoldChange(3000);
 				break;
 			case Define.Npc_Type.Boss:
 				dialogs.Clear();
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "심상치 않은 분위기가 느껴져!!");
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "잠깐 저기 뭐가 있는 것 같아!!");
-				SetDiaLog(1, $"{Managers.Game.CharacterName}", "크아아아아앙!!");
+				SetDiaLog(1, $"BOSS", "크아아아아앙!!");
 				SetDiaLog(0, $"{Managers.Game.CharacterName}", "적이 공격해온다!! ");
 	
 				switch ((Define.Scene)Enum.Parse(typeof(Define.Scene), Managers.Scene.CurrentScene.gameObject.name))

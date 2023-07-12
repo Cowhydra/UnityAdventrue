@@ -41,7 +41,7 @@ public class Inventory_Item : UI_Scene,IListener
             Managers.Event.AddListener(Define.EVENT_TYPE.InventoryItemSelect, this);
             Bind<Image>(typeof(Images));
             Bind<TextMeshProUGUI>(typeof(Texts));
-            GetComponent<Canvas>().sortingOrder = (int)Define.SortingOrder.InvenItem;
+            GetComponent<Canvas>().overrideSorting = false;
             gameObject.GetOrAddComponent<GraphicRaycaster>();
 
             gameObject.BindEvent((PointerEventData data) => Managers.Event.PostNotification(Define.EVENT_TYPE.InventoryItemSelect, this));

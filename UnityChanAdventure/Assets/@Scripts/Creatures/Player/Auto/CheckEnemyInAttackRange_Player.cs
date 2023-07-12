@@ -25,9 +25,16 @@ public class CheckEnemyInAttackRange_Player : Behavior_Node
             return state;
         }
 
+        //t가 있었으나 찰나의 순간 사라지는거 방지용 
         Transform target = (Transform)t;
-        if (Vector3.Distance(_transform.position, target.position) <= AutoFight_BT.attackRange*2)
+        if(target == null)
         {
+            state = Define.Behavior_NodeState.FAILURE;
+            return state;
+        }
+        if (Vector3.Distance(_transform.position, target.position) <= AutoFight_BT.attackRange*1+2)
+        {
+
             state = Define.Behavior_NodeState.SUCCESS;
             return state;
         }

@@ -81,12 +81,14 @@ public class CharacterSelect : UI_Scene,IListener
         Debug.Log("DB삭제");
         Managers.DB.DeleteCharacter(Managers.Game.AccountNumber.ToString(), SelectCharcter);
     }
-    private void GameStart()
+    private async void GameStart()
     {
         if (Managers.Data.CharacterDataDict[SelectCharcter].isActive)
         {
             Managers.Game.currentCharNumber = SelectCharcter;
-            Debug.Log("TownScene로 이동 구현");
+           await Managers.DB.FetchSpecificCharacter(Managers.Game.AccountNumber, Managers.Game.currentCharNumber);
+            Debug.Log("씬 로딩 잠시 대기");
+            //Managers.Scene.LoadScene(Define.Scene.TownScene);
         }
     }
     private void ShowSettingMenu()

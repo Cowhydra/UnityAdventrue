@@ -1,4 +1,3 @@
-using Palmmedia.ReportGenerator.Core.Reporting.Builders;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,7 +45,8 @@ public class DefeatEnemiesQuest : Quest
         {
             Managers.Inven.Add(itemReward);
         }
-
+        Managers.UI.ShowPopupUI<WarningText>().Set_WarningText($"{Name}Äù½ºÆ® ¿Ï·á.", Color.green);
+        Managers.Sound.Play($"QuestClear");
         Managers.Event.MonsterDie -= EnemyDiedEvent;
     }
 

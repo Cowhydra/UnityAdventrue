@@ -29,6 +29,8 @@ public class MyCharacter : Creature, IDamage, IListener
             Managers.Data.CharacterDataDict[Managers.Game.currentCharNumber].level = _level;
             Debug.Log("캐릭터 레벨업 하면 DB 갱신 ");
             InitCharacter();
+            //[DB]:Update
+            Managers.DB.UpdateCharacter_Type(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, _level, Define.Update_DB_Character.level);
         }
     }
     public Define.MonsterAttackType EnemyAttackType = Define.MonsterAttackType.Melee;
@@ -48,7 +50,7 @@ public class MyCharacter : Creature, IDamage, IListener
         get { return _exp; }
         set
         {
-            _exp = value;
+            _exp = Mathf.Clamp(value, 0,500000000);
             if (_exp > RequireExp)
             {
                 Level++;
@@ -57,7 +59,8 @@ public class MyCharacter : Creature, IDamage, IListener
                 Debug.Log("캐릭터 경험치를 획득하게 되면 DB를 갱신해야 합니다.");
                 Managers.Resource.Instantiate("PlayerLevelUp");
             }
-
+            //[DB]:Update
+            Managers.DB.UpdateCharacter_Type(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, _exp, Define.Update_DB_Character.exp);
         }
     }
     public int Hp
@@ -86,13 +89,7 @@ public class MyCharacter : Creature, IDamage, IListener
 
     private void InitCharacter()
     {
-        if (!Managers.Data.CharacterDataDict.ContainsKey(myCharacterCode))
-        {
-            _maxhp = 1000;
-            _maxmana = 100;
-            _attack = 50;
-            return;
-        }
+        _level = Managers.Data.CharacterDataDict[myCharacterCode].level;
 
         _maxhp = Managers.Data.CharacterDataDict[myCharacterCode].maxhp + Managers.EQUIP.EQUIP_MaxHp + (Level + 1) * 5;
         _maxmana = Managers.Data.CharacterDataDict[myCharacterCode].maxmana + Managers.EQUIP.EQUIP_MaxMp + (Level + 1) * 5;
@@ -103,7 +100,7 @@ public class MyCharacter : Creature, IDamage, IListener
         _magicattack = Managers.Data.CharacterDataDict[myCharacterCode].magicattack + Managers.EQUIP.EQUIP_MagicAttack + (Level + 1) * 5;
         _attack = Managers.Data.CharacterDataDict[myCharacterCode].attack + Managers.EQUIP.EQUIP_Attack + (Level +1) * 5;
         _attackspeed = Managers.Data.CharacterDataDict[myCharacterCode].attackspeed;
-        _level = Managers.Data.CharacterDataDict[myCharacterCode].level;
+       
         Managers.Event.PostNotification(Define.EVENT_TYPE.PlayerStatsChange, this);
     }
     private void CharacterEQUIPStatsChange()
@@ -148,11 +145,11 @@ public class MyCharacter : Creature, IDamage, IListener
     {
         //멀티 고려시, 캐릭터 코드 혹은, 계정 넘버 가지고 있어야할듯?
         myCharacterCode = Managers.Game.currentCharNumber;
-        InitCharacter();
+       
         _animator=GetComponent<Animator>();
         StartCoroutine(nameof(Regenerat_co));
         Managers.Event.AddListener(Define.EVENT_TYPE.PlayerEquipChanageUI, this);
-
+        InitCharacter();
     }
     protected IEnumerator Regenerat_co()
     {

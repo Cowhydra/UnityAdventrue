@@ -18,6 +18,11 @@ public class MonProjectileController : MonoBehaviour
 
     }
     // Update is called once per frame
+    private void OnEnable()
+    {
+        Util.LifeCycle_co(gameObject, 4.0f);
+        StartCoroutine(nameof(MoveDir_Check));
+    }
     void Update()
     {
         transform.Translate(moveDir * speed * Time.deltaTime);
@@ -25,10 +30,14 @@ public class MonProjectileController : MonoBehaviour
     public void SetProjectile(Vector3 mypos,int damage=10)
     {
 
-        gameObject.transform.position = mypos+Vector3.up*0.58f;
+        gameObject.transform.position = mypos;
         this.damage = damage;
-        moveDir = (_target.transform.position+0.5f*Vector3.up - gameObject.transform.position).normalized;
-        StartCoroutine(nameof(DestoryObject_co));
+        moveDir = (_target.transform.position + 0.15f * Vector3.up - gameObject.transform.position).normalized;
+    }
+    private IEnumerator MoveDir_Check()
+    {
+        moveDir = (_target.transform.position + 0.15f * Vector3.up - gameObject.transform.position).normalized;
+        yield return new WaitForSeconds(5.0f);
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -42,10 +51,5 @@ public class MonProjectileController : MonoBehaviour
     private void OnDisable()
     {
         StopAllCoroutines();
-    }
-    private IEnumerator DestoryObject_co()
-    {
-        yield return new WaitForSeconds(3.0f);
-        Managers.Resource.Destroy(gameObject);
     }
 }

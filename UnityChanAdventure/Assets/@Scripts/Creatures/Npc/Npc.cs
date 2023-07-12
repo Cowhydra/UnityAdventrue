@@ -12,7 +12,8 @@ public class Npc : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {   
+        {
+            transform.LookAt(other.transform);
             DialogSystem dialog = Managers.UI.ShowPopupUI<DialogSystem>();
             dialog.TalkType = NPC_Type;
             Debug.Log("Äù½ºÆ® ¶ç¿ì±â");

@@ -35,7 +35,7 @@ public class Meteo_Component : MonoBehaviour
             EnemyLayer = (int)Define.LayerMask.Player;
         }
         Collider[] colliders = Physics.OverlapSphere(
-              transform.position, 50, 1 << EnemyLayer);
+              transform.position, 150, 1 << EnemyLayer);
         if (colliders.Length > 0)
         {
             Collider closestCollider = null;

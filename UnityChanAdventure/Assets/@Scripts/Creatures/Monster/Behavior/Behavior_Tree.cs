@@ -18,7 +18,7 @@ namespace BehaviorTree
         {
             _root = SetupTree();
         }
-
+        
         private void Update()
         {
             if (_root != null)
@@ -27,6 +27,17 @@ namespace BehaviorTree
 
         protected abstract Behavior_Node SetupTree();
 
+
+        private IEnumerator Update_co()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+
+        }
+
     }
+   
 }
 

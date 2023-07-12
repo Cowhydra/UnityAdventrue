@@ -11,10 +11,15 @@ public class FightScene_MonsterSpawn : MonoBehaviour
     private void Start()
     {
         MonsterCodeList.Clear();
+       //소환될 몬스터들 세팅
         SettingMonster();
+        //최적화? 를 위해서 일단 모든 몬스터 한번 실행하고...삭제 
+        //(몬스터 개수가 많지 않고 계속 될 것.. + 계속 반복 생성되는 친구들이라
+        //일단 폴링할 예정인데 미리 생성 안해두면 첫 스폰 시 30마리 생성될 때 최악의 경우 150마리가 한번에 생성됨
+        StartCoroutine(nameof(MonsterSpawnInit));
         Managers.UI.ShowSceneUI<PlayerStatus_Canvas>();
         Managers.UI.ShowSceneUI<GameUI>();
-        StartCoroutine(nameof(MonsterSpawnInit));
+
     }
     private void SettingMonster()
     {

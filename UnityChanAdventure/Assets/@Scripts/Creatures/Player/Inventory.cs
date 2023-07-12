@@ -12,6 +12,7 @@ public class Inventory
 
     public void init()
     {
+        Items.Clear();
         //데이터를 불러와 개수가 1개 이상인 아이템들만 인벤에 넣어줍니다.
         foreach (Data.ItemData itemdata in Managers.Data.ItemDataDict.Values)
         {
@@ -50,6 +51,9 @@ public class Inventory
             }
             Managers.Event.RemoveItem?.Invoke(itemcode);
         }
+        //[DB:Update]
+         Managers.DB.UpdateItem(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, itemcode, -count);
+
         Debug.Log("인벤에 아이템 제거 + 추후 DB 연동");
         return true;
     }
@@ -67,6 +71,8 @@ public class Inventory
         }
         Debug.Log("인벤에 아이템 추가 + 추후 DB 연동");
         Managers.Event.AddItem?.Invoke(itemcode);
+        //[DB:Update]
+        Managers.DB.UpdateItem(Managers.Game.AccountNumber, Managers.Game.currentCharNumber, itemcode,count);
 
         return true;
     }
@@ -79,7 +85,15 @@ public class Inventory
         }
         else
         {
-            item.Count += count;
+            if (item.Count == 0)
+            {
+                item.Count += count;
+            }
+            else
+            {
+
+            }
+
             Items.Add(item.ItemCode, item);
 
         }

@@ -28,6 +28,8 @@ public class WaterScene : BaseScene
 
         GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
        .m_Lens.FieldOfView = (int)Define.CameraFov.WaterScene;
+        GameObject.FindGameObjectWithTag("AroundTarget").GetComponent<CinemachineVirtualCamera>()
+     .m_Lens.FarClipPlane = 60;
     }
 
     public override void Clear()

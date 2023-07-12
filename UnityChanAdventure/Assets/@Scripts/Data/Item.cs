@@ -61,7 +61,7 @@ public class Item
         {
             item.ItemCode = itemInfo.itemcode;
             item.ItemTooltip = itemInfo.itemtooltip;
-
+            item.Count = 1;
         }
         return item;
     }

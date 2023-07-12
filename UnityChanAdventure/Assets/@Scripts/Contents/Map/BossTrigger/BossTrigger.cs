@@ -42,9 +42,11 @@ public class BossTrigger : MonoBehaviour,IListener
                 break;
             case Define.Scene.DesertScene:
                 GameObject.FindObjectOfType<DeserBoss_BT>().enabled = true;
+                Managers.Sound.Play("DesertEnv");
                 break;
             case Define.Scene.WaterScene:
                 GameObject.FindObjectOfType<WaterBoss_BT>().enabled = true;
+                Managers.Sound.Play("WaterEnv");
                 break;
             case Define.Scene.FightScene:
                 break;

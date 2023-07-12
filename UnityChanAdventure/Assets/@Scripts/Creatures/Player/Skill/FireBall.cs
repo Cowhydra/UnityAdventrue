@@ -18,6 +18,7 @@ public class FireBall : Skill
             go.GetOrAddComponent<FireBall_Component>().Owner=Owner;
             
         }
+        
     }
 
 }

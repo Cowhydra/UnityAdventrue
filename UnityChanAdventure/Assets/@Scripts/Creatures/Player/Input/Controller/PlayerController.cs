@@ -6,13 +6,11 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+    //조이스틱에서 인풋을 받으면, 플레이어 컨트롤러(캐릭터 움직임 제어 등 )에서 해당 움직임들을 처리하게 설계 ( 이벤트 받기  )
     private CharacterController _characterController;
     private Vector3 _direction;
 
     private MyCharacter _mycharacter;
-    [SerializeField] private Animator _battleanim_TowHand;
-    [SerializeField] private Animator _town_anim;
-    [SerializeField] private Animator _battleanim_Magic;
     [SerializeField] private PlayerAttackArea attackarea;
     private NavMeshAgent _navMeshAgent;
 
@@ -102,8 +100,14 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
-        Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-        //Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+#if UNITY_ANDROID
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+#else
+       
+         Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+#endif
+
+
         Vector3 rotateVec = forwardVec * moveInput.z + rightVec * moveInput.x;
 
         if (moveInput != Vector3.zero)
@@ -123,22 +127,26 @@ public class PlayerController : MonoBehaviour
 
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+        float offset = _isSprint ? 1f : 0.5f;
 
-        Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
-        //Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
+#if UNITY_ANDROID
+        Vector3 moveInput = new Vector3(_direction.x, 0f, _direction.z);
 
+#else 
+         Vector3 moveInput = new Vector3(horizontal, 0f, vertical);
+        _animator.SetFloat("PosX", horizontal * offset);
+        _animator.SetFloat("PosZ", vertical * offset);
+        //_animator.SetFloat("PosX", _direction.x * offset);
+        //_animator.SetFloat("PosZ", _direction.z * offset);
+#endif
         if (moveInput.sqrMagnitude > 1f) moveInput.Normalize();
 
         Vector3 moveVec = forwardVec * moveInput.z + rightVec * moveInput.x+_direction.y*Vector3.up;
 
-        float offset = _isSprint ? 1f : 0.5f;
-        _animator.SetFloat("PosX", horizontal * offset);
-        _animator.SetFloat("PosZ", vertical * offset);
-
         _characterController.Move(moveVec * speed * Time.deltaTime);
-        #endregion
+#endregion
     }
-    #endregion
+#endregion
 
     private void SetMoveDir(Vector2 movedir)
     {
@@ -161,7 +169,7 @@ public class PlayerController : MonoBehaviour
         {
             _isSprint = true;
             speed += 3;
-            yield return new WaitForSeconds(speed);
+            yield return new WaitForSeconds(5);
             speed -= 3;
             _isSprint = false;
         }
@@ -205,7 +213,7 @@ public class PlayerController : MonoBehaviour
         _navMeshAgent.enabled = true;
         gameObject.GetOrAddComponent<AutoFight_BT>().enabled = true;
     }
-    private void AutoOff()
+    public void AutoOff()
     {
         IsAuto = false;
         GetComponent<CharacterController>().enabled = true;
@@ -214,7 +222,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    #region About Animation Event
+#region About Animation Event
     //공격 애니메이션 
     private void OnBaseAttack()
     {
@@ -231,6 +239,21 @@ public class PlayerController : MonoBehaviour
         }
         attackarea.gameObject.SetActive(true);
         attackarea.SetDamage(damage*_mycharacter.Level+_mycharacter.Attack);
+        switch (damage)
+        {
+            case 10:
+                Managers.Sound.Play("Attack1");
+                break;
+            case 20:
+                Managers.Sound.Play("Attack2");
+                break;
+            case 30:
+                Managers.Sound.Play("Attack3");
+                break;
+            case 40:
+                Managers.Sound.Play("Attack4");
+                break;
+        }
         isAttacking = false;
 
     }
@@ -257,7 +280,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool($"{Managers.Data.SkillDataDict[_currentSkill].animname}", false);
     }
 
-    #endregion
+#endregion
 
 
 

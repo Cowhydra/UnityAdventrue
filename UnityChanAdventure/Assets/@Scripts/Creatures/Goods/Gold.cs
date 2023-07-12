@@ -19,6 +19,8 @@ public class Gold : MonoBehaviour
     {
         _value = _level * 20 + Random.Range(50, 100);
         gameObject.transform.position = transform.position;
+        gameObject.SetRandomPositionSphere(2, 5);
+        Managers.Sound.Play("Gold");
     }
 
     private void Start()
