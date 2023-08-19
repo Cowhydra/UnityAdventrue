@@ -13,7 +13,7 @@ public class LoginScene : BaseScene
     void Start()
     {
         Managers.Data.Init();
-        Managers.DB.Init();
+        //Managers.DB.Init();
     }
 
 

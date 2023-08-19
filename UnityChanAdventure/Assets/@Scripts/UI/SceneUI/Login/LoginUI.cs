@@ -76,16 +76,17 @@ public class LoginUI : UI_Scene
     private void ButtonInit()
     {
         GetButton((int)Buttons.GameStart_Button).gameObject
-         .BindEvent((PointerEventData data) => GameStart());
+         .BindEvent((PointerEventData data) => GameStart_WithGoogle());
         GetButton((int)Buttons.Join_Button).gameObject
             .BindEvent((PointerEventData data) => Join());
         GetButton((int)Buttons.Cancel_Button).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(false));
-        GetButton((int)Buttons.MakeCancel_Button).gameObject
-            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
-        GetButton((int)Buttons.MakeSummit_Button).gameObject
-            .BindEvent((PointerEventData data) => MakeAccount());
 
+        //  GetButton((int)Buttons.MakeCancel_Button).gameObject.BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
+
+        // GetButton((int)Buttons.MakeSummit_Button).gameObject.BindEvent((PointerEventData data) => MakeAccount());
+        GetButton((int)Buttons.Join_Button).gameObject.SetActive(false);
+        GetButton((int)Buttons.MakeSummit_Button).gameObject.SetActive(false);
 
     }
     void Start()
@@ -99,8 +100,13 @@ public class LoginUI : UI_Scene
 
     }
 
+    private void GameStart_WithGoogle()
+    {
+        Managers.SocialManager.Login();
+    }
+
     //DB에서 회원 있나 확인 후  있으면 캐릭터 보이는 씬으로 넘어감 (Lobby)
-    private void GameStart()
+    private void GameStart_WithDB()
     {
         //TODO : DB 관련 로직처리! , DB에서 아이디 비번 확인 후 통과 혹은 불통과 여부 결정
         Managers.DB.ChecK_Account(Get<TMP_InputField>((int)InputFields.ID_InputField).text, Get<TMP_InputField>((int)InputFields.PW_InputField).text);

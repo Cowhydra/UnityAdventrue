@@ -18,7 +18,9 @@ public class Managers : MonoBehaviour
     Equipment _equip = new Equipment();
     QuestManager _quest=new QuestManager();
     SkillManager _skill=new SkillManager();
+    SocialManager _SociaManager = new SocialManager();
 
+    public static SocialManager SocialManager { get { return Instance._SociaManager; } }
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
@@ -54,6 +56,7 @@ public class Managers : MonoBehaviour
            // s_instance._data.Init();
             s_instance._pool.Init();
             s_instance._sound.Init();
+            s_instance._SociaManager.Init();
             //Screen.SetResolution(2340, 1080, true);
         }
     }
