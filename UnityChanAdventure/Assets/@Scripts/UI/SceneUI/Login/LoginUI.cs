@@ -78,15 +78,18 @@ public class LoginUI : UI_Scene
         GetButton((int)Buttons.GameStart_Button).gameObject
          .BindEvent((PointerEventData data) => GameStart_WithGoogle());
         GetButton((int)Buttons.Join_Button).gameObject
-            .BindEvent((PointerEventData data) => Join());
+            .BindEvent((PointerEventData data) => LogOut());
         GetButton((int)Buttons.Cancel_Button).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(false));
 
         //  GetButton((int)Buttons.MakeCancel_Button).gameObject.BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
 
         // GetButton((int)Buttons.MakeSummit_Button).gameObject.BindEvent((PointerEventData data) => MakeAccount());
-        GetButton((int)Buttons.Join_Button).gameObject.SetActive(false);
         GetButton((int)Buttons.MakeSummit_Button).gameObject.SetActive(false);
+
+    }
+    private void LogOut()
+    {
 
     }
     void Start()
