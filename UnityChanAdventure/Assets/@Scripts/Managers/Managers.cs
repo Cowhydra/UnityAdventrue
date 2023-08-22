@@ -19,7 +19,9 @@ public class Managers : MonoBehaviour
     QuestManager _quest=new QuestManager();
     SkillManager _skill=new SkillManager();
     SocialManager _SociaManager = new SocialManager();
+    IAPManager _IapManager = new IAPManager();
 
+    public static IAPManager IAPManager { get { return Instance._IapManager; } }
     public static SocialManager SocialManager { get { return Instance._SociaManager; } }
     public static DataManager Data { get { return Instance._data; } }
     public static PoolManager Pool { get { return Instance._pool; } }
@@ -57,6 +59,7 @@ public class Managers : MonoBehaviour
             s_instance._pool.Init();
             s_instance._sound.Init();
             s_instance._SociaManager.Init();
+            s_instance._IapManager.Init();
             //Screen.SetResolution(2340, 1080, true);
         }
     }

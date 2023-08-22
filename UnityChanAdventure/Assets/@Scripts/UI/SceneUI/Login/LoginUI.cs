@@ -39,7 +39,11 @@ public class LoginUI : UI_Scene
 
         MakeSummit_Button,
         MakeCancel_Button,
-
+        Purchase_Cancel_Button,
+        Limit119000,
+        NonLimit119000,
+        Limit49000,
+        NonLimit49000
     }
     enum GameObjects
     {
@@ -47,6 +51,7 @@ public class LoginUI : UI_Scene
         BackGround_Pannel,
 
         MakeAccount,
+        Purchase_Pannel,
 
     }
     #endregion
@@ -78,20 +83,29 @@ public class LoginUI : UI_Scene
         GetButton((int)Buttons.GameStart_Button).gameObject
          .BindEvent((PointerEventData data) => GameStart_WithGoogle());
         GetButton((int)Buttons.Join_Button).gameObject
-            .BindEvent((PointerEventData data) => LogOut());
+            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(true));
         GetButton((int)Buttons.Cancel_Button).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(false));
+        GetButton((int)Buttons.Purchase_Cancel_Button).gameObject
+            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(false));
 
+             //°áÁ¦
+    
+        GetButton((int)Buttons.Limit119000).gameObject
+            .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_limit11900));
+        GetButton((int)Buttons.NonLimit119000).gameObject
+            .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_nonlimit11900));
+        GetButton((int)Buttons.Limit49000).gameObject
+            .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_limit49000));
+        GetButton((int)Buttons.NonLimit49000).gameObject
+    .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_nonlimit49000));
         //  GetButton((int)Buttons.MakeCancel_Button).gameObject.BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
 
         // GetButton((int)Buttons.MakeSummit_Button).gameObject.BindEvent((PointerEventData data) => MakeAccount());
         GetButton((int)Buttons.MakeSummit_Button).gameObject.SetActive(false);
 
     }
-    private void LogOut()
-    {
 
-    }
     void Start()
     {
         Init();
