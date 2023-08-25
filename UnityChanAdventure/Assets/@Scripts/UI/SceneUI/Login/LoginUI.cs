@@ -47,7 +47,10 @@ public class LoginUI : UI_Scene
        
         GoogleLogin,
         OpenShop,
-
+        GoogleLogOut,
+        AnonyLogin
+            ,
+        Gpgs_Button,
 
     }
     enum GameObjects
@@ -96,8 +99,8 @@ public class LoginUI : UI_Scene
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(false));
         GetButton((int)Buttons.OpenShop).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(true));
-             //결제
-    
+        //결제
+        GetButton((int)Buttons.GoogleLogin).gameObject.BindEvent((PointerEventData data) => GameStart_WithGoogle());
         GetButton((int)Buttons.Limit119000).gameObject
             .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_limit11900));
         GetButton((int)Buttons.NonLimit119000).gameObject
@@ -107,10 +110,15 @@ public class LoginUI : UI_Scene
         GetButton((int)Buttons.NonLimit49000).gameObject
     .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_nonlimit49000));
          GetButton((int)Buttons.MakeCancel_Button).gameObject.BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
+        GetButton((int)Buttons.AnonyLogin).gameObject.BindEvent
+            ((PointerEventData data) => Managers.SocialManager.AnonyLogin());
+        GetButton((int)Buttons.Gpgs_Button).gameObject
+            .BindEvent((PointerEventData data) => Managers.SocialManager.GpgsLogin());
 
          GetButton((int)Buttons.MakeSummit_Button).gameObject.BindEvent((PointerEventData data) => MakeAccount());
-
+        GetButton((int)Buttons.GoogleLogOut).gameObject.BindEvent((PointerEventData data) => Managers.SocialManager.FireBaseLogOut());
     }
+   
 
     void Start()
     {
@@ -126,7 +134,7 @@ public class LoginUI : UI_Scene
 
     private void GameStart_WithGoogle()
     {
-        Managers.SocialManager.Login();
+        Managers.SocialManager.SignInGoogle_Firebase();
     }
 
     //DB에서 회원 있나 확인 후  있으면 캐릭터 보이는 씬으로 넘어감 (Lobby)

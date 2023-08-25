@@ -2,6 +2,7 @@
 {
     public enum LoginType
     {
+        None,
         Email,
         Google,
         PlayGames,
