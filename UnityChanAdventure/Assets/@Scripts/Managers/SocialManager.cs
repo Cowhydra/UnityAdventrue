@@ -6,7 +6,7 @@ using Firebase;
 using Firebase.Extensions;
 using Firebase.Analytics;
 
-public class SocialManager
+public partial class SocialManager 
 {
     public bool FirebaseAnalyticsInitialized { get; private set; }
     public string SocialID;
@@ -14,8 +14,7 @@ public class SocialManager
     public void Init()
     {
 
-        PlayGamesPlatform.DebugLogEnabled = true;
-        PlayGamesPlatform.Activate();
+
         InitFireBase();
 
 
@@ -23,6 +22,8 @@ public class SocialManager
 
     public void Login()
     {
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
         Debug.Log("로그인 시도");
         Social.localUser.Authenticate(LoginCallbackGPGS);
 
@@ -72,28 +73,5 @@ public class SocialManager
         FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventLogin, nickName, 0);
 
     }
-    private void InitFireBase()
-    {
-        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
-        {
-            FirebaseAnalyticsInitialized = true;
-
-            DependencyStatus dependencyStatus = task.Result;
-            if (dependencyStatus == DependencyStatus.Available)
-            {
-                Debug.Log("Enabling data collection.");
-                FirebaseAnalytics.SetAnalyticsCollectionEnabled(true);
-
-                Debug.Log("Firebase SetSessionTimeoutDuration");
-                FirebaseAnalytics.SetSessionTimeoutDuration(new System.TimeSpan(0, 30, 0));
-
-                Debug.Log("파이어베이스 잘 설정됨");
-            }
-            else
-            {
-                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
-            }
-
-        });
-    }
+    
 }

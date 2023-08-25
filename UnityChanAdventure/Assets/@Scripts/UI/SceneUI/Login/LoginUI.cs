@@ -43,7 +43,12 @@ public class LoginUI : UI_Scene
         Limit119000,
         NonLimit119000,
         Limit49000,
-        NonLimit49000
+        NonLimit49000,
+       
+        GoogleLogin,
+        OpenShop,
+
+
     }
     enum GameObjects
     {
@@ -52,6 +57,7 @@ public class LoginUI : UI_Scene
 
         MakeAccount,
         Purchase_Pannel,
+
 
     }
     #endregion
@@ -81,14 +87,15 @@ public class LoginUI : UI_Scene
     private void ButtonInit()
     {
         GetButton((int)Buttons.GameStart_Button).gameObject
-         .BindEvent((PointerEventData data) => GameStart_WithGoogle());
+         .BindEvent((PointerEventData data) => Managers.SocialManager.EmailLogin(Get<TMP_InputField>((int)InputFields.ID_InputField).text, Get<TMP_InputField>((int)InputFields.PW_InputField).text));
         GetButton((int)Buttons.Join_Button).gameObject
-            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(true));
+            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(true));
         GetButton((int)Buttons.Cancel_Button).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Login).SetActive(false));
         GetButton((int)Buttons.Purchase_Cancel_Button).gameObject
             .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(false));
-
+        GetButton((int)Buttons.OpenShop).gameObject
+            .BindEvent((PointerEventData data) => GetObject((int)GameObjects.Purchase_Pannel).SetActive(true));
              //결제
     
         GetButton((int)Buttons.Limit119000).gameObject
@@ -99,10 +106,9 @@ public class LoginUI : UI_Scene
             .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_limit49000));
         GetButton((int)Buttons.NonLimit49000).gameObject
     .BindEvent((PointerEventData data) => Managers.IAPManager.BuyProductID(IAPManager._Android_nonlimit49000));
-        //  GetButton((int)Buttons.MakeCancel_Button).gameObject.BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
+         GetButton((int)Buttons.MakeCancel_Button).gameObject.BindEvent((PointerEventData data) => GetObject((int)GameObjects.MakeAccount).SetActive(false));
 
-        // GetButton((int)Buttons.MakeSummit_Button).gameObject.BindEvent((PointerEventData data) => MakeAccount());
-        GetButton((int)Buttons.MakeSummit_Button).gameObject.SetActive(false);
+         GetButton((int)Buttons.MakeSummit_Button).gameObject.BindEvent((PointerEventData data) => MakeAccount());
 
     }
 
@@ -114,6 +120,7 @@ public class LoginUI : UI_Scene
         StartCoroutine(nameof(TextEffect_CO), GetText((int)Texts.LoginUI_Text));
         GetObject((int)GameObjects.Login).SetActive(false);
         GetObject((int)GameObjects.MakeAccount).SetActive(false);
+        GetObject((int)GameObjects.Purchase_Pannel).SetActive(false);
 
     }
 
@@ -136,36 +143,39 @@ public class LoginUI : UI_Scene
     }
     private void MakeAccount()
     {
-        if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text == string.Empty || Get<TMP_InputField>((int)InputFields.MakePW_InputField).text == string.Empty)
-        {
-            Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
-            return;
-        }
-        else
-        {
-            if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text != string.Empty)
-            {
-                if (Get<TMP_InputField>((int)InputFields.MakePW_InputField).text != string.Empty)
-                {
-                    Debug.Log($"{Get<TMP_InputField>((int)InputFields.MakeID_InputField).text}");
-                    Debug.Log($"{Get<TMP_InputField>((int)InputFields.MakePW_InputField).text}");
+        #region DB Login
+        //if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text == string.Empty || Get<TMP_InputField>((int)InputFields.MakePW_InputField).text == string.Empty)
+        //{
+        //    Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
+        //    return;
+        //}
+        //else
+        //{
+        //    if (Get<TMP_InputField>((int)InputFields.MakeID_InputField).text != string.Empty)
+        //    {
+        //        if (Get<TMP_InputField>((int)InputFields.MakePW_InputField).text != string.Empty)
+        //        {
+        //            Debug.Log($"{Get<TMP_InputField>((int)InputFields.MakeID_InputField).text}");
+        //            Debug.Log($"{Get<TMP_InputField>((int)InputFields.MakePW_InputField).text}");
 
-                    Managers.DB.CheckAccountID(Get<TMP_InputField>((int)InputFields.MakeID_InputField).text, Get<TMP_InputField>((int)InputFields.MakePW_InputField).text);
-                    //ID 조회 성공 및 아이디 만들기 + Chearacter 만들기()
-                    Debug.Log("계정생성");
-                }
-                else
-                {
-                    Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
-                }
-            }
-            else
-            {
-                Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
+        //            Managers.DB.CheckAccountID(Get<TMP_InputField>((int)InputFields.MakeID_InputField).text, Get<TMP_InputField>((int)InputFields.MakePW_InputField).text);
+        //            //ID 조회 성공 및 아이디 만들기 + Chearacter 만들기()
+        //            Debug.Log("계정생성");
+        //        }
+        //        else
+        //        {
+        //            Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Managers.Event.LoginProgess?.Invoke(Define.Login_Event_Type.LoginNotBlink);
 
-            }
+        //    }
 
-        }
+        //}
+        #endregion
+        Managers.SocialManager.MakeEmailAccount(Get<TMP_InputField>((int)InputFields.MakeID_InputField).text, Get<TMP_InputField>((int)InputFields.MakePW_InputField).text);
     }
 
     #region ACtion으로 받아서 이벤트 처리 ( 이렇게 안하니까, DB 오래걸리는 작업할 떄 함수 씹힙 

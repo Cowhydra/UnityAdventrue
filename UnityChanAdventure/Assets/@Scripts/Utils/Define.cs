@@ -1,5 +1,13 @@
 ﻿public class Define
 {
+    public enum LoginType
+    {
+        Email,
+        Google,
+        PlayGames,
+        Anomynous,
+
+    }
     public enum CameraFov
     {
         Default=30,

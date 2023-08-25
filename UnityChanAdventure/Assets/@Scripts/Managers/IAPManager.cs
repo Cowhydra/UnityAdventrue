@@ -23,21 +23,13 @@ public class IAPManager : IStoreListener
 
     private IStoreController storeController;
     private IExtensionProvider storeExtensionProvider;
-
+    Product CurrBuyProduct = null;
     public void Init()
     {
-
         if (IsInitialized()) return;
-
         // Create a builder, first passing in a suite of Unity provided stores.
         var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
         InitUnityIAP(builder);
-
-
-
-
-
-
         UnityPurchasing.Initialize(this, builder);
     }
     private bool IsInitialized()
@@ -81,6 +73,19 @@ public class IAPManager : IStoreListener
         storeExtensionProvider = extension;
     }
 
+    public void OnConfirmIAP()
+    {
+        if (false == IsInitialized())
+            return;
+
+        if (null != CurrBuyProduct)
+        {
+            storeController.ConfirmPendingPurchase(CurrBuyProduct);
+
+
+        }
+    }
+
     public void OnInitializeFailed(InitializationFailureReason error)
     {
         Debug.LogError($"유니티 IAP 초기화 실패 {error}");
@@ -88,7 +93,7 @@ public class IAPManager : IStoreListener
 
     public void OnInitializeFailed(InitializationFailureReason error, string message)
     {
-        throw new System.NotImplementedException();
+        Debug.LogError("초기화 에러");
     }
 
     public void OnPurchaseFailed(Product product, PurchaseFailureReason failureReason)
@@ -99,7 +104,7 @@ public class IAPManager : IStoreListener
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs e)
     {
         bool validPurchase = true;
-
+        CurrBuyProduct = null;
 
 #if UNITY_ANDROID || UNITY_IOS
         var validator = new CrossPlatformValidator(GooglePlayTangle.Data(),null, Application.identifier);
@@ -110,10 +115,12 @@ public class IAPManager : IStoreListener
             영수증의 애플리케이션 번들 식별자를 애플리케이션의 식별자와 비교합니다. 
             이 둘이 일치하지 않으면 InvalidBundleId 예외 오류가 발생합니다.*/
             var result = validator.Validate(e.purchasedProduct.receipt);
+            Debug.Log("영수증 내용 출력 전");
 
             //영수증 내용 출력
             foreach (IPurchaseReceipt purchaseReceipt in result)
             {
+                Debug.Log("영수증 내용");
                 Debug.Log(purchaseReceipt.productID);
                 Debug.Log(purchaseReceipt.purchaseDate);
                 Debug.Log(purchaseReceipt.transactionID);
@@ -122,6 +129,7 @@ public class IAPManager : IStoreListener
         catch (IAPSecurityException)
         {
             Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("Invalid receipt", Color.red);
+            Debug.Log($"오류 발 생 ");
             validPurchase = false;
         }
 #endif
@@ -141,14 +149,18 @@ public class IAPManager : IStoreListener
             else if (e.purchasedProduct.definition.id.Equals(_Android_nonlimit49000))
                 Dia = 49000 + 24000;
 
-
+            CurrBuyProduct = e.purchasedProduct;
+           Debug.Log($"{Dia} 레드다이아 획득 완료");
             Managers.Game.RedDiamondChange(Dia);
             Managers.UI.ShowPopupUI<WarningText>().Set_WarningText($"구매 성공 {Dia} RedDia", Color.black);
+            
         }
         else
         {
             Managers.UI.ShowPopupUI<WarningText>().Set_WarningText("구매 실패 비정상 결제", Color.red);
+            Debug.Log("구매 실패 비정상 결제");
         }
+      
         return PurchaseProcessingResult.Complete;
 
 
