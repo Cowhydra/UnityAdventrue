@@ -1,5 +1,9 @@
 9# UnityAdventrue
 
+출시 : https://play.google.com/store/apps/details?id=com.KangYunSeok.UnityChanAdventure
+-2023.08.28-
+
+
 개요
 
 유니티찬이 큐브맵을 돌아다니는 게임 ( ---> 모바일 게임으로 전환
