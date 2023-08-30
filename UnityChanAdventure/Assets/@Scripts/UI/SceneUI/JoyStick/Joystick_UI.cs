@@ -122,8 +122,10 @@ public class Joystick_UI : UI_Scene,IListener
     private void EndDragEvent_JoyStick()
     {
         _moveDir = Vector2.zero;
-        _handler.transform.position = _joystickOriginalPos;
+        _handler.GetComponent<RectTransform>().anchoredPosition = Vector3.zero;
         Managers.Event.MoveInputAction?.Invoke(_moveDir);
+      
+            
     }
 
     //버튼에 이벤트 할당 
@@ -195,14 +197,13 @@ public class Joystick_UI : UI_Scene,IListener
     }
     private void OnDragEvent_JoyStick(PointerEventData data)
     {
-     
         //결국 조이스틱 드래그를 통해서 하는 것은 방향만 잡아주는 것 
         Vector2 dragPos = data.position;
-        _moveDir = (dragPos - _joystickOriginalPos).normalized;
+        _moveDir = (dragPos).normalized;
         Managers.Event.MoveInputAction?.Invoke(_moveDir);
 
         //이 아래 부분 코드는 조이스틱 핸들을 움직이게 하는 것 
-        float joystickDist = Vector2.Distance(dragPos, _joystickOriginalPos);
+        float joystickDist = Vector2.Distance(dragPos,Vector2.zero);
 
         Vector3 newPos;
         if (joystickDist < _joystickRadius)
@@ -211,9 +212,9 @@ public class Joystick_UI : UI_Scene,IListener
         }
         else
         {
-            newPos = _joystickOriginalPos + _moveDir * _joystickRadius;
+            newPos = _moveDir * _joystickRadius;
         }
-        _handler.transform.position = newPos;
+        _handler.GetComponent<RectTransform>().anchoredPosition = newPos;
     }
 
     //발동 되는 이벤트에 따라 처리 (SceneMachine 카메라 처리 + 다이아로그, 상점 오픈 등 필요 이벤트 시
