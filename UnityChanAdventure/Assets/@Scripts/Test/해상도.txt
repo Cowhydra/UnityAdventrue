@@ -40,4 +40,9 @@ Canvas에서의 postion 좌표는 어떻게 될까??
 해상도가 높아지면 아이콘 크기가 작아지는 그런 값이다. 
 (Scale With ScreenSize와는 다르게 (width,Height) 값이 항상 우리가정한해상도 크기와 같게된다.
 (1920 *1080 에서 100의 size와, 2960*1440 에서의 100 size의 체감이 다르듯이. Unity가 자동으로 scale을 처리해주지 않기 때문에
-UI의 크기를 조절하기 위해서는 Scale Factor를 조절해야 한다.
+UI의 크기를 조절하기 위해서는 Scale Factor를 조절해야 한다. 
+scale Factor 값을 증가시키면 Canvas에 보여지는 Width, Height 값이 비율에 맞게 감소된다.
+(예를들어 2960*1440 에서 Scale Factor을 2로 설정하면 Width 와 Height 는 1480*720 으로 조절되게 된다.
+( 그렇게 해서 기준 해상도에서 -> 해상도를 늘릴 ㄸ ㅐ 적절한 Scale Factor를 적용하면 UI의 크기를 조절할 수 있다.
+(Width, Height로 정의되는 좌표계에서의 위치, 크기 를 통해 UI가 그려지기 떄문이다?..
+[2960*1440] 해상도의 크기 100과 [1480*720] 해상도에서의 크기 100은 엄청나게 큰 차이다.
