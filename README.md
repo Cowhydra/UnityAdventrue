@@ -1,5 +1,11 @@
 9# UnityAdventrue
 
+출시 : https://play.google.com/store/apps/details?id=com.KangYunSeok.UnityChanAdventure
+인데.. 로그인 방식 DB에서  FireBase(google, Email,Guest), Gpgs,로 변경하면서 게임씬으로 넘김 및..
+DB연동 코드 작성 안함 -> 그저 출시용 
+-2023.08.28-
+
+
 개요
 
 유니티찬이 큐브맵을 돌아다니는 게임 ( ---> 모바일 게임으로 전환
